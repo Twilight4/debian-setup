@@ -7,31 +7,32 @@ run() {
     name=$(cat /tmp/var_user_name)
     url_installer=$(cat /var_url_installer)
     dry_run=$(cat /var_dry_run)
-
-    log INFO "DOWNLOAD APPS" "$output"
-    apps_path="$(download-apps "$url_installer")"
     
-    log INFO "APPS DOWNLOADED AT: $apps_path" "$output"
+    log INFO "DOWNLOAD PACLIST" "$output"
+    paclist_path="$(download-paclist "$url_installer")"
+    log INFO "PACLIST DOWNLOADED AT: $paclist_path" "$output"
+    yaylist_path="$(download-yaylist "$url_installer")"
+    log INFO "YAYLIST DOWNLOADED AT: $yaylist_path" "$output"
     add-multilib-repo
     log INFO "MULTILIB ADDED" "$output"
+    disable-horrible-beep
+    log INFO "HORRIBLE BEEP DISABLED" "$output"
     dialog-welcome
     update-system
     log INFO "UPDATED SYSTEM" "$output"
     install-yay "$output"
-    log INFO "INSTALL YAY" "$output"
+    log INFO "YAY INSTALLED" "$output"
     dialog-install-apps "$apps" "$dry_run" "$output"
     log INFO "APPS INSTALLED" "$output"
-    disable-horrible-beep
-    log INFO "HORRIBLE BEEP DISABLED" "$output"
     set-user-permissions
     log INFO "USER PERMISSIONS SET" "$output"
-    
-    #log INFO "CREATE DIRECTORIES" "$output"
-    #create-directories
-    log INFO "INSTALL DOTFILES" "$output"
+    create-directories
+    log INFO "DIRECTORIES CREATED" "$output"
     install-dotfiles
-    log INFO "INSTALL GHAPPS" "$output"
+    log INFO "DOTFILES INSTALLED" "$output"
     install-ghapps
+    log INFO "GITHUB APPS INSTALLED" "$output"
+    
 
     #continue-install "$url_installer" "$name"
 }
@@ -45,16 +46,22 @@ log() {
     echo -e "${timestamp} [${level}] ${message}" >>"$output"
 }
 
-download-apps() {
+download-paclist() {
     local -r url_installer=${1:?}
 
-    apps_path1="/tmp/paclist" 
-    apps_path2="/tmp/yaylist"
-    curl "$url_installer/paclist" > "$apps_path1"
-    curl "$url_installer/yaylist" > "$apps_path2"
+    paclist_path="/tmp/paclist" 
+    curl "$url_installer/paclist" > "$paclist_path"
 
-    echo $apps_path1
-    echo $apps_path2
+    echo $paclist_path
+}
+
+download-yaylist() {
+    local -r url_installer=${1:?}
+    
+    yaylist_path="/tmp/yaylist"
+    curl "$url_installer/yaylist" > "$yaylist_path"
+
+    echo $yaylist_path
 }
 
 # Add multilib repo
@@ -122,9 +129,10 @@ disable-horrible-beep() {
     echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 }
 
-#create-directories() {
+create-directories() {
 #    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
-#}
+mkdir -p "/{github}"
+}
 
 install-yay() {
     local -r output=${1:?}
