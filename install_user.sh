@@ -35,9 +35,9 @@ $line..." \
 aur_check "$line"
 done
 
-DOTFILES="/home/$(whoami)/.config"
+DOTFILES="/home/$(whoami)/"
 if [ ! -d "$DOTFILES" ]; then
-git clone https://github.com/Twilight4/dotfiles/.config.git \
+git clone https://github.com/Twilight4/dotfiles.git \
 "$DOTFILES" >/dev/null
 fi
 source "$DOTFILES/zsh/.zshenv"
