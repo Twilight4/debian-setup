@@ -1,46 +1,57 @@
 #!/bin/bash
-sudo pacman -S --noconfirm tar
-aur_install() {
-curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
-&& tar -xvf "yay.tar.gz" \
-&& cd "yay" \
-&& makepkg --noconfirm -si \
-&& cd - \
-&& rm -rf "yay" "yay.tar.gz" ;
+
+run() {
+    output="/home/$(whoami)/install_log"
+    cd /tmp
+
+    log INFO "FETCH VARS FROM FILES" "$output"
+    #log INFO "CREATE DIRECTORIES" "$output"
+    #create-directories
+    log INFO "INSTALL YAY" "$output"
+    install-yay "$output"
+    log INFO "INSTALL DOTFILES" "$output"
+    install-dotfiles
 }
 
-aur_check() {
-qm=$(pacman -Qm | awk '{print $1}')
-for arg in "$@"
-do
-if [[ "$qm" != *"$arg"* ]]; then
-yay --noconfirm -S "$arg" &>> /tmp/aur_install \
-|| aur_install "$arg" &>> /tmp/aur_install
-fi
-done
+log() {
+    local -r level=${1:?}
+    local -r message=${2:?}
+    local -r output=${3:?}
+    local -r timestamp=$(date +"%Y-%m-%d %H:%M:%S")
+
+    echo -e "${timestamp} [${level}] ${message}" >>"$output"
 }
 
-cd /tmp
-dialog --infobox "Installing \"Yay\", an AUR helper..." 10 60
-aur_check yay
-count=$(wc -l < /tmp/aur_queue)
-c=0
-cat /tmp/aur_queue | while read -r line
-do
-c=$(( "$c" + 1 ))
-dialog --infobox \
-"AUR install - Downloading and installing program $c out of $count:
-$line..." \
-10 60
-aur_check "$line"
-done
+#create-directories() {
+#    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
+#}
 
-DOTFILES="/home/$(whoami)/"
-if [ ! -d "$DOTFILES" ]; then
-git clone https://github.com/Twilight4/dotfiles.git \
-"$DOTFILES" >/dev/null
-fi
-source "$DOTFILES/zsh/.zshenv"
+install-yay() {
+    local -r output=${1:?}
+
+    dialog --infobox "[$(whoami)] Installing \"yay\", an AUR helper..." 10 60
+    curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
+    && tar -xvf "yay.tar.gz" \
+    && cd "yay" \
+    && makepkg --noconfirm -si \
+    && cd - \
+    && rm -rf "yay" "yay.tar.gz" ;
+}
+
+install-dotfiles() {
+    DOTFILES="/home/$(whoami)/"
+    if [ ! -d "$DOTFILES" ];
+        then
+            dialog --infobox "[$(whoami)] Downloading dotfiles..." 10 60
+            git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
+    fi
+}
+
+run "$@"
+
+
+
+
 
 # tmux plugin manager
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] \
