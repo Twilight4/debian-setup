@@ -102,7 +102,12 @@ dialog-install-apps() {
     
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
-    
+
+            # Needed if system installed in VBox
+            if [ "$fixit" = "VBox-kernel-modules" ]; then
+                systemctl enable vboxservice.service
+            fi
+            
             if [ "$fixit" = "networkmanager" ]; then
                 # Enable the systemd service NetworkManager.
                 systemctl enable NetworkManager.service
@@ -159,6 +164,11 @@ set-user-permissions() {
 #    fi
 #}
 
+# powerlevel10k
+[ ! -d "/opt/powerlevel10k" ] \
+&& --depth=1 https://github.com/romkatv/powerlevel10k.git \
+"/opt/powerlevel10k"
+ 
 # tmux plugin manager
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] \
 && git clone --depth 1 https://github.com/tmux-plugins/tpm \
