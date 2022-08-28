@@ -8,13 +8,13 @@ run() {
     url_installer=$(cat /var_url_installer)
     dry_run=$(cat /var_dry_run)
 
-    log INFO "DOWNLOAD APPS CSV" "$output"
-    apps_path="$(download-app-csv "$url_installer")"
-    log INFO "APPS CSV DOWNLOADED AT: $apps_path" "$output"
+    log INFO "DOWNLOAD APPS" "$output"
+    apps_path="$(download-apps "$url_installer")"
+    log INFO "APPS DOWNLOADED AT: $apps_path" "$output"
     add-multilib-repo
     log INFO "MULTILIB ADDED" "$output"
     dialog-welcome
-    dialog-choose-apps ch
+    dialog-install-apps ch
     choices=$(cat ch) && rm ch
     log INFO "APP CHOOSEN: $choices" "$output"
     lines="$(extract-choosed-apps "$choices" "$apps_path")"
@@ -44,69 +44,28 @@ log() {
     echo -e "${timestamp} [${level}] ${message}" >>"$output"
 }
 
-download-app-csv() {
+download-apps() {
     local -r url_installer=${1:?}
 
-    apps_path="/tmp/apps.csv"
-    curl "$url_installer/apps.csv" > "$apps_path"
+    apps_path="/tmp/paclist"
+    curl "$url_installer/paclist" > "$apps_path"
 
     echo $apps_path
 }
 
-# Add multilib repo for steam
+# Add multilib repo
 add-multilib-repo() {
     echo "[multilib]" >> /etc/pacman.conf && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 }
 
 dialog-welcome() {
-    dialog --title "Welcome!" --msgbox "Welcome to Phantas0s dotfiles and software installation script for Arch linux.\n" 10 60
+    dialog --title "Welcome!" --msgbox "Welcome to Twilight4s dotfiles and software installation script for Arch linux.\n" 10 60
 }
 
-dialog-choose-apps() {
+dialog-install-apps() {
     local file=${1:?}
-
-    apps=("essential" "Essentials" on
-        "compression" "Compression Tools" on
-        "tools" "Very nice tools to have (highly recommended)" on
-        "audio" "Audio tools" on
-        "git" "Git & git tools" on
-        "i3" "i3 Tile manager & Desktop" on
-        "tmux" "Tmux" on
-        "neovim" "Neovim" on
-        "keyring" "Keyring applications" on
-        "urxvt" "Urxvt unicode" on
-        "zsh" "Unix Z-Shell (zsh)" on
-        "ripgrep" "Ripgrep" on \
-        "brave" "Brave (browser)" on
-        "qutebrowser" "Qutebrowser" on
-        "notify" "Notifications with dunst & libnotify" on
-        "vifm" "vifm (terminal file manager)" on
-        "gtk" "GTK 3 themes and icons" on
-        "programming" "Programming environments (PHP, Ruby, Go, Docker, Clojure)" on
-        "keepass" "Keepass" on
-        "sql" "Mysql (mariadb) & mysql tools" on
-        "newsboat" "RSS Feed Reader" on
-        "firefox" "Firefox (browser)" off
-        "Brave" "brave (browser)" off
-        "joplin" "Note taking system" off
-        "thunar" "Graphical file manager" off
-        "thunderbird" "Thunderbird" off
-        "graphism" "Design" off
-        "pandoc" "Pandoc and usefull dependencies" off
-        "office" "Office tools (Libreoffice...)" off
-        "vmware" "Vmware tools" off
-        "language" "Language tools" off
-        "multimedia" "Multimedia" off
-        "videography" "Video creation" off
-        "nextcloud" "Nextcloud client" off
-        "network" "Network Configuration" off
-        "hugo" "Hugo static site generator" off
-        "freemind" "Freemind - mind mapping software" off
-        "doublecmd" "Double Commander - File explorer a la FreeCommander" off
-        "photography" "Photography tools" off
-        "gaming" "Almost everything for gaming on Linux" off)
-
-    dialog --checklist "You can now choose the groups of applications you want to install, according to your own CSV file.\n\n Press SPACE to select and ENTER to validate your choices." 0 0 0 "${apps[@]}" 2> "$file"
+    sudo pacman -S $(cat paclist)
+    yay -S $(cat yaylist)
 }
 
 extract-choosed-apps() {
