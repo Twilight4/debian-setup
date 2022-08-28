@@ -24,7 +24,7 @@ run() {
     set-hardware-clock
 
     log INFO "SET TIMEZONE" "$output"
-    timedatectl set-timezone "Europe/Berlin"
+    timedatectl set-timezone "Europe/Warsaw"
 
     log INFO "WRITE HOSTNAME: $hostname" "$output" \
     write-hostname "$hostname"
@@ -33,11 +33,11 @@ run() {
     configure-locale "en_US.UTF-8" "UTF-8"
 
     log INFO "ADD ROOT" "$output"
-    dialog --title "root password" --msgbox "It's time to add a password for the root user" 10 60
+    dialog --title "root password" --msgbox "Password for the root user" 10 60
     config_user root
 
     log INFO "ADD USER" "$output"
-    dialog --title "Add User" --msgbox "We can't always be root. Too many responsibilities. Let's create another user." 10 60
+    dialog --title "Add User" --msgbox "Create new user." 10 60
 
     config_user
 
@@ -100,12 +100,12 @@ config_user() {
     local name=${1:-none}
 
     if [ "$name" == none ]; then
-        dialog --no-cancel --inputbox "Please enter your username" 10 60 2> name
+        dialog --no-cancel --inputbox "Enter your username" 10 60 2> name
         name=$(cat name) && rm name
     fi
 
     dialog --no-cancel --passwordbox "Enter your password" 10 60 2> pass1
-    dialog --no-cancel --passwordbox "Enter your password again. To be sure..." 10 60 2> pass2
+    dialog --no-cancel --passwordbox "Enter your password again" 10 60 2> pass2
 
     while [ "$(cat pass1)" != "$(cat pass2)" ]
     do
