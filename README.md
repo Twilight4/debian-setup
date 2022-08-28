@@ -10,7 +10,7 @@ WARNING: This set of scripts should be used for inspiration, don't run them on y
 # Contents
 Every scripts are called from `install_sys.sh`.
 
-The first script `install_sys.sh` will:
+The first script `install_sys` will:
 1. Erase everything on the disk of your choice
 2. Create partitions
 - Boot partition of 200MB
@@ -23,6 +23,6 @@ The second script `install_chroot` will:
 3. Create a new user with password
 
 The third script `install_apps` will:
-1. Install every software specified in paclist
-2. Install every software specified in yalist - not found by pacman with yay from AUR repos
+1. Install every software specified in `paclist`
+2. Install every software specified in `yalist`
 3. Install my [dotfiles](https://github.com/Twilight4/dotfiles)
