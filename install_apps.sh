@@ -147,6 +147,18 @@ install-dotfiles() {
             dialog --infobox "[$(whoami)] Downloading dotfiles..." 10 60
             git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
     fi
+    
+    echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
+    source "/home/$(whoami)/.dotfiles/zsh/.zshenv"
+    
+    mv $ZDOTDIR/zsh-completions.plugin.zsh $ZDOTDIR/_zsh-completions.plugin.zsh
+    mv ~/dotfiles/fonts/MesloLGS-NF/* /usr/share/fonts/MesloLGS-NF
+    mv ~/dotfiles/wallpapers/* /opt/wallpapers
+    rm ~/.bash*
+    
+    git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
+    git config --global user.email "electrolight071@gmail.com"
+    git config --global user.name "Twilight4"
 }
 
 set-user-permissions() {
