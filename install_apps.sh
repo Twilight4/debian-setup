@@ -135,7 +135,8 @@ fake-install() {
 
 create-directories() {
 #    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
-mkdir -p "/opt/{github,wallpapers}"
+mkdir -p "/opt/github/essentials"
+mkdir -p "/opt/{wallpapers}"
 mkdir -p "/usr/share/fonts/{MesloLGS-NF}"
 }
 
