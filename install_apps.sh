@@ -155,14 +155,15 @@ set-user-permissions() {
 }
 
 #install-ghapps() {
-#    GHAPPS="/opt/github/"
+#    GHAPPS="/opt/github/essentials"
 #    if [ ! -d "$GHAPPS" ];
 #        then
 #            dialog --infobox "[$(whoami)] Downloading github apps..." 10 60
-#            git clone --depth 1 "https://github.com/github-apps/apps" "$GHAPPS" >/dev/null
-#            git clone --depth 1 "https://github.com/github-apps/apps" "$GHAPPS" >/dev/null
-#            git clone --depth 1 "https://github.com/github-apps/apps" "$GHAPPS" >/dev/null
-#            git clone --depth 1 "https://github.com/github-apps/apps" "$GHAPPS" >/dev/null
+#            git clone "https://github.com/shlomif/lynx-browser"
+#            git clone "https://github.com/chubin/cheat.sh"
+#            git clone "https://github.com/smallhadroncollider/taskell"
+#            git clone "https://github.com/christoomey/vim-tmux-navigator"
+#            git clone "https://github.com/Swordfish90/cool-retro-term"
 #    fi
 #}
 
@@ -170,7 +171,12 @@ set-user-permissions() {
 [ ! -d "/opt/powerlevel10k" ] \
 && --depth=1 https://github.com/romkatv/powerlevel10k.git \
 "/opt/powerlevel10k"
- 
+
+# XDG ninja
+[ ! -d "$HOME" ] \
+&& git clone https://github.com/b3nj5m1n/xdg-ninja \
+"$HOME"
+
 # tmux plugin manager
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] \
 && git clone --depth 1 https://github.com/tmux-plugins/tpm \
