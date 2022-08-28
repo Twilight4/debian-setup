@@ -8,7 +8,7 @@ WARNING: This set of scripts should be used for inspiration, don't run them on y
 3. Launch the script.
 
 # Contents
-Every scripts are called from install_sys.sh.
+Every scripts are called from `install_sys.sh`.
 
 The first script `install_sys.sh` will:
 1. Erase everything on the disk of your choice
