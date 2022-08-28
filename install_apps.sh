@@ -166,18 +166,17 @@ set-user-permissions() {
     curl "$url_installer/sudoers" > /etc/sudoers
 }
 
-#install-ghapps() {
-#    GHAPPS="/opt/github/essentials"
-#    if [ ! -d "$GHAPPS" ];
-#        then
-#            dialog --infobox "[$(whoami)] Downloading github apps..." 10 60
-#            git clone "https://github.com/shlomif/lynx-browser"
-#            git clone "https://github.com/chubin/cheat.sh"
-#            git clone "https://github.com/smallhadroncollider/taskell"
-#            git clone "https://github.com/christoomey/vim-tmux-navigator"
-#            git clone "https://github.com/Swordfish90/cool-retro-term"
-#    fi
-#}
+install-ghapps() {
+    GHAPPS="/opt/github/essentials"
+    if [ ! -d "$GHAPPS" ];
+        then
+            dialog --infobox "[$(whoami)] Downloading github apps..." 10 60
+            git clone "https://github.com/shlomif/lynx-browser"
+            git clone "https://github.com/chubin/cheat.sh"
+            git clone "https://github.com/smallhadroncollider/taskell"
+            git clone "https://github.com/christoomey/vim-tmux-navigator"
+            git clone "https://github.com/Swordfish90/cool-retro-term"
+    fi
 
 # powerlevel10k
 [ ! -d "/opt/powerlevel10k" ] \
@@ -198,7 +197,7 @@ set-user-permissions() {
 [ ! -d "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ] \
 && git clone https://github.com/wbthomason/packer.nvim \
 "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-
+}
 
  #continue-install() {
 #    local -r url_installer=${1:?}
