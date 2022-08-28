@@ -136,6 +136,7 @@ fake-install() {
 create-directories() {
 #    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 mkdir -p "/opt/{github}"
+mkdir -p "/opt/{MesloLGS-NF}"
 }
 
 install-dotfiles() {
