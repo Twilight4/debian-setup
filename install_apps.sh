@@ -201,7 +201,7 @@ set-user-permissions() {
 #}
 
 echo 'reminders for myself:
-- add pub ssh key to github
+- add ssh pub key to github
 '
 
 run "$@"
