@@ -32,8 +32,6 @@ run() {
     log INFO "DOTFILES INSTALLED" "$output"
     install-ghapps
     log INFO "GITHUB APPS INSTALLED" "$output"
-    
-
     #continue-install "$url_installer" "$name"
 }
 
@@ -130,11 +128,6 @@ fake-install() {
     echo "$1 fakely installed!" >> "$output"
 }
 
-set-user-permissions() {
-    dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
-    curl "$url_installer/sudoers" > /etc/sudoers
-}
-
 create-directories() {
 #    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 mkdir -p "/opt/{github}"
@@ -147,6 +140,11 @@ install-dotfiles() {
             dialog --infobox "[$(whoami)] Downloading dotfiles..." 10 60
             git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
     fi
+}
+
+set-user-permissions() {
+    dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
+    curl "$url_installer/sudoers" > /etc/sudoers
 }
 
 #install-ghapps() {
