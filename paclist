@@ -1,3 +1,5 @@
+qtile
+python-psutil
 virtualbox-guest-utils
 git
 diff-so-fancy
@@ -5,9 +7,11 @@ min
 neovim
 alacritty
 lxappearance
+qt5ct
 wget
 curl
 tmuxp
+flameshot
 zsh
 zsh-completions
 dunst
@@ -16,7 +20,7 @@ picom-jonaburg-git
 mpv
 nitrogen
 polybar
-bat (cat substitution, make an alias for cat)
+bat
 tmux
 tldr
 rofi
