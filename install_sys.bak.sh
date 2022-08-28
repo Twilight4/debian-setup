@@ -139,3 +139,8 @@ case $response in
 0) reboot;;
 1) clear;;
 esac
+
+# Install chroot
+local -r installer_url=${1:?}
+curl "$installer_url/install_chroot.sh" > /mnt/install_chroot.sh
+arch-chroot /mnt bash install_chroot.sh
