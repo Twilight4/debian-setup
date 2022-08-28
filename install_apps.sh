@@ -14,17 +14,9 @@ run() {
     add-multilib-repo
     log INFO "MULTILIB ADDED" "$output"
     dialog-welcome
-    dialog-install-apps ch
-    choices=$(cat ch) && rm ch
-    log INFO "APP CHOOSEN: $choices" "$output"
-    lines="$(extract-choosed-apps "$choices" "$apps_path")"
-    log INFO "GENERATED LINES: $lines" "$output"
-    apps="$(extract-app-names "$lines")"
-    log INFO "APPS: $apps" "$output"
+    dialog-install-apps
     update-system
     log INFO "UPDATED SYSTEM" "$output"
-    delete-previous-aur-queue
-    log INFO "DELETED PREVIOUS AUR QUEUE" "$output"
     dialog-install-apps "$apps" "$dry_run" "$output"
     log INFO "APPS INSTALLED" "$output"
     disable-horrible-beep
@@ -47,10 +39,13 @@ log() {
 download-apps() {
     local -r url_installer=${1:?}
 
-    apps_path="/tmp/paclist"
-    curl "$url_installer/paclist" > "$apps_path"
+    apps_path1="/tmp/paclist" 
+    apps_path2="/tmp/yaylist"
+    curl "$url_installer/paclist" > "$apps_path1"
+    curl "$url_installer/yaylist" > "$apps_path2"
 
-    echo $apps_path
+    echo $apps_path1
+    echo $apps_path2
 }
 
 # Add multilib repo
@@ -63,101 +58,44 @@ dialog-welcome() {
 }
 
 dialog-install-apps() {
+    dialog --title "Lesgoo" --msgbox \
+    "The system will now install everything you need.\n\n\
+    It will take some time.\n\n " 13 60
+}
+
+dialog-install-apps() {
     local file=${1:?}
-    sudo pacman -S $(cat paclist)
-    yay -S $(cat yaylist)
-}
-
-extract-choosed-apps() {
-    local -r choices=${1:?}
-    local -r apps_path=${2:?}
-
-    selection="^$(echo $choices | sed -e 's/ /,|^/g'),"
-    lines=$(grep -E "$selection" "$apps_path")
-
-    echo "$lines"
-}
-
-extract-app-names() {
-    local -r lines=${1:?}
-    echo "$lines" | awk -F, '{print $2}'
+    sudo pacman -S --noconfirm $(cat paclist)
+    yay -S --noconfirm $(cat yaylist)
 }
 
 update-system() {
     pacman -Syu --noconfirm
 }
 
-delete-previous-aur-queue() {
-    rm -f /tmp/aur_queue
-}
-
-dialog-install-apps() {
-    dialog --title "Let's go!" --msgbox \
-    "The system will now install everything you need.\n\n\
-    It will take some time.\n\n " 13 60
-}
-
-dialog-install-apps() {
-    local -r final_apps=${1:?}
-    local -r dry_run=${2:?}
-    local -r output=${3:?}
-
-    count=$(echo "$final_apps" | wc -l)
-
-    c=0
-    echo "$final_apps" | while read -r line; do
-        c=$(( "$c" + 1 ))
-
-        dialog --title "Arch Linux Installation" --infobox \
-        "Downloading and installing program $c out of $count: $line..." 8 70
-
-        if [ "$dry_run" = false ]; then
-            pacman-install "$line" "$output"
-
-            # Needed if system installed in VMWare
-            if [ "$line" = "open-vm-tools" ]; then
-                systemctl enable vmtoolsd.service
-                systemctl enable vmware-vmblock-fuse.service
-            fi
-
-            if [ "$line" = "networkmanager" ]; then
+            if [ "$fixit" = "networkmanager" ]; then
                 # Enable the systemd service NetworkManager.
                 systemctl enable NetworkManager.service
             fi
 
-            if [ "$line" = "zsh" ]; then
+            if [ "$fixit" = "zsh" ]; then
                 # zsh as default terminal for user
                 chsh -s "$(which zsh)" "$name"
             fi
 
-            if [ "$line" = "docker" ]; then
+            if [ "$fixit" = "docker" ]; then
                 groupadd docker
                 gpasswd -a "$name" docker
                 systemctl enable docker.service
             fi
-
-            if [ "$line" = "at" ]; then
-                systemctl enable atd.service
-            fi
-
-            if [ "$line" = "mariadb" ]; then
-                mysql_install_db --user=mysql --basedir=/usr --datadir=/var/lib/mysql
-            fi
         else
-            fake_install "$line"
+            fake_install "$fixit"
         fi
     done
 }
 
 fake-install() {
     echo "$1 fakely installed!" >> "$output"
-}
-
-pacman-install() {
-    local -r app=${1:?}
-    local -r output=${2:?}
-
-    ((pacman --noconfirm --needed -S "$app" &>> "$output") || echo "$app" &>> /tmp/aur_queue)
 }
 
 continue-install() {
