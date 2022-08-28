@@ -64,13 +64,21 @@ download-yaylist() {
     echo $yaylist_path
 }
 
-# Add multilib repo
 add-multilib-repo() {
     echo "[multilib]" >> /etc/pacman.conf && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 }
 
+disable-horrible-beep() {
+    rmmod pcspkr
+    echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+}
+
 dialog-welcome() {
     dialog --title "Welcome!" --msgbox "Welcome to Twilight4s dotfiles and software installation script for Arch linux.\n" 10 60
+}
+
+update-system() {
+    pacman -Syu --noconfirm
 }
 
 dialog-install-apps() {
@@ -79,20 +87,23 @@ dialog-install-apps() {
     It will take some time.\n\n " 13 60
 }
 
+install-yay() {
+    local -r output=${1:?}
+
+    dialog --infobox "[$(whoami)] Installing \"yay\", an AUR helper..." 10 60
+    curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
+    && tar -xvf "yay.tar.gz" \
+    && cd "yay" \
+    && makepkg --noconfirm -si \
+    && cd - \
+    && rm -rf "yay" "yay.tar.gz" ;
+}
+
 dialog-install-apps() {
     local file=${1:?}
+    
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
-}
-
-update-system() {
-    pacman -Syu --noconfirm
-}
-
-dialog-install-apps() {
-    local -r final_apps=${1:?}
-    local -r dry_run=${2:?}
-    local -r output=${3:?}
     
             if [ "$fixit" = "networkmanager" ]; then
                 # Enable the systemd service NetworkManager.
@@ -124,26 +135,9 @@ set-user-permissions() {
     curl "$url_installer/sudoers" > /etc/sudoers
 }
 
-disable-horrible-beep() {
-    rmmod pcspkr
-    echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
-}
-
 create-directories() {
 #    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
-mkdir -p "/{github}"
-}
-
-install-yay() {
-    local -r output=${1:?}
-
-    dialog --infobox "[$(whoami)] Installing \"yay\", an AUR helper..." 10 60
-    curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
-    && tar -xvf "yay.tar.gz" \
-    && cd "yay" \
-    && makepkg --noconfirm -si \
-    && cd - \
-    && rm -rf "yay" "yay.tar.gz" ;
+mkdir -p "/opt/{github}"
 }
 
 install-dotfiles() {
@@ -154,7 +148,6 @@ install-dotfiles() {
             git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
     fi
 }
-
 
 #install-ghapps() {
 #    GHAPPS="/opt/github/"
