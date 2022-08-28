@@ -150,12 +150,12 @@ install-dotfiles() {
     
     echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
     source "/home/$(whoami)/.dotfiles/zsh/.zshenv"
+    mv "$DOTFILES/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
+    mv "$DOTFILES/wallpapers/*" /opt/wallpapers
+    rm -rf "$DOTFILES"
     
-    mv $ZDOTDIR/zsh-completions.plugin.zsh $ZDOTDIR/_zsh-completions.plugin.zsh
-    mv ~/dotfiles/fonts/MesloLGS-NF/* /usr/share/fonts/MesloLGS-NF
-    mv ~/dotfiles/wallpapers/* /opt/wallpapers
     rm ~/.bash*
-    
+    mv "$ZDOTDIR/zsh-completions.plugin.zsh" "$ZDOTDIR/_zsh-completions.plugin.zsh"
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
     git config --global user.name "Twilight4"
