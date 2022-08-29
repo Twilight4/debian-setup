@@ -155,6 +155,7 @@ install-dotfiles() {
     rm -rf "$DOTFILES"
     
     rm ~/.bash*
+    rm -rf /usr/share/fonts/[71aceT]*
     mv "$ZDOTDIR/zsh-completions.plugin.zsh" "$ZDOTDIR/_zsh-completions.plugin.zsh"
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
