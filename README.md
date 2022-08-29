@@ -13,9 +13,9 @@ Every scripts are called from `install_sys.sh`.
 The first script `install_sys` will:
 1. Erase everything on the disk of your choice
 2. Create partitions
-  - Boot partition of 200MB
-  - Swap partition
-  - Root partition
+   - Boot partition of 200MB
+   - Swap partition
+   - Root partition
 
 The second script `install_chroot` will:
 1. Set up locale / time
