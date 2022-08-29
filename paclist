@@ -1,5 +1,6 @@
 qtile
 python-psutil
+python-iwlib
 virtualbox-guest-utils
 git
 diff-so-fancy
