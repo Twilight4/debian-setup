@@ -100,27 +100,33 @@ install-yay() {
 }
 
 dialog-install-apps() {
-    local file=${1:?}
+    local -r paclist=${1:?}
     
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
+    
+    count=$(echo "$paclist" | wc -l)
 
+    c=0
+    echo "$paclist" | while read -r line; do
+        c=$(( "$c" + 1 ))
+        
             # Needed if system installed in VBox
-            if [ "$fixit" = "VBox-kernel-modules" ]; then
+            if [ "$line" = "virtualbox-guest-utils" ]; then
                 systemctl enable vboxservice.service
             fi
             
-            if [ "$fixit" = "networkmanager" ]; then
+            if [ "$line" = "networkmanager" ]; then
                 # Enable the systemd service NetworkManager.
                 systemctl enable NetworkManager.service
             fi
 
-            if [ "$fixit" = "zsh" ]; then
+            if [ "$line" = "zsh" ]; then
                 # zsh as default terminal for user
                 chsh -s "$(which zsh)" "$name"
             fi
 
-            if [ "$fixit" = "docker" ]; then
+            if [ "$line" = "docker" ]; then
                 groupadd docker
                 gpasswd -a "$name" docker
                 systemctl enable docker.service
