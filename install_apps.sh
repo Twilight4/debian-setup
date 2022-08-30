@@ -100,7 +100,6 @@ install-yay() {
 }
 
 dialog-install-apps() {
-    local -r paclist=${1:?}
     
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
