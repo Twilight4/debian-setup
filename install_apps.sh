@@ -13,8 +13,8 @@ run() {
     log INFO "PACLIST DOWNLOADED AT: $paclist_path" "$output"
     yaylist_path="$(download-yaylist "$url_installer")"
     log INFO "YAYLIST DOWNLOADED AT: $yaylist_path" "$output"
-    add-multilib-repo
-    log INFO "MULTILIB ADDED" "$output"
+    #add-multilib-repo
+    #log INFO "MULTILIB ADDED" "$output"
     disable-horrible-beep
     log INFO "HORRIBLE BEEP DISABLED" "$output"
     dialog-welcome
@@ -26,6 +26,8 @@ run() {
     log INFO "APPS INSTALLED" "$output"
     set-user-permissions
     log INFO "USER PERMISSIONS SET" "$output"
+    set-pacman-config
+    log INFO "PACMAN CONFIG SET" "$output"
     create-directories
     log INFO "DIRECTORIES CREATED" "$output"
     install-dotfiles
@@ -62,9 +64,9 @@ download-yaylist() {
     echo $yaylist_path
 }
 
-add-multilib-repo() {
-    echo "[multilib]" >> /etc/pacman.conf && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-}
+#add-multilib-repo() {
+#    echo "[multilib]" >> /etc/pacman.conf && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+#}
 
 disable-horrible-beep() {
     rmmod pcspkr
@@ -165,6 +167,11 @@ install-dotfiles() {
 set-user-permissions() {
     dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
     curl "$url_installer/sudoers" > /etc/sudoers
+}
+
+set-pacman-config() {
+    dialog --infobox "Copy pacman configuration file (pacman.conf)..." 4 40
+    curl "$url_installer/pacman.conf" > /etc/pacman.conf
 }
 
 install-ghapps() {
