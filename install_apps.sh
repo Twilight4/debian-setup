@@ -165,7 +165,7 @@ install-dotfiles() {
     rm -rf /usr/share/fonts/[71aceT]*
     chmod 755 "$XDG_CONFIG_HOME/qtile/autostart.sh"
     chmod 755 "$XDG_CONFIG_HOME/polybar/launch.sh"
-    chmod 755 "$XDG_CONFIG_HOME/polybar/polybar-scripts/updates-yay.sh"
+    chmod 755 "$XDG_CONFIG_HOME/polybar/polybar-scripts/*"
     mv "$ZDOTDIR/zsh-completions.plugin.zsh" "$ZDOTDIR/_zsh-completions.plugin.zsh"
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
