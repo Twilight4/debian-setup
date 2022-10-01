@@ -42,3 +42,4 @@ newsflash
 pamixer
 libmpdclient 
 wireless_tools
+jq
