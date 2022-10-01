@@ -43,3 +43,4 @@ pamixer
 libmpdclient 
 wireless_tools
 jq
+xorg-xinput
