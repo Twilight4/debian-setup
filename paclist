@@ -45,3 +45,13 @@ wireless_tools
 jq
 xorg-xinput
 mpd
+acpi
+powertop
+xfce4-power-manager
+xfce4-settings
+light
+mpc
+maim
+arandr
+xclip
+pavucontrol
