@@ -24,7 +24,9 @@ run() {
     set-hardware-clock
 
     log INFO "SET TIMEZONE" "$output"
-    timedatectl set-timezone "Europe/Warsaw"
+    #timedatectl set-timezone "Europe/Warsaw"
+    ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
+    hwclock --systohc
 
     log INFO "WRITE HOSTNAME: $hostname" "$output" \
     write-hostname "$hostname"
