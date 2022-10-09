@@ -102,25 +102,18 @@ dialog-install-apps() {
     yay -S --noconfirm $(cat yaylist)
         
     # Needed if system installed in VBox
-    if [ "$line" = "virtualbox-guest-utils" ]; then
     systemctl enable vboxservice.service
-    fi
-            
-    if [ "$line" = "networkmanager" ]; then
-    # Enable the systemd service NetworkManager.
-    systemctl enable NetworkManager.service
-    fi
-
-    if [ "$line" = "zsh" ]; then
+    
     # zsh as default terminal for user
     chsh -s "$(which zsh)" "$name"
-    fi
+            
+    ## Enable the systemd service NetworkManager.
+    #systemctl enable NetworkManager.service
 
-    if [ "$line" = "docker" ]; then
-    groupadd docker
-    gpasswd -a "$name" docker
-    systemctl enable docker.service
-    fi
+    ## For Docker
+    #groupadd docker
+    #gpasswd -a "$name" docker
+    #systemctl enable docker.service
 }
 
 create-directories() {
