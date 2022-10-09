@@ -104,41 +104,26 @@ dialog-install-apps() {
     
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
-    
-    count=$(echo "$paclist" | wc -l)
-
-    c=0
-    echo "$paclist" | while read -r line; do
-        c=$(( "$c" + 1 ))
-        
-        dialog --title "Arch Linux Installation" --infobox \
-        "Downloading and installing program $c out of $count: $line..." 8 70
-        
-        if [ "$dry_run" = false ]; then
-            pacman-install "$line" "$output"
         
             # Needed if system installed in VBox
-            if [ "$line" = "virtualbox-guest-utils" ]; then
-                systemctl enable vboxservice.service
-            fi
+        if [ "$line" = "virtualbox-guest-utils" ]; then
+        systemctl enable vboxservice.service
+        fi
             
-            if [ "$line" = "networkmanager" ]; then
-                # Enable the systemd service NetworkManager.
-                systemctl enable NetworkManager.service
-            fi
+        if [ "$line" = "networkmanager" ]; then
+        # Enable the systemd service NetworkManager.
+        systemctl enable NetworkManager.service
+        fi
 
-            if [ "$line" = "zsh" ]; then
-                # zsh as default terminal for user
-                chsh -s "$(which zsh)" "$name"
-            fi
+        if [ "$line" = "zsh" ]; then
+        # zsh as default terminal for user
+        chsh -s "$(which zsh)" "$name"
+        fi
 
-            if [ "$line" = "docker" ]; then
-                groupadd docker
-                gpasswd -a "$name" docker
-                systemctl enable docker.service
-            fi
-        else
-            fake_install "$line"
+        if [ "$line" = "docker" ]; then
+        groupadd docker
+        gpasswd -a "$name" docker
+        systemctl enable docker.service
         fi
     done
 }
