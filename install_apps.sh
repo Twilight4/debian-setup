@@ -107,8 +107,8 @@ dialog-install-apps() {
     # zsh as default terminal for user
     chsh -s "$(which zsh)" "$name"
             
-    ## Enable the systemd service NetworkManager.
-    #systemctl enable NetworkManager.service
+    # Enable the systemd service NetworkManager.
+    systemctl enable NetworkManager.service
 
     ## For Docker
     #groupadd docker
