@@ -124,10 +124,11 @@ dialog-install-apps() {
 }
 
 create-directories() {
-#    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
+#mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 mkdir -p "/opt/github/essentials"
-mkdir -p "/opt/{wallpapers}"
-mkdir -p "/usr/share/fonts/{MesloLGS-NF}"
+mkdir -p "/opt/wallpapers"
+mkdir -p "/usr/share/fonts/MesloLGS-NF"
+mkdir -p "/usr/share/fonts/rofi-fonts"
 }
 
 install-dotfiles() {
@@ -141,6 +142,7 @@ install-dotfiles() {
     echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
     source "/home/$(whoami)/.dotfiles/zsh/.zshenv"
     mv "$DOTFILES/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
+    mv "$DOTFILES/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
     mv "$DOTFILES/wallpapers/*" /opt/wallpapers
     rm -rf "$DOTFILES"
     
