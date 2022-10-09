@@ -105,7 +105,7 @@ dialog-install-apps() {
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
         
-            # Needed if system installed in VBox
+        # Needed if system installed in VBox
         if [ "$line" = "virtualbox-guest-utils" ]; then
         systemctl enable vboxservice.service
         fi
