@@ -121,7 +121,6 @@ dialog-install-apps() {
     gpasswd -a "$name" docker
     systemctl enable docker.service
     fi
-    done
 }
 
 create-directories() {
