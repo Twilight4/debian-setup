@@ -130,7 +130,7 @@ dialog-what-disk-to-use() {
 }
 
 dialog-what-swap-size() {
-    local default_size="8"
+    local default_size="2"
     local file=${1:?}
     dialog --no-cancel --inputbox "You need four partitions: Boot, Root and Swap \n\
         The boot will be 512M\n\
