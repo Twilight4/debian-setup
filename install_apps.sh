@@ -98,8 +98,6 @@ install-yay() {
 }
 
 dialog-install-apps() {
-    local -r dry_run=${2:?}
-    
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
         
