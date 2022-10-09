@@ -5,7 +5,6 @@
 # o pipefail - script fails if command piped fails
 set -euo pipefail
 
-# YOU NEED TO MODIFY YOUR INSTALL URL
 url-installer() {
     echo "https://raw.githubusercontent.com/Twilight4/arch-install/master"
 }
