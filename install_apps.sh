@@ -88,8 +88,6 @@ dialog-install-apps() {
 }
 
 install-yay() {
-    local -r output=${1:?}
-
     dialog --infobox "[$(whoami)] Installing \"yay\", an AUR helper..." 10 60
     curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
     && tar -xvf "yay.tar.gz" \
