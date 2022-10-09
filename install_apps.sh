@@ -128,10 +128,6 @@ dialog-install-apps() {
     done
 }
 
-fake-install() {
-    echo "$1 fakely installed!" >> "$output"
-}
-
 create-directories() {
 #    mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 mkdir -p "/opt/github/essentials"
