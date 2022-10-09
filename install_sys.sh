@@ -196,12 +196,18 @@ partprobe "$hd"
 fdisk "$hd" <<EOF
 g
 n
+
+
 +512M
 t
 $boot_partition_type
 n
+
+
 +${swap_size}G
 n
+
+
 w
 EOF
 }
@@ -209,6 +215,8 @@ EOF
 format-partitions() {
     local -r hd=${1:?}
     local -r uefi=${2:?}
+    
+    echo "$hd" | grep -E 'nvme' &> /dev/null && hd="${hd}p"
 
     mkswap "${hd}2"
     swapon "${hd}2"
