@@ -138,7 +138,7 @@ dialog-install-apps() {
                 systemctl enable docker.service
             fi
         else
-            fake_install "$fixit"
+            fake_install "$line"
         fi
     done
 }
