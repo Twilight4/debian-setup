@@ -100,6 +100,7 @@ install-yay() {
 }
 
 dialog-install-apps() {
+    local -r dry_run=${2:?}
     
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
@@ -109,6 +110,12 @@ dialog-install-apps() {
     c=0
     echo "$paclist" | while read -r line; do
         c=$(( "$c" + 1 ))
+        
+        dialog --title "Arch Linux Installation" --infobox \
+        "Downloading and installing program $c out of $count: $line..." 8 70
+        
+        if [ "$dry_run" = false ]; then
+            pacman-install "$line" "$output"
         
             # Needed if system installed in VBox
             if [ "$line" = "virtualbox-guest-utils" ]; then
