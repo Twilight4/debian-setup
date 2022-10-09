@@ -5,6 +5,7 @@
 # o pipefail - script fails if command piped fails
 set -euo pipefail
 
+# YOU NEED TO MODIFY YOUR INSTALL URL
 url-installer() {
     echo "https://raw.githubusercontent.com/Twilight4/arch-install/master"
 }
@@ -102,7 +103,7 @@ dialog-are-you-sure() {
         --title "Are you sure?" \
         --yesno "This is my personnal arch linux install. \n\n\
         It will just DESTROY EVERYTHING on the hard disk of your choice. \n\n\
-        Don't say YES if you are not sure about what you're doing \n\n\
+        Don't say YES if you are not sure about what you're doing! \n\n\
         Are you sure?"  15 60 || exit
 }
 
@@ -208,6 +209,7 @@ n
 n
 
 
+
 w
 EOF
 }
@@ -215,7 +217,7 @@ EOF
 format-partitions() {
     local hd=${1:?}
     local -r uefi=${2:?}
-    
+
     echo "$hd" | grep -E 'nvme' &> /dev/null && hd="${hd}p"
 
     mkswap "${hd}2"
