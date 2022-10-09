@@ -92,9 +92,6 @@ log() {
     echo -e "${timestamp} [${level}] ${message}" >>"$output"
 }
 
-install-dialog
-dialog-are-you-sure
-
 install-dialog() {
     pacman -Sy
     pacman --noconfirm -S dialog
