@@ -101,26 +101,26 @@ dialog-install-apps() {
     sudo pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
         
-        # Needed if system installed in VBox
-        if [ "$line" = "virtualbox-guest-utils" ]; then
-        systemctl enable vboxservice.service
-        fi
+    # Needed if system installed in VBox
+    if [ "$line" = "virtualbox-guest-utils" ]; then
+    systemctl enable vboxservice.service
+    fi
             
-        if [ "$line" = "networkmanager" ]; then
-        # Enable the systemd service NetworkManager.
-        systemctl enable NetworkManager.service
-        fi
+    if [ "$line" = "networkmanager" ]; then
+    # Enable the systemd service NetworkManager.
+    systemctl enable NetworkManager.service
+    fi
 
-        if [ "$line" = "zsh" ]; then
-        # zsh as default terminal for user
-        chsh -s "$(which zsh)" "$name"
-        fi
+    if [ "$line" = "zsh" ]; then
+    # zsh as default terminal for user
+    chsh -s "$(which zsh)" "$name"
+    fi
 
-        if [ "$line" = "docker" ]; then
-        groupadd docker
-        gpasswd -a "$name" docker
-        systemctl enable docker.service
-        fi
+    if [ "$line" = "docker" ]; then
+    groupadd docker
+    gpasswd -a "$name" docker
+    systemctl enable docker.service
+    fi
     done
 }
 
