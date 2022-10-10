@@ -27,6 +27,7 @@ run() {
 
     install-dialog
     dialog-are-you-sure
+    install-git
 
     local hostname
     dialog-name-of-computer hn
@@ -104,6 +105,11 @@ dialog-are-you-sure() {
         It will just DESTROY EVERYTHING on the hard disk of your choice. \n\n\
         Don't say YES if you are not sure about what you're doing! \n\n\
         Are you sure?"  15 60 || exit
+}
+
+install-git() {
+    pacman -Sy
+    pacman --noconfirm -S git
 }
 
 dialog-name-of-computer() {
