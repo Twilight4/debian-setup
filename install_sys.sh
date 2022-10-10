@@ -95,7 +95,6 @@ log() {
 install-dialog() {
     pacman -Sy
     pacman --noconfirm -S dialog
-    pacman --noconfirm -S git
 }
 
 dialog-are-you-sure() {
