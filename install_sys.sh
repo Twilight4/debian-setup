@@ -26,7 +26,6 @@ run() {
     log INFO "DRY RUN? $dry_run" "$output"
 
     install-dialog
-    install-git
     dialog-are-you-sure
 
     local hostname
@@ -96,12 +95,6 @@ log() {
 install-dialog() {
     pacman -Sy
     pacman --noconfirm -S dialog
-}
-
-install-git() {
-git_path="/usr/bin/git"
-pacman -S git > "$git_path"
-echo $git_path
 }
 
 dialog-are-you-sure() {
