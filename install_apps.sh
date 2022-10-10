@@ -98,7 +98,7 @@ install-yay() {
 }
 
 dialog-install-apps() {
-    sudo pacman -S --noconfirm $(cat paclist)
+    pacman -S --noconfirm $(cat paclist)
     yay -S --noconfirm $(cat yaylist)
         
     # Needed if system installed in VBox
