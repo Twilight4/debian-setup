@@ -209,7 +209,7 @@ install-ghapps() {
 #}
 
 echo 'reminders for myself:
-add ssh pub key to github
+- add ssh pub key to github
 '
 
 run "$@"
