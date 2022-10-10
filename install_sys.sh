@@ -99,7 +99,7 @@ install-dialog() {
 }
 
 install-git() {
-git_path="/usr/bin"
+git_path="/usr/bin/"
 pacman -S git > "$git_path"
 echo $git_path
 }
