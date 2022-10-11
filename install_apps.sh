@@ -37,6 +37,8 @@ run() {
     #continue-install "$url_installer" "$name"
 }
 
+export PATH="/usr/bin:$PATH"
+
 log() {
     local -r level=${1:?}
     local -r message=${2:?}
