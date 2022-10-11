@@ -137,7 +137,7 @@ install-dotfiles() {
     mv "$DOTFILES/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
     mv "$DOTFILES/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
     mv "$DOTFILES/wallpapers/*" /opt/wallpapers
-    rm -rf "$DOTFILES"
+    mv "$DOTFILES/.config/*" /home/$(whoami)/
     
     rm ~/.bash*
     rm -rf /usr/share/fonts/[71aceT]*
