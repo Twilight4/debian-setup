@@ -253,8 +253,8 @@ clean() {
 }
 
 end-of-install() {
-    dialog --title "Reboot time" \
-        --yesno "Congrats! The install is done! \n\nTo run the new graphical environment, you need to restart your computer. \n\nDo you want to restart now?" 20 60
+    dialog --title "Almost done!" \
+        --msgbox "The installation is almost done! \n\nTo run the new graphical environment, you need to launch install.sh script on non-root acc and then restart your computer." 20 60
 
     response=$?
     case $response in
