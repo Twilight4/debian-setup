@@ -22,8 +22,6 @@ run() {
     log INFO "USER PERMISSIONS SET" "$output"
     set-pacman-config
     log INFO "PACMAN CONFIG SET" "$output"
-    install.sh-script
-    log INFO "INSTALL.SH CONFIG DOWNLOADED" "$output"
     #continue-install "$url_installer" "$name"
 }
 
@@ -83,12 +81,6 @@ set-user-permissions() {
 set-pacman-config() {
     dialog --infobox "Copy pacman configuration file (pacman.conf)..." 4 40
     curl "$url_installer/pacman.conf" > /etc/pacman.conf
-}
-
-install.sh-script() {
-    dialog --infobox "Install user configuration file (install.sh)..." 4 40
-    curl "$url_installer/install.sh" > /tmp/install.sh
-    chmod 755 /tmp/install.sh
 }
 
 #continue-install() {
