@@ -12,8 +12,8 @@ run() {
     log INFO "PACLIST DOWNLOADED AT: $paclist_path" "$output"
     yaylist_path="$(download-yaylist "$url_installer")"
     log INFO "YAYLIST DOWNLOADED AT: $yaylist_path" "$output"
-    #add-multilib-repo
-    #log INFO "MULTILIB ADDED" "$output"
+    add-multilib-repo
+    log INFO "MULTILIB ADDED" "$output"
     disable-horrible-beep
     log INFO "HORRIBLE BEEP DISABLED" "$output"
     update-system
@@ -62,9 +62,9 @@ download-yaylist() {
     echo $yaylist_path
 }
 
-#add-multilib-repo() {
-#    echo "[multilib]" >> /etc/pacman.conf && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
-#}
+add-multilib-repo() {
+    echo "[multilib]" >> /etc/pacman.conf && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
+}
 
 disable-horrible-beep() {
     rmmod pcspkr
