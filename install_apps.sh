@@ -8,7 +8,6 @@ run() {
     url_installer=$(cat /var_url_installer)
     dry_run=$(cat /var_dry_run)
     
-    log INFO "DOWNLOAD PACLIST" "$output"
     paclist_path="$(download-paclist "$url_installer")"
     log INFO "PACLIST DOWNLOADED AT: $paclist_path" "$output"
     yaylist_path="$(download-yaylist "$url_installer")"
