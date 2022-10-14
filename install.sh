@@ -80,6 +80,4 @@ fi
 "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 }
 
-echo 'reminders for myself:
-- add ssh pub key to github
-'
+sudo reboot
