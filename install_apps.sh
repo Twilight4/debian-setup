@@ -21,7 +21,7 @@ run() {
     log INFO "UPDATED SYSTEM" "$output"
     install-yay "$output"
     log INFO "YAY INSTALLED" "$output"
-    dialog-install-apps "$apps" "$dry_run" "$output"
+    install-apps "$apps" "$dry_run" "$output"
     log INFO "APPS INSTALLED" "$output"
     set-user-permissions
     log INFO "USER PERMISSIONS SET" "$output"
@@ -77,7 +77,6 @@ update-system() {
 }
 
 install-yay() {
-    dialog --infobox "[$(whoami)] Installing \"yay\", an AUR helper..." 10 60
     curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
     && tar -xvf "yay.tar.gz" \
     && cd "yay" \
@@ -86,11 +85,7 @@ install-yay() {
     && rm -rf "yay" "yay.tar.gz" ;
 }
 
-dialog-install-apps() {
-    dialog --title "Lesgoo" --msgbox \
-    "The system will now install everything you need.\n\n\
-    It will take some time.\n\n " 13 60
-    
+install-apps() {
     pacman -S --noconfirm $(cat /tmp/paclist)
     yay -S --noconfirm $(cat /tmp/yaylist)
         
