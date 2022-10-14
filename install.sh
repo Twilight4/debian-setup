@@ -8,7 +8,7 @@ curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
 && rm -rf "yay" "yay.tar.gz" ;
 
 curl https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist > "/tmp/paclist"  
-curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/yaylist" > "/tmp/yaylist"
+curl https://raw.githubusercontent.com/Twilight4/arch-install/master/yaylist > "/tmp/yaylist"
 sudo pacman -S --noconfirm $(cat /tmp/paclist)
 yay -S --noconfirm $(cat /tmp/yaylist)
         
@@ -16,7 +16,7 @@ yay -S --noconfirm $(cat /tmp/yaylist)
 sudo systemctl enable vboxservice.service
     
 # zsh as default terminal for user
-sudo chsh -s "$(which zsh)" "$name"
+sudo chsh -s "$(which zsh)" "$(whoami)"
 
 ## For Docker
 #groupadd docker
@@ -78,6 +78,5 @@ fi
 [ ! -d "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ] \
 && git clone https://github.com/wbthomason/packer.nvim \
 "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-}
 
 reboot
