@@ -98,11 +98,8 @@ install-yay() {
 }
 
 dialog-install-apps() {
-    export PATH="/usr/bin:$PATH"
-    echo $PATH > /tmp/log; which git >> /tmp/log
-    ls -al >> /tmp/log
-    pacman -S --noconfirm $(cat paclist)
-    yay -S --noconfirm $(cat yaylist)
+    pacman -S --noconfirm $(cat /tmp/paclist)
+    yay -S --noconfirm $(cat /tmp/yaylist)
         
     # Needed if system installed in VBox
     systemctl enable vboxservice.service
