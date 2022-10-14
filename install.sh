@@ -24,10 +24,9 @@ sudo chsh -s "$(which zsh)" "$(whoami)"
 #gpasswd -a "$name" docker
 #systemctl enable docker.service
 
-DOTFILES="/tmp/"
-if [ ! -d "$DOTFILES" ];
+if [ ! -d "/tmp/dotfiles" ];
   then
-    git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
+    git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" > "/tmp/dotfiles"
 fi
     
     sudo sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
