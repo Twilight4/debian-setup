@@ -5,17 +5,17 @@ curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
 && cd - \
 && rm -rf "yay" "yay.tar.gz" ;
 
-pacman -S --noconfirm $(cat /tmp/paclist)
+sudo pacman -S --noconfirm $(cat /tmp/paclist)
 yay -S --noconfirm $(cat /tmp/yaylist)
         
 # Needed if system installed in VBox
-systemctl enable vboxservice.service
+sudo systemctl enable vboxservice.service
     
 # zsh as default terminal for user
-chsh -s "$(which zsh)" "$name"
+sudo chsh -s "$(which zsh)" "$name"
             
 # Enable the systemd service NetworkManager.
-systemctl enable NetworkManager.service
+sudo systemctl enable NetworkManager.service
 
 ## For Docker
 #groupadd docker
@@ -25,25 +25,24 @@ systemctl enable NetworkManager.service
 DOTFILES="/tmp/"
 if [ ! -d "$DOTFILES" ];
   then
-    dialog --infobox "[$(whoami)] Downloading dotfiles..." 10 60
     git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
 fi
     
-    echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
-    mv "/tmp/dotfiles/.config/*" /home/$(whoami)/
+    sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
+    sudo mv "/tmp/dotfiles/.config/*" /home/$(whoami)/
     source "/home/$(whoami)/.config/zsh/.zshenv"
-    mv "/tmp/dotfiles/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
-    mv "/tmp/dotfiles/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
-    mv "/tmp/dotfiles/wallpapers/*" /opt/wallpapers
+    sudo mv "/tmp/dotfiles/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
+    sudo mv "/tmp/dotfiles/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
+    sudo mv "/tmp/dotfiles/wallpapers/*" /opt/wallpapers
     rm ~/.bash*
-    rm -rf /usr/share/fonts/[71aceT]*
+    sudo rm -rf /usr/share/fonts/[71aceT]*
     chmod 755 "$XDG_CONFIG_HOME/qtile/autostart.sh"
     chmod 755 "$XDG_CONFIG_HOME/polybar/launch.sh"
     chmod 755 "$XDG_CONFIG_HOME/polybar/polybar-scripts/*"
     chmod 755 "$XDG_CONFIG_HOME/rofi/applets/bin/*"
     chmod 755 "$XDG_CONFIG_HOME/rofi/applets/shared/theme.bash"
     chmod 755 "$XDG_CONFIG_HOME/rofi/launchers/launcher.sh"
-    mv "/tmp/dotfiles/rofi/applets/bin/*" /usr/bin/
+    sudo mv "/tmp/dotfiles/rofi/applets/bin/*" /usr/bin/
     mv "$ZDOTDIR/zsh-completions.plugin.zsh" "$ZDOTDIR/_zsh-completions.plugin.zsh"
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
@@ -53,7 +52,6 @@ fi
 GHAPPS="/opt/github/essentials"
 if [ ! -d "$GHAPPS" ];
   then
-  dialog --infobox "[$(whoami)] Downloading github apps..." 10 60
   git clone "https://github.com/shlomif/lynx-browser"
   git clone "https://github.com/chubin/cheat.sh"
   git clone "https://github.com/smallhadroncollider/taskell"
