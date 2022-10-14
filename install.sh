@@ -51,11 +51,11 @@ fi
 
 if [ ! -d "/opt/github/essentials" ];
   then
-  git clone https://github.com/shlomif/lynx-browser > "/opt/github/essentials"
-  git clone https://github.com/chubin/cheat.sh > "/opt/github/essentials"
-  git clone https://github.com/smallhadroncollider/taskell > "/opt/github/essentials"
-  git clone https://github.com/christoomey/vim-tmux-navigator > "/opt/github/essentials"
-  git clone https://github.com/Swordfish90/cool-retro-term > "/opt/github/essentials"
+  git clone https://github.com/shlomif/lynx-browser > "/opt/github/essentials/"
+  git clone https://github.com/chubin/cheat.sh > "/opt/github/essentials/"
+  git clone https://github.com/smallhadroncollider/taskell > "/opt/github/essentials/"
+  git clone https://github.com/christoomey/vim-tmux-navigator > "/opt/github/essentials/"
+  git clone https://github.com/Swordfish90/cool-retro-term > "/opt/github/essentials/"
 fi
 
 # powerlevel10k
