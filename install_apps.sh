@@ -88,6 +88,7 @@ set-pacman-config() {
 install.sh-script() {
     dialog --infobox "Install user configuration file (install.sh)..." 4 40
     curl "$url_installer/install.sh" > /tmp/install.sh
+    chmod 755 /tmp/install.sh
 }
 
 #continue-install() {
