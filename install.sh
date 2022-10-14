@@ -26,7 +26,7 @@ sudo chsh -s "$(which zsh)" "$(whoami)"
 
 if [ ! -d "/tmp/dotfiles" ];
   then
-    git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" > "/tmp/dotfiles"
+    git clone --recurse-submodules https://github.com/Twilight4/dotfiles > "/tmp/dotfiles"
 fi
     
     sudo sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
@@ -49,34 +49,29 @@ fi
     git config --global user.email "electrolight071@gmail.com"
     git config --global user.name "Twilight4"
 
-GHAPPS="/opt/github/essentials"
-if [ ! -d "$GHAPPS" ];
+if [ ! -d "/opt/github/essentials" ];
   then
-  git clone "https://github.com/shlomif/lynx-browser"
-  git clone "https://github.com/chubin/cheat.sh"
-  git clone "https://github.com/smallhadroncollider/taskell"
-  git clone "https://github.com/christoomey/vim-tmux-navigator"
-  git clone "https://github.com/Swordfish90/cool-retro-term"
+  git clone https://github.com/shlomif/lynx-browser > "/opt/github/essentials"
+  git clone https://github.com/chubin/cheat.sh > "/opt/github/essentials"
+  git clone https://github.com/smallhadroncollider/taskell > "/opt/github/essentials"
+  git clone https://github.com/christoomey/vim-tmux-navigator > "/opt/github/essentials"
+  git clone https://github.com/Swordfish90/cool-retro-term > "/opt/github/essentials"
 fi
 
 # powerlevel10k
 [ ! -d "/opt/powerlevel10k" ] \
-&& --depth=1 https://github.com/romkatv/powerlevel10k.git \
-"/opt/powerlevel10k"
+&& --depth=1 https://github.com/romkatv/powerlevel10k.git > "/opt/powerlevel10k"
 
 # XDG ninja
 [ ! -d "/home/$(whoami)/xdg-ninja" ] \
-&& git clone https://github.com/b3nj5m1n/xdg-ninja \
-"/home/$(whoami)/xdg-ninja"
+&& git clone https://github.com/b3nj5m1n/xdg-ninja > "/home/$(whoami)/xdg-ninja"
 
 # tmux plugin manager
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] \
-&& git clone --depth 1 https://github.com/tmux-plugins/tpm \
-"$XDG_CONFIG_HOME/tmux/plugins/tpm"
+&& git clone --depth 1 https://github.com/tmux-plugins/tpm > "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
 # neovim plugin manager
 [ ! -d "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ] \
-&& git clone https://github.com/wbthomason/packer.nvim \
-"$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+&& git clone https://github.com/wbthomason/packer.nvim > "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 
 reboot
