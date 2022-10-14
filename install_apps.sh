@@ -141,6 +141,7 @@ install-dotfiles() {
     mv "$DOTFILES/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
     mv "$DOTFILES/wallpapers/*" /opt/wallpapers
     mv "$DOTFILES/.config/*" /home/$(whoami)/
+    mv "$DOTFILES/rofi/applets/bin/*" /usr/bin/
     
     rm ~/.bash*
     rm -rf /usr/share/fonts/[71aceT]*
