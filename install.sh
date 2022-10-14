@@ -26,7 +26,7 @@ sudo chsh -s "$(which zsh)" "$(whoami)"
 
 if [ ! -d "/tmp/dotfiles" ];
   then
-    sudo git clone --recurse-submodules https://github.com/Twilight4/dotfiles > "/tmp/dotfiles"
+    git clone --recurse-submodules https://github.com/Twilight4/dotfiles > "/tmp/dotfiles"
 fi
     
     sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
