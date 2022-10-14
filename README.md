@@ -1,4 +1,4 @@
-# Twilight4s Arch Install
+## Twilight4s Arch Install
 
 ### These are my scripts to install easily Arch Linux.
 
@@ -8,7 +8,7 @@
 3. After reboot `curl` the script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install.sh`
 4. Launch the script `bash install.sh`
 
-# Contents
+## Contents
 Every scripts are called from `install_sys.sh`.
 
 The first script `install_sys` will:
