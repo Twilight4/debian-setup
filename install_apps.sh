@@ -123,7 +123,7 @@ mkdir -p "/usr/share/fonts/rofi-fonts"
 }
 
 install-dotfiles() {
-    DOTFILES="/home/$(whoami)/"
+    DOTFILES="/tmp/"
     if [ ! -d "$DOTFILES" ];
         then
             dialog --infobox "[$(whoami)] Downloading dotfiles..." 10 60
@@ -131,13 +131,11 @@ install-dotfiles() {
     fi
     
     echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
-    source "/home/$(whoami)/.dotfiles/zsh/.zshenv"
-    mv "$DOTFILES/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
-    mv "$DOTFILES/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
-    mv "$DOTFILES/wallpapers/*" /opt/wallpapers
-    mv "$DOTFILES/.config/*" /home/$(whoami)/
-    mv "$DOTFILES/rofi/applets/bin/*" /usr/bin/
-    
+    mv "/tmp/dotfiles/.config/*" /home/$(whoami)/
+    source "/home/$(whoami)/.config/zsh/.zshenv"
+    mv "/tmp/dotfiles/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
+    mv "/tmp/dotfiles/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
+    mv "/tmp/dotfiles/wallpapers/*" /opt/wallpapers
     rm ~/.bash*
     rm -rf /usr/share/fonts/[71aceT]*
     chmod 755 "$XDG_CONFIG_HOME/qtile/autostart.sh"
@@ -146,6 +144,7 @@ install-dotfiles() {
     chmod 755 "$XDG_CONFIG_HOME/rofi/applets/bin/*"
     chmod 755 "$XDG_CONFIG_HOME/rofi/applets/shared/theme.bash"
     chmod 755 "$XDG_CONFIG_HOME/rofi/launchers/launcher.sh"
+    mv "/tmp/dotfiles/rofi/applets/bin/*" /usr/bin/
     mv "$ZDOTDIR/zsh-completions.plugin.zsh" "$ZDOTDIR/_zsh-completions.plugin.zsh"
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
