@@ -26,10 +26,10 @@ sudo chsh -s "$(which zsh)" "$(whoami)"
 
 if [ ! -d "/tmp/dotfiles" ];
   then
-    git clone --recurse-submodules https://github.com/Twilight4/dotfiles > "/tmp/dotfiles"
+    sudo git clone --recurse-submodules https://github.com/Twilight4/dotfiles > "/tmp/dotfiles"
 fi
     
-    sudo sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
+    sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
     sudo mv "/tmp/dotfiles/.config/*" /home/$(whoami)/
     source "/home/$(whoami)/.config/zsh/.zshenv"
     sudo mv "/tmp/dotfiles/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
