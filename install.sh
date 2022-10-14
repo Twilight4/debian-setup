@@ -1,5 +1,26 @@
 #!/usr/bin/env bash
 
+    paclist_path="$(download-paclist "$url_installer")"
+    log INFO "PACLIST DOWNLOADED AT: $paclist_path" "$output"
+    yaylist_path="$(download-yaylist "$url_installer")"
+    log INFO "YAYLIST DOWNLOADED AT: $yaylist_path" "$output"
+    log INFO "YAY INSTALLED" "$output"
+    install-apps "$apps" "$dry_run" "$output"
+    log INFO "APPS INSTALLED" "$output"
+    set-user-permissions
+    log INFO "DIRECTORIES CREATED" "$output"
+    install-dotfiles
+    log INFO "DOTFILES INSTALLED" "$output"
+    install-ghapps
+    log INFO "GITHUB APPS INSTALLED" "$output"
+
+
+
+
+
+
+
+##########################################################################
 curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
 && tar -xvf "yay.tar.gz" \
 && cd "yay" \
