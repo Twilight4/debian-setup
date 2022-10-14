@@ -9,8 +9,9 @@ curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
 
 curl https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist > "/tmp/paclist"  
 curl https://raw.githubusercontent.com/Twilight4/arch-install/master/yaylist > "/tmp/yaylist"
+sudo pacman -Sy
 sudo pacman -Sy --noconfirm $(cat /tmp/paclist)
-yay -Sy --noconfirm $(cat /tmp/yaylist)
+yay -S --noconfirm $(cat /tmp/yaylist)
         
 # Needed if system installed in VBox
 sudo systemctl enable vboxservice.service
