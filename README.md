@@ -3,10 +3,10 @@
 ### These are my scripts to install easily Arch Linux.
 
 **Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to.
-1. `curl` the first script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install_sys.sh`
-2. Change the function `url_installer` in the file if you want to
-3. Launch the script `bash install_sys.sh`
-4. `curl` and launch the script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install.sh && bash install.sh`
+1. `curl` the script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install_sys.sh`
+2. Launch the script `bash install_sys.sh`
+3. After reboot `curl` the script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install.sh`
+4. Launch the script `bash install.sh`
 
 # Contents
 Every scripts are called from `install_sys.sh`.
