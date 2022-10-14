@@ -58,7 +58,7 @@ set-user-permissions() {
 }
 
 install-network-manager() {
-pacman -S networkmanager
+pacman -S --noconfirm networkmanager
 
 # Enable the systemd service NetworkManager.
 systemctl enable NetworkManager.service
