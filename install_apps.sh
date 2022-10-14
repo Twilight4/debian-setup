@@ -81,12 +81,6 @@ update-system() {
     pacman -Syu --noconfirm
 }
 
-dialog-install-apps() {
-    dialog --title "Lesgoo" --msgbox \
-    "The system will now install everything you need.\n\n\
-    It will take some time.\n\n " 13 60
-}
-
 install-yay() {
     dialog --infobox "[$(whoami)] Installing \"yay\", an AUR helper..." 10 60
     curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
@@ -98,6 +92,10 @@ install-yay() {
 }
 
 dialog-install-apps() {
+    dialog --title "Lesgoo" --msgbox \
+    "The system will now install everything you need.\n\n\
+    It will take some time.\n\n " 13 60
+    
     pacman -S --noconfirm $(cat /tmp/paclist)
     yay -S --noconfirm $(cat /tmp/yaylist)
         
