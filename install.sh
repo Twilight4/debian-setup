@@ -30,7 +30,7 @@ if [ ! -d "$DOTFILES" ];
     git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
 fi
     
-    sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
+    sudo sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
     sudo mv "/tmp/dotfiles/.config/*" /home/$(whoami)/
     source "/home/$(whoami)/.config/zsh/.zshenv"
     sudo mv "/tmp/dotfiles/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
