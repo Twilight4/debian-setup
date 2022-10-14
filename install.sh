@@ -1,4 +1,4 @@
-!#bin/bash
+#!bin/bash
 
 curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
 && tar -xvf "yay.tar.gz" \
