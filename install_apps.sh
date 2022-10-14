@@ -17,7 +17,6 @@ run() {
     #log INFO "MULTILIB ADDED" "$output"
     disable-horrible-beep
     log INFO "HORRIBLE BEEP DISABLED" "$output"
-    dialog-welcome
     update-system
     log INFO "UPDATED SYSTEM" "$output"
     install-yay "$output"
@@ -71,10 +70,6 @@ download-yaylist() {
 disable-horrible-beep() {
     rmmod pcspkr
     echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
-}
-
-dialog-welcome() {
-    dialog --title "Welcome!" --msgbox "Welcome to Twilight4s dotfiles and software installation script for Arch linux.\n" 10 60
 }
 
 update-system() {
