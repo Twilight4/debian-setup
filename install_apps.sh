@@ -7,11 +7,6 @@ run() {
     name=$(cat /tmp/var_user_name)
     url_installer=$(cat /var_url_installer)
     dry_run=$(cat /var_dry_run)
-    
-    paclist_path="$(download-paclist "$url_installer")"
-    log INFO "PACLIST DOWNLOADED AT: $paclist_path" "$output"
-    yaylist_path="$(download-yaylist "$url_installer")"
-    log INFO "YAYLIST DOWNLOADED AT: $yaylist_path" "$output"
     add-multilib-repo
     log INFO "MULTILIB ADDED" "$output"
     disable-horrible-beep
@@ -20,6 +15,8 @@ run() {
     log INFO "UPDATED SYSTEM" "$output"
     set-user-permissions
     log INFO "USER PERMISSIONS SET" "$output"
+    install-network-manager "$dry_run" "$output"
+    log INFO "NETWORK MANAGER SET" "$output"
     set-pacman-config
     log INFO "PACMAN CONFIG SET" "$output"
     #continue-install "$url_installer" "$name"
@@ -32,24 +29,6 @@ log() {
     local -r timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 
     echo -e "${timestamp} [${level}] ${message}" >>"$output"
-}
-
-download-paclist() {
-    local -r url_installer=${1:?}
-
-    paclist_path="/tmp/paclist" 
-    curl "$url_installer/paclist" > "$paclist_path"
-
-    echo $paclist_path
-}
-
-download-yaylist() {
-    local -r url_installer=${1:?}
-    
-    yaylist_path="/tmp/yaylist"
-    curl "$url_installer/yaylist" > "$yaylist_path"
-
-    echo $yaylist_path
 }
 
 add-multilib-repo() {
@@ -76,6 +55,13 @@ mkdir -p "/usr/share/fonts/rofi-fonts"
 set-user-permissions() {
     dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
     curl "$url_installer/sudoers" > /etc/sudoers
+}
+
+install-network-manager() {
+pacman -S networkmanager
+
+# Enable the systemd service NetworkManager.
+systemctl enable NetworkManager.service
 }
 
 set-pacman-config() {
