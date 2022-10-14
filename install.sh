@@ -5,6 +5,15 @@ curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
 && cd - \
 && rm -rf "yay" "yay.tar.gz" ;
 
+url_installer = https://raw.githubusercontent.com/Twilight4/arch-install/master
+paclist_path="/tmp/paclist" 
+curl "$url_installer/paclist" > "$paclist_path"
+echo $paclist_path
+  
+yaylist_path="/tmp/yaylist"
+curl "$url_installer/yaylist" > "$yaylist_path"
+echo $yaylist_path
+
 sudo pacman -S --noconfirm $(cat /tmp/paclist)
 yay -S --noconfirm $(cat /tmp/yaylist)
         
@@ -13,9 +22,6 @@ sudo systemctl enable vboxservice.service
     
 # zsh as default terminal for user
 sudo chsh -s "$(which zsh)" "$name"
-            
-# Enable the systemd service NetworkManager.
-sudo systemctl enable NetworkManager.service
 
 ## For Docker
 #groupadd docker
@@ -47,7 +53,6 @@ fi
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
     git config --global user.name "Twilight4"
-
 
 GHAPPS="/opt/github/essentials"
 if [ ! -d "$GHAPPS" ];
