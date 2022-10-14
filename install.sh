@@ -5,15 +5,8 @@ curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
 && cd - \
 && rm -rf "yay" "yay.tar.gz" ;
 
-url_installer = https://raw.githubusercontent.com/Twilight4/arch-install/master
-paclist_path="/tmp/paclist" 
-curl "$url_installer/paclist" > "$paclist_path"
-echo $paclist_path
-  
-yaylist_path="/tmp/yaylist"
-curl "$url_installer/yaylist" > "$yaylist_path"
-echo $yaylist_path
-
+curl https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist > "/tmp/paclist"  
+curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/yaylist" > "/tmp/yaylist"
 sudo pacman -S --noconfirm $(cat /tmp/paclist)
 yay -S --noconfirm $(cat /tmp/yaylist)
         
@@ -85,4 +78,4 @@ fi
 "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
 }
 
-sudo reboot
+reboot
