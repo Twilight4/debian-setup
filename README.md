@@ -22,7 +22,7 @@ The second script `install_chroot` will:
 2. Set up Grub for the boot
 3. Create a new user with password
 
-The third script `install_apps` will:
+The third and forth scripts `install_apps` and `install.sh` will:
 1. Install every software specified in `paclist`
 2. Install every software specified in `yalist`
 3. Install my [dotfiles](https://github.com/Twilight4/dotfiles)
