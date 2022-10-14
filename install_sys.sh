@@ -255,14 +255,6 @@ clean() {
 end-of-install() {
     dialog --title "Almost done!" \
         --msgbox "The installation is almost done! \n\nTo run the new graphical environment, you need to launch install.sh script on non-root acc and then restart your computer." 20 60
-
-    response=$?
-    case $response in
-        0) reboot;;
-        1) clear;;
-    esac
-
-    clear
 }
 
 run "$@"
