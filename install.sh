@@ -46,7 +46,7 @@ install-apps() {
     chsh -s "$(which zsh)" "twilight"
     
     # Needed if system installed in VMWare
-    if [ "$(cat paclist)" = "xf86-video-vmware" ]; then
+    if [ "$(cat /tmp/paclist)" = "xf86-video-vmware" ]; then
         systemctl enable vmtoolsd.service
         systemctl enable vmware-vmblock-fuse.service
     fi
@@ -61,7 +61,7 @@ create-directories() {
 #mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 mkdir -p "/opt/github/essentials"
 mkdir -p "/opt/wallpapers"
-mkdir -p "/usr/share/fonts/MesloLGS-NF"
+mkdir -p "/usr/share/fonts/MesloLGM-NF"
 mkdir -p "/usr/share/fonts/rofi-fonts"
 }
 
@@ -72,22 +72,22 @@ install-dotfiles() {
             git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
     fi
     
-    mv "/tmp/dotfiles/.config" $HOME/
+    mv "/tmp/dotfiles/.config" /home/twilight/
     echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
-    source "$HOME/.config/zsh/.zshenv"
-    mv "/tmp/dotfiles/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
-    mv "/tmp/dotfiles/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
-    mv "/tmp/dotfiles/wallpapers/*" /opt/wallpapers
-    rm $HOME/.bash*
+    source "/home/twilight/.config/zsh/.zshenv"
     rm -rf /usr/share/fonts/[71aceT]*
-    chmod 755 "$XDG_CONFIG_HOME/qtile/autostart.sh"
-    chmod 755 "$XDG_CONFIG_HOME/polybar/launch.sh"
-    chmod 755 "$XDG_CONFIG_HOME/polybar/polybar-scripts/*"
-    chmod 755 "$XDG_CONFIG_HOME/rofi/applets/bin/*"
-    chmod 755 "$XDG_CONFIG_HOME/rofi/applets/shared/theme.bash"
-    chmod 755 "$XDG_CONFIG_HOME/rofi/launchers/launcher.sh"
-    mv "$XDG_CONFIG_HOME/rofi/applets/bin/*" /usr/bin/
-    mv "$ZDOTDIR/zsh-completions.plugin.zsh" "$ZDOTDIR/_zsh-completions.plugin.zsh"
+    mv /tmp/dotfiles/fonts/MesloLGM-NF/* /usr/share/fonts/MesloLGM-NF/
+    mv /tmp/dotfiles/fonts/rofi-fonts/* /usr/share/fonts/rofi-fonts/
+    mv /tmp/dotfiles/wallpapers/* /opt/wallpapers
+    rm /home/twilight/.bash*
+    chmod 755 "/home/twilight/.config/qtile/autostart.sh"
+    chmod 755 "/home/twilight/.config/polybar/launch.sh"
+    chmod 755 "/home/twilight/.config/polybar/polybar-scripts/*"
+    chmod 755 "/home/twilight/.config/rofi/applets/bin/*"
+    chmod 755 "/home/twilight/.config/rofi/applets/shared/theme.bash"
+    chmod 755 "/home/twilight/.config/rofi/launchers/launcher.sh"
+    mv "/home/twilight/.config/rofi/applets/bin/*" /usr/bin/
+    mv "/home/twilight/.config/zsh/zsh-completions.plugin.zsh" "/home/twilight/.config/zsh/_zsh-completions.plugin.zsh"
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
     git config --global user.name "Twilight4"
