@@ -36,6 +36,7 @@ install-yay() {
 }
 
 install-apps() {
+    pacman -Sy
     pacman -S --noconfirm $(cat /tmp/paclist)
     yay -S --noconfirm $(cat /tmp/yaylist)
         
@@ -130,6 +131,5 @@ echo 'reminders for myself:
 - add ssh pub key to github
 '
 
+#reboot
 run "$@"
-
-reboot
