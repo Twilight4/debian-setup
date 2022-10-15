@@ -73,7 +73,9 @@ install-dotfiles() {
     fi
     
     sudo cp /tmp/dotfiles/.config/* /home/twilight/.config
+    su
     sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
+    su twilight
     source "/home/twilight/.config/zsh/.zshenv"
     sudo rm -rf /usr/share/fonts/[71aceT]*
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/* /usr/share/fonts/MesloLGM-NF/
