@@ -80,12 +80,12 @@ install-dotfiles() {
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/* /usr/share/fonts/rofi-fonts/
     sudo mv /tmp/dotfiles/wallpapers/* /opt/wallpapers
     sudo rm /home/$(whoami)/.bash*
-    sudo chmod 755 "$XDG_CONFIG_HOME/qtile/autostart.sh"
-    sudo chmod 755 "$XDG_CONFIG_HOME/polybar/launch.sh"
+    sudo chmod 755 $XDG_CONFIG_HOME/qtile/autostart.sh
+    sudo chmod 755 $XDG_CONFIG_HOME/polybar/launch.sh
     sudo chmod 755 $HOME/.config/polybar/polybar-scripts/*
     sudo chmod 755 $HOME/.config/rofi/applets/bin/*
-    sudo chmod 755 "$XDG_CONFIG_HOME/rofi/applets/shared/theme.bash"
-    sudo chmod 755 "$XDG_CONFIG_HOME/rofi/launcher/launcher.sh"
+    sudo chmod 755 $XDG_CONFIG_HOME/rofi/applets/shared/theme.bash
+    sudo chmod 755 $XDG_CONFIG_HOME/rofi/launcher/launcher.sh
     sudo mv $HOME/.config/rofi/applets/bin/* /usr/bin/
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
