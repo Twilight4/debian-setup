@@ -25,6 +25,8 @@ download-yaylist() {
 }
 
 install-yay() {
+    pacman -Sy
+    pacman -S tar
     curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
     && tar -xvf "yay.tar.gz" \
     && cd "yay" \
@@ -34,7 +36,6 @@ install-yay() {
 }
 
 install-apps() {
-    pacman -Sy
     pacman -S --noconfirm $(cat /tmp/paclist)
     yay -S --noconfirm $(cat /tmp/yaylist)
         
