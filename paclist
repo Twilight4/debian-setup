@@ -1,5 +1,7 @@
-qtile
+xorg-server
 xorg-xinit
+python-xcffib
+qtile
 python-psutil
 python-iwlib
 git
