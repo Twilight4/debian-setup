@@ -102,6 +102,7 @@ install-ghapps() {
             git clone "https://github.com/christoomey/vim-tmux-navigator"
             git clone "https://github.com/Swordfish90/cool-retro-term"
     fi
+    
 
 # powerlevel10k
 [ ! -d "/opt/powerlevel10k" ] \
