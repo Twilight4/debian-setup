@@ -42,7 +42,7 @@ install-apps() {
     systemctl enable vboxservice.service
     
     # zsh as default terminal for user
-    chsh -s "$(which zsh)" "$name"
+    chsh -s "$(which zsh)" "$(whoami)"
     
     # Needed if system installed in VMWare
     if [ "$(cat paclist)" = "xf86-video-vmware" ]; then
