@@ -126,7 +126,7 @@ install-ghapps() {
 
 echo 'reminders for myself:
 - add ssh pub key to github
-- once plugins gets installed for zsh type a command: mv /home/twilight/.config/zsh/zsh-completions.plugin.zsh home/twilight/.config/zsh/_zsh-completions.plugin.zsh
+- once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
 '
 
 #reboot
