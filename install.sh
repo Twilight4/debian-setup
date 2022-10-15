@@ -96,17 +96,17 @@ install-ghapps() {
     GHAPPS="/opt/github/essentials"
     if [ ! -d "$GHAPPS" ];
         then
-            git clone "https://github.com/shlomif/lynx-browser"
-            git clone "https://github.com/chubin/cheat.sh"
-            git clone "https://github.com/smallhadroncollider/taskell"
-            git clone "https://github.com/christoomey/vim-tmux-navigator"
-            git clone "https://github.com/Swordfish90/cool-retro-term"
+            sudo git clone "https://github.com/shlomif/lynx-browser"
+            sudo git clone "https://github.com/chubin/cheat.sh"
+            sudo git clone "https://github.com/smallhadroncollider/taskell"
+            sudo git clone "https://github.com/christoomey/vim-tmux-navigator"
+            sudo git clone "https://github.com/Swordfish90/cool-retro-term"
     fi
     
 
 # powerlevel10k
 [ ! -d "/opt/powerlevel10k" ] \
-&& git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
+&& sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
 "/opt/powerlevel10k"
 
 # XDG ninja
