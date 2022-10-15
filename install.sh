@@ -42,7 +42,7 @@ install-apps() {
     systemctl enable vboxservice.service
     
     # zsh as default terminal for user
-    chsh -s "$(which zsh)" "$(whoami)"
+    chsh -s "$(which zsh)" "twilight"
     
     # Needed if system installed in VMWare
     if [ "$(cat paclist)" = "xf86-video-vmware" ]; then
@@ -71,13 +71,13 @@ install-dotfiles() {
             git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
     fi
     
-    mv "/tmp/dotfiles/.config/*" /home/$(whoami)/
+    mv "/tmp/dotfiles/.config" $HOME/
     echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
-    source "/home/$(whoami)/.config/zsh/.zshenv"
+    source "$HOME/.config/zsh/.zshenv"
     mv "/tmp/dotfiles/fonts/MesloLGS-NF/*" /usr/share/fonts/MesloLGS-NF
     mv "/tmp/dotfiles/fonts/rofi-fonts/*" /usr/share/fonts/rofi-fonts
     mv "/tmp/dotfiles/wallpapers/*" /opt/wallpapers
-    rm ~/.bash*
+    rm $HOME/.bash*
     rm -rf /usr/share/fonts/[71aceT]*
     chmod 755 "$XDG_CONFIG_HOME/qtile/autostart.sh"
     chmod 755 "$XDG_CONFIG_HOME/polybar/launch.sh"
@@ -85,7 +85,7 @@ install-dotfiles() {
     chmod 755 "$XDG_CONFIG_HOME/rofi/applets/bin/*"
     chmod 755 "$XDG_CONFIG_HOME/rofi/applets/shared/theme.bash"
     chmod 755 "$XDG_CONFIG_HOME/rofi/launchers/launcher.sh"
-    mv "/home/$(whoami)/.config/rofi/applets/bin/*" /usr/bin/
+    mv "$XDG_CONFIG_HOME/rofi/applets/bin/*" /usr/bin/
     mv "$ZDOTDIR/zsh-completions.plugin.zsh" "$ZDOTDIR/_zsh-completions.plugin.zsh"
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
