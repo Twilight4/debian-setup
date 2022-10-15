@@ -72,9 +72,9 @@ install-dotfiles() {
             git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
     fi
     
-    sudo mv "/tmp/dotfiles/.config" /home/twilight/
+    sudo cp /tmp/dotfiles/.config/* /home/twilight/.config
     sudo echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
-    sudo source "/home/twilight/.config/zsh/.zshenv"
+    source "/home/twilight/.config/zsh/.zshenv"
     sudo rm -rf /usr/share/fonts/[71aceT]*
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/* /usr/share/fonts/MesloLGM-NF/
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/* /usr/share/fonts/rofi-fonts/
