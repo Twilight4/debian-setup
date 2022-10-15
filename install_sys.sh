@@ -254,7 +254,7 @@ clean() {
 
 end-of-install() {
     dialog --title "Almost done" \
-        --yesno "The installation is almost done! \n\nTo run the new graphical environment, you need to remove the iso and restart your pc now, then login to non-root acc and launch install.sh script and then restart your computer again. \n\nDo you want to restart now?" 20 60
+        --yesno "The installation is almost done! \n\nTo run the new graphical environment, you need to remove the iso and shutdown your pc now, then login to non-root acc and launch install.sh script and then restart your computer again. \n\nDo you want to restart now?" 20 60
     
     response=$?
     case $response in
