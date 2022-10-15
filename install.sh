@@ -3,6 +3,7 @@
 run() {
     paclist_path
     yaylist_path
+    install-yay
     install-apps
     set-user-permissions
     install-dotfiles
