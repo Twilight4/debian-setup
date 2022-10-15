@@ -7,8 +7,6 @@ run() {
     name=$(cat /tmp/var_user_name)
     url_installer=$(cat /var_url_installer)
     dry_run=$(cat /var_dry_run)
-    add-multilib-repo
-    log INFO "MULTILIB ADDED" "$output"
     disable-horrible-beep
     log INFO "HORRIBLE BEEP DISABLED" "$output"
     update-system
@@ -29,10 +27,6 @@ log() {
     local -r timestamp=$(date +"%Y-%m-%d %H:%M:%S")
 
     echo -e "${timestamp} [${level}] ${message}" >>"$output"
-}
-
-add-multilib-repo() {
-    echo "[multilib]" >> /etc/pacman.conf && echo "Include = /etc/pacman.d/mirrorlist" >> /etc/pacman.conf
 }
 
 disable-horrible-beep() {
