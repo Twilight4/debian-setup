@@ -73,7 +73,7 @@ install-dotfiles() {
     fi
     
     sudo mv -u /tmp/dotfiles/.config/* "$HOME/.config"
-    source "$XDG_CONFIG_HOME/zsh/.zshenv"
+    source "/home/$(whoami)/zsh/.zshenv"
     sudo rm -rf /usr/share/fonts/[71aceT]*
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/* /usr/share/fonts/MesloLGM-NF/
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/* /usr/share/fonts/rofi-fonts/
