@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 run() {
-    paclist_path
-    yaylist_path
+    download-paclist
+    download-yaylist
     install-yay
     install-apps
     set-user-permissions
