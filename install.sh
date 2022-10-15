@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 run() {
-    paclist_path="$(download-paclist "$url_installer")"
-    yaylist_path="$(download-yaylist "$url_installer")"
+    paclist_path
+    yaylist_path
     install-apps
     set-user-permissions
     install-dotfiles
