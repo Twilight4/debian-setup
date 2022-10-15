@@ -128,7 +128,7 @@ echo 'reminders for myself:
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
 '
 
-#reboot
+sudo reboot
 }
 
 run "$@"
