@@ -103,7 +103,6 @@ install-ghapps() {
             sudo git clone "https://github.com/Swordfish90/cool-retro-term"
     fi
     
-
 # powerlevel10k
 [ ! -d "/opt/powerlevel10k" ] \
 && sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
