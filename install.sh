@@ -11,17 +11,15 @@ run() {
 }
 
 download-paclist() {
-url-installer = "https://raw.githubusercontent.com/Twilight4/arch-install/master"
     paclist_path="/tmp/paclist" 
-    curl "$url-installer/paclist" > "$paclist_path"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist" > "$paclist_path"
 
     echo $paclist_path
 }
 
 download-yaylist() {
-url-installer = "https://raw.githubusercontent.com/Twilight4/arch-install/master"   
     yaylist_path="/tmp/yaylist"
-    curl "$url-installer/yaylist" > "$yaylist_path"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/yaylist" > "$yaylist_path"
 
     echo $yaylist_path
 }
