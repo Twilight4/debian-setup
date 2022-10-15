@@ -80,14 +80,14 @@ install-dotfiles() {
     mv /tmp/dotfiles/fonts/rofi-fonts/* /usr/share/fonts/rofi-fonts/
     mv /tmp/dotfiles/wallpapers/* /opt/wallpapers
     rm /home/twilight/.bash*
-    chmod 755 "/home/twilight/.config/qtile/autostart.sh"
-    chmod 755 "/home/twilight/.config/polybar/launch.sh"
-    chmod 755 "/home/twilight/.config/polybar/polybar-scripts/*"
-    chmod 755 "/home/twilight/.config/rofi/applets/bin/*"
-    chmod 755 "/home/twilight/.config/rofi/applets/shared/theme.bash"
-    chmod 755 "/home/twilight/.config/rofi/launchers/launcher.sh"
-    mv "/home/twilight/.config/rofi/applets/bin/*" /usr/bin/
-    mv "/home/twilight/.config/zsh/zsh-completions.plugin.zsh" "/home/twilight/.config/zsh/_zsh-completions.plugin.zsh"
+    chmod 755 /home/twilight/.config/qtile/autostart.sh
+    chmod 755 /home/twilight/.config/polybar/launch.sh
+    chmod 755 /home/twilight/.config/polybar/polybar-scripts/*
+    chmod 755 /home/twilight/.config/rofi/applets/bin/*
+    chmod 755 /home/twilight/.config/rofi/applets/shared/theme.bash
+    chmod 755 /home/twilight/.config/rofi/launchers/launcher.sh
+    mv /home/twilight/.config/rofi/applets/bin/* /usr/bin/
+    mv /home/twilight/.config/zsh/zsh-completions.plugin.zsh home/twilight/.config/zsh/_zsh-completions.plugin.zsh
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
     git config --global user.name "Twilight4"
@@ -107,23 +107,23 @@ install-ghapps() {
 
 # powerlevel10k
 [ ! -d "/opt/powerlevel10k" ] \
-&& --depth=1 https://github.com/romkatv/powerlevel10k.git \
+&& git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
 "/opt/powerlevel10k"
 
 # XDG ninja
 [ ! -d "/home/$(whoami)/xdg-ninja" ] \
 && git clone https://github.com/b3nj5m1n/xdg-ninja \
-"/home/$(whoami)/xdg-ninja"
+"/home/twilight/xdg-ninja"
 
 # tmux plugin manager
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] \
 && git clone --depth 1 https://github.com/tmux-plugins/tpm \
-"$XDG_CONFIG_HOME/tmux/plugins/tpm"
+"/home/twilight/.config/tmux/plugins/tpm"
 
 # neovim plugin manager
 [ ! -d "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ] \
 && git clone https://github.com/wbthomason/packer.nvim \
-"$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
+"/home/twilight/.config/.local/share/nvim/site/pack/packer/start/packer.nvim"
 }
 
 echo 'reminders for myself:
