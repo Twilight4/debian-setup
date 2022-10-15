@@ -122,7 +122,6 @@ install-ghapps() {
 [ ! -d "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ] \
 && git clone https://github.com/wbthomason/packer.nvim \
 "/home/twilight/.config/.local/share/nvim/site/pack/packer/start/packer.nvim"
-}
 
 echo 'reminders for myself:
 - add ssh pub key to github
@@ -130,4 +129,6 @@ echo 'reminders for myself:
 '
 
 #reboot
+}
+
 run "$@"
