@@ -87,7 +87,6 @@ install-dotfiles() {
     chmod 755 /home/twilight/.config/rofi/applets/shared/theme.bash
     chmod 755 /home/twilight/.config/rofi/launchers/launcher.sh
     mv /home/twilight/.config/rofi/applets/bin/* /usr/bin/
-    mv /home/twilight/.config/zsh/zsh-completions.plugin.zsh home/twilight/.config/zsh/_zsh-completions.plugin.zsh
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
     git config --global user.name "Twilight4"
@@ -128,6 +127,7 @@ install-ghapps() {
 
 echo 'reminders for myself:
 - add ssh pub key to github
+- once plugins gets installed for zsh type a command: mv /home/twilight/.config/zsh/zsh-completions.plugin.zsh home/twilight/.config/zsh/_zsh-completions.plugin.zsh
 '
 
 #reboot
