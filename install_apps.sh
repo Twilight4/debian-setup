@@ -62,6 +62,7 @@ set-pacman-config() {
     dialog --infobox "Copy pacman configuration file (pacman.conf)..." 4 40
     curl "$url_installer/pacman.conf" > /etc/pacman.conf
     curl "$url_installer/install.sh" > /home/twilight/install.sh
+    echo 'export ZDOTDIR="$HOME"/.config/zsh' >> /etc/zsh/zshenv
 }
 
 #continue-install() {
