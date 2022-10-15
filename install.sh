@@ -5,7 +5,7 @@ run() {
     download-yaylist
     install-yay
     install-apps
-    set-user-permissions
+    create-directories
     install-dotfiles
     install-ghapps
 }
