@@ -1,4 +1,5 @@
 qtile
+xorg-xinit
 python-psutil
 python-iwlib
 git
