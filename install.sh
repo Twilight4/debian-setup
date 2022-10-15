@@ -96,7 +96,6 @@ install-ghapps() {
     GHAPPS="/opt/github/essentials"
     if [ ! -d "$GHAPPS" ];
         then
-            dialog --infobox "[$(whoami)] Downloading github apps..." 10 60
             git clone "https://github.com/shlomif/lynx-browser"
             git clone "https://github.com/chubin/cheat.sh"
             git clone "https://github.com/smallhadroncollider/taskell"
