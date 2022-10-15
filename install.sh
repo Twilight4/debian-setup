@@ -85,7 +85,7 @@ install-dotfiles() {
     chmod 755 /home/twilight/.config/polybar/polybar-scripts/*
     chmod 755 /home/twilight/.config/rofi/applets/bin/*
     chmod 755 /home/twilight/.config/rofi/applets/shared/theme.bash
-    chmod 755 /home/twilight/.config/rofi/launchers/launcher.sh
+    chmod 755 /home/twilight/.config/rofi/launcher/launcher.sh
     mv /home/twilight/.config/rofi/applets/bin/* /usr/bin/
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
