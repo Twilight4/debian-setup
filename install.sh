@@ -75,7 +75,7 @@ install-dotfiles() {
     
     sudo mv -u /tmp/dotfiles/.config/* "$HOME/.config"
     source "/home/$(whoami)/.config/zsh/.zshenv"
-    sudo rm -rf /usr/share/fonts/*
+    #sudo rm -rf /usr/share/fonts/[ace71]
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/* /usr/share/fonts/MesloLGM-NF/
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/* /usr/share/fonts/rofi-fonts/
     sudo mv /tmp/dotfiles/wallpapers/* /opt/wallpapers
