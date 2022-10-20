@@ -61,8 +61,6 @@ create-directories() {
 #sudo mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 sudo mkdir -p "/opt/github/essentials"
 sudo mkdir -p "/opt/wallpapers"
-sudo mkdir -p "/usr/share/fonts/MesloLGM-NF"
-sudo mkdir -p "/usr/share/fonts/rofi-fonts"
 sudo mkdir -p "/opt/powerlevel10k"
 }
 
@@ -76,8 +74,8 @@ install-dotfiles() {
     sudo mv -u /tmp/dotfiles/.config/* "$HOME/.config"
     source "/home/$(whoami)/.config/zsh/.zshenv"
     #sudo rm -rf /usr/share/fonts/[ace71]
-    sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/* /usr/share/fonts/MesloLGM-NF/
-    sudo mv /tmp/dotfiles/fonts/rofi-fonts/* /usr/share/fonts/rofi-fonts/
+    sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/ /usr/share/fonts/
+    sudo mv /tmp/dotfiles/fonts/rofi-fonts/ /usr/share/fonts/
     sudo mv /tmp/dotfiles/wallpapers/* /opt/wallpapers
     sudo rm /home/$(whoami)/.bash*
     sudo chmod 755 $XDG_CONFIG_HOME/qtile/autostart.sh
