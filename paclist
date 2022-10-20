@@ -1,5 +1,7 @@
 xorg-server
 xorg-xinit
+xorg-xinput
+xorg-xauth
 python-xcffib
 qtile
 python-psutil
@@ -44,7 +46,6 @@ pamixer
 libmpdclient 
 wireless_tools
 jq
-xorg-xinput
 mpd
 acpi
 powertop
