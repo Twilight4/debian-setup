@@ -2,6 +2,10 @@ xorg-server
 xorg-xinit
 xorg-xinput
 xorg-xauth
+xorg-fonts-100dpi
+xorg-fonts-75dpi
+xorg-fonts-misc
+xorg-fonts-type1
 python-xcffib
 qtile
 python-psutil
