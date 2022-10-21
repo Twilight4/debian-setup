@@ -38,14 +38,6 @@ update-system() {
     pacman -Syu --noconfirm
 }
 
-create-directories() {
-#mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
-mkdir -p "/opt/github/essentials"
-mkdir -p "/opt/wallpapers"
-mkdir -p "/usr/share/fonts/MesloLGS-NF"
-mkdir -p "/usr/share/fonts/rofi-fonts"
-}
-
 set-user-permissions() {
     dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
     curl "$url_installer/sudoers" > /etc/sudoers
