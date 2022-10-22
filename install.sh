@@ -126,6 +126,7 @@ install-ghapps() {
 echo 'Post-Installation:
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
 - add ssh pub key to github
+- rm conflicted files in qtile dir
 '
 
 sudo reboot
