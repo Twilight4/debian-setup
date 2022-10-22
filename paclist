@@ -1,5 +1,8 @@
 xorg-xinit
-qtile
+python-pip
+python-cffi
+python-xcffib
+pango
 python-psutil
 python-iwlib
 git
