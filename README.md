@@ -12,7 +12,7 @@ Every scripts are called from `install_sys.sh`.
 The first script `install_sys` will:
 1. Erase everything on the disk of your choice
 2. Create partitions
-   - Boot partition of 200MB
+   - Boot partition of 2GB (if no choice is made)
    - Swap partition
    - Root partition
 
