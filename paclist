@@ -1,6 +1,5 @@
 xorg-server
 xorg-xinit
-xorg-xauth
 xorg-xinput
 xorg-xrandr
 python-pip
