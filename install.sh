@@ -128,7 +128,7 @@ echo 'Post-Installation:
 - add ssh pub key to github
 '
 
-#sudo reboot
+sudo reboot
 }
 
 run "$@"
