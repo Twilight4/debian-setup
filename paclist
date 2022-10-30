@@ -5,6 +5,7 @@ python-psutil
 python-iwlib
 python-xcffib
 qtile
+virtualbox-guest-utils
 git
 neovim
 alacritty
@@ -15,6 +16,9 @@ nitrogen
 polybar
 rofi
 pamixer
+acpi
+light
+xdg-user-dirs
 
 diff-so-fancy
 min
@@ -48,11 +52,9 @@ libmpdclient
 wireless_tools
 jq
 mpd
-acpi
 powertop
 xfce4-power-manager
 xfce4-settings
-light
 mpc
 maim
 arandr
@@ -60,5 +62,3 @@ xclip
 thunar
 geany
 thunderbird
-virtualbox-guest-utils
-xdg-user-dirs
