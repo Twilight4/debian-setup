@@ -1,11 +1,9 @@
 xorg-server
 xorg-xinit
 xorg-xinput
-python-cffi
-qtile
-pango
 python-psutil
 python-iwlib
+qtile
 git
 diff-so-fancy
 min
