@@ -110,11 +110,6 @@ install-ghapps() {
 && git clone --depth 1 https://github.com/tmux-plugins/tpm \
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
-# neovim plugin manager
-[ ! -d "$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim" ] \
-&& git clone https://github.com/wbthomason/packer.nvim \
-"$XDG_CONFIG_HOME/.local/share/nvim/site/pack/packer/start/packer.nvim"
-
 echo 'Post-Installation:
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
 - add ssh pub key to github
