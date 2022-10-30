@@ -10,7 +10,6 @@ virtualbox-guest-utils
 git
 neovim
 alacritty
-picom
 zsh
 zsh-completions
 nitrogen
