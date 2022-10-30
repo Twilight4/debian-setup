@@ -25,5 +25,5 @@ The second script `install_chroot` will:
 
 The third and forth scripts `install_apps` and `install.sh` will:
 1. Install every software specified in `paclist`
-2. Install every software specified in `yalist`
+2. Install every software specified in `parulist`
 3. Install my [dotfiles](https://github.com/Twilight4/dotfiles)
