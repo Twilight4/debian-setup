@@ -3,6 +3,7 @@ xorg-xinit
 xorg-xinput
 python-psutil
 python-iwlib
+python-xcffib
 qtile
 git
 diff-so-fancy
