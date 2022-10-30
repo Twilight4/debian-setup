@@ -21,6 +21,7 @@ acpi
 light
 xdg-user-dirs
 fzf
+ripgrep
 
 diff-so-fancy
 min
@@ -37,7 +38,6 @@ tmux
 tldr
 openssh
 bleachbit
-ripgrep
 tar
 unzip
 ncdu
