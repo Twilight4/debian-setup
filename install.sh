@@ -27,7 +27,7 @@ download-yaylist() {
 install-yay() {
     sudo pacman -Sy
     sudo pacman -S --noconfirm tar
-    curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/yay.tar.gz" \
+    curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/paru.tar.gz" \
     && tar -xvf "yay.tar.gz" \
     && cd "yay" \
     && makepkg --noconfirm -si \
@@ -37,7 +37,7 @@ install-yay() {
 
 install-apps() {
     sudo pacman -S --noconfirm $(cat /tmp/paclist)
-    yay -S --noconfirm $(cat /tmp/yaylist)
+    paru -S --noconfirm $(cat /tmp/yaylist)
         
     # Needed if system installed in VBox
     sudo systemctl enable vboxservice.service
