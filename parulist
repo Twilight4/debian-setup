@@ -1,3 +1,5 @@
+zsh-theme-powerlevel10k-git
+nvim-packer-git 
 picom-jonaburg-git
 ani-cli
 lf
@@ -8,4 +10,3 @@ shell-color-scripts
 ytfzf
 catppuccin-gtk-theme-mocha
 betterlockscreen
-zsh-theme-powerlevel10k-git
