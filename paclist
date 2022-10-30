@@ -20,6 +20,7 @@ pamixer
 acpi
 light
 xdg-user-dirs
+fzf
 
 diff-so-fancy
 min
@@ -37,7 +38,6 @@ tldr
 openssh
 bleachbit
 ripgrep
-fzf
 tar
 unzip
 ncdu
