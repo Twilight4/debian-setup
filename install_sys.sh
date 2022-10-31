@@ -93,7 +93,6 @@ log() {
 }
 
 install-dialog() {
-    pacman-key --init
     pacman -Sy --noconfirm dialog
 }
 
