@@ -133,7 +133,7 @@ config_user() {
 }
 
 set-user-permissions() {
-    curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
+    curl https://raw.githubusercontent.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
 echo "127.0.0.1 localhost" >> /etc/hosts
 echo "::1       localhost" >> /etc/hosts
 echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
