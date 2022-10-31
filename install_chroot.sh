@@ -137,10 +137,12 @@ set-leftovers() {
     echo "127.0.0.1 localhost" >> /etc/hosts
     echo "::1       localhost" >> /etc/hosts
     echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
-    sudo pacman -S --noconfirm networkmanager
+    pacman -S --noconfirm networkmanager
     # Enable the systemd service NetworkManager.
-    sudo systemctl enable NetworkManager.service
-    sudo curl https://raw.githubusercontent.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
+    systemctl enable NetworkManager.service
+    curl https://raw.githubusercontent.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
+    rmmod pcspkr
+    echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 }
 
 continue-install() {
