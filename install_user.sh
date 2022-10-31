@@ -55,7 +55,6 @@ download-parulist() {
 
 install-paru() {
     sudo pacman -Sy
-    sudo pacman -S --noconfirm tar
     curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/paru.tar.gz" \
     && tar -xvf "yay.tar.gz" \
     && cd "yay" \
