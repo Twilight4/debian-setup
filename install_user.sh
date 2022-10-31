@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 run() {
-    set-pacman-config
     disable-horrible-beep
     update-system
     download-paclist
@@ -11,10 +10,6 @@ run() {
     create-directories
     install-dotfiles
     install-ghapps
-}
-
-set-pacman-config() {
-    sudo curl https://raw.githubusercontent.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
 }
 
 disable-horrible-beep() {
