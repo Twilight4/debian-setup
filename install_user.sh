@@ -15,7 +15,7 @@ run() {
 }
 
 set-pacman-config() {
-    sudo curl https://github.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
+    sudo curl https://raw.githubusercontent.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
 }
 
 disable-horrible-beep() {
