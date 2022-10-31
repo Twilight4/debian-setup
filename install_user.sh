@@ -17,18 +17,15 @@ run() {
 
 disable-horrible-beep() {
     rmmod pcspkr
-    echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+    sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 }
 
 set-user-permissions() {
-    dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
-    curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
+    sudo curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
 }
 
 set-pacman-config() {
-    dialog --infobox "Copy pacman configuration file (pacman.conf)..." 4 40
-    curl https://github.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
-    echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
+    sudo curl https://github.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
 }
 
 update-system() {
@@ -36,10 +33,10 @@ update-system() {
 }
 
 install-network-manager() {
-pacman -S --noconfirm networkmanager
+sudo pacman -S --noconfirm networkmanager
 
 # Enable the systemd service NetworkManager.
-systemctl enable NetworkManager.service
+sudo systemctl enable NetworkManager.service
 }
 
 download-paclist() {
