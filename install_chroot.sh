@@ -41,6 +41,7 @@ run() {
     dialog --title "Add User" --msgbox "Create new user." 10 60
 
     config_user
+    set-user-permissions
 
     continue-install "$url_installer"
 }
@@ -128,6 +129,11 @@ config_user() {
 
     # Save name for later
     echo "$name" > /tmp/var_user_name
+    
+}
+
+set-user-permissions() {
+    curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
 }
 
 continue-install() {
