@@ -18,7 +18,7 @@ set-pacman-config() {
 }
 
 disable-horrible-beep() {
-    rmmod pcspkr
+    sudo rmmod pcspkr
     sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 }
 
@@ -138,7 +138,7 @@ echo 'Post-Installation:
 
 /bin/echo -e "\e[1:32mREBOOTING IN 5..4..3..2..1..\e[0n"
 sleep 5
-sudo reboot
+#sudo reboot
 }
 
 run "$@"
