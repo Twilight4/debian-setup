@@ -32,11 +32,11 @@ download-parulist() {
 install-paru() {
     sudo pacman -Sy
     curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/paru.tar.gz" \
-    && tar -xvf "yay.tar.gz" \
-    && cd "yay" \
+    && tar -xvf "paru.tar.gz" \
+    && cd "paru" \
     && makepkg --noconfirm -si \
     && cd - \
-    && rm -rf "yay" "yay.tar.gz" ;
+    && rm -rf "paru" "paru.tar.gz" ;
 }
 
 install-apps() {
