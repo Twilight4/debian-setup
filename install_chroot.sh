@@ -135,8 +135,7 @@ continue-install() {
     local -r url_installer=${1:?}
 
     dialog --title "Continue installation" --yesno "Do you want to install all the Twilight4's softwares and the dotfiles for Arch Linux?" 10 60 \
-        && curl "$url_installer/install_apps.sh" > /tmp/install_apps.sh \
-        && bash /tmp/install_apps.sh
+        && curl "$url_installer/install_user.sh" > /home/twilight/install_user.sh \
 }
 
 run "$@"
