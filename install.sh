@@ -2,14 +2,13 @@
 
 run() {
     disable-horrible-beep
-    update-system
     set-user-permissions
-    install-network-manager
     set-pacman-config
-    
+    update-system
+    install-network-manager
     download-paclist
-    download-yaylist
-    install-yay
+    download-parulist
+    install-paru
     install-apps
     create-directories
     install-dotfiles
@@ -21,13 +20,19 @@ disable-horrible-beep() {
     echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 }
 
-update-system() {
-    pacman -Syu --noconfirm
-}
-
 set-user-permissions() {
     dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
     curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
+}
+
+set-pacman-config() {
+    dialog --infobox "Copy pacman configuration file (pacman.conf)..." 4 40
+    curl https://github.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
+    echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
+}
+
+update-system() {
+    pacman -Syu --noconfirm
 }
 
 install-network-manager() {
@@ -37,12 +42,6 @@ pacman -S --noconfirm networkmanager
 systemctl enable NetworkManager.service
 }
 
-set-pacman-config() {
-    dialog --infobox "Copy pacman configuration file (pacman.conf)..." 4 40
-    curl https://github.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
-    echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
-}
-
 download-paclist() {
     paclist_path="/tmp/paclist" 
     curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist" > "$paclist_path"
@@ -50,14 +49,14 @@ download-paclist() {
     echo $paclist_path
 }
 
-download-yaylist() {
-    yaylist_path="/tmp/yaylist"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/yaylist" > "$yaylist_path"
+download-parulist() {
+    parulist_path="/tmp/parulist"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/parulist" > "$parulist_path"
 
-    echo $yaylist_path
+    echo $parulist_path
 }
 
-install-yay() {
+install-paru() {
     sudo pacman -Sy
     sudo pacman -S --noconfirm tar
     curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/paru.tar.gz" \
@@ -87,8 +86,6 @@ install-apps() {
 create-directories() {
 #sudo mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 sudo mkdir -p "/opt/github/essentials"
-sudo mkdir -p "/opt/powerlevel10k"
-sudo mkdir -p "/usr/share/wallpapers"
 }
 
 install-dotfiles() {
@@ -128,11 +125,6 @@ install-ghapps() {
             sudo git clone "https://github.com/Swordfish90/cool-retro-term"
     fi
     
-# powerlevel10k
-[ ! -d "/opt/powerlevel10k" ] \
-&& sudo git clone --depth=1 https://github.com/romkatv/powerlevel10k.git \
-"/opt/powerlevel10k"
-
 # XDG ninja
 [ ! -d "$HOME/xdg-ninja" ] \
 && git clone https://github.com/b3nj5m1n/xdg-ninja \
