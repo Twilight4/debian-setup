@@ -137,6 +137,9 @@ set-user-permissions() {
     echo "127.0.0.1 localhost" >> /etc/hosts
     echo "::1       localhost" >> /etc/hosts
     echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
+    sudo pacman -S --noconfirm networkmanager
+    # Enable the systemd service NetworkManager.
+    sudo systemctl enable NetworkManager.service
 }
 
 continue-install() {
