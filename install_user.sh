@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 run() {
-    disable-horrible-beep
     set-user-permissions
     set-pacman-config
+    disable-horrible-beep
     update-system
     install-network-manager
     download-paclist
@@ -15,17 +15,17 @@ run() {
     install-ghapps
 }
 
-disable-horrible-beep() {
-    rmmod pcspkr
-    sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
-}
-
 set-user-permissions() {
     sudo curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
 }
 
 set-pacman-config() {
     sudo curl https://github.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
+}
+
+disable-horrible-beep() {
+    rmmod pcspkr
+    sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 }
 
 update-system() {
