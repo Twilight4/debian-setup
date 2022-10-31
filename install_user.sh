@@ -69,10 +69,10 @@ install-dotfiles() {
     
     sudo mv -u /tmp/dotfiles/.config/* "$HOME/.config"
     source "/home/$(whoami)/.config/zsh/.zshenv"
-    sudo rm -rf /usr/share/fonts/[71acegT]*
+    sudo rm -rf /usr/share/fonts/encodings
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/ /usr/share/fonts/
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/ /usr/share/fonts/
-    sudo mv /tmp/dotfiles/wallpapers/* /usr/share/wallpapers/
+    sudo mv /tmp/dotfiles/wallpapers/ /usr/share/
     sudo rm /home/$(whoami)/.bash*
     sudo chmod 755 $XDG_CONFIG_HOME/qtile/autostart.sh
     sudo chmod 755 $XDG_CONFIG_HOME/polybar/launch.sh
@@ -80,6 +80,7 @@ install-dotfiles() {
     sudo chmod 755 $HOME/.config/rofi/applets/bin/*
     sudo chmod 755 $XDG_CONFIG_HOME/rofi/applets/shared/theme.bash
     sudo chmod 755 $XDG_CONFIG_HOME/rofi/launcher/launcher.sh
+    sudo chmod 755 $XDG_CONFIG_HOME/x11/xinitrc
     sudo mv $HOME/.config/rofi/applets/bin/* /usr/bin/
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
     git config --global user.email "electrolight071@gmail.com"
@@ -107,27 +108,15 @@ install-ghapps() {
 && git clone --depth 1 https://github.com/tmux-plugins/tpm \
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
-#continue-install() {
-#    local -r url_installer=${1:?}
-#    local -r name=${2:?}
-
-#    curl "$url_installer/install_user.sh" > /tmp/install_user.sh;
-
-#    if [ "$dry_run" = false ]; then
-        # Change user and begin the install use script
-#        sudo -u "$name" bash /tmp/install_user.sh
-#    fi
-#}
-
 echo 'Post-Installation:
+- rm conflicted files in qtile dir
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
 - add ssh pub key to github
-- rm conflicted files in qtile dir
 '
 
 /bin/echo -e "\e[1:32mREBOOTING IN 5..4..3..2..1..\e[0n"
 sleep 5
-#sudo reboot
+#sudo reboot - first fix qtile files and then uncomment this line
 }
 
 run "$@"
