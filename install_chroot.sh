@@ -24,7 +24,6 @@ run() {
     set-hardware-clock
 
     log INFO "SET TIMEZONE" "$output"
-    #timedatectl set-timezone "Europe/Warsaw"
     ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
     hwclock --systohc
 
