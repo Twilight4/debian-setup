@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 run() {
-    set-user-permissions
     set-pacman-config
     disable-horrible-beep
     update-system
@@ -13,10 +12,6 @@ run() {
     create-directories
     install-dotfiles
     install-ghapps
-}
-
-set-user-permissions() {
-    sudo curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
 }
 
 set-pacman-config() {
