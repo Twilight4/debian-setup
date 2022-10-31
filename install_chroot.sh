@@ -41,7 +41,7 @@ run() {
     dialog --title "Add User" --msgbox "Create new user." 10 60
 
     config_user
-    set-user-permissions
+    set-leftovers
 
     continue-install "$url_installer"
 }
@@ -132,7 +132,7 @@ config_user() {
     
 }
 
-set-user-permissions() {
+set-leftovers() {
     curl https://raw.githubusercontent.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
     echo "127.0.0.1 localhost" >> /etc/hosts
     echo "::1       localhost" >> /etc/hosts
@@ -140,6 +140,7 @@ set-user-permissions() {
     sudo pacman -S --noconfirm networkmanager
     # Enable the systemd service NetworkManager.
     sudo systemctl enable NetworkManager.service
+    sudo curl https://raw.githubusercontent.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
 }
 
 continue-install() {
