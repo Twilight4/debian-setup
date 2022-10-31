@@ -4,7 +4,6 @@ run() {
     set-pacman-config
     disable-horrible-beep
     update-system
-    install-network-manager
     download-paclist
     download-parulist
     install-paru
@@ -25,13 +24,6 @@ disable-horrible-beep() {
 
 update-system() {
     pacman -Syu --noconfirm
-}
-
-install-network-manager() {
-sudo pacman -S --noconfirm networkmanager
-
-# Enable the systemd service NetworkManager.
-sudo systemctl enable NetworkManager.service
 }
 
 download-paclist() {
