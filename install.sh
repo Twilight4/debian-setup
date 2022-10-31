@@ -1,6 +1,12 @@
 #!/usr/bin/env bash
 
 run() {
+    disable-horrible-beep
+    update-system
+    set-user-permissions
+    install-network-manager
+    set-pacman-config
+    
     download-paclist
     download-yaylist
     install-yay
@@ -8,6 +14,33 @@ run() {
     create-directories
     install-dotfiles
     install-ghapps
+}
+
+disable-horrible-beep() {
+    rmmod pcspkr
+    echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+}
+
+update-system() {
+    pacman -Syu --noconfirm
+}
+
+set-user-permissions() {
+    dialog --infobox "Copy user permissions configuration (sudoers)..." 4 40
+    curl https://github.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
+}
+
+install-network-manager() {
+pacman -S --noconfirm networkmanager
+
+# Enable the systemd service NetworkManager.
+systemctl enable NetworkManager.service
+}
+
+set-pacman-config() {
+    dialog --infobox "Copy pacman configuration file (pacman.conf)..." 4 40
+    curl https://github.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
+    echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
 }
 
 download-paclist() {
@@ -109,6 +142,18 @@ install-ghapps() {
 [ ! -d "$XDG_CONFIG_HOME/tmux/plugins/tpm" ] \
 && git clone --depth 1 https://github.com/tmux-plugins/tpm \
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
+
+#continue-install() {
+#    local -r url_installer=${1:?}
+#    local -r name=${2:?}
+
+#    curl "$url_installer/install_user.sh" > /tmp/install_user.sh;
+
+#    if [ "$dry_run" = false ]; then
+        # Change user and begin the install use script
+#        sudo -u "$name" bash /tmp/install_user.sh
+#    fi
+#}
 
 echo 'Post-Installation:
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
