@@ -111,7 +111,7 @@ install-ghapps() {
 echo 'Post-Installation:
 - rm conflicted files in qtile dir
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
-- add ssh pub key to github
+- ssh-keygen - Add pub key to github: Settings > SSH > New
 '
 
 /bin/echo -e "\e[1:32mREBOOTING IN 5..4..3..2..1..\e[0n"
