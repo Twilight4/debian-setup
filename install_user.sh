@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 run() {
-    disable-horrible-beep
     update-system
     download-paclist
     download-parulist
@@ -12,13 +11,8 @@ run() {
     install-ghapps
 }
 
-disable-horrible-beep() {
-    sudo rmmod pcspkr
-    sudo echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
-}
-
 update-system() {
-    pacman -Syu --noconfirm
+    sudo pacman -Syu --noconfirm
 }
 
 download-paclist() {
