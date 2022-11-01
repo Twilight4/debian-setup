@@ -93,7 +93,8 @@ log() {
 }
 
 install-dialog() {
-    pacman -Sy --noconfirm dialog
+    pacman -Sy
+    pacman --noconfirm -S dialog
 }
 
 dialog-are-you-sure() {
