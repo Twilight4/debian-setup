@@ -72,6 +72,7 @@ install-dotfiles() {
     sudo rm -rf /usr/share/fonts/encodings
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/ /usr/share/fonts/
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/ /usr/share/fonts/
+    sudo fc-cache -f
     sudo mv /tmp/dotfiles/wallpapers/ /usr/share/
     sudo rm /home/$(whoami)/.bash*
     sudo chmod 755 $XDG_CONFIG_HOME/qtile/autostart.sh
