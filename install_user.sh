@@ -30,13 +30,12 @@ download-parulist() {
 }
 
 install-paru() {
-    sudo pacman -S --noconfirm tar
-    curl -O "https://aur.archlinux.org/cgit/aur.git/snapshot/paru.tar.gz" \
-    && tar -xvf "paru.tar.gz" \
-    && cd "paru" \
+    sudo pacman -S --noconfirm git
+    git clone https://aur.archlinux.org/paru-bin \
+    && cd paru-bin \
     && makepkg --noconfirm -si \
     && cd - \
-    && rm -rf "paru" "paru.tar.gz" ;
+    && rm -rf paru-bin
 }
 
 install-apps() {
