@@ -143,6 +143,7 @@ set-leftovers() {
     curl https://raw.githubusercontent.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
     rmmod pcspkr
     echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
+    touch /etc/zsh/zshenv
     echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
 }
 
