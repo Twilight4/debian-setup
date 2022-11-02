@@ -70,6 +70,9 @@ install-dotfiles() {
     sudo mv -u /tmp/dotfiles/.config/* "$HOME/.config"
     source "/home/$(whoami)/.config/zsh/.zshenv"
     sudo rm -rf /usr/share/fonts/encodings
+    sudo rm -rf /usr/share/fonts/adobe-source-code-pro
+    sudo rm -rf /usr/share/fonts/cantarell
+    sudo rm -rf /usr/share/fonts/gnu-free
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/ /usr/share/fonts/
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/ /usr/share/fonts/
     sudo fc-cache -f
