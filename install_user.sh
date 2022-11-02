@@ -41,7 +41,7 @@ install-paru() {
 
 install-apps() {
     sudo pacman -S --noconfirm $(cat /tmp/paclist)
-    paru -S --noconfirm $(cat /tmp/yaylist)
+    paru -S --noconfirm $(cat /tmp/parulist)
         
     # Needed if system installed in VBox
     sudo systemctl enable vboxservice.service
@@ -58,6 +58,7 @@ install-apps() {
 create-directories() {
 #sudo mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
 sudo mkdir -p "/opt/github/essentials"
+mkdir /home/$(whoami)/.config
 }
 
 install-dotfiles() {
