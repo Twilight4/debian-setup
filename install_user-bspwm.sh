@@ -76,7 +76,6 @@ install-dotfiles() {
     
     sudo mv -u /tmp/dotfiles/.config/* "$HOME/.config"
     source "/home/$(whoami)/.config/zsh/.zshenv"
-    source "/home/$(whoami)/.config/zsh/plugins/zsh-bd"
     sudo rm -rf /usr/share/fonts/encodings
     sudo rm -rf /usr/share/fonts/adobe-source-code-pro
     sudo rm -rf /usr/share/fonts/cantarell
@@ -125,9 +124,9 @@ install-ghapps() {
 echo 'Post-Installation:
 - NOW DO THIS COMMAND AS ROOT: echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv and then reboot
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
-- ssh-keygen - Add pub key to github: Settings > SSH > New
+- source the zsh plugin: source "/home/$(whoami)/.config/zsh/plugins/zsh-bd"
+- sshcreate <name> - Add pub key to github: Settings > SSH > New
 '
-
 }
 
 run "$@"
