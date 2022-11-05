@@ -76,6 +76,7 @@ install-dotfiles() {
     
     sudo mv -u /tmp/dotfiles/.config/* "$HOME/.config"
     source "/home/$(whoami)/.config/zsh/.zshenv"
+    source "/home/$(whoami)/.config/zsh/plugins/zsh-bd"
     sudo rm -rf /usr/share/fonts/encodings
     sudo rm -rf /usr/share/fonts/adobe-source-code-pro
     sudo rm -rf /usr/share/fonts/cantarell
