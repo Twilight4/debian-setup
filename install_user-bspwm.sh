@@ -80,6 +80,7 @@ install-dotfiles() {
     sudo rm -rf /usr/share/fonts/adobe-source-code-pro
     sudo rm -rf /usr/share/fonts/cantarell
     sudo rm -rf /usr/share/fonts/gnu-free
+    sudo rm -rf /home/$(whoami)/.config/qtile
     sudo mv /tmp/dotfiles/fonts/MesloLGM-NF/ /usr/share/fonts/
     sudo mv /tmp/dotfiles/fonts/rofi-fonts/ /usr/share/fonts/
     sudo fc-cache -f
