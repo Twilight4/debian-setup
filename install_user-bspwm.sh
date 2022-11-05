@@ -40,6 +40,13 @@ install-paru() {
 
 install-apps() {
     sudo pacman -S --noconfirm $(cat /tmp/paclist-bspwm)
+    git clone https://github.com/baskerville/bspwm.git
+    git clone https://github.com/baskerville/sxhkd.git
+    cd bspwm && make && sudo make install
+    cd -
+    cd sxhkd && make && sudo make install
+    cd -
+    rm -rf bspwm sxhkd
     paru -S --noconfirm $(cat /tmp/parulist)
         
     # Needed if system installed in VBox
