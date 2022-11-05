@@ -6,6 +6,10 @@ python-psutil
 python-iwlib
 python-xcffib
 qtile
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
 virtualbox-guest-utils
 git
 neovim
