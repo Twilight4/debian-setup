@@ -14,8 +14,8 @@ The first script `install_sys` will:
 2. Install the Linux ZEN Kernel and modules
 3. Set the Linux filesystem to ext4
 4. Create partitions
-   - Boot partition of 512M
-   - Swap partition default of 1G
+   - Boot partition of 512Mb
+   - Swap partition default of 1Gb
    - Root partition
 
 The second script `install_chroot` will:
