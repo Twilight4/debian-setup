@@ -17,14 +17,14 @@ update-system() {
 
 download-paclist() {
     paclist_path="/tmp/paclist-qtile" 
-    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist" > "$paclist_path"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist-qtile" > "$paclist_path"
 
     echo $paclist_path
 }
 
 download-parulist() {
     parulist_path="/tmp/parulist-qtile"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/parulist" > "$parulist_path"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/parulist-qtile" > "$parulist_path"
 
     echo $parulist_path
 }
