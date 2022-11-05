@@ -6,6 +6,8 @@ xcb-util-wm
 xcb-util-keysyms
 xorg-xinput
 xorg-xset
+arandr
+xorg-xprop
 pipewire
 pipewire-alsa
 pipewire-pulse
