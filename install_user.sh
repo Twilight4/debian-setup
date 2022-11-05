@@ -23,8 +23,8 @@ download-paclist() {
 }
 
 download-parulist() {
-    parulist_path="/tmp/parulist-qtile"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/parulist-qtile" > "$parulist_path"
+    parulist_path="/tmp/parulist"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/parulist" > "$parulist_path"
 
     echo $parulist_path
 }
@@ -40,7 +40,7 @@ install-paru() {
 
 install-apps() {
     sudo pacman -S --noconfirm $(cat /tmp/paclist-qtile)
-    paru -S --noconfirm $(cat /tmp/parulist-qtile)
+    paru -S --noconfirm $(cat /tmp/parulist)
         
     # Needed if system installed in VBox
     sudo systemctl enable vboxservice.service
