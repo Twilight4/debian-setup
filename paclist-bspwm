@@ -1,9 +1,11 @@
 xorg-server
 xorg-xinit
+libxcb
+xcb-util
+xcb-util-wm
+xcb-util-keysyms
 xorg-xinput
 xorg-xset
-bspwm
-sxhkd
 pipewire
 pipewire-alsa
 pipewire-pulse
