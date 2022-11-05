@@ -4,6 +4,10 @@ xorg-xinput
 xorg-xset
 bspwm
 sxhkd
+pipewire
+pipewire-alsa
+pipewire-pulse
+pipewire-jack
 virtualbox-guest-utils
 git
 neovim
