@@ -78,13 +78,12 @@ install-dotfiles() {
     sudo fc-cache -f
     sudo mv /tmp/dotfiles/wallpapers/ /usr/share/
     sudo rm /home/$(whoami)/.bash*
-    sudo chmod 755 $XDG_CONFIG_HOME/qtile/autostart.sh
+    sudo chmod 755 $XDG_CONFIG_HOME/bspwm/bspwmrc
     sudo chmod 755 $XDG_CONFIG_HOME/polybar/launch.sh
     sudo chmod 755 $HOME/.config/polybar/polybar-scripts/*
     sudo chmod 755 $HOME/.config/rofi/applets/bin/*
     sudo chmod 755 $XDG_CONFIG_HOME/rofi/applets/shared/theme.bash
     sudo chmod 755 $XDG_CONFIG_HOME/rofi/launcher/launcher.sh
-    sudo chmod 755 $XDG_CONFIG_HOME/x11/xinitrc
     sudo chmod 755 $XDG_CONFIG_HOME/zsh/scripts/*
     sudo mv $HOME/.config/rofi/applets/bin/* /usr/bin/
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
@@ -114,7 +113,6 @@ install-ghapps() {
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
 echo 'Post-Installation:
-- rm conflicted files in qtile dir
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
 - dont forget to add as ROOT: echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
 - ssh-keygen - Add pub key to github: Settings > SSH > New
