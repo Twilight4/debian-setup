@@ -113,7 +113,7 @@ install-ghapps() {
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
 echo 'Post-Installation:
-- dont forget to add as ROOT: echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
+- fix zshenv add this line as ROOT: echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
 - ssh-keygen - Add pub key to github: Settings > SSH > New
 - reload tpm: ctrl + space + i and hit q
 '
