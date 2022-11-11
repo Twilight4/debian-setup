@@ -56,6 +56,7 @@ pavucontrol
 libmpdclient 
 wireless_tools
 jq
+variety
 mpd
 powertop
 xfce4-power-manager
