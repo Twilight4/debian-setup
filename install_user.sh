@@ -99,7 +99,6 @@ install-ghapps() {
             sudo git clone "https://github.com/shlomif/lynx-browser"
             sudo git clone "https://github.com/chubin/cheat.sh"
             sudo git clone "https://github.com/smallhadroncollider/taskell"
-            sudo git clone "https://github.com/christoomey/vim-tmux-navigator"
             sudo git clone "https://github.com/Swordfish90/cool-retro-term"
     fi
     
@@ -114,16 +113,11 @@ install-ghapps() {
 "$XDG_CONFIG_HOME/tmux/plugins/tpm"
 
 echo 'Post-Installation:
-- rm conflicted files in qtile dir
 - once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
 - dont forget to add as ROOT: echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv
 - ssh-keygen - Add pub key to github: Settings > SSH > New
 - reload tpm: ctrl + space + i and hit q
 '
-
-/bin/echo -e "\e[1:32mREBOOTING IN 5..4..3..2..1..\e[0n"
-sleep 5
-#sudo reboot - first fix qtile files and then uncomment this line
 }
 
 run "$@"
