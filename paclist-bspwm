@@ -32,13 +32,13 @@ lxappearance
 qt5ct
 wget
 udiskie
+tmux
 tmuxp
 flameshot
 dunst
 libnotify
 mpv
 bat
-tmux
 tldr
 openssh
 bleachbit
