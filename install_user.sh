@@ -63,13 +63,13 @@ install-apps() {
 
 create-directories() {
 #sudo mkdir -p "/home/$(whoami)/{Document,Download,Video,workspace,Music}"
-sudo mkdir -p "/opt/github/essentials"
+sudo mkdir -p "/opt/github/"
 mkdir /home/$(whoami)/.config
 }
 
 install-dotfiles() {
     DOTFILES="/tmp/dotfiles"
-    if [ ! -d "$DOTFILES" ];
+    if [ ! -d "$DOTFILES" ]
         then
             git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
     fi
@@ -102,7 +102,7 @@ install-dotfiles() {
 
 install-ghapps() {
     GHAPPS="/opt/github/essentials"
-    if [ ! -d "$GHAPPS" ];
+    if [ ! -d "$GHAPPS" ]
         then
             sudo git clone "https://github.com/shlomif/lynx-browser"
             sudo git clone "https://github.com/chubin/cheat.sh"
