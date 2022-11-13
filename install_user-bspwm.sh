@@ -107,7 +107,6 @@ install-ghapps() {
             sudo git clone "https://github.com/shlomif/lynx-browser"
             sudo git clone "https://github.com/chubin/cheat.sh"
             sudo git clone "https://github.com/smallhadroncollider/taskell"
-            sudo git clone "https://github.com/christoomey/vim-tmux-navigator"
             sudo git clone "https://github.com/Swordfish90/cool-retro-term"
     fi
     
@@ -123,9 +122,8 @@ install-ghapps() {
 
 echo 'Post-Installation:
 - NOW DO THIS COMMAND AS ROOT: echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv and then reboot
-- once plugins gets installed for zsh type a command: mv $HOME/.config/zsh/plugins/zsh-completions/zsh-completions.plugin.zsh $HOME/.config/zsh/plugins/zsh-completions/_zsh-completions.plugin.zsh
-- source the zsh plugin: source "/home/$(whoami)/.config/zsh/plugins/zsh-bd"
 - sshcreate <name> - Add pub key to github: Settings > SSH > New
+- reload tpm: ctrl + space + i and hit q
 '
 }
 
