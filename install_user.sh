@@ -103,10 +103,11 @@ install-ghapps() {
     GHAPPS="/opt/github/essentials"
     if [ ! -d "$GHAPPS" ]
         then
-            sudo git clone "https://github.com/shlomif/lynx-browser"
-            sudo git clone "https://github.com/chubin/cheat.sh"
-            sudo git clone "https://github.com/smallhadroncollider/taskell"
-            sudo git clone "https://github.com/Swordfish90/cool-retro-term"
+        sudo mkdir -p $GHAPPS &&
+        sudo git clone "https://github.com/shlomif/lynx-browser"
+        sudo git clone "https://github.com/chubin/cheat.sh"
+        sudo git clone "https://github.com/smallhadroncollider/taskell"
+        sudo git clone "https://github.com/Swordfish90/cool-retro-term"
     fi
     
 # XDG ninja
