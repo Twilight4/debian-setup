@@ -123,7 +123,7 @@ install-ghapps() {
 echo 'Post-Installation:
 - NOW DO THIS COMMAND AS ROOT: echo 'export ZDOTDIR="$HOME"/.config/zsh' > /etc/zsh/zshenv and then reboot
 - sshcreate <name> - Add pub key to github: Settings > SSH > New
-- reload tpm: ctrl + a + i and hit q
+- reload tpm: ctrl + a + shift + i and hit q
 '
 }
 
