@@ -91,7 +91,7 @@ install-dotfiles() {
     sudo chmod 755 $HOME/.config/rofi/applets/bin/*
     sudo chmod 755 $XDG_CONFIG_HOME/rofi/applets/shared/theme.bash
     sudo chmod 755 $XDG_CONFIG_HOME/rofi/launcher/launcher.sh
-    sudo chmod 755 $XDG_CONFIG_HOME/zsh/scripts/*
+    sudo chmod 755 $XDG_CONFIG_HOME/zsh/scripts/*.sh
     sudo mv $HOME/.config/rofi/applets/bin/* /usr/bin/
     sudo mv $HOME/.config/rofi/launcher/launcher.sh /usr/bin/
     git config --global core.pager "diff-so-fancy | less --tabs=4 -RFX"
