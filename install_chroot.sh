@@ -136,7 +136,7 @@ set-leftovers() {
     curl https://raw.githubusercontent.com/Twilight4/arch-install/master/sudoers > /etc/sudoers
     echo "127.0.0.1 localhost" >> /etc/hosts
     echo "::1       localhost" >> /etc/hosts
-    echo "127.0.1.1 archlinux.localdomain archlinux" >> /etc/hosts
+    echo "127.0.1.1 arch.localdomain arch" >> /etc/hosts
     pacman -S --noconfirm networkmanager
     # Enable the systemd service NetworkManager.
     systemctl enable NetworkManager.service
