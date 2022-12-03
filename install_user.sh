@@ -56,7 +56,6 @@ install-apps() {
     sudo chsh -s "$(which zsh)" "$(whoami)"
       
     ## For Docker
-    #groupadd docker
     #gpasswd -a "$name" docker
     #sudo systemctl enable docker.service
 }
