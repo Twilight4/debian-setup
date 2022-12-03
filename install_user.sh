@@ -57,6 +57,7 @@ install-apps() {
       
     ## For Docker
     #gpasswd -a "$name" docker
+    #usermod -aG docker $(whoami)
     #sudo systemctl enable docker.service
 }
 
