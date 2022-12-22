@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 sudo pacman -S --noconfirm linux-headers dkms 
 git clone https://github.com/Mange/rtl8192eu-linux-driver
