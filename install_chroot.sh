@@ -142,6 +142,7 @@ set-leftovers() {
     systemctl enable NetworkManager.service
     curl https://raw.githubusercontent.com/Twilight4/arch-install/master/pacman.conf > /etc/pacman.conf
     #curl https://raw.githubusercontent.com/Twilight4/arch-install/master/environment > /etc/environment   # env vars for wayland
+    #curl https://raw.githubusercontent.com/Twilight4/arch-install/master/hyprland.desktop > /usr/share/wayland-sessions/hyprland.desktop    # must-have for hyprland
     rmmod pcspkr
     echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 }
