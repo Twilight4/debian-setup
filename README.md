@@ -31,9 +31,9 @@ Output should display **enabled** in _Security_ subtitle and should be similar t
 - If the estimated completion time for both commands is equal it means that it uses the same function for both
 - A short time (like 2 minutes) in turn indicates the device is self-encrypting and its BIOS function will wipe the internal encryption key instead of overwriting all data cells
 
-### Warning 2
-- - Triple check that the correct drive designation is used. There is **_no turning back_** once the command is confirmed. You have been warned.
-- - Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
+**Warning**:
+- Triple check that the correct drive designation is used. There is **_no turning back_** once the command is confirmed. You have been warned.
+- Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
 
 #### ~~Issue the ATA Secure Erase command~~
 - ~~Issue the ATA Secure Erase command `hdparm --user-master u --security-erase PasSWorD /dev/sdX`.~~
