@@ -156,7 +156,7 @@ dialog-how-wipe-disk() {
         --title "!!! DELETE EVERYTHING !!!" \
         --menu "Choose the way to destroy everything on your hard disk ($hd)" 15 60 4 \
         1 "Use dd (wipe all disk)" \
-        2 "Use schred (slow & secure)" \
+        2 "Use secure erase (there is no turning back)" \
         3 "No need - my hard disk is empty" 2> "$file"
 }
 
@@ -167,7 +167,7 @@ erase-disk() {
     set +e
     case $choice in
         1) dd if=/dev/zero of="$hd" status=progress 2>&1 | dialog --title "Formatting $hd..." --progressbox --stdout 20 60;;
-        2) shred -v "$hd" | dialog --title "Formatting $hd..." --progressbox --stdout 20 60;;
+        2) hdparm --user-master u --security-erase 123 "$hd" | dialog --title "Formatting $hd..." --progressbox --stdout 20 60;;
         3) ;;
     esac
     set -e
