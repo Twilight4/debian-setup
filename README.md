@@ -5,7 +5,7 @@
 
 
 ## Instruction for checking possibility of secure erase on SATA drive
-1. Inject the USB drive with Arch Linux ISO and change boot order in BIOS to: #1 `USB UEFI` and on #2 `UEFI`
+1. Inject the USB drive with Arch Linux ISO and change boot order in BIOS to: #1 `USB UEFI` and #2 `UEFI`
 2. prepare disk for erase
 ```
 wipefs -a /dev/sdX
