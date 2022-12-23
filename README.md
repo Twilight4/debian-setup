@@ -36,8 +36,8 @@ hdparm -I /dev/sdX
 - Triple check that the correct drive designation is used. There is **_no turning back_** once the command is confirmed. You have been warned.
 - Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
 
-~~- Issue the ATA Secure Erase command `hdparm --user-master u --security-erase PasSWorD /dev/sdX`. ~~
-~~- After a successful erasure the drive security should automatically be set to disabled `hdparm -I /dev/sdX`.~~
+- ~~Issue the ATA Secure Erase command `hdparm --user-master u --security-erase PasSWorD /dev/sdX`.
+- ~~After a successful erasure the drive security should automatically be set to disabled `hdparm -I /dev/sdX`.
 
 ### Launch the script
 1. `curl` and execute the script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install_sys.sh`. Before launching the script do `pacman -Sy` in case the script would fail and then `bash install_sys.sh`
