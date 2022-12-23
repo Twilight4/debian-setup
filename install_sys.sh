@@ -93,7 +93,7 @@ log() {
 }
 
 install-dialog() {
-    pacman -Sy archlinux-keyring
+    pacman --noconfirm -Sy archlinux-keyring
     pacman --noconfirm -S dialog util-linux
 }
 
