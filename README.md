@@ -12,15 +12,15 @@ wipefs -a /dev/sdX
 sgdisk -Z /dev/sdX
 pacman -Sy && pacman -S hdparm
 ```
-Make sure the drive security is not frozen, if shows frozen then do `systemctl suspend` and check again
+Make sure the drive security is not frozen, if shows frozen then do `systemctl suspend` and check again:
 ```
 hdparm -I /dev/sdX | grep frozen
 ```
-enable security by setting user (temporary) password
+enable security by setting user (temporary) password:
 ```
 hdparm --user-master u --security-set-pass PasSWorD /dev/sdX
 ```
-Issue the following command for sanity check
+Issue the following command for sanity check:
 ```
 hdparm -I /dev/sdX
 ```
