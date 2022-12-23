@@ -167,7 +167,7 @@ erase-disk() {
     set +e
     case $choice in
         1) dd if=/dev/zero of="$hd" status=progress 2>&1 | dialog --title "Formatting $hd..." --progressbox --stdout 20 60;;
-        2) hdparm --user-master u --security-erase 123 "$hd" | dialog --title "Formatting $hd..." --progressbox --stdout 20 60 && blkdiscard --secure "$hd";;
+        2) hdparm --user-master u --security-erase 123 "$hd" && blkdiscard --secure "$hd";;
         3) ;;
     esac
     set -e
