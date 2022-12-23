@@ -5,7 +5,7 @@
 
 ## capability test Instruction for secure erase on SATA drive
 1. Inject the USB drive with Arch Linux ISO and change boot order in BIOS to: #1 `USB UEFI` and #2 `UEFI`
-2. prepare disk for erase (check disk names with `lsblk` command)
+2. Prepare disk for erase (check disk names with `lsblk` command)
 ```
 wipefs -a /dev/sdX
 sgdisk -Z /dev/sdX
@@ -31,10 +31,11 @@ Output should display **enabled** in _Security_ subtitle and should be similar t
 - If the estimated completion time for both commands is equal it means that it uses the same function for both
 - A short time (like 2 minutes) in turn indicates the device is self-encrypting and its BIOS function will wipe the internal encryption key instead of overwriting all data cells
 
-### Warning
+### Warning 2
 - - Triple check that the correct drive designation is used. There is **_no turning back_** once the command is confirmed. You have been warned.
 - - Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
 
+#### ~~Issue the ATA Secure Erase command~~
 - ~~Issue the ATA Secure Erase command `hdparm --user-master u --security-erase PasSWorD /dev/sdX`.~~
 - ~~After a successful erasure the drive security should automatically be set to disabled `hdparm -I /dev/sdX`.~~
 
