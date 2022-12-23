@@ -13,11 +13,17 @@ sgdisk -Z /dev/sdX
 pacman -Sy && pacman -S hdparm
 ```
 Make sure the drive security is not frozen, if shows frozen then do `systemctl suspend` and check again
-`hdparm -I /dev/sdX | grep frozen`
+```
+hdparm -I /dev/sdX | grep frozen
+```
 enable security by setting user (temporary) password
-`hdparm --user-master u --security-set-pass PasSWorD /dev/sdX`
+```
+hdparm --user-master u --security-set-pass PasSWorD /dev/sdX
+```
 Issue the following command for sanity check
-`hdparm -I /dev/sdX` 
+```
+hdparm -I /dev/sdX
+```
 - should display **enabled in Security** and output similar to this:
 `2min for SECURITY ERASE UNIT. 2min for ENHANCED SECURITY ERASE UNIT.`
 - `enhanced security erase` indicates that it performs a more elaborate wipe
