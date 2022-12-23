@@ -38,7 +38,7 @@ Output should display **enabled** in _Security_ subtitle and should be similar t
 - ~~Issue the ATA Secure Erase command: `hdparm --user-master u --security-erase 123 /dev/sdX`.~~
 - ~~After a successful erasure the drive security should automatically be set to disabled: `hdparm -I /dev/sdX` .~~
 
-### Launch the script
+## Launch the script
 1. `curl` and execute the script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install_sys.sh`. Before launching the script do `pacman -Sy` in case the script would fail and then `bash install_sys.sh`
 2. After rebooting and removing the iso, launch the script on your non-root acc `bash install_user.sh`
 
