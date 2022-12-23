@@ -25,7 +25,9 @@ Issue the following command for sanity check:
 hdparm -I /dev/sdX
 ```
 - should display **enabled** in _Security_ subtitle and output should be similar to this:
-`2min for SECURITY ERASE UNIT. 2min for ENHANCED SECURITY ERASE UNIT.`
+```
+2min for SECURITY ERASE UNIT. 2min for ENHANCED SECURITY ERASE UNIT.
+```
 - `enhanced security erase` indicates that it performs a more elaborate wipe
 - If the estimated completion time for both commands is equal it means that it uses the same function for both
 - A short time (like 2 minutes) in turn indicates the device is self-encrypting and its BIOS function will wipe the internal encryption key instead of overwriting all data cells
