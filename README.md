@@ -16,7 +16,7 @@ hdparm -I /dev/sdX | grep frozen
 ```
 Enable security by setting user (temporary) password:
 ```
-hdparm --user-master u --security-set-pass PasSWorD /dev/sdX
+hdparm --user-master u --security-set-pass 123 /dev/sdX
 ```
 Issue the following command for sanity check:
 ```
@@ -35,7 +35,7 @@ Output should display **enabled** in _Security_ subtitle and should be similar t
 - Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
 
 #### ~~Issue the ATA Secure Erase command~~
-- ~~Issue the ATA Secure Erase command: `hdparm --user-master u --security-erase PasSWorD /dev/sdX`.~~
+- ~~Issue the ATA Secure Erase command: `hdparm --user-master u --security-erase 123 /dev/sdX`.~~
 - ~~After a successful erasure the drive security should automatically be set to disabled: `hdparm -I /dev/sdX` .~~
 
 ### Launch the script
