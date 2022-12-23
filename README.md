@@ -1,7 +1,7 @@
 ## Twilight4s Arch Install
 
 ### These are my scripts to install easily Arch Linux.
-**Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to. System needs to support EFI, in VirtualBox there's an option for it in settings. Change the user to the username you want to name your account, in `install_chroot.sh` in line 152 and same with hostname in line 139 instead of `arch`, unfortunatelly there's no better way to do that. As a wiping disk method, the user can choose [secure erase](https://grok.lsu.edu/article.aspx?articleid=16716). Using this procedure will destroy all data on the SSD and render it unrecoverable by even data recovery services.
+**Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to. System needs to support EFI, in VirtualBox there's an option for it in settings. Change the user to the username you want to name your account, in `install_chroot.sh` in line 152-153 and same with hostname in line 139 instead of `arch`, unfortunatelly there's no better way to do that. As a wiping disk method, the user can choose [secure erase](https://grok.lsu.edu/article.aspx?articleid=16716). Using this procedure will destroy all data on the SSD and render it unrecoverable by even data recovery services.
 
 ## Capability test instruction for secure erase on SATA drive
 (Skip this section if you choose to go with `dd` option in the script.) Inject the USB drive with Arch Linux ISO and change boot order in BIOS to: #1 `USB UEFI` and #2 `UEFI` and prepare disk for erase (check disk names with `lsblk` command)
