@@ -3,19 +3,18 @@
 ### These are my scripts to install easily Arch Linux.
 **Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to. System needs to support EFI, in VirtualBox there's an option for it in settings. Change the user to the username you want to name your account, in `install_chroot.sh` in line 152 and same with hostname in line 139 instead of `arch`, unfortunatelly there's no better way to do that.
 
+### Wiping method
 **Warning**: As a wiping disk method, the script uses [secure erase](https://wiki.archlinux.org/title/Solid_state_drive/Memory_cell_clearing). Using this procedure will destroy all data on the SSD and render it unrecoverable by even data recovery services.
 
 
-
-
-# Instruction for checking capabilities of secure erase on SATA drive (do it on real hardware)
+## Instruction for checking possibility of secure erase on SATA drive
 1. Inject the USB drive with Arch Linux ISO and change boot order in BIOS to: #1 `USB UEFI` and on #2 `UEFI`
 2. prepare disk for erase
 ```
 wipefs -a /dev/sdX
 sgdisk -Z /dev/sdX
+pacman -Sy && pacman -S hdparm
 ```
-`pacman -Sy && pacman -S hdparm`
 ### Make sure the drive security is not frozen, if shows frozen then do `systemctl suspend` and check again
 `hdparm -I /dev/sdX | grep frozen`
 ### enable security by setting user (temporary) password
