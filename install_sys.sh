@@ -167,7 +167,7 @@ erase-disk() {
     set +e
     case $choice in
         1) dd if=/dev/zero of="$hd" status=progress 2>&1 | dialog --title "Formatting $hd..." --progressbox --stdout 20 60;;
-        2) hdparm --user-master u --security-erase 123 "$hd" && blkdiscard --secure "$hd";;
+        2) hdparm --user-master u --security-erase 123 "$hd" && blkdiscard --secure "$hd";;  # if the device doesn't support secure erase, option -z fills the device with zeroes instead of simply discarding all blocks on the device by default.
         3) ;;
     esac
     set -e
