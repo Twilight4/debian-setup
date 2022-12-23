@@ -94,7 +94,7 @@ log() {
 
 install-dialog() {
     pacman -Sy
-    pacman --noconfirm -S dialog
+    pacman --noconfirm -S dialog util-linux
 }
 
 dialog-are-you-sure() {
@@ -167,7 +167,7 @@ erase-disk() {
     set +e
     case $choice in
         1) dd if=/dev/zero of="$hd" status=progress 2>&1 | dialog --title "Formatting $hd..." --progressbox --stdout 20 60;;
-        2) hdparm --user-master u --security-erase 123 "$hd" | dialog --title "Formatting $hd..." --progressbox --stdout 20 60;;
+        2) hdparm --user-master u --security-erase 123 "$hd" | dialog --title "Formatting $hd..." --progressbox --stdout 20 60 && blkdiscard --secure "$hd";;
         3) ;;
     esac
     set -e
