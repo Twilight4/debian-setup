@@ -6,7 +6,7 @@
 set -euo pipefail
 
 url-installer() {
-    echo "https://raw.githubusercontent.com/Twilight4/arch-install/master"
+    echo "https://raw.githubusercontent.com/Twilight4/arch-install-1/master"
 }
 
 run() {
