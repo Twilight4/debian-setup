@@ -1,10 +1,9 @@
 ## Twilight4s Arch Install
 
 ### These are my scripts to install easily Arch Linux.
-**Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to. System needs to support EFI, in VirtualBox there's an option for it in settings. Change the user to the username you want to name your account, in `install_chroot.sh` in line 152 and same with hostname in line 139 instead of `arch`, unfortunatelly there's no better way to do that. As a wiping disk method, the script uses [secure erase](https://wiki.archlinux.org/title/Solid_state_drive/Memory_cell_clearing). Using this procedure will destroy all data on the SSD and render it unrecoverable by even data recovery services.
+**Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to. System needs to support EFI, in VirtualBox there's an option for it in settings. Change the user to the username you want to name your account, in `install_chroot.sh` in line 152 and same with hostname in line 139 instead of `arch`, unfortunatelly there's no better way to do that. As a wiping disk method, the script uses [secure erase](https://grok.lsu.edu/article.aspx?articleid=16716). Using this procedure will destroy all data on the SSD and render it unrecoverable by even data recovery services.
 
-
-## Instruction for checking possibility of secure erase on SATA drive
+## capability test Instruction for secure erase on SATA drive
 1. Inject the USB drive with Arch Linux ISO and change boot order in BIOS to: #1 `USB UEFI` and #2 `UEFI`
 2. prepare disk for erase (check disk names with `lsblk` command)
 ```
@@ -16,7 +15,7 @@ Make sure the drive security is not frozen, if shows frozen then do `systemctl s
 ```
 hdparm -I /dev/sdX | grep frozen
 ```
-enable security by setting user (temporary) password:
+Enable security by setting user (temporary) password:
 ```
 hdparm --user-master u --security-set-pass PasSWorD /dev/sdX
 ```
@@ -24,7 +23,7 @@ Issue the following command for sanity check:
 ```
 hdparm -I /dev/sdX
 ```
-- should display **enabled** in _Security_ subtitle and output should be similar to this:
+Output should display **enabled** in _Security_ subtitle and should be similar to this:
 ```
 2min for SECURITY ERASE UNIT. 2min for ENHANCED SECURITY ERASE UNIT.
 ```
@@ -32,9 +31,9 @@ hdparm -I /dev/sdX
 - If the estimated completion time for both commands is equal it means that it uses the same function for both
 - A short time (like 2 minutes) in turn indicates the device is self-encrypting and its BIOS function will wipe the internal encryption key instead of overwriting all data cells
 
-### Warning:
-- Triple check that the correct drive designation is used. There is **_no turning back_** once the command is confirmed. You have been warned.
-- Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
+### Warning
+- - Triple check that the correct drive designation is used. There is **_no turning back_** once the command is confirmed. You have been warned.
+- - Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
 
 - ~~Issue the ATA Secure Erase command `hdparm --user-master u --security-erase PasSWorD /dev/sdX`.~~
 - ~~After a successful erasure the drive security should automatically be set to disabled `hdparm -I /dev/sdX`.~~
