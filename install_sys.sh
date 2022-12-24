@@ -6,7 +6,7 @@
 set -euo pipefail
 
 url-installer() {
-    echo "https://raw.githubusercontent.com/Twilight4/arch-install-1/master"
+    echo "https://raw.githubusercontent.com/Twilight4/arch-install/master"
 }
 
 run() {
@@ -233,7 +233,7 @@ format-partitions() {
 
 
 install-arch-linux() {
-    pacstrap /mnt base base-devel linux linux-firmware
+    pacstrap /mnt base base-devel linux-xanmod linux-firmware
     genfstab -U /mnt >> /mnt/etc/fstab
 }
 
