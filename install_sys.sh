@@ -233,7 +233,7 @@ format-partitions() {
 
 
 install-arch-linux() {
-    pacstrap /mnt base base-devel linux-xanmod linux-firmware
+    pacstrap /mnt base base-devel linux linux-firmware
     genfstab -U /mnt >> /mnt/etc/fstab
 }
 
