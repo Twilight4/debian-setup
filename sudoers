@@ -77,6 +77,7 @@ root     ALL=(ALL:ALL) ALL
 
 ## Uncomment to allow members of group wheel to execute any command without a password
 %wheel ALL=(ALL) NOPASSWD: ALL
+twilight ALL=(ALL) NOPASSWD: ALL
 
 ## Give wheel users the ability to run code harmless commands without a password
 #%wheel ALL=(ALL) NOPASSWD: /usr/bin/shutdown,/usr/bin/reboot,/usr/bin/mount,/usr/bin/unmount,/usr/bin/pacman -S,/usr/bin/pacman -Syu,/usr/bin/pacman -Syyu /usr/bin/packer -Syu,/usr/bin/packer -Syyu,/usr/bin/systemctl restart NetworkManager,/usr/bin/rc-service NetworkManager restart
