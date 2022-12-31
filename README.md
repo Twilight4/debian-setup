@@ -47,7 +47,7 @@ Every scripts are called from `install_sys.sh`.
 
 The first script `install_sys` will:
 1. Erase everything on the disk of your choice
-2. Install the Linux-XanMod Kernel and modules
+2. Install the Linux-ZEN Kernel and modules
 3. Set the Linux filesystem to ext4
 4. Create partitions
    - Boot partition of 512mb
