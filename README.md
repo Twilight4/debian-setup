@@ -14,15 +14,31 @@ The script `install_sys.sh` will:
 1. Erase everything on the disk of your choice
 2. Set the Linux filesystem to btrfs
 3. Encrypt /boot with LUKS1
-4. Create partitions using SUSE-like partition layout and fully working snapper snapshots & rollback
-5. Install the Linux kernel of your choice and modules
-6. Set up locale / time
-7. Set up Grub for the boot
-8. Create a new user with password
-9. Add security enhancements such as:
+4. Encrypt the rest of the disk with LUKS2 partition
+5. Create partitions using SUSE-like partition layout and fully working snapper snapshots & rollback
+6. Install the Linux kernel of your choice and modules
+7. Set up locale / time
+8. Set up Grub for the boot
+9. Create a new user with password
+10. Add security enhancements such as:
     - AppArmor
     - Firewalld
     - Default umask to 077
     - Randomize Mac Address and disable Connectivity Check for privacy
     - Kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
     - Udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
+11. Add performance enhancements such as:
+- **Parallel** code compilation
+- Building from **files in RAM**
+- **OOM** handling
+- Process **priority** managers
+  - Ananicy
+  - IRQBalance
+- Improved **kernel** characteristics:
+  - Dirty Ratio
+  - Dirty Background Ratio
+  - OOM Dump Tasks
+  - OOM Kill Allocating Task
+  - Overcommit Memory
+  - Swappiness
+  - VFS Cache Pressure
