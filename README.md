@@ -27,7 +27,7 @@ The script `install_sys.sh` will:
 - Randomize Mac Address and disable Connectivity Check for privacy
 - Kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
 - Udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
-### 11. Add performance enhancements such as:
+### 11. Add performance tweaks such as:
 - **Parallel** code compilation
 - Building from **files in RAM**
 - **OOM** handling
