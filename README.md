@@ -31,9 +31,6 @@ The script `install.sh` will:
 - **Parallel** code compilation
 - Building from **files in RAM**
 - **OOM** handling
-- Process **priority** managers
-  - Ananicy
-  - IRQBalance
 - Improved **kernel** characteristics:
   - Dirty Ratio
   - Dirty Background Ratio
