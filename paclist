@@ -6,7 +6,6 @@ neovim
 mako
 wofi
 libnotify
-pipewire
 wireplumber
 polkit-kde-agent
 imv
@@ -47,10 +46,6 @@ opencl-mesa
 rocm-opencl-runtime
 vnstat
 xcp
-snap-pac
-snap-pac-grub
-snapper
-zram-generator
 inxi
 lolcat
 figlet
@@ -58,7 +53,6 @@ nyancat
 sl
 cowsay
 ufw
-irqbalance
 pass
 tmux
 tmuxp
