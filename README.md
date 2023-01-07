@@ -10,7 +10,7 @@ These are my scripts to easily install a basic Arch Linux environment with snaps
 4. After succeded install and reboot, you can launch another script for deploying my desktop envorinoment on your non-root acc `./install.sh`.
 
 ## Contents
-The script `install_sys.sh` will:
+The script `install.sh` will:
 1. Erase everything on the disk of your choice
 2. Set the Linux filesystem to btrfs
 3. Encrypt /boot with LUKS1
