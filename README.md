@@ -1,65 +1,29 @@
 ## Twilight4s Arch Install
 
-### These are my scripts to install easily Arch Linux.
-**Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to. System needs to support EFI, in VirtualBox there's an option for it in settings. Change the user to the username you want to name your account, in `install_chroot.sh` in line 147,152 and same with hostname in line 139 instead of `arch`, unfortunatelly there's no better way to do that. As a wiping disk method, the user can choose [secure erase](https://grok.lsu.edu/article.aspx?articleid=16716). Using this procedure will destroy all data on the SSD and render it unrecoverable by even data recovery services.
+### Introduction
+These are my scripts to easily install a basic Arch Linux environment with snapshots and encryption by using a fully automated process (UEFI only).
+**Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to.
 
-## Capability test instruction for secure erase on SATA drive
-(Skip this section if you choose to go with `dd` option in the script.) Inject the USB drive with Arch Linux ISO and change boot order in BIOS to: #1 `UEFI USB Key` and #2 `UEFI Hard Disk` and prepare disk for erase (check disk names with `lsblk` command)
-```
-wipefs -a /dev/sdX
-sgdisk -Z /dev/sdX
-pacman -Sy && pacman -S hdparm
-```
-Make sure the drive security is not frozen, if shows frozen then do `systemctl suspend` and check again:
-```
-hdparm -I /dev/sdX | grep frozen
-```
-Enable security by setting user (temporary) password:
-```
-hdparm --user-master u --security-set-pass 123 /dev/sdX
-```
-Issue the following command for sanity check:
-```
-hdparm -I /dev/sdX
-```
-Output should display **enabled** in _Security_ subtitle and should be similar to this:
-```
-2min for SECURITY ERASE UNIT. 2min for ENHANCED SECURITY ERASE UNIT.
-```
-- `enhanced security erase` indicates that it performs a more elaborate wipe
-- If the estimated completion time for both commands is equal it means that it uses the same function for both
-- A short time (like 2 minutes) in turn indicates the device is self-encrypting and its BIOS function will wipe the internal encryption key instead of overwriting all data cells
-
-**Warning**:
-- Triple check that the correct drive designation is used. There is **_no turning back_** once the command is confirmed. You have been warned.
-- Ensure that the drive is not mounted when this is ran (`findmnt /mnt/sdX`). If a secure erase command is issued while the device is mounted, it will not erase properly.
-
-#### ~~Issue the ATA Secure Erase command~~
-- ~~Issue the ATA Secure Erase command: `hdparm --user-master u --security-erase 123 /dev/sdX`.~~
-- ~~After a successful erasure the drive security should automatically be set to disabled: `hdparm -I /dev/sdX` .~~
-
-## Launch the script
-1. `curl` and execute the script `curl -LO https://raw.githubusercontent.com/Twilight4/arch-install/master/install_sys.sh`. Before launching the script do `pacman -Sy` in case the script would fail and then `bash install_sys.sh`
-2. After rebooting and removing the iso, launch the script on your non-root acc `bash install_user.sh`
+## How to use the script on real machine
+1. Inject the USB drive with [Arch Linux ISO](https://archlinux.org/download/) and change boot order in BIOS to: #1 `UEFI USB Key` and #2 `UEFI Hard Disk`.
+2. Connect to the internet.
+3. `curl` and execute the script `bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-install-1/master/all-in-one.sh)`
+4. After succeded install and reboot, you can launch another script for deploying my desktop envorinoment on your non-root acc `./install.sh`
 
 ## Contents
-Every scripts are called from `install_sys.sh`.
-
-The first script `install_sys` will:
+The script `install_sys.sh` will:
 1. Erase everything on the disk of your choice
-2. Install the Linux-ZEN Kernel and modules
-3. Set the Linux filesystem to ext4
-4. Create partitions
-   - Boot partition of 512mb
-   - Swap partition default of 1gb
-   - Root partition
-
-The second script `install_chroot` will:
-1. Set up locale / time
-2. Set up Grub for the boot
-3. Create a new user with password
-
-The third script `install_user.sh` will:
-1. Install every software specified in `paclist`
-2. Install every software specified in `parulist`
-3. Install my [dotfiles](https://github.com/Twilight4/dotfiles)
+2. Set the Linux filesystem to btrfs
+3. Encrypt /boot with LUKS1
+4. Create partitions with SUSE-like partition layout and fully working snapper snapshots & rollback
+5. Install the Linux kernel of your choice and modules
+6. Set up locale / time
+7. Set up Grub for the boot
+8. Create a new user with password
+9. Add security enhancements such as:
+- AppArmor
+- Firewalld
+- Default umask to 077
+- Randomize Mac Address and disable Connectivity Check for privacy
+- Added some kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
+- Added udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
