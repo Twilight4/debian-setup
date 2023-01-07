@@ -20,9 +20,9 @@ The script `install_sys.sh` will:
 7. Set up Grub for the boot
 8. Create a new user with password
 9. Add security enhancements such as:
-- AppArmor
-- Firewalld
-- Default umask to 077
-- Randomize Mac Address and disable Connectivity Check for privacy
-- Added some kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
-- Added udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
+    - AppArmor
+    - Firewalld
+    - Default umask to 077
+    - Randomize Mac Address and disable Connectivity Check for privacy
+    - Added some kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
+    - Added udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
