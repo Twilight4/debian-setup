@@ -468,9 +468,6 @@ EOF
 
 chmod 600 /mnt/etc/NetworkManager/conf.d/ip6-privacy.conf
 
-# Parallel compilation and building from files in memory tweak
-curl https://raw.githubusercontent.com/Twilight4/arch-install/main/makepkg.conf > /mnt/etc/makepkg.conf
-
 # Improve virtual memory performance
 bash -c 'cat > /mnt/etc/sysctl.d/98-misc.conf' <<-'EOF'
 vm.dirty_background_ratio=15
@@ -538,18 +535,21 @@ if [[ -n "$username" ]]; then
     echo "$username:$userpass" | arch-chroot /mnt chpasswd
 fi
 
+# Parallel compilation and building from files in memory tweak
+curl https://raw.githubusercontent.com/Twilight4/arch-install/main/makepkg.conf > /mnt/etc/makepkg.conf
+
 # Giving wheel user sudo access
 #sed -i 's/# \(%wheel ALL=(ALL\(:ALL\|\)) ALL\)/\1/g' /mnt/etc/sudoers
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /mnt/etc/sudoers
-
-# Blacklist beep
-rmmod pcspkr
-echo "blacklist pcspkr" > /mnt/etc/modprobe.d/nobeep.conf
 
 # Pacman configuration
 info_print "Enabling colours, animations, and parallel downloads for pacman."
 #sed -Ei 's/^#(Color)$/\1\nILoveCandy/;s/^#(ParallelDownloads).*/\1 = 10/' /mnt/etc/pacman.conf
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /mnt/etc/pacman.conf
+
+# Blacklist beep
+rmmod pcspkr
+echo "blacklist pcspkr" > /mnt/etc/modprobe.d/nobeep.conf
 
 # Change audit logging group
 echo "log_group = audit" >> /mnt/etc/audit/auditd.conf
