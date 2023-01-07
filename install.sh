@@ -536,14 +536,16 @@ if [[ -n "$username" ]]; then
 fi
 
 # Parallel compilation and building from files in memory tweak
+info_print "Makepkg configuration file set."
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/makepkg.conf > /mnt/etc/makepkg.conf
 
 # Giving wheel user sudo access
+info_print "Sudoers configuration file set."
 #sed -i 's/# \(%wheel ALL=(ALL\(:ALL\|\)) ALL\)/\1/g' /mnt/etc/sudoers
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /mnt/etc/sudoers
 
 # Pacman configuration
-info_print "Enabling colours, animations, and parallel downloads for pacman."
+info_print "Pacman configuration file set."
 #sed -Ei 's/^#(Color)$/\1\nILoveCandy/;s/^#(ParallelDownloads).*/\1 = 10/' /mnt/etc/pacman.conf
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /mnt/etc/pacman.conf
 
