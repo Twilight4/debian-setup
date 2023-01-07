@@ -1,6 +1,5 @@
 ## Twilight4s Arch Install
 
-### Introduction
 These are my scripts to easily install a basic Arch Linux environment with snapshots and encryption by using a fully automated process (UEFI only).
 **Warning**: This set of scripts should be used for inspiration, don't run them on your system. If you want to try to install everything I would advise you to use a VM if you have to.
 
