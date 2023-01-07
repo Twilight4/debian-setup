@@ -24,5 +24,5 @@ The script `install_sys.sh` will:
     - Firewalld
     - Default umask to 077
     - Randomize Mac Address and disable Connectivity Check for privacy
-    - Added some kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
-    - Added udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
+    - Kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
+    - Udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
