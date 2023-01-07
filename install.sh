@@ -334,7 +334,7 @@ microcode_detector
 
 # Pacstrap (setting up a base sytem onto the new root)
 info_print "Installing the base system."
-pacstrap -K /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager apparmor zram-generator pipewire pipewire-pulse pipewire-alsa firewalld chrony &>/dev/null
+pacstrap -K /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager apparmor zram-generator pipewire pipewire-pulse pipewire-alsa irqbalance firewalld chrony &>/dev/null
 
 # Routing jack2 through PipeWire
 #echo "/usr/lib/pipewire-0.3/jack" > /mnt/etc/ld.so.conf.d/pipewire-jack.conf
@@ -556,7 +556,7 @@ echo "log_group = audit" >> /mnt/etc/audit/auditd.conf
 
 # Enabling various services
 info_print "Enabling Reflector, automatic snapshots, BTRFS scrubbing and systemd-oomd."
-services=(auditd fstrim.timer NetworkManager apparmor firewalld reflector.timer systemd-oomd chronyd snapper-timeline.timer snapper-cleanup.timer grub-btrfs.path )
+services=(auditd fstrim.timer NetworkManager apparmor firewalld irqbalance reflector.timer systemd-oomd chronyd snapper-timeline.timer snapper-cleanup.timer grub-btrfs.path )
 for service in "${services[@]}"; do
     systemctl enable "$service" --root=/mnt &>/dev/null
 done
