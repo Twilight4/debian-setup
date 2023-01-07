@@ -14,7 +14,7 @@ The script `install_sys.sh` will:
 1. Erase everything on the disk of your choice
 2. Set the Linux filesystem to btrfs
 3. Encrypt /boot with LUKS1
-4. Encrypt the rest of the disk with LUKS2 partition
+4. Encrypt the root file system with LUKS2
 5. Create partitions using SUSE-like partition layout and fully working snapper snapshots & rollback
 6. Install the Linux kernel of your choice and modules
 7. Set up locale / time
