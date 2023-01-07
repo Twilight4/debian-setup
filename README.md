@@ -20,8 +20,7 @@ The script `install.sh` will:
 7. Set up Grub for the boot
 8. Create a new user with password
 #### 9. Add security enhancements such as:
-- AppArmor
-- Firewalld
+- AppArmor and firewalld enabled by default
 - Default umask to 077
 - Randomize Mac Address and disable Connectivity Check for privacy
 - Kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
