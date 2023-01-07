@@ -3,7 +3,7 @@
 This is my script to easily install a basic Arch Linux environment with snapshots and encryption by using a fully automated process (UEFI only).
 **Warning**: This script should be used for inspiration, don't run it on your system. If you want to try to install everything I would advise you to use a VM if you have to.
 
-## How to use the script on real machine
+### How to use the script on real machine
 1. Inject the USB drive with [Arch Linux ISO](https://archlinux.org/download/) and change boot order to: #1 `UEFI USB Key` and #2 `UEFI Hard Disk`.
 2. After booting to the live environment connect to the internet.
 3. `curl` and execute the script `bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-install-1/master/all-in-one.sh)`.
