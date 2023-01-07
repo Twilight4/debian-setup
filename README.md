@@ -5,9 +5,9 @@ These are my scripts to easily install a basic Arch Linux environment with snaps
 
 ## How to use the script on real machine
 1. Inject the USB drive with [Arch Linux ISO](https://archlinux.org/download/) and change boot order in BIOS to: #1 `UEFI USB Key` and #2 `UEFI Hard Disk`.
-2. Connect to the internet.
-3. `curl` and execute the script `bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-install-1/master/all-in-one.sh)`
-4. After succeded install and reboot, you can launch another script for deploying my desktop envorinoment on your non-root acc `./install.sh`
+2. After booting to the live environment connect to the internet.
+3. `curl` and execute the script `bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-install-1/master/all-in-one.sh)`.
+4. After succeded install and reboot, you can launch another script for deploying my desktop envorinoment on your non-root acc `./install.sh`.
 
 ## Contents
 The script `install_sys.sh` will:
