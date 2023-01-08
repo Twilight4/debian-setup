@@ -11,18 +11,18 @@ This is my script to easily install a basic Arch Linux environment with snapshot
 
 ## Contents
 The script `install.sh` will:
-1. Erase everything on the disk of your choice
-2. Set the Linux filesystem to btrfs
-3. Encrypt /boot with LUKS1
-4. Create partitions using SUSE-like partition layout and fully working snapper snapshots & rollback
-5. Install the Linux kernel of your choice and modules
-6. Set up locale / time
-7. Set up Grub for the boot
-8. Create a new user with password
+1. **Erase** everything on the disk of your choice
+2. Set the Linux filesystem to **btrfs**
+3. Encrypt **/boot** with **LUKS1**
+4. Create partitions using **SUSE-like** partition layout and fully working **snapper snapshots** & **rollback**
+5. Install the **Linux kernel** of your choice and **modules**
+6. Set up **locale** / **time**
+7. Set up **Grub** for the boot
+8. Create a new **user** with **password**
 #### 9. Add security enhancements such as:
-- AppArmor and firewalld enabled by default
-- Default umask to 077
-- Randomize Mac Address and disable Connectivity Check for privacy
+- **AppArmor** and **firewalld** enabled by default
+- Default umask to **077**
+- Randomize Mac Address and disable Connectivity Check for **privacy**
 - Kernel/grub settings from [Whonix](https://github.com/Whonix/security-misc/tree/master/etc/default)
 - Udev rules from [Garuda](https://gitlab.com/garuda-linux/themes-and-settings/settings/garuda-common-settings/-/tree/master/etc/udev/rules.d)
 #### 10. Add performance tweaks such as:
