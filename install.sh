@@ -213,7 +213,6 @@ until userpass_selector; do : ; done
 
 # Fixing the oudated keyring issue
 pacman -Syy
-pacman -S --noconfirm archlinux-keyring
 pacman-key --init
 pacman-key --populate
 pacman -Syy
