@@ -125,11 +125,6 @@ done
 # Disabling systemd-timesyncd
 systemctl disable systemd-timesyncd
 
-# Setting umask to 077
-sed -i 's/022/077/g' /etc/profile
-echo "" >> /etc/bash.bashrc
-echo "umask 077" >> /etc/bash.bashrc
-
 # Installing user script
 curl https://raw.githubusercontent.com/Twilight4/dotfiles/main/install.sh > /home/twilight/install.sh
 
