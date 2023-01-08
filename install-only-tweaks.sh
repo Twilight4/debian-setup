@@ -10,7 +10,7 @@ pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /etc/pacman.conf
 pacman -Syy
 
-pacman -S --noconfirm amd-ucode linux-zen-headers linux-firmware gdm apparmor wireplumber irqbalance firewalld chrony
+pacman -S --noconfirm linux-zen-headers gdm apparmor wireplumber irqbalance firewalld chrony
 
 #####################################################################
 # Security Enhancments
