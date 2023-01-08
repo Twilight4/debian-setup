@@ -129,6 +129,7 @@ rootpass_selector () {
         error_print "You need to enter a password for the root user, please try again."
         return 1
     fi
+    echo
     return 0
 }
 
@@ -146,6 +147,7 @@ userpass_selector () {
         error_print "You need to enter a password for $username, please try again."
         return 1
     fi
+    echo
     return 0
 }
 
@@ -187,14 +189,6 @@ do
     break
 done
 
-# Warn user about deletion of old partition scheme
-input_print "This will delete the current partition table on $DISK once installation starts. Do you agree [y/N]?: "
-read -r disk_response
-if ! [[ "${disk_response,,}" =~ ^(yes|y)$ ]]; then
-    error_print "Quitting."
-    exit
-fi
-
 # Setting up the kernel
 until kernel_selector; do : ; done
 
@@ -208,16 +202,22 @@ until locale_selector; do : ; done
 until hostname_selector; do : ; done
 
 # User sets up the root/user accounts
-until rootpass_selector; do : ; done
 until userpass_selector; do : ; done
+until rootpass_selector; do : ; done
 
 # Fixing the oudated keyring issue
-pacman -Syy
-pacman-key --init
-pacman-key --populate
-pacman -Syy
+pacman -Syy &>/dev/null
+pacman-key --init &>/dev/null
+pacman-key --populate &>/dev/null
+pacman -Syy &>/dev/null
 
-# formatting the disk
+# formatting the disk - warn user about deletion of old partition scheme
+input_print "This will delete the current partition table on $DISK once installation starts. Do you agree [y/N]?: "
+read -r disk_response
+if ! [[ "${disk_response,,}" =~ ^(yes|y)$ ]]; then
+    error_print "Quitting."
+    exit
+fi
 info_print "Wiping $DISK."
 wipefs -af "$DISK" &>/dev/null
 sgdisk -Zo "$DISK" &>/dev/null
@@ -336,7 +336,7 @@ mount -o nodev,nosuid,noexec $ESP /mnt/boot/efi
 microcode_detector
 
 # Pacstrap (setting up a base sytem onto the new root)
-info_print "Installing the base system."
+info_print "Installing the base system (it may take a while)."
 pacstrap /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager gdm apparmor zram-generator pipewire wireplumber pipewire-pulse pipewire-alsa irqbalance firewalld chrony &>/dev/null
 
 # Routing jack2 through PipeWire
