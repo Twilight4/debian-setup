@@ -28,6 +28,10 @@ pacman -S --noconfirm linux-zen-headers gdm apparmor wireplumber irqbalance fire
 # Setting GRUB configuration file permissions
 #chmod 755 /etc/grub.d/*
 
+# Blacklisting kernel modules
+curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/modprobe.d/30_security-misc.conf >> /mnt/etc/modprobe.d/30_security-misc.conf
+chmod 600 /mnt/etc/modprobe.d/*
+
 # Security kernel settings
 curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc.conf >> /etc/sysctl.d/30_security-misc.conf
 sed -i 's/kernel.yama.ptrace_scope=2/kernel.yama.ptrace_scope=3/g' /etc/sysctl.d/30_security-misc.conf
