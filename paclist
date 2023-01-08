@@ -1,6 +1,4 @@
-linux-zen-headers
 dkms
-amd-ucode
 alacritty
 neovim
 mako
