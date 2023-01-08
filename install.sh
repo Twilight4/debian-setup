@@ -140,7 +140,7 @@ userpass_selector () {
     if [[ -z "$username" ]]; then
         return 0
     fi
-    input_print "Please enter a password for $username: "
+    input_print "Please enter a password for $username account: "
     read -r -s userpass
     if [[ -z "$userpass" ]]; then
         echo
