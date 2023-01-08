@@ -552,6 +552,7 @@ curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /mn
 info_print "Pacman configuration file set."
 #sed -Ei 's/^#(Color)$/\1\nILoveCandy/;s/^#(ParallelDownloads).*/\1 = 10/' /mnt/etc/pacman.conf
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /mnt/etc/pacman.conf
+pacman -Syy
 
 # Blacklist beep
 rmmod pcspkr
