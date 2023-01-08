@@ -29,7 +29,7 @@ pacman -S --noconfirm linux-zen-headers gdm apparmor wireplumber irqbalance fire
 #chmod 755 /etc/grub.d/*
 
 # Blacklisting kernel modules
-curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/modprobe.d/30_security-misc.conf >> /mnt/etc/modprobe.d/30_security-misc.conf
+curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/modprobe.d/30_security-misc.conf >> /etc/modprobe.d/30_security-misc.conf
 chmod 600 /mnt/etc/modprobe.d/*
 
 # Security kernel settings
