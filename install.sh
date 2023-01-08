@@ -205,12 +205,6 @@ until hostname_selector; do : ; done
 until userpass_selector; do : ; done
 until rootpass_selector; do : ; done
 
-# Fixing the oudated keyring issue
-pacman -Syy &>/dev/null
-pacman-key --init &>/dev/null
-pacman-key --populate &>/dev/null
-pacman -Syy &>/dev/null
-
 # formatting the disk - warn user about deletion of old partition scheme
 input_print "This will delete the current partition table on $DISK once installation starts. Do you agree [y/N]?: "
 read -r disk_response
@@ -555,7 +549,11 @@ curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /mn
 info_print "Pacman configuration file set."
 #sed -Ei 's/^#(Color)$/\1\nILoveCandy/;s/^#(ParallelDownloads).*/\1 = 10/' /mnt/etc/pacman.conf
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /mnt/etc/pacman.conf
-pacman -Syy
+# Updating repos and fixing the oudated keyring issue
+pacman -Syy &>/dev/null
+pacman-key --init &>/dev/null
+pacman-key --populate &>/dev/null
+pacman -Syy &>/dev/null
 
 # Blacklist beep
 rmmod pcspkr
