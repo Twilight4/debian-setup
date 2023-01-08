@@ -318,6 +318,10 @@ mount -o ssd,noatime,space_cache=v2,autodefrag,compress=zstd:15,discard=async,su
 mount -o ssd,noatime,space_cache=v2.autodefrag,compress=zstd:15,discard=async,subvol=@/srv $BTRFS /mnt/srv
 mount -o ssd,noatime,space_cache=v2,autodefrag,compress=zstd:15,discard=async,nodatacow,nodev,nosuid,noexec,subvol=@/var_log $BTRFS /mnt/var/log
 
+# GNOME requires /var/lib/gdm and /var/lib/AccountsService to be writeable when booting into a readonly snapshot. Thus we sadly have to split them.
+mount -o ssd,noatime,space_cache=v2,autodefrag,compress=zstd:15,discard=async,nodatacow,nodev,nosuid,noexec,subvol=@/var_lib_gdm $BTRFS /mnt/var/lib/gdm
+mount -o ssd,noatime,space_cache=v2,autodefrag,compress=zstd:15,discard=async,nodatacow,nodev,nosuid,noexec,subvol=@/var_lib_AccountsService $BTRFS /mnt/var/lib/AccountsService
+
 # The encryption is splitted as we do not want to include it in the backup with snap-pac
 mount -o ssd,noatime,space_cache=v2,autodefrag,compress=zstd:15,discard=async,nodatacow,nodev,nosuid,noexec,subvol=@/cryptkey $BTRFS /mnt/cryptkey
 
@@ -333,7 +337,7 @@ microcode_detector
 
 # Pacstrap (setting up a base sytem onto the new root)
 info_print "Installing the base system."
-pacstrap /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager apparmor zram-generator pipewire wireplumber pipewire-pulse pipewire-alsa irqbalance firewalld chrony &>/dev/null
+pacstrap /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager gdm apparmor zram-generator pipewire wireplumber pipewire-pulse pipewire-alsa irqbalance firewalld chrony &>/dev/null
 
 # Routing jack2 through PipeWire
 #echo "/usr/lib/pipewire-0.3/jack" > /mnt/etc/ld.so.conf.d/pipewire-jack.conf
@@ -562,7 +566,7 @@ echo "log_group = audit" >> /mnt/etc/audit/auditd.conf
 
 # Enabling various services
 info_print "Enabling Reflector, automatic snapshots, BTRFS scrubbing and systemd-oomd."
-services=(auditd fstrim.timer NetworkManager apparmor firewalld irqbalance reflector.timer systemd-oomd chronyd snapper-timeline.timer snapper-cleanup.timer grub-btrfs.path )
+services=(auditd fstrim.timer NetworkManager apparmor firewalld irqbalance reflector.timer systemd-oomd chronyd snapper-timeline.timer snapper-cleanup.timer gdm grub-btrfs.path )
 for service in "${services[@]}"; do
     systemctl enable "$service" --root=/mnt &>/dev/null
 done
