@@ -581,11 +581,6 @@ done
 # Disabling systemd-timesyncd
 systemctl disable systemd-timesyncd --root=/mnt &>/dev/null
 
-# Setting umask to 077
-sed -i 's/022/077/g' /mnt/etc/profile
-echo "" >> /mnt/etc/bash.bashrc
-echo "umask 077" >> /mnt/etc/bash.bashrc
-
 # Installing user script
 input_print "Do you want to install Twilight4's user installation script [y/N]?: "
 read -r script_response
