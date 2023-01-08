@@ -10,7 +10,7 @@ pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /etc/pacman.conf
 pacman -Syy
 
-pacman -S amd-ucode linux-zen-headers linux-firmware gdm apparmor wireplumber irqbalance firewalld chrony
+pacman -S --noconfirm amd-ucode linux-zen-headers linux-firmware gdm apparmor wireplumber irqbalance firewalld chrony
 
 #####################################################################
 # Security Enhancments
@@ -26,7 +26,7 @@ pacman -S amd-ucode linux-zen-headers linux-firmware gdm apparmor wireplumber ir
 ## Enabling NTS
 #curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf >> /etc/chrony.conf
 # Setting GRUB configuration file permissions
-#chmod 755 /mnt/etc/grub.d/*
+#chmod 755 /etc/grub.d/*
 
 # Security kernel settings
 curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/sysctl.d/30_security-misc.conf >> /etc/sysctl.d/30_security-misc.conf
@@ -104,10 +104,10 @@ EOF
 # Configuring the system
 ######################################################################
 # Parallel compilation and building from files in memory tweak
-curl https://raw.githubusercontent.com/Twilight4/arch-install/main/makepkg.conf > /mnt/etc/makepkg.conf
+curl https://raw.githubusercontent.com/Twilight4/arch-install/main/makepkg.conf > /etc/makepkg.conf
 
 # Giving wheel user sudo access
-curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /mnt/etc/sudoers
+curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /etc/sudoers
 
 # Blacklist beep
 rmmod pcspkr
@@ -117,7 +117,6 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 echo "log_group = audit" >> /etc/audit/auditd.conf
 
 # Enabling various services
-info_print "Enabling Reflector, automatic snapshots, BTRFS scrubbing and systemd-oomd."
 services=(auditd apparmor firewalld irqbalance chronyd gdm)
 for service in "${services[@]}"; do
     systemctl enable "$service"
