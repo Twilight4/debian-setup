@@ -212,6 +212,14 @@ if ! [[ "${disk_response,,}" =~ ^(yes|y)$ ]]; then
     error_print "Quitting."
     exit
 fi
+
+# Update live environment before using installation tools
+pacman -Syy &>/dev/null
+## Fixing the oudated keyring issue (not sure if it's needed)
+#pacman-key --init &>/dev/null
+#pacman-key --populate &>/dev/null
+#pacman -Syy &>/dev/null
+
 info_print "Wiping $DISK."
 wipefs -af "$DISK" &>/dev/null
 sgdisk -Zo "$DISK" &>/dev/null
@@ -549,10 +557,7 @@ curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /mn
 info_print "Pacman configuration file set."
 #sed -Ei 's/^#(Color)$/\1\nILoveCandy/;s/^#(ParallelDownloads).*/\1 = 10/' /mnt/etc/pacman.conf
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /mnt/etc/pacman.conf
-# Updating repos and fixing the oudated keyring issue
-pacman -Syy &>/dev/null
-pacman-key --init &>/dev/null
-pacman-key --populate &>/dev/null
+# Updating repos
 pacman -Syy &>/dev/null
 
 # Blacklist beep
