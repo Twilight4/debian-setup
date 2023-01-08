@@ -215,10 +215,10 @@ fi
 
 # Update live environment before using installation tools
 pacman -Syy &>/dev/null
-## Fixing the oudated keyring issue (not sure if it's needed)
-#pacman-key --init &>/dev/null
-#pacman-key --populate &>/dev/null
-#pacman -Syy &>/dev/null
+# Fixing the oudated keyring issue (not sure if it's needed)
+pacman-key --init &>/dev/null
+pacman-key --populate &>/dev/null
+pacman -Syy &>/dev/null
 
 info_print "Wiping $DISK."
 wipefs -af "$DISK" &>/dev/null
@@ -556,6 +556,10 @@ curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /mn
 # Pacman configuration
 info_print "Pacman configuration file set."
 #sed -Ei 's/^#(Color)$/\1\nILoveCandy/;s/^#(ParallelDownloads).*/\1 = 10/' /mnt/etc/pacman.conf
+# Enable Chaotic-AUR
+pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com &>/dev/null
+pacman-key --lsign-key FBA220DFC880C036 &>/dev/null
+pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst' &>/dev/null
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /mnt/etc/pacman.conf
 # Updating repos
 pacman -Syy &>/dev/null
