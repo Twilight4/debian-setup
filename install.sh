@@ -227,9 +227,9 @@ sgdisk -Zo "$DISK" &>/dev/null
 info_print "Creating new partition scheme on $DISK."
 parted -s "$DISK" \
     mklabel gpt \
-    mkpart ESP fat32 1MiB 128MiB \
+    mkpart ESP fat32 1MiB 513MiB \
     set 1 esp on \
-    mkpart cryptroot 128MiB 100% \
+    mkpart cryptroot 513MiB 100% \
     
 sleep 0.1
 ESP="/dev/$(lsblk $DISK -o NAME,PARTLABEL | grep ESP| cut -d " " -f1 | cut -c7-)"
@@ -334,18 +334,22 @@ microcode_detector
 
 # Pacstrap (setting up a base sytem onto the new root)
 info_print "Installing the base system."
-pacstrap -K /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager apparmor zram-generator pipewire pipewire-pulse pipewire-alsa irqbalance firewalld chrony &>/dev/null
+pacstrap /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager apparmor zram-generator pipewire pipewire-pulse pipewire-alsa irqbalance firewalld chrony &>/dev/null
 
 # Routing jack2 through PipeWire
 #echo "/usr/lib/pipewire-0.3/jack" > /mnt/etc/ld.so.conf.d/pipewire-jack.conf
-
-# Setting up the hostname
-echo "$hostname" > /mnt/etc/hostname
 
 # Generating /etc/fstab
 info_print "Generating a new fstab."
 genfstab -U /mnt >> /mnt/etc/fstab
 sed -i 's#,subvolid=258,subvol=/@/.snapshots/1/snapshot,subvol=@/.snapshots/1/snapshot##g' /mnt/etc/fstab
+
+
+######################################################################
+# Base System Configuration
+######################################################################
+# Setting up the hostname
+echo "$hostname" > /mnt/etc/hostname
 
 # Configure selected locale and console keymap
 echo "$locale.UTF-8 UTF-8" > /mnt/etc/locale.gen
