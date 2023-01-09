@@ -10,8 +10,6 @@ pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /etc/pacman.conf
 pacman -Syy
 
-pacman -S --noconfirm linux-zen-headers gdm apparmor wireplumber irqbalance firewalld chrony
-
 #####################################################################
 # Security Enhancments
 #####################################################################
@@ -120,12 +118,6 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 # Change audit logging group
 echo "log_group = audit" >> /etc/audit/auditd.conf
 
-# Enabling various services
-services=(auditd apparmor firewalld irqbalance chronyd gdm)
-for service in "${services[@]}"; do
-    systemctl enable "$service"
-done
-
 # Disabling systemd-timesyncd
 systemctl disable systemd-timesyncd
 
@@ -134,4 +126,3 @@ curl https://raw.githubusercontent.com/Twilight4/dotfiles/main/install.sh > /hom
 
 # Finishing up
 echo "Done, you may now reboot and afterward run user install.sh script and reboot again."
-exit
