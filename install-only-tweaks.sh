@@ -1,4 +1,4 @@
-# this file is supposed to be run on top of arch linux base system (post installation with arch-chroot). WARNING: The sequence order is substantial
+# Warning: This script is supposed to be run on top of arch linux base system (post installation with arch-chroot). WARNING: The sequence order is substantial
 pacman-key --init
 pacman-key --populate
 pacman -Syy
