@@ -14,17 +14,17 @@ pacman -Syy
 # Security Enhancments
 #####################################################################
 
-##### Uncomment if you are using grub - not systemd #######
-## Enabling CPU Mitigations
-#curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_cpu_mitigations.cfg >> /etc/grub.d/40_cpu_mitigations.cfg
-## Distrusting the CPU
-#curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_distrust_cpu.cfg >> /etc/grub.d/40_distrust_cpu.cfg
-## Enabling IOMMU
-#curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_enable_iommu.cfg >> /etc/grub.d/40_enable_iommu.cfg
-## Enabling NTS
-#curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf >> /etc/chrony.conf
+##### Comment out if you are using systemd-boot instead of grub #######
+# Enabling CPU Mitigations
+curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_cpu_mitigations.cfg >> /etc/grub.d/40_cpu_mitigations.cfg
+# Distrusting the CPU
+curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_distrust_cpu.cfg >> /etc/grub.d/40_distrust_cpu.cfg
+# Enabling IOMMU
+curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/default/grub.d/40_enable_iommu.cfg >> /etc/grub.d/40_enable_iommu.cfg
+# Enabling NTS
+curl https://raw.githubusercontent.com/GrapheneOS/infrastructure/main/chrony.conf >> /etc/chrony.conf
 # Setting GRUB configuration file permissions
-#chmod 755 /etc/grub.d/*
+chmod 755 /etc/grub.d/*
 
 # Blacklisting kernel modules
 curl https://raw.githubusercontent.com/Kicksecure/security-misc/master/etc/modprobe.d/30_security-misc.conf >> /etc/modprobe.d/30_security-misc.conf
@@ -126,7 +126,7 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 echo "log_group = audit" >> /etc/audit/auditd.conf
 
 # Disabling systemd-timesyncd
-systemctl disable systemd-timesyncd
+#systemctl disable systemd-timesyncd
 
 # Installing user script
 curl https://raw.githubusercontent.com/Twilight4/dotfiles/main/install.sh > /home/twilight/install.sh
