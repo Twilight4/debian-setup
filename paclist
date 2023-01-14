@@ -38,6 +38,7 @@ hblock
 pavucontrol
 mpd
 mpc
+ncmpcpp
 imagemagick
 swaybg
 wildmidi
