@@ -109,7 +109,8 @@ EOF
 # Warning: These configs are correct for ext4 and GRUB bootloader. If you installed btrfs with snapper or systemd-boot then comment out these 4 lines
 curl https://raw.githubusercontent.com/Twilight4/arch-install-old/main/grub > /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
-curl https://raw.githubusercontent.com/Twilight4/arch-install-old/master/mkinitcpio.conf > /etc/mkinitcpio.conf      # lz4 for fast compression - improved boot time performance
+# lz4 for fast compression - improved boot time performance
+curl https://raw.githubusercontent.com/Twilight4/arch-install-old/master/mkinitcpio.conf > /etc/mkinitcpio.conf
 sudo mkinitcpio -P                                                             
 
 # Parallel compilation and building from files in memory tweak
