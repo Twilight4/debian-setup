@@ -10,8 +10,8 @@ This is my script to easily install a basic Arch Linux environment with snapshot
 4. After booting to the live environment connect to the internet
 5. `curl` and execute the script `bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-install/master/install.sh)`.
 
-### Secure Boot
-The Secure Boot script can be run after you have rebooted into the system to automate the process of generating your own keys and setting up [Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot). Please make sure that your firmware is in Setup mode and the TPM is disabled.
+### [Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot)
+The Secure Boot script can be run after you have rebooted into the system to automate the process of generating your own keys and setting up Secure Boot. Please make sure that your firmware is in Setup mode and the TPM is disabled.
 
 ## Contents
 The script `install.sh` will:
