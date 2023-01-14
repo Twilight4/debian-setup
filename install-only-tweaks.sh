@@ -106,7 +106,7 @@ EOF
 # Configuring the system
 ######################################################################
 
-# Warning: These configs are correct for ext4. If you installed btrfs with snapper or encryption then comment out these 4 lines
+# Warning: These configs are correct for ext4 and GRUB bootloader. If you installed btrfs with snapper or systemd-boot then comment out these 4 lines
 curl https://raw.githubusercontent.com/Twilight4/arch-install-old/main/grub > /etc/default/grub
 grub-mkconfig -o /boot/grub/grub.cfg
 curl https://raw.githubusercontent.com/Twilight4/arch-install-old/master/mkinitcpio.conf > /etc/mkinitcpio.conf      # lz4 for fast compression - improved boot time performance
