@@ -9,7 +9,6 @@ nwg-look-bin
 wlr-randr
 wl-clip-persist-git
 tty-clock-git
-donut.c
 cava
 nitch-git
 udev-block-notify-git
