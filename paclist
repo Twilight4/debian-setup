@@ -1,6 +1,10 @@
 linux-zen-headers
-apparmor
+pipewire
+pipewire-pulse
+pipewire-alsa
+pipewire-jack
 wireplumber
+apparmor
 irqbalance
 firewalld
 chrony
