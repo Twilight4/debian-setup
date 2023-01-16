@@ -573,7 +573,7 @@ echo "log_group = audit" >> /mnt/etc/audit/auditd.conf
 
 # Enabling various services
 info_print "Enabling Reflector, automatic snapshots, BTRFS scrubbing and systemd-oomd."
-services=(auditd fstrim.timer NetworkManager apparmor firewalld irqbalance reflector.timer systemd-oomd chronyd snapper-timeline.timer snapper-cleanup.timer gdm grub-btrfs.path )
+services=(auditd fstrim.timer NetworkManager apparmor firewalld irqbalance reflector.timer systemd-oomd chronyd snapper-timeline.timer snapper-cleanup.timer gdm grub-btrfs.path)
 for service in "${services[@]}"; do
     systemctl enable "$service" --root=/mnt &>/dev/null
 done
