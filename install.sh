@@ -339,7 +339,7 @@ microcode_detector
 
 # Pacstrap (setting up a base sytem onto the new root)
 info_print "Installing the base system (it may take a while)."
-pacstrap /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager apparmor zram-generator irqbalance firewalld chrony &>/dev/null
+pacstrap /mnt base "$kernel" "$microcode" linux-firmware "$kernel"-headers grub grub-btrfs snapper snap-pac efibootmgr sudo reflector networkmanager apparmor zram-generator irqbalance gdm firewalld chrony &>/dev/null
 
 # Routing jack2 through PipeWire
 #echo "/usr/lib/pipewire-0.3/jack" > /mnt/etc/ld.so.conf.d/pipewire-jack.conf
