@@ -1,14 +1,58 @@
+#!bin/bash
+
 # Warning: This script is supposed to be run on top of arch linux base system (post installation with arch-chroot). WARNING: The sequence order is substantial
 pacman-key --init
 pacman-key --populate
 pacman -Syy
 
-# Enable Chaotic-AUR
+# Enable Chaotic-AUR keys and repos as well as Arcolinux keys and repos
+######################################################################################################################
+
+sudo pacman -S wget --noconfirm --needed
+
+echo "Getting the ArcoLinux keys from the ArcoLinux repo - report if link is broken"
+sudo wget https://github.com/arcolinux/arcolinux_repo/raw/main/x86_64/arcolinux-keyring-20251209-3-any.pkg.tar.zst -O
+/tmp/arcolinux-keyring-20251209-3-any.pkg.tar.zst
+sudo pacman -U --noconfirm --needed /tmp/arcolinux-keyring-20251209-3-any.pkg.tar.zst
+
+echo "Getting the latest arcolinux mirrors file - report if link is broken"
+sudo wget https://github.com/arcolinux/arcolinux_repo/raw/main/x86_64/arcolinux-mirrorlist-git-22.12-01-any.pkg.tar.zs
+t -O /tmp/arcolinux-mirrorlist-git-22.12-01-any.pkg.tar.zst
+sudo pacman -U --noconfirm --needed /tmp/arcolinux-mirrorlist-git-22.12-01-any.pkg.tar.zst
+
+######################################################################################################################
+
+if grep -q arcolinux_repo /etc/pacman.conf; then
+
+    echo "ArcoLinux repos are already in /etc/pacman.conf"
+
+else
+
+echo '
+#[arcolinux_repo_testing]
+#SigLevel = Optional TrustedOnly
+#Include = /etc/pacman.d/arcolinux-mirrorlist
+
+[arcolinux_repo]
+SigLevel = Optional TrustedOnly
+Include = /etc/pacman.d/arcolinux-mirrorlist
+
+[arcolinux_repo_3party]
+SigLevel = Optional TrustedOnly
+Include = /etc/pacman.d/arcolinux-mirrorlist
+
+[arcolinux_repo_xlarge]
+SigLevel = Optional TrustedOnly
+Include = /etc/pacman.d/arcolinux-mirrorlist' | sudo tee --append /etc/pacman.conf
+
+fi
+
 pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key FBA220DFC880C036
 pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /etc/pacman.conf
 pacman -Syy
+
 
 #####################################################################
 # Security Enhancments
