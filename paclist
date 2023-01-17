@@ -18,6 +18,7 @@ polkit-kde-agent
 imv
 mpv
 qt5ct
+qt5-wayland
 lxappearance
 grim
 slurp
