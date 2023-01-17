@@ -1,13 +1,15 @@
 #!bin/bash
 
+#####################################################################
+# Pacman configuration
+#####################################################################
+
 # Warning: This script is supposed to be run on top of arch linux base system (post installation with arch-chroot). WARNING: The sequence order is substantial
 pacman-key --init
 pacman-key --populate
 pacman -Syy
 
 # Enable Chaotic-AUR keys and repos as well as Arcolinux keys and repos
-######################################################################################################################
-
 sudo pacman -S wget --noconfirm --needed
 
 echo "Getting the ArcoLinux keys from the ArcoLinux repo"
@@ -19,8 +21,6 @@ echo "Getting the latest arcolinux mirrors file"
 sudo wget https://github.com/arcolinux/arcolinux_repo/raw/main/x86_64/arcolinux-mirrorlist-git-22.12-01-any.pkg.tar.zs
 t -O /tmp/arcolinux-mirrorlist-git-22.12-01-any.pkg.tar.zst
 sudo pacman -U --noconfirm --needed /tmp/arcolinux-mirrorlist-git-22.12-01-any.pkg.tar.zst
-
-######################################################################################################################
 
 if grep -q arcolinux_repo /etc/pacman.conf; then
 
