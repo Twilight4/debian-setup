@@ -9,12 +9,21 @@ pacman-key --init
 pacman-key --populate
 pacman -Syy
 
-# Enable Chaotic-AUR keys and repos as well as Arcolinux keys and repos
+# Enable Chaotic-AUR repo
 pacman-key --recv-key FBA220DFC880C036 --keyserver keyserver.ubuntu.com
 pacman-key --lsign-key FBA220DFC880C036
 pacman -U --noconfirm 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+# Copy my pacman configuration (chaotic-aur is in there)
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /etc/pacman.conf
+# Enable Arcolinux repo
 bash <(curl -s https://raw.githubusercontent.com/arcolinux/arcolinux-spices/master/usr/share/arcolinux-spices/scripts/get-the-keys-and-repos.sh)
+# Enable Athena repo
+echo '
+[athena-repository]
+SigLevel = Optional TrustedOnly
+Server = https://athena-os.github.io/$repo/$arch' | sudo tee --append /etc/pacman.conf
+pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+# Black Arch repo is added by install.sh script (dotfiles)
 pacman -Syy
 
 #####################################################################
