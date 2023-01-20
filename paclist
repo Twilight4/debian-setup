@@ -9,7 +9,6 @@ irqbalance
 firewalld
 chrony
 dkms
-alacritty
 neovim
 mako
 wofi
