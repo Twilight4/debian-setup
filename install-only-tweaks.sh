@@ -5,9 +5,10 @@
 #####################################################################
 
 # Warning: This script is supposed to be run on top of arch linux base system (post installation with arch-chroot). WARNING: The sequence order is substantial
-pacman-key --init
-pacman-key --populate
-pacman -Syy
+# Alis script does it preliminarily
+#pacman-key --init
+#pacman-key --populate
+#pacman -Syy
 
 # Copy my pacman configuration
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /etc/pacman.conf
