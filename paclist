@@ -1,4 +1,6 @@
-linux-zen-headers
+grub-btrfs
+snap-pac
+snapper
 pipewire
 pipewire-pulse
 pipewire-alsa
