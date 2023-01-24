@@ -10,3 +10,5 @@ echo -e "8192eu\n\nloop" | sudo tee /etc/modules
 echo "options 8192eu rtw_power_mgnt=0 rtw_enusbss=0" | sudo tee /etc/modprobe.d/8192eu.conf
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 rm -rf rtl8192eu-linux-driver
+
+echo 'to check installed wifi chipset you can issue a command: sudo hwinfo --network | grep Driver'
