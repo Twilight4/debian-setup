@@ -23,7 +23,7 @@ pacman -Syy
 ## Enable Arcolinux repo
 #bash <(curl -s https://raw.githubusercontent.com/arcolinux/arcolinux-spices/master/usr/share/arcolinux-spices/scripts/get-the-keys-and-repos.sh)
 #pacman -Syy
-# Enable Athena repo
+# Enable Athena repo - currently he has broken keys so don't use it
 echo '
 [athena-repository]
 SigLevel = Optional TrustedOnly
