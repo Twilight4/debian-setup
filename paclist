@@ -15,7 +15,6 @@ mako
 wofi
 libnotify
 polkit-kde-agent
-imv
 mpv
 qt5ct
 qt5-wayland
@@ -35,7 +34,6 @@ wl-clipboard
 xdg-user-dirs
 swappy
 pamixer
-feh
 zathura
 wf-recorder
 brightnessctl
@@ -78,3 +76,4 @@ trash-cli
 fd
 man
 xdotool
+neovim
