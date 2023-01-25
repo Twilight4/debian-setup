@@ -20,9 +20,9 @@ echo '
 [chaotic-aur]
 Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee --append /etc/pacman.conf
 pacman -Syy
-# Enable Arcolinux repo
-bash <(curl -s https://raw.githubusercontent.com/arcolinux/arcolinux-spices/master/usr/share/arcolinux-spices/scripts/get-the-keys-and-repos.sh)
-pacman -Syy
+## Enable Arcolinux repo
+#bash <(curl -s https://raw.githubusercontent.com/arcolinux/arcolinux-spices/master/usr/share/arcolinux-spices/scripts/get-the-keys-and-repos.sh)
+#pacman -Syy
 # Enable Athena repo
 echo '
 [athena-repository]
