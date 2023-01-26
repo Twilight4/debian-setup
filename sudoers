@@ -94,6 +94,7 @@ Defaults !tty_tickets
 ## of the user they are running the command as (root by default).
 # Defaults targetpw  # Ask for the password of the target user
 # ALL ALL=(ALL:ALL) ALL  # WARNING: only use this together with 'Defaults targetpw'
+Defaults insults
 
 ## Read drop-in files from /etc/sudoers.d
 @includedir /etc/sudoers.d
