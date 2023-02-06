@@ -24,12 +24,12 @@ pacman -Syy
 #bash <(curl -s https://raw.githubusercontent.com/arcolinux/arcolinux-spices/master/usr/share/arcolinux-spices/scripts/get-the-keys-and-repos.sh)
 #pacman -Syy
 # Enable Athena repo - currently he has broken keys so don't use it
-echo '
-[athena-repository]
-SigLevel = Optional TrustedOnly
-Server = https://athena-os.github.io/$repo/$arch' | sudo tee --append /etc/pacman.conf
-pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
-pacman -Syy
+#echo '
+#[athena-repository]
+#SigLevel = Optional TrustedOnly
+#Server = https://athena-os.github.io/$repo/$arch' | sudo tee --append /etc/pacman.conf
+#pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+#pacman -Syy
 # Enable Black Arch repo
 curl -O https://blackarch.org/strap.sh
 echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
