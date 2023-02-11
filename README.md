@@ -8,7 +8,7 @@ This is my script to easily install a basic Arch Linux environment with snapshot
 2. Inject the USB drive with [Arch Linux ISO](https://archlinux.org/download/).
 3. Enter the firmware setup and change boot order to: #1 `UEFI USB Key` and #2 `UEFI Hard Disk`. Also disable Secure Boot via the UEFI interface if it's enabled and reboot.
 4. After booting to the live environment connect to the internet.
-5. execute the installed script for my dotfiles bash install.sh.
+5. Execute the installed script for my dotfiles bash `install.sh`.
 
 ### How to use Secure Boot script
 The [Secure Boot](https://wiki.archlinux.org/title/Unified_Extensible_Firmware_Interface/Secure_Boot) script can be run after you have rebooted into the system to automate the process of generating your own keys and setting up Secure Boot. Please make sure that your firmware is in Setup mode by entering the firmware setup utility and finding an option to delete or clear certificates and ensure the TPM is disabled.
