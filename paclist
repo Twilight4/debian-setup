@@ -6,6 +6,7 @@ pipewire
 pipewire-pulse
 pipewire-alsa
 wireplumber
+acpi
 apparmor
 irqbalance
 firewalld
