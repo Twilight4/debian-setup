@@ -1,4 +1,5 @@
 vulkan-radeon
+libva-mesa-driver
 grub-btrfs
 snap-pac
 snapper
@@ -51,7 +52,6 @@ timidity++
 ytfzf
 ncdu
 duf
-opencl-mesa
 vnstat
 inxi
 lolcat
