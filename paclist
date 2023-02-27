@@ -101,3 +101,4 @@ bridge-utils
 openbsd-netcat
 libguestfs
 libvirt
+xclip
