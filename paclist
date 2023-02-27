@@ -2,8 +2,10 @@ grub-btrfs
 snap-pac
 snapper
 pipewire
-pipewire-pulse
 pipewire-alsa
+pipewire-audio
+pipewire-jack
+pipewire-pulse
 wireplumber
 acpi
 ccache
