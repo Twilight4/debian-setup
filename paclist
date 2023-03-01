@@ -104,3 +104,5 @@ openbsd-netcat
 libguestfs
 libvirt
 xclip
+st
+songrec
