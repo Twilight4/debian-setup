@@ -98,4 +98,4 @@ Defaults insults
 
 ## Read drop-in files from /etc/sudoers.d
 @includedir /etc/sudoers.d
-%wheel ALL=(ALL) NOPASSWD: /usr/bin/psd-overlay-helper
+%wheel ALL=(ALL) NOPASSWD: ALL
