@@ -8,7 +8,6 @@ pipewire-jack
 pipewire-pulse
 wireplumber
 acpi
-ccache
 apparmor
 irqbalance
 firewalld
