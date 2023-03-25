@@ -115,3 +115,5 @@ bluez
 bluez-utils
 xh
 fortune-mod
+python-pyopenssl
+python-pycryptodomex
