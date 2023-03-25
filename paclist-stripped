@@ -105,3 +105,5 @@ openvpn
 kcalc
 inetutils
 xh
+python-pyopenssl
+python-pycryptodomex
