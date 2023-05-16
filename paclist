@@ -76,6 +76,7 @@ man
 xdotool
 neovim
 papirus-icon-theme
+profile-sync-daemon
 xterm
 progress
 tokei
