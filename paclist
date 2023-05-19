@@ -1,6 +1,3 @@
-grub-btrfs
-snap-pac
-snapper
 pipewire
 pipewire-alsa
 pipewire-audio
@@ -114,6 +111,8 @@ kcalc
 inetutils
 bluez
 bluez-utils
+bluez-libs
+bluez-hid2hci
 xh
 fortune-mod
 python-pyopenssl
