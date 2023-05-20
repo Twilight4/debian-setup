@@ -30,6 +30,7 @@ ripgrep
 bat
 playerctl
 ffmpeg
+net-tools
 wl-clipboard
 xdg-user-dirs
 swappy

@@ -32,6 +32,7 @@ playerctl
 ffmpeg
 wl-clipboard
 xdg-user-dirs
+net-tools
 swappy
 pamixer
 foot
