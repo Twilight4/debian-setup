@@ -58,3 +58,4 @@ boxes
 sysz
 shellcheck-bin
 gitleaks
+net-snmp
