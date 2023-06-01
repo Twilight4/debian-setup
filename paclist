@@ -119,3 +119,5 @@ xh
 fortune-mod
 python-pyopenssl
 python-pycryptodomex
+graphviz
+shellcheck
