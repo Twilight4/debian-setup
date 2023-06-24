@@ -1,3 +1,16 @@
+gnome-control-center
+gnome-keyring
+gnome-nettool
+gnome-power-manager
+gnome-shell
+gnome-usage
+gvfs
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
+xdg-user-dirs-gtk
+gdm
 kitty
 zsh
 zsh-completions
