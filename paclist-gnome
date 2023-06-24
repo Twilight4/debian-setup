@@ -33,3 +33,4 @@ vnstat
 apparmor
 irqbalance
 chrony
+net-tools
