@@ -10,7 +10,6 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 xdg-user-dirs-gtk
-gdm
 kitty
 zsh
 zsh-completions
