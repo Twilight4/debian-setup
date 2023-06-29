@@ -45,3 +45,5 @@ apparmor
 irqbalance
 chrony
 net-tools
+navi
+tldr
