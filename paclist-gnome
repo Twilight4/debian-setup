@@ -20,7 +20,7 @@ bat
 fd
 wl-clipboard
 zathura
-emacs
+emacs-nativecomp
 zathura-pdf-mupdf
 ncdu
 duf
