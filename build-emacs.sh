@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#
+
 run() {
     update-system
     build-emacs
@@ -12,20 +12,24 @@ update-system() {
 
 build-emacs() {
     # building manually (emacs-nativecomp package is broken and unstable)
-    sudo pacman -S libgccjit
+    sudo pacman -S libgccjit && \
     git clone --depth 1 --branch emacs-28.1 git://git.savannah.gnu.org/emacs.git ~/downloads/emacs && \
     cd ~/downloads/emacs && \
     ./autogen.sh && \
     ./configure --prefix=/usr/local --with-native-compilation --with-gnutls=ifavailable --with-x-toolkit=lucid --without-pop && \
     make && \
     sudo make install && \
-    cd - && mv ~/downloads/emacs/ /opt && \
+    cd - && mv ~/downloads/emacs/ /opt
 }
 
 download-dependencies() {
     paclist_path="/tmp/emacs-dependencies"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist" > "$paclist_path"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/emacs-dependencies" > "$paclist_path"
 
     echo $paclist_path
-    echo 'add PATH to emacs src directory in .zshenv, and run doomsync'
+
+    sudo pacman -S $(cat /tmp/emacs-dependencies)
+    echo 'add emacs src directory to PATH in .zshenv, and run doomsync'
 }
+
+run "$@"
