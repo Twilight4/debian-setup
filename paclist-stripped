@@ -5,6 +5,11 @@ pipewire-audio
 pipewire-jack
 pipewire-pulse
 wireplumber
+gvfs
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
 acpi
 apparmor
 irqbalance
@@ -101,10 +106,11 @@ pv
 downgrade
 neofetch
 openvpn
-kcalc
+gnome-calculator
 inetutils
 xh
 python-pyopenssl
 python-pycryptodomex
 graphviz
 shellcheck
+fortune-mod
