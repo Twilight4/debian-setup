@@ -16,6 +16,8 @@ irqbalance
 firewalld
 chrony
 dkms
+expac
+cava
 mako
 wofi
 libnotify
@@ -112,5 +114,4 @@ xh
 python-pyopenssl
 python-pycryptodomex
 graphviz
-shellcheck
 fortune-mod
