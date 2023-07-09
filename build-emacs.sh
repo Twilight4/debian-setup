@@ -12,9 +12,6 @@ export CC=/usr/bin/gcc && export CXX=/usr/bin/gcc && \
 ./autogen.sh && \
 ./configure --prefix=/usr/local --with-native-compilation --with-pgtk --with-dbus --with-gif --with-jpeg --with-png --with-rsvg --with-tiff --with-xft --with-xpm --with-gpm=no --with-imagemagick --with-json --with-xwidgets --with-modules --without-pop && \
 make -j$(nproc) && \       # Build and compile Emacs
-# Check native comp is working 
-#src/emacs -Q              # run emacs
-#(native-comp-available-p) # check native comp is working
 sudo make install && \
 #mv ~/.config/emacs/eln-cache ~/desktop
 #mv ~/.config/emacs/transient ~/desktop
