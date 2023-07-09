@@ -18,5 +18,6 @@ make -j$(nproc) && \       # Build and compile Emacs
 sudo make install && \
 #mv ~/.config/emacs/eln-cache ~/desktop
 #mv ~/.config/emacs/transient ~/desktop
-cd - && rm -rf ~/downloads/emacs/
+cd - && rm -rf ~/downloads/emacs/ && \
+sudo cp /usr/local/share/applications/ ~/.config/.local/share && \
 echo 'add emacs src directory to PATH in .zshenv'
