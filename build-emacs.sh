@@ -19,5 +19,10 @@ sudo make install && \
 #mv ~/.config/emacs/eln-cache ~/desktop
 #mv ~/.config/emacs/transient ~/desktop
 cd - && rm -rf ~/downloads/emacs/ && \
-sudo cp /usr/local/share/applications/ ~/.config/.local/share && \
+sudo cp /usr/local/share/applications/ ~/.config/.local/share
+
+# Informational
 echo 'add emacs src directory to PATH in .zshenv'
+echo '
+in ~/.confg/.local/share/applicatios/macsclient.desktop - add:
+Exec=/usr/local/bin/emacsclient -c %F'
