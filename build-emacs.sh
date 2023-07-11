@@ -28,7 +28,3 @@ sudo cp /usr/local/share/applications/* ~/.local/share/applications/
 # Informational message
 echo 'Change the following line to ~/.local/share/applications/emacsclient.desktop:'
 echo 'Exec=/usr/local/bin/emacsclient -c %F'
-
-# Unsure
-#mv ~/.config/emacs/eln-cache ~/desktop
-#mv ~/.config/emacs/transient ~/desktop
