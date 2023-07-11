@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Building Emacs 30 pgtk for Wayland with native compilation on Linux 
+# Building Emacs 30 pgtk for Wayland with native compilation on Arch Linux 
 
 # Install necessary dependencies
 sudo pacman -S --needed libgccjit git gtk3 xorg-xwayland libxpm libjpeg-turbo libpng libtiff giflib librsvg gnutls autoconf libmpc texinfo ncurses libxml2 harfbuzz jansson libfm-gtk3 imagemagick tree-sitter
