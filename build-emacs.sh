@@ -20,7 +20,7 @@ make -j$(nproc)
 sudo make install
 
 # Move Emacs installation
-cd - && mv ~/downloads/emacs/ /opt
+cd - && sudo mv ~/downloads/emacs/ /opt
 
 # Copy desktop files
 sudo cp /usr/local/share/applications/* ~/.local/share/applications/
