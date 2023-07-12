@@ -9,7 +9,6 @@ athena-tmux-config
 athena-vim-config
 athena-vscodium-themes
 athena-system-config
-athena-welcome
 athena-zsh
 athena-nighttab
 athena-firefox-config
@@ -73,6 +72,8 @@ athena-payloadallthethings
 athena-powershell-config
 athena-auto-wordlists
 athena-ssl-scanner
+htb-tools
+athena-welcome
 )
 
 for package in "${tools[@]}"; do
