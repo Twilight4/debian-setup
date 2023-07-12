@@ -30,7 +30,6 @@ fzf
 ripgrep
 bat
 playerctl
-ffmpeg
 wl-clipboard
 xdg-user-dirs
 net-tools
