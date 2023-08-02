@@ -136,22 +136,22 @@ remove-distro-bloat() {
 
 install-packages() {
     # Download paclist
-    paclist_path="/tmp/paclist-stripped"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/paclist-stripped" > "$paclist_path"
+    paclist_path="/tmp/paclist-hyprland"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/paclist-hyprland" > "$paclist_path"
     echo $paclist_path
 
     # Download yaylist
-    yaylist_path="/tmp/yaylist-stripped"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-install/master/yaylist-stripped" > "$yaylist_path"
+    yaylist_path="/tmp/yaylist-hyprland"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/yaylist-hyprland" > "$yaylist_path"
     echo $yaylist_path
 
     # Start packages installation - paclist
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from paclist..."
-    sudo pacman -S --needed $(cat /tmp/paclist-stripped)
+    sudo pacman -S --needed $(cat /tmp/paclist-hyprland)
     printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages from paclist has finished succesfully."
     # yaylist
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from yaylist..."
-    yay -S --needed $(cat /tmp/yaylist-stripped)
+    yay -S --needed $(cat /tmp/yaylist-hyprland)
     printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages from yaylist has finished succesfully."
 
     # Installing plugins for nnn file manager if not installled
@@ -530,8 +530,8 @@ set-leftovers() {
 
 check-results() {
     # Check if all packages from paclist and yayllist has been installed
-    package_list_file="/tmp/paclist-stripped"
-    package_list_file_2="/tmp/yaylist-stripped"
+    package_list_file="/tmp/paclist-hyprland"
+    package_list_file_2="/tmp/yaylist-hyprland"
     missing_packages=()
 
     # Function to check if a package is missing and add it to the missing_packages array
