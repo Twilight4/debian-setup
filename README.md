@@ -9,13 +9,13 @@ nmcli dev status
 ### Run `install-tweaks.sh` script as root
 ```bash
 su -
-bash <(curl -s https://raw.githubusercontent.com/Twilight4/alis-iso/main/install-tweaks.sh)
+bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-setup/main/install-tweaks.sh)
 exit
 ```
 
 ### Run `install.sh`
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/Twilight4/alis-iso/main/install-tweaks.sh)
+bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-setup/main/install-tweaks.sh)
 ```
 ### Optional - GNOME Customization
 If a user choosed GNOME Installation then you can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository
