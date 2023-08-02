@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 # Warning:
-# I recommend utilizing the CachyOS installation of Arch Linux for optimal performance and streamlined setup experience.
+# I recommend utilizing the CachyOS calamares installation of Arch Linux (No Desktop) and unchecking the X-System and (in my case) intel-ucode packages categories
+# for optimal performance and streamlined setup experience.
+#
 # Prior to executing this script, it is imperative that users have previously run the "install-tweaks.sh" script available in the "arch-setup" repository.
 # This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 # enhancing system security and the overall performance and stability.
@@ -82,6 +84,22 @@ remove-distro-bloat() {
 
     # First remove bloat that came with distro installation
     cachyos_bloat=(
+      b43-fwcutter
+      iwd
+      octopi
+      paru
+      bash-completion
+      libvdcss
+      mlocate
+      alsa-firmware
+      alsa-plugins
+      alsa-utils
+      pavucontrol
+      nano-syntax-highlighting
+      vi
+      micro
+      nano
+      fastfetch
       sddm
       linux
       linux-headers
