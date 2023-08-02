@@ -291,7 +291,7 @@ install-dotfiles() {
     # Remove auto-generated bloat
     sudo rm -rf /usr/share/fonts/encodings
     sudo fc-cache -fv
-    rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,nautilus,pulse,yay,user-dirs.dirs,user-dirs,locate,dconf}
+    rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,pulse,yay,user-dirs.dirs,user-dirs.locate,dconf}
     rm -rf .config/.gsd-keyboard.settings-ported
 
     # Copy dotfiles
