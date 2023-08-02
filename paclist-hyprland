@@ -11,6 +11,7 @@ gvfs-mtp
 gvfs-nfs
 gvfs-smb
 acpi
+rsync
 apparmor
 irqbalance
 firewalld
@@ -53,6 +54,7 @@ mpc
 papirus-icon-theme
 profile-sync-daemon
 imagemagick
+cowsay
 swaybg
 wildmidi
 timidity++
@@ -119,3 +121,8 @@ eww-wayland
 sddm-theme-astronaut
 hblock
 cyberchef-electron
+bluez
+bluez-utils
+bluez-libs
+bluez-hid2hci
+nyancat
