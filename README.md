@@ -1,4 +1,4 @@
-## Post Installation after Bare Arch Linux Install (No Desktop)
+## Post-Installation for Bare Arch Linux Install (No Desktop)
 ### Connect to internet
 ```bash
 nmcli dev wifi
