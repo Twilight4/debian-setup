@@ -10,6 +10,9 @@ gvfs-gphoto2
 gvfs-mtp
 gvfs-nfs
 gvfs-smb
+nautilus
+nautilus-sendto
+sushi
 acpi
 rsync
 apparmor
