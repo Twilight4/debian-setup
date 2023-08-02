@@ -12,7 +12,7 @@ wl-clip-persist-git
 tty-clock-git
 nitch-git
 udev-block-notify-git
-cachy-browser
+waterfox-g-bin
 caffeine-ng
 btop-git
 dragon-drop
@@ -23,7 +23,7 @@ yt-dlp
 perl-checkupdates-aur
 minq-ananicy-git
 nohang-git
-cliphist-bin
+cliphist
 numix-cursor-theme
 sddm-git
 cheat-bin
@@ -44,4 +44,4 @@ shellcheck-bin
 gitleaks
 net-snmp
 musikcube-bin
-xcp
+xcp-git
