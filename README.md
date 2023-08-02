@@ -18,7 +18,7 @@ exit
 bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-setup/main/install-tweaks.sh)
 ```
 ### Optional - GNOME Customization
-If a user choosed GNOME Installation then you can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository
+If a user choosed GNOME Installation, users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository
 
 ### Optional - Installing tools
 Additional tools can be installed using scripts in the [tools-scripts](https://github.com/Twilight4/arch-setup/tree/main/tools-scripts) directory
