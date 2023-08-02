@@ -1,4 +1,4 @@
-## User Post Installation After CachyOS Installer (No Desktop)
+## User Post Installation after Bare Arch Linux Installation (No Desktop)
 ### Connect to internet
 ```bash
 nmcli dev wifi
