@@ -23,8 +23,7 @@ sudo make install
 cd - && sudo mv ~/downloads/emacs/ /opt
 
 # Copy desktop files
-sudo cp /usr/local/share/applications/* ~/.local/share/applications/
+sudo cp /usr/local/share/applications/* ~/.config/.local/share/applications/
 
-# Informational message
-echo 'Change the following line to ~/.local/share/applications/emacsclient.desktop:'
-echo 'Exec=/usr/local/bin/emacsclient -c %F'
+# Correct the line in a file 
+sed -i 's|^Exec=sh -c "if \[ -n \\"\\$\*\\" ]; then exec /usr/local/bin/emacsclient --alternate-editor= --display=\\"\\$DISPLAY\\" \\"\\$@\\"; else exec emacsclient --alternate-editor= --create-frame; fi" sh %F$|Exec=/usr/local/bin/emacsclient -c %F|' ~/.config/.local/share/applications/emacsclient.desktop
