@@ -26,4 +26,5 @@ cd - && sudo mv ~/downloads/emacs/ /opt
 sudo cp /usr/local/share/applications/* ~/.config/.local/share/applications/
 
 # Correct the line in a file 
-sed -i 's|^Exec=sh -c "if \[ -n \\"\\$\*\\" ]; then exec /usr/local/bin/emacsclient --alternate-editor= --display=\\"\\$DISPLAY\\" \\"\\$@\\"; else exec emacsclient --alternate-editor= --create-frame; fi" sh %F$|Exec=/usr/local/bin/emacsclient -c %F|' ~/.config/.local/share/applications/emacsclient.desktop
+sed -i '0,/^Exec=/s/^Exec=/#Exec=/' ~/.config/.local/share/applications/emacsclient.desktop    # Comment out the line
+sed -i '/^#Exec=/a Exec=\/usr\/local\/bin\/emacsclient -c %F' myfile.desktop                   # Append a line next to the commented out line
