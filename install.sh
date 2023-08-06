@@ -176,7 +176,7 @@ install-packages() {
         cd auto-cpufreq && sudo ./auto-cpufreq-installer
         sudo auto-cpufreq --install
         cd -
-        rm -rf ./auto-cpufreq
+        sudo rm -rf ./auto-cpufreq
 
         printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "auto-cpufreq installed."
     else
