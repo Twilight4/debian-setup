@@ -5,6 +5,7 @@
 source "$HOME/.config/zsh/.zprofile"
 rvm install 3.0.5
 rvm use 3.0.5 --default
+rm rvm-install
 
 # Source the newly created RVM installation 
 source "$HOME/.rvm/scripts/rvm"
@@ -42,3 +43,4 @@ echo "[*] Metasploit database has been properly initialized."
 # Informational message
 echo 'Run db_status to verify that database connection is properly established:'
 echo '  msf6 > db_status'
+echo '  [*] postgresql connected to msf'
