@@ -442,9 +442,11 @@ set-leftovers() {
     fi
 
     # Set data locale english if it is not set
-    if [[ "$(localectl status)" != *"LC_TIME=en_US.UTF8"* ]]; then
+    if [[ "$(localectl status)" != *"LC_TIME=en_US.UTF-8"* ]]; then
         printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Setting LC_TIME to English..."
-        sudo localectl set-locale LC_TIME=en_US.UTF8
+        sudo localectl set-locale LC_TIME=en_US.UTF-8
+        sudo localectl set-locale LC_MONETARY=en_US.UTF-8
+        sudo localectl set-locale LC_NUMERIC=en_US.UTF-8
         printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "LC_TIME set to English."
     else
         printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "LC_TIME is already set to English."
