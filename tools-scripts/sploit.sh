@@ -21,8 +21,14 @@ cd -
 # Setting up the PostgreSQL database
 sudo -iu postgres <<EOF
 initdb -D /var/lib/postgres/data
+createuser twilight
+psql
+alter user twilight createdb;
+\du
+\q
 exit
 EOF
+createdb msfdb
 echo "[*] PostgreSQL setup completed."
 
 # Start and enable the PostgreSQL service
@@ -33,5 +39,6 @@ sudo systemctl enable postgresql.service
 msfdb init --connection-string=postgresql://postgres@localhost:5432/postgres
 echo "[*] Metasploit database has been properly initialized."
 
+# Informational message
 echo 'Run db_status to verify that database connection is properly established:'
 echo '  msf6 > db_status'
