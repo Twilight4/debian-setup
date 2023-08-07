@@ -38,7 +38,6 @@ sudo systemctl enable postgresql.service
 
 # Initialize the database
 msfdb init --connection-string=postgresql://postgres@localhost:5432/postgres
-echo "[*] Metasploit database has been properly initialized."
 
 # Informational message
 echo 'Run db_status to verify that database connection is properly established:'
