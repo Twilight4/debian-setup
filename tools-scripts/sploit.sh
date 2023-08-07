@@ -22,7 +22,6 @@ cd -
 # Setting up the PostgreSQL database
 sudo -iu postgres <<EOF
 initdb -D /var/lib/postgres/data
-pg_ctl -D /var/lib/postgres/data -l logfile start
 createuser twilight
 psql
 alter user twilight createdb;
