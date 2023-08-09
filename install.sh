@@ -524,6 +524,8 @@ set-leftovers() {
     if [ "$current_button_layout" != "$desired_button_layout" ]; then
       # If they don't match, update the button layout using the gsettings command
       gsettings set org.gnome.desktop.wm.preferences button-layout "$desired_button_layout"
+      # Enable transparency in emacs - will move it later
+      sed -i '/;(add-to-list.*For all new frames henceforth/s/;//' your_file_name
       printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Button layout has been updated."
     else
       # If they match, display a message indicating that the value is already as desired
