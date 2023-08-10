@@ -5,10 +5,9 @@
 source "$HOME/.config/zsh/.zprofile"
 rvm install 3.0.5
 rvm use 3.0.5 --default
-rm rvm-install
 
 # Source the newly created RVM installation 
-source "$HOME/.rvm/scripts/rvm"
+sudo source "/opt/rvm/scripts/rvm"
 
 # Add gem executables directory to PATH
 echo 'export PATH="$PATH:$HOME/.config/.local/share/gem/ruby/3.0.0/bin"' >> "$HOME/.config/zsh/.zshrc"
