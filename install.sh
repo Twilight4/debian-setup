@@ -380,7 +380,6 @@ enable-services() {
         bluetooth
         vnstat              # network traffic monitor
         libvirtd            # enable qemu/virt manager daemon
-        #auditd             # it is broken
         #docker
     )
 
@@ -402,7 +401,7 @@ enable-services() {
     if systemctl list-unit-files --user --type=service | grep -q "^psd.service"; then
         if ! systemctl --user is-enabled --quiet psd.service; then
             printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Enabling service: psd.service..."
-            systemctl --user enable psd.service                  # profile sync daemon
+            systemctl --user enable psd.service
         else
             printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "Service already enabled: psd.service."
         fi
