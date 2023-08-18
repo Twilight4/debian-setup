@@ -222,10 +222,9 @@ install-packages() {
 }
     
 set-user-groups() {
-    # Razer, audit and sddm autologin group
+    # Razer and autologin group
     add_groups=(
      plugdev
-     audit
      autologin
     )
 
@@ -238,7 +237,7 @@ set-user-groups() {
       fi
     done
 
-    # Libvirtd groups (for virt-manager)
+    # virt-manager groups
     usermod_groups=(
       libvirt
       libvirt-qemu
@@ -249,7 +248,6 @@ set-user-groups() {
     )
 
     gpasswd_groups=(
-      audit
       autologin
       plugdev
       mpd
