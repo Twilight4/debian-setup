@@ -425,7 +425,7 @@ enable-services() {
 
     # Other services
     hblock                               # block ads and malware domains
-    #playerctld daemon                   # if it doesn't work try installing volumectl
+    playerctld daemon                   # if it doesn't work try installing volumectl
 }
 
 set-leftovers() {
