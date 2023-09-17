@@ -599,6 +599,7 @@ post-install-message() {
     echo 'git clone git@github.com:Twilight4/dotfiles.git ~/workspace/dotfiles'
     echo 'git clone git@github.com:Twilight4/cheats.git ~/workspace/cheats'
     echo 'git clone git@github.com:Twilight4/logseq-notes.git ~/documents/logseq-notes'
+    echo 'git clone git@github.com:Twilight4/waterfox-config.git ~/.waterfox'
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Install more packages:"
     echo 'sudo npm install git-file-downloader cli-fireplace git-stats'
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Check if profile sync daemon is running:"
