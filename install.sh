@@ -315,7 +315,6 @@ install-dotfiles() {
     directories=(
         ~/{documents,downloads,desktop,videos,music,pictures}
         ~/desktop/{workspace,projects}
-        ~/desktop/projects/{IPT,EPT}
         ~/.config/.local/share/gnupg
         ~/.config/.local/share/cargo
         ~/.config/.local/share/go
