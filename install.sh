@@ -313,7 +313,8 @@ install-dotfiles() {
 
     # Create necessary directories
     directories=(
-        ~/{documents,desktop,downloads,videos,workspace,music,pictures}
+        ~/{documents,downloads,desktop,videos,music,pictures}
+        ~/desktop/{workspace,projects}
         ~/.config/.local/share/gnupg
         ~/.config/.local/share/cargo
         ~/.config/.local/share/go
@@ -596,8 +597,8 @@ post-install-message() {
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Add pub key to github: Settings > SSH > New:"
     echo 'ssh-keygen -t ed25519 -C "your_email@example.com"'
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Clone logseq and dotfiles repos via SSH:"
-    echo 'git clone git@github.com:Twilight4/dotfiles.git ~/workspace/dotfiles'
-    echo 'git clone git@github.com:Twilight4/cheats.git ~/workspace/cheats'
+    echo 'git clone git@github.com:Twilight4/dotfiles.git ~/desktop/workspace/dotfiles'
+    echo 'git clone git@github.com:Twilight4/cheats.git ~/desktop/workspace/cheats'
     echo 'git clone git@github.com:Twilight4/logseq-notes.git ~/documents/logseq-notes'
     echo 'git clone git@github.com:Twilight4/waterfox-config.git ~/.waterfox'
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Install more packages:"
