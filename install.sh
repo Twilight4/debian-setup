@@ -307,10 +307,6 @@ install-dotfiles() {
         printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Directory $DOTFILES does not exist. Dotfiles not copied."
     fi
 
-    # Change ownerships of logseq and mpd directory
-    sudo chown -R twilight:twilight ~/.config/.local
-    sudo chmod 755 /opt/logseq-desktop
-
     # Create necessary directories
     directories=(
         ~/{documents,downloads,desktop,videos,music,pictures}
@@ -597,7 +593,7 @@ post-install-message() {
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Check status with: sudo virsh net-list --all"
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Add pub key to github: Settings > SSH > New:"
     echo 'ssh-keygen -t ed25519 -C "your_email@example.com"'
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Clone logseq and dotfiles repos via SSH:"
+    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Clone emacs and dotfiles repos via SSH:"
     echo 'git clone git@github.com:Twilight4/dotfiles.git ~/desktop/workspace/dotfiles'
     echo 'git clone git@github.com:Twilight4/cheats.git ~/desktop/workspace/cheats'
     echo 'git clone git@github.com:Twilight4/emacs-notes.git ~/documents/emacs-notes'
