@@ -596,7 +596,7 @@ post-install-message() {
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Clone emacs and dotfiles repos via SSH:"
     echo 'git clone git@github.com:Twilight4/dotfiles.git ~/desktop/workspace/dotfiles'
     echo 'git clone git@github.com:Twilight4/cheats.git ~/desktop/workspace/cheats'
-    echo 'git clone git@github.com:Twilight4/emacs-notes.git ~/documents/emacs-notes'
+    echo 'git clone git@github.com:Twilight4/emacs-notes.git ~/documents/org'
     echo 'git clone git@github.com:Twilight4/waterfox-config.git ~/.waterfox'
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Install more packages:"
     echo 'sudo npm install git-file-downloader cli-fireplace git-stats'
