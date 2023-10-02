@@ -16,7 +16,7 @@
 main() {
     init-constants
     update-system
-    install-yay
+    install-paru
     remove-distro-bloat
     install-packages
     set-user-groups
@@ -546,7 +546,7 @@ check-results() {
         check_package "$package"
     done < "$package_list_file"
 
-    # Check packages from the yaylist
+    # Check packages from the parlist
     while IFS= read -r package
     do
         check_package "$package"
