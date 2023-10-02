@@ -54,25 +54,25 @@ update-system() {
     sudo pacman --noconfirm -Syu
 }
 
-install-yay() {
+install-paru() {
     # Install required dependencies
     sudo pacman -S --noconfirm git ccache
 
-    # Install yay package manager from AUR
-    git clone https://aur.archlinux.org/yay-bin.git
-    cd yay-bin
+    # Install paru package manager from AUR
+    git clone https://aur.archlinux.org/paru-bin.git
+    cd paru-bin
     makepkg --noconfirm -si
     cd ..
-    rm -rf yay-bin
+    rm -rf paru-bin
 
     # Clean up unused dependencies
     sudo pacman -Rns --noconfirm $(pacman -Qdtq)
 
-    # Check if yay is installed
-    if yay --version &>/dev/null; then
-      printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "yay package manager installed successfully."
+    # Check if paru is installed
+    if paru --version &>/dev/null; then
+      printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "paru package manager installed successfully."
     else
-      printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Installation of yay package manager failed."
+      printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Installation of paru package manager failed."
     fi
 }
 
@@ -140,19 +140,19 @@ install-packages() {
     curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/paclist-hyprland" > "$paclist_path"
     echo $paclist_path
 
-    # Download yaylist
-    yaylist_path="/tmp/yaylist-hyprland"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/yaylist-hyprland" > "$yaylist_path"
-    echo $yaylist_path
+    # Download parlist
+    parlist_path="/tmp/parlist-hyprland"
+    curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/parlist-hyprland" > "$parlist_path"
+    echo $parlist_path
 
     # Start packages installation - paclist
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from paclist..."
     sudo pacman -S --needed $(cat /tmp/paclist-hyprland)
     printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages from paclist has finished succesfully."
-    # yaylist
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from yaylist..."
-    yay -S --needed $(cat /tmp/yaylist-hyprland)
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages from yaylist has finished succesfully."
+    # parlist
+    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from parlist..."
+    par -S --needed $(cat /tmp/parlist-hyprland)
+    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages from parlist has finished succesfully."
 
     # Installing plugins for nnn file manager if not installled
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Installing plugins for nnn file manager..."
@@ -290,7 +290,7 @@ install-dotfiles() {
     # Remove auto-generated bloat
     sudo rm -rf /usr/share/fonts/encodings
     sudo fc-cache -fv
-    rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,pulse,yay,user-dirs.dirs,user-dirs.locate,dconf}
+    rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,pulse,paru,user-dirs.dirs,user-dirs.locate,dconf}
     rm -rf .config/.gsd-keyboard.settings-ported
 
     # Copy dotfiles
@@ -529,9 +529,9 @@ set-leftovers() {
 }
 
 check-results() {
-    # Check if all packages from paclist and yayllist has been installed
+    # Check if all packages from paclist and parlist has been installed
     package_list_file="/tmp/paclist-hyprland"
-    package_list_file_2="/tmp/yaylist-hyprland"
+    package_list_file_2="/tmp/parlist-hyprland"
     missing_packages=()
 
     # Function to check if a package is missing and add it to the missing_packages array
