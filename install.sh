@@ -501,7 +501,7 @@ enable-services() {
     check-results "${services[@]}"
 
     # Other services
-    hblock                               # block ads and malware domains
+    hblock                              # block ads and malware domains
     playerctld daemon                   # if it doesn't work try installing volumectl
 }
 
@@ -515,7 +515,7 @@ set-leftovers() {
         printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "systemd-boot is not being used."
     fi
 
-    # Set data locale english if it is not set
+    # Correct data locale english
     if [[ "$(localectl status)" != *"LC_TIME=en_US.UTF-8"* ]]; then
         printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Setting LC_TIME to English..."
         sudo localectl set-locale LC_TIME=en_US.UTF-8
@@ -674,7 +674,7 @@ post-install-message() {
     echo 'git clone git@github.com:Twilight4/dotfiles.git ~/desktop/workspace/dotfiles'
     echo 'git clone git@github.com:Twilight4/cheats.git ~/desktop/workspace/cheats'
     echo 'git clone git@github.com:Twilight4/emacs-notes.git ~/documents/org'
-    echo 'git clone git@github.com:Twilight4/waterfox-config.git ~/.waterfox'
+    echo 'git clone git@github.com:Twilight4/firefox-config.git ~/.mozilla'
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Install more packages:"
     echo 'sudo npm install git-file-downloader cli-fireplace git-stats'
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Check if profile sync daemon is running:"
