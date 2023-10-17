@@ -1,4 +1,4 @@
-# Warning:
+## Warning
 I recommend utilizing the CachyOS calamares installation of Arch Linux (No Desktop) and unchecking the X-System and (in my case) intel-ucode packages categories
 for optimal performance and streamlined setup experience.
 
