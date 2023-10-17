@@ -9,6 +9,15 @@ for optimal performance and streamlined setup experience.
 Prior to executing this script, it is imperative that users have previously run the `install-tweaks.sh` script.
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
+Recommended sequence of running the scripts:
+- `install-paru.sh`
+- `remove-bloat.sh`
+- `install-packages.sh`
+- `set-user-groups.sh`
+- `enable-services.sh`
+- `install-dotfiles.sh`
+- `set-leftovers.sh`
+- `check-results.sh`
 
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
 ### Connect to internet
