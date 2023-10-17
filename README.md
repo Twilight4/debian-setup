@@ -10,14 +10,14 @@ Prior to executing this script, it is imperative that users have previously run 
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
 Recommended sequence of running the scripts:
-- `install-paru.sh`
-- `remove-bloat.sh`
-- `install-packages.sh`
-- `set-user-groups.sh`
-- `enable-services.sh`
-- `install-dotfiles.sh`
-- `set-leftovers.sh`
-- `check-results.sh`
+1. `install-paru.sh`
+2. `remove-bloat.sh`
+3. `install-packages.sh`
+4. `set-user-groups.sh`
+5. `enable-services.sh`
+6. `install-dotfiles.sh`
+7. `set-leftovers.sh`
+8. `check-results.sh`
 
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
 ### Connect to internet
