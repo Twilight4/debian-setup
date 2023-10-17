@@ -10,9 +10,6 @@ Prior to executing this script, it is imperative that users have previously run 
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
 
-
-
-
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
 ### Connect to internet
 ```bash
@@ -24,13 +21,13 @@ nmcli dev status
 ### Run `install-tweaks.sh` script as root
 ```bash
 su -
-bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-setup/main/install-tweaks.sh)
+bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-setup/main/system-scripts/install-tweaks.sh)
 exit
 ```
 
-### Run `install.sh`
+### Run system scripts
 ```bash
-bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-setup/main/install.sh)
+git clone https://github.com/Twilight4/arch-setup.git
 ```
 ### Optional - GNOME Customization
 If a user choosed GNOME Installation, users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository
