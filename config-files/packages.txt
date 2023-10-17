@@ -19,6 +19,7 @@ essential=(
     cava
     mako
     dunst
+    thefuck
     wofi
     libnotify
     polkit-kde-agent
