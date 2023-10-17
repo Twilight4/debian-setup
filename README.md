@@ -9,6 +9,7 @@ for optimal performance and streamlined setup experience.
 Prior to executing this script, it is imperative that users have previously run the `install-tweaks.sh` script.
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
+
 Recommended sequence of running the scripts:
 1. `install-paru.sh`
 2. `remove-bloat.sh`
