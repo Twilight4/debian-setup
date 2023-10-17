@@ -536,6 +536,23 @@ set-leftovers() {
         printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Hyprland is not installed."
     fi
 
+    # Create river desktop entry if river is installed
+    if command -v river >/dev/null; then
+	printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating river desktop entry..."
+
+	sudo bash -c 'cat > /usr/share/wayland-sessions/river.desktop' <<-'EOF'
+        [Desktop Entry]
+        Name=River
+        Comment=A dynamic tiling Wayland compositor
+        Exec="$HOME/.config/river/startr"
+        Type=Application
+        EOF
+
+	printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "River desktop entry created."
+    else
+	printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "River is not installed."
+    fi
+
     # SDDM rice (don't install GDM cuz it installs GNOME DE as dependency)
     if command -v sddm >/dev/null; then
         printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating /etc/sddm.conf file..."
