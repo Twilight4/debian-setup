@@ -83,6 +83,7 @@ essential=(
     nvtop
     socat
     ttf-jetbrains-mono-nerd
+    ttf-meslo-nerd
     newsboat
     keepassxc
     xclip
