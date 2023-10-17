@@ -61,8 +61,6 @@ essential=(
     duf
     vnstat
     inxi
-    lolcat
-    figlet
     wget
     taskell
     usbutils
@@ -87,15 +85,6 @@ essential=(
     ttf-jetbrains-mono-nerd
     newsboat
     keepassxc
-    qemu
-    virt-manager
-    virt-viewer
-    dnsmasq
-    vde2
-    bridge-utils
-    openbsd-netcat
-    libguestfs
-    libvirt
     xclip
     st
     songrec
@@ -115,11 +104,6 @@ essential=(
     eww-wayland
     hblock
     cyberchef-electron
-    bluez
-    bluez-utils
-    bluez-libs
-    bluez-hid2hci
-    blueman
     nyancat
     ffmpeg4.4
     webcord
@@ -187,6 +171,22 @@ essential=(
 
 non-essential(
     fortune-mod
+    lolcat
+    figlet
+    bluez
+    bluez-utils
+    bluez-libs
+    bluez-hid2hci
+    blueman
+    qemu
+    virt-manager
+    virt-viewer
+    dnsmasq
+    vde2
+    bridge-utils
+    openbsd-netcat
+    libguestfs
+    libvirt
 
     # AUR Packages
     musikcube-bin
