@@ -11,7 +11,7 @@ pacman -Syy
 
 # Backup and copy my pacman config
 mv /etc/pacman.conf /etc/pacman.conf.bak
-curl https://raw.githubusercontent.com/Twilight4/arch-install/main/pacman.conf > /etc/pacman.conf
+curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/pacman.conf > /etc/pacman.conf
 pacman -Syy
 # Enable Chaotic-AUR repo
 #pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
@@ -149,10 +149,10 @@ chmod 600 /etc/NetworkManager/conf.d/ip6-privacy.conf
 #sudo mkinitcpio -P                                                             
 
 # Parallel compilation and building from files in memory tweak
-curl https://raw.githubusercontent.com/Twilight4/arch-install/main/makepkg.conf > /etc/makepkg.conf
+curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/makepkg.conf > /etc/makepkg.conf
 
 # Giving wheel user sudo access
-curl https://raw.githubusercontent.com/Twilight4/arch-install/main/sudoers > /etc/sudoers
+curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/sudoers > /etc/sudoers
 
 # Blacklist beep
 rmmod pcspkr
