@@ -13,18 +13,68 @@
 # It streamlines the setup process, saving time and effort for system administrators and power users and ensuring
 # a consistent and efficient setup experience across multiple systems.
 
+#main() {
+#    init-constants
+#    update-system
+#    install-paru
+#    remove-distro-bloat
+#    install-packages
+#    set-user-groups
+#    install-dotfiles
+#    enable-services
+#    set-leftovers
+#    check-results
+#    post-install-message
+#}
+
+INTERACTIVE=false
+
 main() {
+    parse_args "$@"
     init-constants
-    update-system
-    install-paru
-    remove-distro-bloat
-    install-packages
-    set-user-groups
-    install-dotfiles
-    enable-services
-    set-leftovers
-    check-results
-    post-install-message
+    if $INTERACTIVE; then
+        ask_user "This script will perform post-installation tasks. Do you want to proceed? (y/n)" || exit 0
+    fi
+    prompt_user update-system "Update system"
+    prompt_user install-paru "Install paru"
+    prompt_user remove-distro-bloat "Remove distro bloat"
+    prompt_user install-packages "Install packages"
+    prompt_user set-user-groups "Set user groups"
+    prompt_user install-dotfiles "Install dotfiles"
+    prompt_user enable-services "Enable services"
+    prompt_user set-leftovers "Set leftovers"
+    prompt_user check-results "Check results"
+    prompt_user post-install-message "Post-install message"
+}
+
+parse_args() {
+    while getopts "i" opt; do
+        case $opt in
+            i) INTERACTIVE=true ;;
+            *) echo "Usage: $0 [-i]"
+               exit 1 ;;
+        esac
+    done
+}
+
+ask_user() {
+    local prompt="$1"
+    local response
+    read -p "$prompt " response
+    [[ $response =~ ^[Yy](es)?$ ]]
+}
+
+prompt_user() {
+    local function="$1"
+    local description="$2"
+
+    if $INTERACTIVE; then
+        ask_user "Do you want to $description? (y/n)" && {
+            $function
+        }
+    else
+        $function
+    fi
 }
 
 init-constants() {
