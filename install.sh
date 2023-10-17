@@ -186,7 +186,8 @@ remove-distro-bloat() {
 
 install-packages() {
 
-source packages.txt
+sudo curl -LO https://raw.githubusercontent.com/Twilight4/arch-setup/main/packages.txt /tmp/packages.txt
+source /tmp/packages.txt
 
 declare -A categories
 categories=(
@@ -218,36 +219,18 @@ for choice in "${selected_categories[@]}"; do
 
     packages=("${!category}")
 
-    echo "Installing packages for $choice..."
+    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from $choice..."
 
     for package in "${packages[@]}"; do
-        sudo apt-get install "$package" -y
+        paru -S "$package"
     done
 
-    echo "Packages for $choice installed successfully."
+    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages for $choice has finished succesfully."
 done
 
-
-    # Download paclist
-    paclist_path="/tmp/paclist-hyprland"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/paclist-hyprland" > "$paclist_path"
-    echo $paclist_path
-
-    # Download parlist
-    parlist_path="/tmp/parlist-hyprland"
-    curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/parlist-hyprland" > "$parlist_path"
-    echo $parlist_path
-
-    # Start packages installation - paclist
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from paclist..."
-    sudo pacman -S --needed $(cat /tmp/paclist-hyprland)
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages from paclist has finished succesfully."
-    # parlist
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Starting Packages Installation from parlist..."
-    par -S --needed $(cat /tmp/parlist-hyprland)
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Installation of packages from parlist has finished succesfully."
-
-    # Installing plugins for nnn file manager if not installled
+# Check if nnn is installed
+if command -v nnn >/dev/null; then
+    # Installing plugins for nnn file manager if not installed
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Installing plugins for nnn file manager..."
     plugins_dir="$HOME/.config/nnn/plugins"
 
@@ -256,11 +239,14 @@ done
 
         sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)"
 
-        printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Plugins for nnn file manager installed succesfully."
+        printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Plugins for nnn file manager installed successfully."
     else
         printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "nnn plugins directory is not empty."
     fi
-    
+else
+    printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "nnn is not installed."
+fi
+
     # Install auto-cpufreq if not installed
     if ! command -v auto-cpufreq >/dev/null; then
         printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Installing auto-cpufreq..."
@@ -651,38 +637,7 @@ fi
 }
 
 check-results() {
-    # Check if all packages from paclist and parlist has been installed
-    package_list_file="/tmp/paclist-hyprland"
-    package_list_file_2="/tmp/parlist-hyprland"
-    missing_packages=()
-
-    # Function to check if a package is missing and add it to the missing_packages array
-    local package="$1"
-    if ! pacman -Qs "$package" > /dev/null ; then
-        missing_packages+=("$package")
-    fi
-
-    # Check packages from the paclist
-    while IFS= read -r package
-    do
-        check_package "$package"
-    done < "$package_list_file"
-
-    # Check packages from the parlist
-    while IFS= read -r package
-    do
-        check_package "$package"
-    done < "$package_list_file_2"
-
-    if [ ${#missing_packages[@]} -eq 0 ]; then
-        printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "All packages are installed!"
-    else
-        printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "The following packages are not installed:"
-        for package in "${missing_packages[@]}"
-        do
-            printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "$package"
-        done
-    fi
+    # TODO Function to check if a package is missing and add it to the missing_packages array
 
     # Check if services are enabled
     local services=("$@")
