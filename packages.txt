@@ -1,87 +1,10 @@
-gnome=(
-    gnome-control-center
-    gnome-keyring
-    gnome-nettool
-    gnome-power-manager
-    gnome-shell
-    gnome-usage
-    gvfs
-    gvfs-gphoto2
-    gvfs-mtp
-    gvfs-nfs
-    gvfs-smb
-    xdg-user-dirs-gtk
-    kitty
-    zsh
-    zsh-completions
-    lsd
-    fzf
-    ripgrep
-    bat
-    fd
-    wl-clipboard
-    zathura
-    zathura-pdf-mupdf
-    ncdu
-    duf
-    trash-cli
-    newsboat
-    neofetch
-    neovim
-    expac
-    cava
-    rsync
-    blanket
-    xterm
-    xdotool
-    nsxiv
-    ffsend
-    qt5-wayland
-    qt6-wayland
-    xdg-desktop-portal-gnome
-    profile-sync-daemon
-    vnstat
-    apparmor
-    irqbalance
-    chrony
-    net-tools
-    navi
-    tldr
-    dbus-broker
-    fortune-mod
-    ffmpeg4.4
-
-    # AUR Packages
-    gnome-shell-extension-gamemode-git
-    musikcube-bin
-    tty-clock-git
-    dragon-drop
-    zsh-theme-powerlevel10k-git
-    yt-dlp
-    nnn-nerd
-    jump
-    webcord-bin
-    mpv-git
-    tabbed-git
-    nohang-git
-    cmatrix-git
-    gdm-git
-    btop-git
-)
-
-hyprland(
-    xorg-xwayland
+essential=(
     pipewire
     pipewire-alsa
     pipewire-audio
     pipewire-jack
     pipewire-pulse
     wireplumber
-    gvfs
-    gvfs-gphoto2
-    gvfs-mtp
-    gvfs-nfs
-    gvfs-smb
     nautilus
     nautilus-sendto
     sushi
@@ -95,17 +18,17 @@ hyprland(
     expac
     cava
     mako
+    dunst
     wofi
     libnotify
     polkit-kde-agent
-    mpv
     qt5ct
     qt5-wayland
     qt6-wayland
-    lxappearance
     grim
     cachyos-nord-gtk-theme-git
     slurp
+    profile-sync-daemon
     zsh
     zsh-completions
     lsd
@@ -128,7 +51,6 @@ hyprland(
     mpd
     mpc
     papirus-icon-theme
-    profile-sync-daemon-waterfox
     imagemagick
     cowsay
     swaybg
@@ -189,7 +111,6 @@ hyprland(
     python-pyopenssl
     python-pycryptodomex
     graphviz
-    fortune-mod
     wlogout
     eww-wayland
     hblock
@@ -206,13 +127,28 @@ hyprland(
     gnome-maps
     gnome-weather
     android-tools
+    gvfs
+    gvfs-gphoto2
+    gvfs-mtp
+    gvfs-nfs
+    gvfs-smb
+    xdg-user-dirs-gtk
+    blanket
+    nsxiv
+    tldr
+    dbus-broker
 
     # AUR Packages
     mesa-git
-    hyprland-git
-    xdg-desktop-portal-hyprland-git
-    waybar-hyprland-git
-    hyprpicker-git
+    zsh-theme-powerlevel10k-git
+    yt-dlp
+    jump
+    mpv-git
+    tabbed-git
+    nohang-git
+    btop-git
+    rofi-lbonn-wayland-git
+    lswt
     swaylock-effects-git
     sway-audio-idle-inhibit-git
     grimblast-git
@@ -220,15 +156,10 @@ hyprland(
     nwg-look-bin
     wlr-randr
     wl-clip-persist-git
-    tty-clock-git
-    nitch-git
     udev-block-notify-git
-    waterfox-g-bin
-    caffeine-ng
     btop-git
     dragon-drop
     xdg-ninja-git
-    zsh-theme-powerlevel10k-git
     yt-dlp
     perl-checkupdates-aur
     minq-ananicy-git
@@ -236,14 +167,11 @@ hyprland(
     cliphist
     numix-cursor-theme
     cheat-bin
-    nnn-nerd
     tabbed-git
     betterlockscreen
     jump
     ffsend-bin
-    nsxiv
     ascii-image-converter-git
-    ookla-speedtest-bin
     cpufetch-git
     gitsome
     cloneit-git
@@ -252,31 +180,55 @@ hyprland(
     shellcheck-bin
     gitleaks
     net-snmp
-    musikcube-bin
     xcp-git
-    cava
     anki-bin
-    openrazer-meta
-    polychromatic-git
     noise-suppression-for-voice-git
+)
+
+non-essential(
+    fortune-mod
+
+    # AUR Packages
+    musikcube-bin
+    nnn-nerd
+    webcord-bin
+    tty-clock-git
     toilet
     cmatrix-git
+    openrazer-meta
+    ookla-speedtest-bin
+    nitch-git
+    caffeine-ng
+    polychromatic-git
     asciiquarium-transparent-git
     universal-android-debloater
+)
+
+gnome=(
+    gnome-control-center
+    gnome-keyring
+    gnome-nettool
+    gnome-power-manager
+    gnome-shell
+    gnome-usage
+
+    # AUR Packages
+    gnome-shell-extension-gamemode-git
+    gdm-git
+    xdg-desktop-portal-gnome
+)
+
+hyprland(
+    xorg-xwayland
+
+    # AUR Packages
+    hyprland-git
+    xdg-desktop-portal-hyprland-git
+    waybar-hyprland-git
+    hyprpicker-git
 )
 
 river(
     river
     waybar
-    wlr-randr
-    wdisplays
-    dunst
-    grim
-    slurp
-    cachyos-nord-gtk-theme-git
-    ffmpeg4.4
-
-    # AUR Packages
-    rofi-lbonn-wayland-git
-    lswt
 )
