@@ -18,17 +18,14 @@ nmcli dev wifi connect "wifi_ssid" password "wifi_password"
 nmcli dev status
 ```
 
-### Run `install-tweaks.sh` script as root
+### Clone the repo and run `install-tweaks.sh` script as `root`
 ```bash
+git clone https://github.com/Twilight4/arch-setup.git
 su -
-bash <(curl -s https://raw.githubusercontent.com/Twilight4/arch-setup/main/system-scripts/install-tweaks.sh)
+bash arch-setup/system-scripts/install-tweaks.sh
 exit
 ```
 
-### Run system scripts
-```bash
-git clone https://github.com/Twilight4/arch-setup.git
-```
 ### Optional - GNOME Customization
 If a user choosed GNOME Installation, users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository
 
