@@ -549,32 +549,44 @@ set-leftovers() {
         EOF
 
 	printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "River desktop entry created."
+
     else
 	printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "River is not installed."
     fi
 
-    # SDDM rice (don't install GDM cuz it installs GNOME DE as dependency)
-    if command -v sddm >/dev/null; then
-        printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating /etc/sddm.conf file..."
+    # Modify kitty config
+    sed -i 's/background_opacity 0\.80/background_opacity 1/' ~/.config/kitty/kitty.conf
 
-        sudo bash -c 'cat > /etc/sddm.conf' <<-'EOF'
-        # Use autologin if have problems with sddm
-        #[Autologin]
-        #Session=hyprland
-        #User=twilight
+    # Modify clipboard.sh script
+    sed -i 's/if \[\[ "$XDG_CURRENT_DESKTOP" == "Hyprland" \]\]; then/if \[\[ "$XDG_CURRENT_DESKTOP" == "river" \]\]; then/' ~/.config/rofi/applets/bin/clipboard.sh
 
-        [Theme]
-        Current=astronaut
-        CursorSize=24
-        CursorTheme=Numix-Cursor-Light
-        Font=JetBrains Mono
-        ThemeDir=/usr/share/sddm/themes
-        EOF
+# Prompt user for login manager installation
+read -p "Do you want to install SDDM login manager? (not recommended on river) [Y/n]: " install_login_manager
 
-        printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "/etc/sddm.conf file created."
-    else
-        printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "SDDM is not installed."
-    fi
+if [[ $install_login_manager =~ ^[Yy]$ ]] || [[ -z $install_login_manager ]]; then
+    # Install SDDM
+    sudo paru -S --noconfirm sddm-git sddm-theme-astronaut
+
+    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating /etc/sddm.conf file..."
+
+    sudo bash -c 'cat > /etc/sddm.conf' <<-'EOF'
+    # Use autologin if have problems with sddm
+    #[Autologin]
+    #Session=hyprland
+    #User=twilight
+
+    [Theme]
+    Current=astronaut
+    CursorSize=24
+    CursorTheme=Numix-Cursor-Light
+    Font=JetBrains Mono
+    ThemeDir=/usr/share/sddm/themes
+    EOF
+
+    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "/etc/sddm.conf file created."
+else
+    printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Login manager installation skipped."
+fi
 
     # Define the desired button layout value (remove buttons - none)
     desired_button_layout=":"
