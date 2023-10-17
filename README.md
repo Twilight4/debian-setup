@@ -1,5 +1,5 @@
-## Package Installer and User System Configuration Bootstrap script
-Description: The script automates the installation of user packages and configures system settings and services. 
+## Personal User System Configuration Bootstrap scripts
+The script automates the installation of user packages and configures system settings and services. 
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring
 a consistent and efficient setup experience across multiple systems.
 
