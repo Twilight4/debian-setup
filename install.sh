@@ -185,6 +185,49 @@ remove-distro-bloat() {
 }
 
 install-packages() {
+
+source packages.txt
+
+declare -A categories
+categories=(
+    ["essential"]="essential[@]"
+    ["non-essential"]="non-essential[@]"
+    ["gnome"]="gnome[@]"
+    ["hyprland"]="hyprland[@]"
+    ["river"]="river[@]"
+)
+
+echo "Select categories to install (comma separated):"
+
+i=1
+for category in "${!categories[@]}"; do
+    echo "$i. $category"
+    ((i++))
+done
+
+read -r choices
+IFS=',' read -ra selected_categories <<< "$choices"
+
+for choice in "${selected_categories[@]}"; do
+    category="${!categories["$choice"]}"
+
+    if [[ -z "$category" ]]; then
+        echo "Invalid choice. Exiting."
+        exit 1
+    fi
+
+    packages=("${!category}")
+
+    echo "Installing packages for $choice..."
+
+    for package in "${packages[@]}"; do
+        sudo apt-get install "$package" -y
+    done
+
+    echo "Packages for $choice installed successfully."
+done
+
+
     # Download paclist
     paclist_path="/tmp/paclist-hyprland"
     curl "https://raw.githubusercontent.com/Twilight4/arch-setup/master/paclist-hyprland" > "$paclist_path"
