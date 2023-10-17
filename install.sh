@@ -70,9 +70,9 @@ install-paru() {
 
     # Check if paru is installed
     if paru --version &>/dev/null; then
-      printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "paru package manager installed successfully."
+      printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Package manager installed successfully."
     else
-      printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Installation of paru package manager failed."
+      printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Installation of package manager failed."
     fi
 }
 
