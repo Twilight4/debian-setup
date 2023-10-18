@@ -84,7 +84,7 @@ sed -i 's/background_opacity 0\.80/background_opacity 1/' ~/.config/kitty/kitty.
 sed -i 's/if \[\[ "$XDG_CURRENT_DESKTOP" == "Hyprland" \]\]; then/if \[\[ "$XDG_CURRENT_DESKTOP" == "river" \]\]; then/' ~/.config/rofi/applets/bin/clipboard.sh
 
 # Prompt user for login manager installation
-read -p "Do you want to install SDDM login manager? (not recommended on river) [Y/n]: " install_login_manager
+read -p "Do you want to install SDDM login manager? [Y/n]: " install_login_manager
 
 if [[ $install_login_manager =~ ^[Yy]$ ]] || [[ -z $install_login_manager ]]; then
     # Install SDDM
