@@ -1,4 +1,6 @@
 essential=(
+    git
+    ccache
     pipewire
     pipewire-alsa
     pipewire-audio
