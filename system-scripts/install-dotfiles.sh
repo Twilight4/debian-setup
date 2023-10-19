@@ -14,12 +14,11 @@ sudo fc-cache -fv
 rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,pulse,paru,user-dirs.dirs,user-dirs.locate,dconf}
 rm -rf .config/.gsd-keyboard.settings-ported
 
-# Copy dotfiles
+# Function to copy dotfiles
 if [ -d "$DOTFILES" ]; then 
     # Copy dotfiles using rsync
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Copying .config dir from dotfiles repository..."
-    rsync -av "$DOTFILES/" ~
-    rm ~/README.md
+    rsync --exclude='alacritty/' --exclude='eww/' --exclude='foot/' --exclude='mako/' --exclude='ncmpcpp/' --exclude='newsboat/' --exclude='nvim/' --exclude='qutebrowser/' --exclude='tmux/' --exclude='tmuxp/' -av "$DOTFILES/.config" ~/.config
 
     # Use the same nvim config for sudo nvim
     sudo cp -r ~/.config/nvim /root/.config/
