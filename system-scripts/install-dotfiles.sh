@@ -14,18 +14,51 @@ sudo fc-cache -fv
 rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,pulse,paru,user-dirs.dirs,user-dirs.locate,dconf}
 rm -rf .config/.gsd-keyboard.settings-ported
 
-# Function to copy dotfiles
-if [ -d "$DOTFILES" ]; then 
+# Prompt user for choice
+read -p "Do you want to install dotfiles for River or Hyperland? (river/hyprland): " CHOICE
+
+# Function to copy dotfiles for river
+copy_dotfiles_river() {
     # Copy dotfiles using rsync
     printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Copying .config dir from dotfiles repository..."
     rsync --exclude='alacritty/' --exclude='eww/' --exclude='foot/' --exclude='mako/' --exclude='ncmpcpp/' --exclude='newsboat/' --exclude='nvim/' --exclude='qutebrowser/' --exclude='tmux/' --exclude='tmuxp/' -av "$DOTFILES/.config" ~/.config
 
     # Use the same nvim config for sudo nvim
     sudo cp -r ~/.config/nvim /root/.config/
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Dotfiles copied succesfully."
-else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Directory $DOTFILES does not exist. Dotfiles not copied."
-fi
+    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Dotfiles copied successfully."
+}
+
+# Function to copy dotfiles for hyprland
+copy_dotfiles_hyprland() {
+    # Copy dotfiles using rsync
+    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Copying .config dir from dotfiles repository..."
+    rsync --exclude='alacritty/' --exclude='dunst/' --exclude='foot/' --exclude='mako/' --exclude='ncmpcpp/' --exclude='newsboat/' --exclude='nvim/' --exclude='qutebrowser/' --exclude='tmux/' --exclude='tmuxp/' -av "$DOTFILES/.config" ~/.config
+
+    # Use the same nvim config for sudo nvim
+    sudo cp -r ~/.config/nvim /root/.config/
+    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Dotfiles copied successfully."
+}
+
+# Loop to prompt user until a valid choice is provided
+while true; do
+    # Prompt user for choice
+    read -p "Do you want to install dotfiles for River or Hyperland? (river/hyprland): " CHOICE
+
+    # Check user's choice and proceed accordingly
+    case "$CHOICE" in
+        river)
+            copy_dotfiles_river
+            break  # Exit the loop if a valid choice is made
+            ;;
+        hyprland)
+            copy_dotfiles_hyprland
+            break  # Exit the loop if a valid choice is made
+            ;;
+        *)
+            printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Invalid choice. Please choose 'river' or 'hyprland'."
+            ;;
+    esac
+done
 
 # Create necessary directories
 directories=(
