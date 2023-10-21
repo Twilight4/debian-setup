@@ -145,4 +145,4 @@ sudo cpupower frequency-set -g performance
 sudo sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off amd_prefcore=enable/' /etc/sdboot-manage.conf
 #cat /sys/devices/system/cpu/amd-pstate/prefcore_state        # You can check if it is enabled with following command
 # Disabling Split Lock Mitigate
-sudo sed -i '$a kernel.split_lock_mitigate=0' /etc/sysctl.d/99-splitlock.conf
+echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
