@@ -193,6 +193,7 @@ non-essential(
     openbsd-netcat
     libguestfs
     libvirt
+    cachyos-gaming-meta
 
     # AUR Packages
     musikcube-bin
