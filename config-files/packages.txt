@@ -125,6 +125,8 @@ essential=(
     nsxiv
     tldr
     dbus-broker
+    appmenu-gtk-module
+    libdbusmenu-glib
 
     # AUR Packages
     mesa-git
