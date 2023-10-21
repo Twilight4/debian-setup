@@ -137,4 +137,4 @@ sudo sed -i -E 's/^vm\.swappiness\s*=\s*[0-9]+/vm.swappiness = 30/' /etc/sysctl.
 sudo sh -c 'echo zstd > /sys/module/zswap/parameters/compressor'
 sudo sh -c 'echo 10 > /sys/module/zswap/parameters/max_pool_percent'
 # Disabling mitigations
-echo "options rw retbleed=off" | sudo tee -a /boot/loader/loader.conf && sudo bootctl update
+sudo sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off/' /etc/sdboot-manage.conf
