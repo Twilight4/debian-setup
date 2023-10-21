@@ -10,7 +10,7 @@ local services=(
     systemd-resolve
     paccache.timer      # enable weekly pkg cache cleaning
     fstrim.timer
-    ananicy             # enable ananicy daemon (CachyOS has it built in)
+    #ananicy             # enable ananicy daemon (CachyOS has it built in)
     nohang-desktop
     bluetooth
     vnstat              # network traffic monitor
