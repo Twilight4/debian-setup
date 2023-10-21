@@ -119,17 +119,6 @@ EOF
 
 chmod 600 /etc/NetworkManager/conf.d/ip6-privacy.conf
 
-# Improve virtual memory performance - CachyOS has probably better settings built-in
-#bash -c 'cat > /etc/sysctl.d/98-misc.conf' <<-'EOF'
-#vm.dirty_background_ratio=15
-#vm.dirty_ratio=40
-#vm.oom_dump_tasks=0
-#vm.oom_kill_allocating_task=1
-#vm.overcommit_memory=1
-#vm.swappiness=10
-#vm.vfs_cache_pressure=50
-#EOF
-
 #####################################################################
 # System Performance Tweaks
 #####################################################################
@@ -140,6 +129,17 @@ bash -c 'cat > /etc/systemd/zram-generator.conf' <<-'EOF'
 zram-fraction = 1
 max-zram-size = 8192
 EOF
+
+# Improve virtual memory performance - CachyOS has probably better settings built-in
+#bash -c 'cat > /etc/sysctl.d/98-misc.conf' <<-'EOF'
+#vm.dirty_background_ratio=15
+#vm.dirty_ratio=40
+#vm.oom_dump_tasks=0
+#vm.oom_kill_allocating_task=1
+#vm.overcommit_memory=1
+#vm.swappiness=10
+#vm.vfs_cache_pressure=50
+#EOF
 
 
 ######################################################################
