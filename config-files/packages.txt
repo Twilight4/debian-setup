@@ -127,6 +127,7 @@ essential=(
     dbus-broker
     appmenu-gtk-module
     libdbusmenu-glib
+    stacer
 
     # AUR Packages
     mesa-git
