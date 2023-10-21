@@ -13,29 +13,11 @@ pacman -Syy
 mv /etc/pacman.conf /etc/pacman.conf.bak
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/pacman.conf > /etc/pacman.conf
 pacman -Syy
-# Enable Chaotic-AUR repo
-#pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
-#pacman-key --lsign-key 3056513887B78AEB
-#pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
-#echo '
-#[chaotic-aur]
-#Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee --append /etc/pacman.conf
-#pacman -Syy
 # Adding CachyOS Repository for Enhanced Arch Linux Performance
 wget https://mirror.cachyos.org/cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh && cd -
-## Enable Arcolinux repo
-#bash <(curl -s https://raw.githubusercontent.com/arcolinux/arcolinux-spices/master/usr/share/arcolinux-spices/scripts/get-the-keys-and-repos.sh)
-#pacman -Syy
-# Enable Athena repo - currently he has broken keys so don't use it
-#echo '
-#[athena-repository]
-#SigLevel = Optional TrustedOnly
-#Server = https://athena-os.github.io/$repo/$arch' | sudo tee --append /etc/pacman.conf
-#pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
-#pacman -Syy
-# Enable Black Arch repo
+# Enabling Black Arch repo
 curl -O https://blackarch.org/strap.sh
 echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
 chmod +x strap.sh
@@ -43,6 +25,24 @@ sudo ./strap.sh
 rm strap.sh
 # Update changes
 pacman -Syy
+
+### Optional repositories ###
+# Enabling Chaotic-AUR repo - CachyOS repos are certainly sufficient
+#pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
+#pacman-key --lsign-key 3056513887B78AEB
+#pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
+#echo '
+#[chaotic-aur]
+#Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee --append /etc/pacman.conf
+#pacman -Syy
+
+# Enabling Athena repo - there are so many issues with that, not recommended
+#echo '
+#[athena-repository]
+#SigLevel = Optional TrustedOnly
+#Server = https://athena-os.github.io/$repo/$arch' | sudo tee --append /etc/pacman.conf
+#pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
+#pacman -Syy
 
 #####################################################################
 # Security Enhancments
