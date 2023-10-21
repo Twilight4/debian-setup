@@ -147,7 +147,7 @@ sudo sh -c 'echo 10 > /sys/module/zswap/parameters/max_pool_percent'
 # Disabling mitigations
 sudo sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off/' /etc/sdboot-manage.conf
 # AMD P-State EPP Driver
-echo passive | sudo tee /sys/devices/system/cpu/amd_pstate/status
+echo active | sudo tee /sys/devices/system/cpu/amd_pstate/status
 sudo cpupower frequency-set -g performance
 # AMD P-State Preferred Core Handling
 sudo sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off amd_prefcore=enable/' /etc/sdboot-manage.conf
