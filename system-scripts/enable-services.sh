@@ -9,6 +9,7 @@ local services=(
     systemd-oomd
     systemd-resolve
     paccache.timer      # enable weekly pkg cache cleaning
+    fstrim.timer
     ananicy             # enable ananicy daemon (CachyOS has it built in)
     nohang-desktop
     bluetooth
@@ -55,9 +56,6 @@ fi
 #        echo "Service already enabled: mpd.service."
 #    fi
 #fi
-
-# Call the check_enabled_services function and pass the services array as an argument
-check-results "${services[@]}"
 
 # Other services
 hblock                              # block ads and malware domains
