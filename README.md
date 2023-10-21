@@ -40,4 +40,4 @@ exit
 If a user choosed GNOME Installation, users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository
 
 ### Optional - Installing tools
-Additional tools can be installed using scripts in the [tools-scripts](https://github.com/Twilight4/arch-setup/tree/main/tools-scripts) directory
+Additional tools can be installed using scripts in the [tools-installation](https://github.com/Twilight4/arch-setup/tree/main/tools-installation) directory
