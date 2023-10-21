@@ -26,6 +26,8 @@ echo 'sudo auto-cpufreq --force=powersave'
 echo 'sudo auto-cpufreq --force=reset'         
 printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Setting to "reset" will go back to normal mode."
 printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "----------------- AFTER REBOOT -----------------"
+printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Check if AMD P-State Preferred Core Handling is enabled with following command"
+echo 'cat /sys/devices/system/cpu/amd-pstate/prefcore_state'
 printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Start Default Network for virt-manager:"
 echo 'sudo virsh net-start default'
 echo 'sudo virsh net-autostart default'
