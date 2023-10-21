@@ -1,7 +1,7 @@
 #!bin/bash
 
 #####################################################################
-# Pacman configuration
+# Pacman Configuration
 #####################################################################
 
 # Warning: This script is supposed to be run on top of fresh arch linux installation as ROOT (post installation with arch-chroot). The sequence order is substantial.
@@ -90,13 +90,6 @@ account		required	pam_unix.so
 session		required	pam_unix.so
 EOF
 
-# ZRAM configuration
-bash -c 'cat > /etc/systemd/zram-generator.conf' <<-'EOF'
-[zram0]
-zram-fraction = 1
-max-zram-size = 8192
-EOF
-
 # Randomize Mac Address
 bash -c 'cat > /etc/NetworkManager/conf.d/00-macrandomize.conf' <<-'EOF'
 [device]
@@ -137,8 +130,20 @@ chmod 600 /etc/NetworkManager/conf.d/ip6-privacy.conf
 #vm.vfs_cache_pressure=50
 #EOF
 
+#####################################################################
+# System Performance Tweaks
+#####################################################################
+
+# ZRAM configuration
+bash -c 'cat > /etc/systemd/zram-generator.conf' <<-'EOF'
+[zram0]
+zram-fraction = 1
+max-zram-size = 8192
+EOF
+
+
 ######################################################################
-# Configuring the system
+# Configuring the System
 ######################################################################
 
 # Warning: These configs are correct ONLY for ext4 and GRUB bootloader.
