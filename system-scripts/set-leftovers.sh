@@ -129,7 +129,7 @@ else
     printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "Button layout is already set as desired."
 fi
 
-# General system tweaks
+# General system tweaks - https://wiki.cachyos.org/general_info/general_system_tweaks/
 # Reduce Swappiness and vfs_cache_pressure
 sudo sed -i -E 's/^(#)?(vm\.vfs_cache_pressure)/\2/' /etc/sysctl.d/99-cachyos-settings.conf
 sudo sed -i -E 's/^vm\.swappiness\s*=\s*[0-9]+/vm.swappiness = 30/' /etc/sysctl.d/99-cachyos-settings.conf
@@ -138,3 +138,11 @@ sudo sh -c 'echo zstd > /sys/module/zswap/parameters/compressor'
 sudo sh -c 'echo 10 > /sys/module/zswap/parameters/max_pool_percent'
 # Disabling mitigations
 sudo sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off/' /etc/sdboot-manage.conf
+# AMD P-State EPP Driver
+echo passive | sudo tee /sys/devices/system/cpu/amd_pstate/status
+sudo cpupower frequency-set -g performance
+# AMD P-State Preferred Core Handling
+sudo sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off amd_prefcore=enable/' /etc/sdboot-manage.conf
+#cat /sys/devices/system/cpu/amd-pstate/prefcore_state        # You can check if it is enabled with following command
+# Disabling Split Lock Mitigate
+sudo sed -i '$a kernel.split_lock_mitigate=0' /etc/sysctl.d/99-splitlock.conf
