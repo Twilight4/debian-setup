@@ -67,7 +67,7 @@ if command -v river >/dev/null; then
         [Desktop Entry]
         Name=River
         Comment=A dynamic tiling Wayland compositor
-        Exec="$HOME/.config/river/startr"
+        Exec="$HOME/.config/river/scripts/startr"
         Type=Application
         EOF
 
@@ -128,3 +128,11 @@ else
     # If they match, display a message indicating that the value is already as desired
     printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "Button layout is already set as desired."
 fi
+
+# General system tweaks
+# Reduce Swappiness and vfs_cache_pressure
+sudo sed -i -E 's/^(#)?(vm\.vfs_cache_pressure)/\2/' /etc/sysctl.d/99-cachyos-settings.conf
+sudo sed -i -E 's/^vm\.swappiness\s*=\s*[0-9]+/vm.swappiness = 30/' /etc/sysctl.d/99-cachyos-settings.conf
+# Zswap tweaking
+sudo sh -c 'echo zstd > /sys/module/zswap/parameters/compressor'
+sudo sh -c 'echo 10 > /sys/module/zswap/parameters/max_pool_percent'
