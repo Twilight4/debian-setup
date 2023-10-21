@@ -130,21 +130,17 @@ zram-fraction = 1
 max-zram-size = 8192
 EOF
 
-# Improve virtual memory performance - CachyOS has probably better settings built-in
-#bash -c 'cat > /etc/sysctl.d/98-misc.conf' <<-'EOF'
-#vm.dirty_background_ratio=15
-#vm.dirty_ratio=40
-#vm.oom_dump_tasks=0
-#vm.oom_kill_allocating_task=1
-#vm.overcommit_memory=1
-#vm.swappiness=10
-#vm.vfs_cache_pressure=50
-#EOF
-
 # General system tweaks - https://wiki.cachyos.org/general_info/general_system_tweaks/
 # Reduce Swappiness and vfs_cache_pressure
 sudo sed -i -E 's/^(#)?(vm\.vfs_cache_pressure)/\2/' /etc/sysctl.d/99-cachyos-settings.conf
-sudo sed -i -E 's/^vm\.swappiness\s*=\s*[0-9]+/vm.swappiness = 30/' /etc/sysctl.d/99-cachyos-settings.conf
+sudo sed -i -E 's/^vm\.swappiness\s*=\s*[0-9]+/vm.swappiness = 10/' /etc/sysctl.d/99-cachyos-settings.conf
+echo -e "\n# Additional settings" | sudo tee -a /etc/sysctl.d/99-cachyos-settings.conf
+echo "vm.dirty_background_ratio=15" | sudo tee -a /etc/sysctl.d/99-cachyos-settings.conf
+echo "vm.dirty_ratio=40" | sudo tee -a /etc/sysctl.d/99-cachyos-settings.conf
+echo "vm.oom_dump_tasks=0" | sudo tee -a /etc/sysctl.d/99-cachyos-settings.conf
+echo "vm.oom_kill_allocating_task=1" | sudo tee -a /etc/sysctl.d/99-cachyos-settings.conf
+echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.d/99-cachyos-settings.conf
+
 # Zswap tweaking
 sudo sh -c 'echo zstd > /sys/module/zswap/parameters/compressor'
 sudo sh -c 'echo 10 > /sys/module/zswap/parameters/max_pool_percent'
