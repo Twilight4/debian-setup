@@ -151,7 +151,7 @@ echo active | sudo tee /sys/devices/system/cpu/amd_pstate/status
 sudo cpupower frequency-set -g performance
 # AMD P-State Preferred Core Handling
 sudo sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off amd_prefcore=enable/' /etc/sdboot-manage.conf
-#cat /sys/devices/system/cpu/amd_pstate/prefcore_state        # You can check if it is enabled with following command
+#cat /sys/devices/system/cpu/amd_pstate/prefcore        # You can check if it is enabled with following command
 # Disabling Split Lock Mitigate
 echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 
