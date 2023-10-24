@@ -49,10 +49,9 @@ cachyos_bloat=(
 
 for package in "${cachyos_bloat[@]}"; do
     if pacman -Qs "$package" > /dev/null 2>&1; then
-        printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Removing $package..."
+        echo "Removing $package..."
         sudo pacman -Rsn --noconfirm "$package"
     else
-        printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "$package is not installed."
+        echo "$package is not installed."
     fi
 done
-
