@@ -22,26 +22,26 @@ local services=(
 for service in "${services[@]}"; do
     if systemctl list-unit-files --type=service | grep -q "^$service.service"; then
         if ! systemctl is-enabled --quiet "$service"; then
-            printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Enabling service: $service..."
+            echo "Enabling service: $service..."
             sudo systemctl enable "$service"
         else
-            printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "Service already enabled:\n" "$service"
+            echo "Service already enabled:\n" "$service"
         fi
     else
-        printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Service does not exist:\n" "$service"
+        echo "Service does not exist:\n" "$service"
     fi
 done
 
 # Enable psd service as user if service exists and is not enabled
 if systemctl list-unit-files --user --type=service | grep -q "^psd.service"; then
     if ! systemctl --user is-enabled --quiet psd.service; then
-        printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Enabling service: psd.service..."
+        echo "Enabling service: psd.service..."
         systemctl --user enable psd.service
     else
-        printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "Service already enabled: psd.service."
+        echo "Service already enabled: psd.service."
     fi
 else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Service does not exist: psd.service."
+    echo "Service does not exist: psd.service."
 fi
 
 # Enable mpd service as user if service exists
