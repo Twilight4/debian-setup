@@ -3,9 +3,9 @@
 DOTFILES="/tmp/dotfiles"
 if [ ! -d "$DOTFILES" ]
 then
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Cloning dotfiles repository..."
+    echo "Cloning dotfiles repository..."
     git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "dotfiles repository cloned."
+    echo "dotfiles repository cloned."
 fi
 
 # Remove auto-generated bloat
@@ -20,25 +20,25 @@ read -p "Do you want to install dotfiles for River or Hyperland? (river/hyprland
 # Function to copy dotfiles for river
 copy_dotfiles_river() {
     # Copy dotfiles using rsync
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Copying .config dir from dotfiles repository..."
+    echo "Copying .config dir from dotfiles repository..."
     rsync --exclude='alacritty/' --exclude='eww/' --exclude='foot/' --exclude='mako/' --exclude='ncmpcpp/' --exclude='newsboat/' --exclude='nvim/' --exclude='qutebrowser/' --exclude='tmux/' --exclude='tmuxp/' --exclude='wlogout/' -av "$DOTFILES/.config" ~/.config
 
     # Use the same nvim config for sudo nvim
     #sudo cp -r ~/.config/nvim /root/.config/
 
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Dotfiles copied successfully."
+    echo "Dotfiles copied successfully."
 }
 
 # Function to copy dotfiles for hyprland
 copy_dotfiles_hyprland() {
     # Copy dotfiles using rsync
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Copying .config dir from dotfiles repository..."
+    echo "Copying .config dir from dotfiles repository..."
     rsync --exclude='alacritty/' --exclude='dunst/' --exclude='river/' --exclude='nvim/' --exclude='ncmpcpp/' --exclude='qutebrowser/' --exclude='tmux/' --exclude='tmuxp/' -av "$DOTFILES/.config" ~/.config
 
     # Use the same nvim config for sudo nvim
     #sudo cp -r ~/.config/nvim /root/.config/
 
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Dotfiles copied successfully."
+    echo "Dotfiles copied successfully."
 }
 
 # Loop to prompt user until a valid choice is provided
@@ -57,7 +57,7 @@ while true; do
             break  # Exit the loop if a valid choice is made
             ;;
         *)
-            printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Invalid choice. Please choose 'river' or 'hyprland'."
+            echo "Invalid choice. Please choose 'river' or 'hyprland'."
             ;;
     esac
 done
@@ -82,10 +82,10 @@ directories=(
 
 for directory in "${directories[@]}"; do
     if [ ! -d "$directory" ]; then
-        printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating directory: $directory..."
+        echo "Creating directory: $directory..."
         mkdir -p "$directory"
     else
-        printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "Directory already exists:\n" "$directory"
+        echo "Directory already exists:\n" "$directory"
     fi
 done
 
