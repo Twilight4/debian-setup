@@ -11,18 +11,18 @@ fi
 
 # Correct data locale english
 if [[ "$(localectl status)" != *"LC_TIME=en_US.UTF-8"* ]]; then
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Setting LC_TIME to English..."
+    echo "Setting LC_TIME to English..."
     sudo localectl set-locale LC_TIME=en_US.UTF-8
     sudo localectl set-locale LC_MONETARY=en_US.UTF-8
     sudo localectl set-locale LC_NUMERIC=en_US.UTF-8
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "LC_TIME set to English."
+    echo "LC_TIME set to English."
 else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "LC_TIME is already set to English."
+    echo "LC_TIME is already set to English."
 fi
 
 # Install GRUB theme if GRUB is installed
 if command -v grub-install >/dev/null && ! command -v bootctl >/dev/null; then
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Installing GRUB theme..."
+    echo "Installing GRUB theme..."
 
     # Clone theme repository
     git clone https://github.com/HenriqueLopes42/themeGrub.CyberEXS
@@ -37,14 +37,14 @@ if command -v grub-install >/dev/null && ! command -v bootctl >/dev/null; then
     # Set GRUB theme in GRUB configuration
     echo 'GRUB_THEME=/boot/grub/themes/CyberEXS/theme.txt' | sudo tee -a /etc/default/grub
 
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "GRUB theme installed."
+    echo "GRUB theme installed."
 else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "GRUB bootloader is not installed, using systemd-boot."
+    echo "GRUB bootloader is not installed, using systemd-boot."
 fi
 
 # Create Hyprland desktop entry if Hyprland is installed
 if command -v hyprland >/dev/null; then
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating Hyprland desktop entry..."
+    echo "Creating Hyprland desktop entry..."
 
     sudo bash -c 'cat > /usr/share/wayland-sessions/hyprland.desktop' <<-'EOF'
         [Desktop Entry]
@@ -54,9 +54,9 @@ if command -v hyprland >/dev/null; then
         Type=Application
         EOF
 
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Hyprland desktop entry created."
+    echo "Hyprland desktop entry created."
 else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Hyprland is not installed."
+    echo "Hyprland is not installed."
 fi
 
 # Create river desktop entry if river is installed
