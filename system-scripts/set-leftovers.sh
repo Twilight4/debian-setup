@@ -2,11 +2,11 @@
 
 # Disable the systemd-boot startup entry if systemd-boot is installed
 if [ -d "/sys/firmware/efi/efivars" ] && [ -d "/boot/loader" ]; then
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Disabling systemd-boot startup entry"
+    echo "Disabling systemd-boot startup entry"
     sudo sed -i 's/^timeout/# timeout/' /boot/loader/loader.conf
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Disabled systemd-boot startup entry"
+    echo "Disabled systemd-boot startup entry"
 else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "systemd-boot is not being used."
+    echo "systemd-boot is not being used."
 fi
 
 # Correct data locale english
