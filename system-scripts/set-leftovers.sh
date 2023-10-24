@@ -61,7 +61,7 @@ fi
 
 # Create river desktop entry if river is installed
 if command -v river >/dev/null; then
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating river desktop entry..."
+    echo "Creating river desktop entry..."
 
     sudo bash -c 'cat > /usr/share/wayland-sessions/river.desktop' <<-'EOF'
         [Desktop Entry]
@@ -71,10 +71,10 @@ if command -v river >/dev/null; then
         Type=Application
         EOF
 
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "River desktop entry created."
+    echo "River desktop entry created."
 
 else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "River is not installed."
+    echo "River is not installed."
 fi
 
 # Modify kitty config
@@ -90,7 +90,7 @@ if [[ $install_login_manager =~ ^[Yy]$ ]] || [[ -z $install_login_manager ]]; th
     # Install SDDM
     sudo paru -S --noconfirm sddm-git sddm-theme-astronaut
 
-    printf '%b%s%b\n' "${FX_BOLD}${FG_CYAN}" "Creating /etc/sddm.conf file..."
+    echo "Creating /etc/sddm.conf file..."
 
     sudo bash -c 'cat > /etc/sddm.conf' <<-'EOF'
     # Use autologin if have problems with sddm
@@ -106,9 +106,9 @@ if [[ $install_login_manager =~ ^[Yy]$ ]] || [[ -z $install_login_manager ]]; th
     ThemeDir=/usr/share/sddm/themes
     EOF
 
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "/etc/sddm.conf file created."
+    echo "/etc/sddm.conf file created."
 else
-    printf '%b%s%b\n' "${FX_BOLD}${FG_RED}" "Login manager installation skipped."
+    echo "Login manager installation skipped."
 fi
 
 # Define the desired button layout value (remove buttons - none)
@@ -123,8 +123,8 @@ if [ "$current_button_layout" != "$desired_button_layout" ]; then
     gsettings set org.gnome.desktop.wm.preferences button-layout "$desired_button_layout"
     # Enable transparency in emacs - will move it later
     sed -i '/;(add-to-list.*For all new frames henceforth/s/;//' your_file_name
-    printf '%b%s%b\n' "${FX_BOLD}${FG_GREEN}" "Button layout has been updated."
+    echo "Button layout has been updated."
 else
     # If they match, display a message indicating that the value is already as desired
-    printf '%b%s%b\n' "${FX_BOLD}${FG_YELLOW}" "Button layout is already set as desired."
+    echo "Button layout is already set as desired."
 fi
