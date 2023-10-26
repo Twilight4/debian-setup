@@ -71,6 +71,14 @@ done
 # Enable psd service
 enable_psd_service
 
+# Other services
+hblock                              # block ads and malware domains
+playerctld daemon                   # if it doesn't work try installing volumectl
+
+# Check service status
+check_service_status "${services[@]}"
+
+# Commented out cuz playerctl does the job instead, not need the mpd service
 # Enable mpd service as user if service exists
 #if ! systemctl list-unit-files --user --type=service | grep -q "^mpd.service"; then
 #    echo "Service does not exist: mpd.service. Adding and enabling..."
@@ -83,10 +91,3 @@ enable_psd_service
 #        echo "Service already enabled: mpd.service."
 #    fi
 #fi
-
-# Other services
-hblock                              # block ads and malware domains
-playerctld daemon                   # if it doesn't work try installing volumectl
-
-# Check service status
-check_service_status "${services[@]}"
