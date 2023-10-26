@@ -2,6 +2,7 @@
 
 set -e  # Exit on error
 
+# Enable services if they exist and are not enabled
 function enable_service {
     service=$1
     if systemctl list-unit-files --type=service | grep -q "^$service.service"; then
@@ -16,7 +17,21 @@ function enable_service {
     fi
 }
 
-local services=(
+# Enable psd service as user if service exists and is not enabled
+function enable_psd_service {
+    if systemctl list-unit-files --user --type=service | grep -q "^psd.service"; then
+	if ! systemctl --user is-enabled --quiet psd.service; then
+            echo "Enabling service: psd.service..."
+            systemctl --user enable psd.service
+	else
+            echo "Service already enabled: psd.service."
+	fi
+    else
+	echo "Service does not exist: psd.service."
+    fi
+}
+
+services=(
     sddm
     apparmor
     firewalld
@@ -33,32 +48,6 @@ local services=(
     libvirtd            # enable qemu/virt manager daemon
     #docker
 )
-
-# Enable services if they exist and are not enabled
-for service in "${services[@]}"; do
-    if systemctl list-unit-files --type=service | grep -q "^$service.service"; then
-        if ! systemctl is-enabled --quiet "$service"; then
-            echo "Enabling service: $service..."
-            sudo systemctl enable "$service"
-        else
-            echo "Service already enabled:\n" "$service"
-        fi
-    else
-        echo "Service does not exist:\n" "$service"
-    fi
-done
-
-# Enable psd service as user if service exists and is not enabled
-if systemctl list-unit-files --user --type=service | grep -q "^psd.service"; then
-    if ! systemctl --user is-enabled --quiet psd.service; then
-        echo "Enabling service: psd.service..."
-        systemctl --user enable psd.service
-    else
-        echo "Service already enabled: psd.service."
-    fi
-else
-    echo "Service does not exist: psd.service."
-fi
 
 # Enable mpd service as user if service exists
 #if ! systemctl list-unit-files --user --type=service | grep -q "^mpd.service"; then
