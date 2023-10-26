@@ -6,6 +6,7 @@ add_groups=(
     autologin
 )
 
+# Virtualisation groups
 usermod_groups=(
     libvirt
     libvirt-qemu
@@ -18,6 +19,7 @@ gpasswd_groups=(
     autologin
     plugdev
     mpd
+    #docker
 )
 
 username=$(whoami)
