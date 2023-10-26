@@ -16,12 +16,11 @@ nmcli dev wifi connect "wifi_ssid" password "wifi_password"
 nmcli dev status
 ```
 
-#### Caveat
+### Clone the repo and run `install-tweaks.sh` script as `root`
 Prior to executing custom scripts, it is imperative that users have previously run the `install-tweaks.sh` script **as root**.
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
 
-### Clone the repo and run `install-tweaks.sh` script as `root`
 ```bash
 git clone https://github.com/Twilight4/arch-setup.git
 su -
