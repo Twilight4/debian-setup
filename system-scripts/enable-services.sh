@@ -31,6 +31,20 @@ function enable_psd_service {
     fi
 }
 
+# Check what services are not enabled
+function check_service_status {
+    services=("$@")
+
+    echo "Checking service status..."
+
+    for service in "${services[@]}"; do
+        if ! systemctl is-enabled "$service" >/dev/null 2>&1; then
+            echo "Service $service is not enabled."
+        fi
+    done
+}
+
+# Define services
 services=(
     sddm
     apparmor
@@ -65,17 +79,3 @@ services=(
 # Other services
 hblock                              # block ads and malware domains
 playerctld daemon                   # if it doesn't work try installing volumectl
-
-# Check if services are enabled
-local services=("$@")
-
-echo "Checking service status..."
-
-for service in "${services[@]}"
-do
-    if systemctl is-enabled "$service" >/dev/null 2>&1; then
-        echo "Service $service is enabled."
-    else
-        echo "Service %s is not enabled:\n" "$service"
-    fi
-done
