@@ -18,7 +18,6 @@ Recommended sequence of running the scripts:
 5. `enable-services.sh`
 6. `install-dotfiles.sh`
 7. `set-leftovers.sh`
-8. `check-results.sh`
 
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
 ### Connect to internet

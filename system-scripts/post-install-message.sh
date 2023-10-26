@@ -27,4 +27,4 @@ echo "Install more packages:"
 echo 'sudo npm install git-file-downloader cli-fireplace git-stats'
 echo "Check if profile sync daemon is running:"
 echo 'psd p'
-echo "Uncomment last 2 lines in kitty.conf."
+echo "Uncomment last 2 lines in kitty.conf"
