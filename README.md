@@ -28,7 +28,7 @@ bash arch-setup/system-scripts/install-tweaks.sh
 exit
 ```
 
-### Recommended sequence of running the scripts:
+#### Recommended sequence of running the scripts
 1. `install-paru.sh`
 2. `remove-bloat.sh`
 3. `install-packages.sh`
