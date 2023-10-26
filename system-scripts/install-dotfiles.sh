@@ -114,3 +114,40 @@ rm ~/.zcompdummp*
 # Setting mime type for org mode (org mode is not recognised as it's own mime type by default)
 update-mime-database ~/.config/.local/share/mime
 xdg-mime default emacs.desktop text/org
+
+# Clone SecLists repo if does not exist
+payloads_dir="/usr/share/payloads"
+seclists_dir="$payloads_dir/SecLists"
+
+if [ ! -d "$payloads_dir" ] || [ ! -d "$seclists_dir" ]; then
+    echo "Creating directories and cloning SecLists repository..."
+
+    sudo mkdir -p "$payloads_dir"
+    sudo git clone https://github.com/danielmiessler/SecLists.git "$seclists_dir"
+
+    echo "SecLists repository cloned to $seclists_dir."
+else
+    echo "SecLists repository already exists in $seclists_dir."
+fi
+
+# Zsh as default shell
+default_shell=$(getent passwd "$(whoami)" | cut -d: -f7)
+if [ "$default_shell" != "$(which zsh)" ]; then
+    echo "Zsh is not the default shell. Changing shell..."
+    sudo chsh -s "$(which zsh)" "$(whoami)"
+    echo "Shell changed to Zsh."
+else
+    echo "Zsh is already the default shell."
+fi
+
+# Export default PATH to zsh config
+zshenv_file="/etc/zsh/zshenv"
+line_to_append='export ZDOTDIR="$HOME"/.config/zsh'
+
+if [ ! -f "$zshenv_file" ]; then
+    echo "Creating $zshenv_file..."
+    echo "$line_to_append" | sudo tee "$zshenv_file" >/dev/null
+    echo "$zshenv_file created."
+else
+    echo "$zshenv_file already exists."
+fi

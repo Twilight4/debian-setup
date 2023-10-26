@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO Function to check if a package is missing and add it to the missing_packages array
-
 # Post-install message
 echo "Post-Installation:"
 echo "Check auto-cpufreq stats:"
