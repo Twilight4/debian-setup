@@ -68,15 +68,14 @@ for service in "${services[@]}"; do
     enable_service "$service"
 done
 
-# Enable psd service
-enable_psd_service
-
 # Other services
-hblock                              # block ads and malware domains
-playerctld daemon                   # if it doesn't work try installing volumectl
+enable_psd_service       # Enable psd service
+hblock                   # block ads and malware domains
+playerctld daemon        # if it doesn't work try installing volumectl
 
 # Check service status
 check_service_status "${services[@]}"
+
 
 # Commented out cuz playerctl does the job instead, not need the mpd service
 # Enable mpd service as user if service exists
