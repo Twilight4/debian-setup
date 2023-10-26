@@ -63,6 +63,14 @@ services=(
     #docker
 )
 
+# Enable services
+for service in "${services[@]}"; do
+    enable_service "$service"
+done
+
+# Enable psd service
+enable_psd_service
+
 # Enable mpd service as user if service exists
 #if ! systemctl list-unit-files --user --type=service | grep -q "^mpd.service"; then
 #    echo "Service does not exist: mpd.service. Adding and enabling..."
@@ -79,3 +87,6 @@ services=(
 # Other services
 hblock                              # block ads and malware domains
 playerctld daemon                   # if it doesn't work try installing volumectl
+
+# Check service status
+check_service_status "${services[@]}"
