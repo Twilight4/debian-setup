@@ -3,7 +3,7 @@ These scripts automate the installation of user packages and configuration of sy
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
 ### Warning
-I recommend utilizing the CachyOS calamares installation of Arch Linux (No Desktop) and unchecking the X-System and (in my case) intel-ucode packages categories
+I recommend utilizing the CachyOS calamares installation of Arch Linux (No Desktop). In package categories to install I only check the necessary stuff like: *network-utils*, *fonts* and *amd-ucode* (in my case).
 for optimal performance and streamlined setup experience.
 
 Prior to executing this script, it is imperative that users have previously run the `install-tweaks.sh` script.
