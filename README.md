@@ -17,7 +17,7 @@ nmcli dev status
 ```
 
 ### Run `install-tweaks.sh` script as root
-Prior to executing custom scripts, it is imperative that users have previously run the `install-tweaks.sh` script **as root**.
+Prior to executing custom scripts, it is imperative that users have previously run the `install-tweaks.sh` script as **root**.
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
 
@@ -28,7 +28,7 @@ bash arch-setup/system-scripts/install-tweaks.sh
 exit
 ```
 
-Recommended sequence of running the scripts:
+### Recommended sequence of running the scripts:
 1. `install-paru.sh`
 2. `remove-bloat.sh`
 3. `install-packages.sh`
