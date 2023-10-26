@@ -4,38 +4,15 @@
 add_groups=(
     plugdev
     autologin
-)
-
-# Virtualisation groups
-usermod_groups=(
     libvirt
     libvirt-qemu
     kvm
     input
     disk
-)
-
-gpasswd_groups=(
-    autologin
-    plugdev
     mpd
-    #docker
 )
 
 username=$(whoami)
-
-# Function to add user to group
-add_user_to_group() {
-    local group="$1"
-    local username="$2"
-
-    if id "$username" | grep -q "\<$group\>"; then
-        echo "User '$username' is already a member of group '$group'."
-    else
-        echo "Adding user '$username' to group '$group'..."
-        sudo usermod -aG "$group" "$username"
-    fi
-}
 
 # Function to create group if it doesn't exist
 create_group() {
@@ -49,19 +26,15 @@ create_group() {
     fi
 }
 
-# Adding user to groups
-for group in "${add_groups[@]}"; do
-    create_group "$group"
-    add_user_to_group "$group" "$username"
-done
+# Function to add user to group
+add_user_to_group() {
+    local group="$1"
+    local username="$2"
 
-for group in "${usermod_groups[@]}"; do
-    add_user_to_group "$group" "$username"
-done
-
-for group in "${gpasswd_groups[@]}"; do
-    add_user_to_group "$group" "$username"
-    if [ "$group" = "mpd" ]; then
-        sudo chmod 710 "/home/$username"
+    if id "$username" | grep -q "\<$group\>"; then
+        echo "User '$username' is already a member of group '$group'."
+    else
+        echo "Adding user '$username' to group '$group'..."
+        sudo usermod -aG "$group" "$username"
     fi
-done
+}
