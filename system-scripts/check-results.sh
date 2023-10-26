@@ -2,20 +2,6 @@
 
 # TODO Function to check if a package is missing and add it to the missing_packages array
 
-# Check if services are enabled
-local services=("$@")
-
-echo "Checking service status..."
-
-for service in "${services[@]}"
-do
-    if systemctl is-enabled "$service" >/dev/null 2>&1; then
-        echo "Service $service is enabled."
-    else
-        echo "Service %s is not enabled:\n" "$service"
-    fi
-done
-
 # Post-install message
 echo "Post-Installation:"
 echo "Check auto-cpufreq stats:"

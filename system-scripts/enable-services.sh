@@ -1,5 +1,21 @@
 #!/usr/bin/env bash
 
+set -e  # Exit on error
+
+function enable_service {
+    service=$1
+    if systemctl list-unit-files --type=service | grep -q "^$service.service"; then
+        if ! systemctl is-enabled --quiet "$service"; then
+            echo "Enabling service: $service..."
+            sudo systemctl enable "$service"
+        else
+            echo "Service already enabled: $service"
+        fi
+    else
+        echo "Service does not exist: $service"
+    fi
+}
+
 local services=(
     sddm
     apparmor
@@ -60,3 +76,17 @@ fi
 # Other services
 hblock                              # block ads and malware domains
 playerctld daemon                   # if it doesn't work try installing volumectl
+
+# Check if services are enabled
+local services=("$@")
+
+echo "Checking service status..."
+
+for service in "${services[@]}"
+do
+    if systemctl is-enabled "$service" >/dev/null 2>&1; then
+        echo "Service $service is enabled."
+    else
+        echo "Service %s is not enabled:\n" "$service"
+    fi
+done
