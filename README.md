@@ -8,9 +8,26 @@ For optimal performance and streamlined setup experience I recommend utilizing t
 - **fonts**
 - **amd-ucode** (or relevant microcode for your system)
 
-Prior to executing this script, it is imperative that users have previously run the `install-tweaks.sh` script.
+## Post-Installation for Bare Arch Linux Install (No Desktop)
+### Connect to internet
+```bash
+nmcli dev wifi
+nmcli dev wifi connect "wifi_ssid" password "wifi_password"
+nmcli dev status
+```
+
+#### Caveat
+Prior to executing custom scripts, it is imperative that users have previously run the `install-tweaks.sh` script **as root**.
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
+
+### Clone the repo and run `install-tweaks.sh` script as `root`
+```bash
+git clone https://github.com/Twilight4/arch-setup.git
+su -
+bash arch-setup/system-scripts/install-tweaks.sh
+exit
+```
 
 Recommended sequence of running the scripts:
 1. `install-paru.sh`
@@ -20,22 +37,6 @@ Recommended sequence of running the scripts:
 5. `enable-services.sh`
 6. `install-dotfiles.sh`
 7. `set-leftovers.sh`
-
-## Post-Installation for Bare Arch Linux Install (No Desktop)
-### Connect to internet
-```bash
-nmcli dev wifi
-nmcli dev wifi connect "wifi_ssid" password "wifi_password"
-nmcli dev status
-```
-
-### Clone the repo and run `install-tweaks.sh` script as `root`
-```bash
-git clone https://github.com/Twilight4/arch-setup.git
-su -
-bash arch-setup/system-scripts/install-tweaks.sh
-exit
-```
 
 ### Optional - GNOME Customization
 If a user choosed GNOME Installation, users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository
