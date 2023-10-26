@@ -16,7 +16,7 @@ nmcli dev wifi connect "wifi_ssid" password "wifi_password"
 nmcli dev status
 ```
 
-### Clone the repo and run `install-tweaks.sh` script as `root`
+### Run `install-tweaks.sh` script as root
 Prior to executing custom scripts, it is imperative that users have previously run the `install-tweaks.sh` script **as root**.
 This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
 enhancing system security and the overall performance and stability.
