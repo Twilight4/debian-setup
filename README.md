@@ -1,8 +1,8 @@
-## Personal User System Configuration Bootstrap scripts
-These scripts automate the installation of user packages and configuration of system settings and services.
+## System Configuration scripts
+The provided scripts automate the installation of user packages and configuration of system settings and services.
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
-### Warning
+### Installation with CachyOS
 For optimal performance and streamlined setup experience I recommend utilizing the **CachyOS** Calamares installer of Arch Linux (No Desktop). During the package selection process, I opt for essential packages only, including:
 - **network-utils**
 - **fonts**
