@@ -24,7 +24,7 @@ chmod +x strap.sh
 sudo ./strap.sh
 rm strap.sh
 # Update changes
-pacman -Syy
+sudo pacman -Syy
 # Enabling Athena repo
 echo '
 [athena-repository]
