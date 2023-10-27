@@ -42,6 +42,29 @@ else
     echo "GRUB bootloader is not installed, using systemd-boot."
 fi
 
+# Check if supergfxd is installed
+if command -v supergfxd >/dev/null; then
+    echo "Creating supergfxd configuration..."
+
+    # Create supergfxd.conf
+    sudo bash -c 'cat > /etc/supergfxd.conf' <<-'EOF'
+    {
+      "mode": "Hybrid",
+      "vfio_enable": true,
+      "vfio_save": false,
+      "always_reboot": false,
+      "no_logind": false,
+      "logout_timeout_s": 180,
+      "hotplug_type": "Asus"
+    }
+    EOF
+
+    echo "supergfxd.conf created."
+else
+    echo "Supergfxd is not installed."
+fi
+
+
 # Create Hyprland desktop entry if Hyprland is installed
 if command -v hyprland >/dev/null; then
     echo "Creating Hyprland desktop entry..."
