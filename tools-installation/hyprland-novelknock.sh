@@ -17,7 +17,7 @@ rsync -av dots-hyprland/.local/share/icons/Bibata-Modern-Classic ~/.config/.loca
 rsync -av dots-hyprland/.local/share/fonts ~/.config/.local/share/
 rsync -av dots-hyprland/.themes ~/.config/.local/share/themes
 rsync -av dots-hyprland/chromethemes ~/.config/
-rsync -av dots-hyprland/Import\ Manually/firefox ~/.mozilla/firefox
+rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mozilla/firefox/*
 
 
 # TODO Manually
