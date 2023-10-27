@@ -25,7 +25,6 @@ rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mozilla/firefox/
 # Firefox theme check out: https://github.com/Godiesc/firefox-gx 
 
 
-
 # TODO Manually
 # Get "Plasma browser integration" extension for your browser
 # For Chromium Browser: Go to chrome:extensions, Click "Load Unpacked", choose ~/.config/chromethemes/desired-theme
