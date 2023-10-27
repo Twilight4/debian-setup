@@ -21,7 +21,12 @@ rsync -av dots-hyprland/.themes ~/.config/.local/share/themes
 # Firefox optional theme check out: https://github.com/Godiesc/firefox-gx 
 rsync -av dots-hyprland/chromethemes ~/.config/
 rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mozilla/firefox/*
+# Clean up
+rm -rf dots-hyprland
 
-echo "TODO Manually:"
-echo "Get 'Plasma browser integration' extension for your browser"
-echo "For Chromium Browser: Go to chrome:extensions, Click 'Load Unpacked', choose ~/.config/chromethemes/desired-theme"
+# Final message
+clear
+echo 'hyprland novelknock style installed successfully'
+
+#echo "TODO Manually - Chromium Browser:"
+#echo "For Chromium Browser: Go to chrome:extensions, Click 'Load Unpacked', choose ~/.config/chromethemes/desired-theme"
