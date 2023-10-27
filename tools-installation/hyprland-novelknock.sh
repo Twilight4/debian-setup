@@ -12,12 +12,17 @@ sudo pacman -S --needed --noconfirm tesseract cliphist grim slurp
 # Copying configs
 git clone --branch --single-branch novelknock https://github.com/end-4/dots-hyprland.git
 
+# .config dir
 rsync -av --exclude='hypr/' dots-hyprland/.config/ ~/.config
+# icons, fonts and themes
 rsync -av dots-hyprland/.local/share/icons/Bibata-Modern-Classic ~/.config/.local/share/
 rsync -av dots-hyprland/.local/share/fonts ~/.config/.local/share/
 rsync -av dots-hyprland/.themes ~/.config/.local/share/themes
+# firefox theme
 rsync -av dots-hyprland/chromethemes ~/.config/
+
 rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mozilla/firefox/*
+
 
 
 # TODO Manually
