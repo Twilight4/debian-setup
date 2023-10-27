@@ -12,7 +12,15 @@ sudo pacman -S --needed --noconfirm tesseract cliphist grim slurp
 # Copying configs
 git clone --branch --single-branch novelknock https://github.com/end-4/dots-hyprland.git
 
+rsync -av --exclude='hypr/' dots-hyprland/.config/ ~/.config
+rsync -av dots-hyprland/.local/share/icons/Bibata-Modern-Classic ~/.config/.local/share/
+rsync -av dots-hyprland/.local/share/fonts ~/.config/.local/share/
+rsync -av dots-hyprland/.themes ~/.config/.local/share/themes
+rsync -av dots-hyprland/chromethemes ~/.config/
+rsync -av dots-hyprland/Import\ Manually/firefox ~/.mozilla/firefox
 
 
-# TODO
+# TODO Manually
 # Get "Plasma browser integration" extension for your browser
+# For Chromium Browser: Go to chrome:extensions, Click "Load Unpacked", choose ~/.config/chromethemes/desired-theme
+# For Firefox - rsync copied theme already
