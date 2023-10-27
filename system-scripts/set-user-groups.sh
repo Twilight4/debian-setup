@@ -6,6 +6,7 @@ add_groups=(
     autologin
     libvirt
     libvirt-qemu
+    video
     kvm
     input
     disk
