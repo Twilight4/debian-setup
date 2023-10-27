@@ -22,6 +22,7 @@ essential=(
     mako
     dunst
     thefuck
+    supergfxctl
     wofi
     libnotify
     polkit-kde-agent
