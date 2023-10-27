@@ -9,11 +9,11 @@ pacman-key --init
 pacman-key --populate
 pacman -Syy
 
-# Backup and copy my pacman config
+# Import pacman config
 mv /etc/pacman.conf /etc/pacman.conf.bak
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/pacman.conf > /etc/pacman.conf
 pacman -Syy
-# Adding CachyOS Repository for Enhanced Arch Linux Performance
+# Enabling CachyOS Repositories for Enhanced Arch Linux Performance
 wget https://mirror.cachyos.org/cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh && cd -
@@ -25,8 +25,17 @@ sudo ./strap.sh
 rm strap.sh
 # Update changes
 pacman -Syy
+# Enabling Athena repo
+echo '
+[athena-repository]
+SigLevel = Optional TrustedOnly
+Server = https://athena-os.github.io/$repo/$arch' | sudo tee --append /etc/pacman.conf
+# Get the mirrorlist file
+sudo curl https://raw.githubusercontent.com/Athena-OS/package-source/main/packages/athena-mirrorlist/athena-mirrorlist -o /etc/pacman.d/athena-mirrorlist
+sudo pacman-key --recv-keys A3F78B994C2171D5 --keyserver keys.openpgp.org   # Import a key
+sudo pacman-key --lsign A3F78B994C2171D5                                    # Trust the imported key
+pacman -Syy
 
-### Optional repositories ###
 # Enabling Chaotic-AUR repo - CachyOS repos are certainly sufficient
 #pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 #pacman-key --lsign-key 3056513887B78AEB
@@ -36,13 +45,6 @@ pacman -Syy
 #Include = /etc/pacman.d/chaotic-mirrorlist' | sudo tee --append /etc/pacman.conf
 #pacman -Syy
 
-# Enabling Athena repo - there are so many issues with that, not recommended
-#echo '
-#[athena-repository]
-#SigLevel = Optional TrustedOnly
-#Server = https://athena-os.github.io/$repo/$arch' | sudo tee --append /etc/pacman.conf
-#pacman-key --recv-keys A3F78B994C2171D5 --keyserver keyserver.ubuntu.com
-#pacman -Syy
 
 #####################################################################
 # Security Enhancments
