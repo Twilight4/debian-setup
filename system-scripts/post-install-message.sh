@@ -18,7 +18,7 @@ echo 'sudo virsh net-autostart default'
 echo "Check status with: sudo virsh net-list --all"
 echo "Add pub key to github: Settings > SSH > New:"
 echo 'ssh-keygen -t ed25519 -C "your_email@example.com"'
-echo "Clone emacs and dotfiles repos via SSH:"
+echo "Clone relevant repos via SSH:"
 echo 'git clone git@github.com:Twilight4/dotfiles.git ~/desktop/workspace/dotfiles'
 echo 'git clone git@github.com:Twilight4/cheats.git ~/desktop/workspace/cheats'
 echo 'git clone git@github.com:Twilight4/emacs-notes.git ~/documents/org'
