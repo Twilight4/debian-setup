@@ -26,7 +26,8 @@ rm -rf dots-hyprland
 
 # Final message
 clear
-echo 'hyprland novelknock style installed successfully'
+echo 'Hyprland novelknock style installed successfully'
+echo 'in case the GTK theme or firefox theme did not apply, use the firefox-gx firefox theme and Sweet-Dark-v40 GTK Theme'
 
 #echo "TODO Manually - Chromium Browser:"
 #echo "For Chromium Browser: Go to chrome:extensions, Click 'Load Unpacked', choose ~/.config/chromethemes/desired-theme"
