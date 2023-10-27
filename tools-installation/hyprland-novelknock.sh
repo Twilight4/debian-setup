@@ -9,23 +9,23 @@ paru -S --needed --noconfirm cava eww-wayland-git lexend-fonts-git geticons gojq
 sudo pacman -S --needed --noconfirm gnome-keyring polkit-gnome 
 sudo pacman -S --needed --noconfirm tesseract cliphist grim slurp
 
-# Copying configs
+# Clone repo
 git clone --branch --single-branch novelknock https://github.com/end-4/dots-hyprland.git
-
 # .config dir
 rsync -av --exclude='hypr/' dots-hyprland/.config/ ~/.config
 # icons, fonts and themes
 rsync -av dots-hyprland/.local/share/icons/Bibata-Modern-Classic ~/.config/.local/share/
 rsync -av dots-hyprland/.local/share/fonts ~/.config/.local/share/
 rsync -av dots-hyprland/.themes ~/.config/.local/share/themes
-# firefox theme
+# firefox/chromium theme
 rsync -av dots-hyprland/chromethemes ~/.config/
 
+# Copy the theme to all firefox profiles
 rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mozilla/firefox/*
+# Firefox theme check out: https://github.com/Godiesc/firefox-gx 
 
 
 
 # TODO Manually
 # Get "Plasma browser integration" extension for your browser
 # For Chromium Browser: Go to chrome:extensions, Click "Load Unpacked", choose ~/.config/chromethemes/desired-theme
-# For Firefox - rsync copied theme already
