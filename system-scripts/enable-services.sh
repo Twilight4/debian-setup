@@ -57,6 +57,7 @@ services=(
     fstrim.timer
     #ananicy             # enable ananicy daemon (CachyOS has it built in)
     nohang-desktop
+    supergfxd
     bluetooth
     vnstat              # network traffic monitor
     libvirtd            # enable qemu/virt manager daemon
