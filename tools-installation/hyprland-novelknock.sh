@@ -13,3 +13,6 @@ sudo pacman -S --needed --noconfirm tesseract cliphist grim slurp
 git clone --branch --single-branch novelknock https://github.com/end-4/dots-hyprland.git
 
 
+
+# TODO
+# Get "Plasma browser integration" extension for your browser
