@@ -17,14 +17,11 @@ rsync -av --exclude='hypr/' dots-hyprland/.config/ ~/.config
 rsync -av dots-hyprland/.local/share/icons/Bibata-Modern-Classic ~/.config/.local/share/
 rsync -av dots-hyprland/.local/share/fonts ~/.config/.local/share/
 rsync -av dots-hyprland/.themes ~/.config/.local/share/themes
-# firefox/chromium theme
+# Copy the firefox theme to all firefox profiles and chromium for chromium browser
+# Firefox optional theme check out: https://github.com/Godiesc/firefox-gx 
 rsync -av dots-hyprland/chromethemes ~/.config/
-
-# Copy the theme to all firefox profiles
 rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mozilla/firefox/*
-# Firefox theme check out: https://github.com/Godiesc/firefox-gx 
 
-
-# TODO Manually
-# Get "Plasma browser integration" extension for your browser
-# For Chromium Browser: Go to chrome:extensions, Click "Load Unpacked", choose ~/.config/chromethemes/desired-theme
+echo "TODO Manually:"
+echo "Get 'Plasma browser integration' extension for your browser"
+echo "For Chromium Browser: Go to chrome:extensions, Click 'Load Unpacked', choose ~/.config/chromethemes/desired-theme"
