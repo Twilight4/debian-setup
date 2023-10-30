@@ -10,13 +10,9 @@ sudo pacman -S --needed --noconfirm gnome-keyring polkit-gnome
 sudo pacman -S --needed --noconfirm tesseract cliphist grim slurp
 
 # Clone repo
-git clone --branch --single-branch novelknock https://github.com/end-4/dots-hyprland.git
+git clone --branch --single-branch --recurse-submodules novelknock https://github.com/end-4/dots-hyprland.git
 # .config dir
-rsync -av --exclude='hypr/' dots-hyprland/.config/ ~/.config
-# icons, fonts and themes
-rsync -av dots-hyprland/.local/share/icons/Bibata-Modern-Classic ~/.config/.local/share/
-rsync -av dots-hyprland/.local/share/fonts ~/.config/.local/share/
-rsync -av dots-hyprland/.themes ~/.config/.local/share/themes
+rsync -av --exclude='hypr' dots-hyprland/.config/ ~/.config
 # Copy the firefox theme to all firefox profiles and chromium for chromium browser
 # Firefox optional theme check out: https://github.com/Godiesc/firefox-gx 
 rsync -av dots-hyprland/chromethemes ~/.config/
