@@ -30,7 +30,6 @@ essential=(
     qt5-wayland
     qt6-wayland
     grim
-    cachyos-nord-gtk-theme-git
     slurp
     profile-sync-daemon
     zsh
