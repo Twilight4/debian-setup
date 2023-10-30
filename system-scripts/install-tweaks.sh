@@ -14,6 +14,7 @@ mv /etc/pacman.conf /etc/pacman.conf.bak
 curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/pacman.conf > /etc/pacman.conf
 pacman -Syy
 # Enabling CachyOS Repositories for Enhanced Arch Linux Performance
+sudo pacman -S --noconfirm --needed wget
 wget https://mirror.cachyos.org/cachyos-repo.tar.xz
 tar xvf cachyos-repo.tar.xz && cd cachyos-repo
 sudo ./cachyos-repo.sh && cd -
