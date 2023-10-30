@@ -32,6 +32,7 @@ essential=(
     grim
     slurp
     profile-sync-daemon
+    sweet-folders-icons-git
     zsh
     zsh-completions
     lsd
