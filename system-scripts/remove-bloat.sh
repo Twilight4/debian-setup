@@ -10,7 +10,6 @@ cachyos_bloat=(
     b43-fwcutter
     iwd
     octopi
-    paru
     bash-completion
     libvdcss
     mlocate
@@ -41,7 +40,6 @@ cachyos_bloat=(
     cachyos-micro-settings
     btop
     cachyos-packageinstaller
-    vim
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
