@@ -4,9 +4,9 @@ It streamlines the setup process, saving time and effort for system administrato
 
 ### Installation with CachyOS
 For optimal performance and streamlined setup experience I recommend utilizing the **CachyOS** Calamares installer of Arch Linux (No Desktop). During the package selection process, I opt for essential packages only, including:
-- **network-utils**
-- **fonts**
-- **amd-ucode** (or relevant microcode for your system)
+- - **Network**
+- - **Fonts**
+- - **Amd-ucode** (or relevant microcode for your system)
 
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
 ### Connect to internet
@@ -29,8 +29,8 @@ exit
 ```
 
 #### Recommended sequence of running the scripts
-1. `install-paru.sh`
-2. `remove-bloat.sh`
+1. `remove-bloat.sh`
+2. `install-paru.sh`
 3. `install-packages.sh`
 4. `set-user-groups.sh`
 5. `enable-services.sh`
