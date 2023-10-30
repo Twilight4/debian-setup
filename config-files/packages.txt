@@ -18,6 +18,7 @@ essential=(
     chrony
     dkms
     expac
+    findutils
     cava
     mako
     dunst
@@ -52,8 +53,10 @@ essential=(
     swayidle
     pavucontrol
     mpd
+    upower
     mpc
     imagemagick
+    ibus
     cowsay
     swaybg
     wildmidi
@@ -104,7 +107,6 @@ essential=(
     python-pycryptodomex
     graphviz
     wlogout
-    eww-wayland
     hblock
     nyancat
     ffmpeg4.4
@@ -228,6 +230,13 @@ gnome=(
 
 hyprland(
     fuzzel
+    eww-wayland
+    gtklock 
+    gtklock-playerctl-module 
+    gtklock-powerbar-module 
+    gtklock-userinfo-module
+    gnome-keyring
+    polkit-gnome
 
     # AUR Packages
     hyprland-git
