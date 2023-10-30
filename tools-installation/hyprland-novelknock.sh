@@ -11,19 +11,13 @@ sudo pacman -S --needed --noconfirm tesseract cliphist grim slurp
 
 # Clone repo
 git clone --branch --single-branch --recurse-submodules novelknock https://github.com/end-4/dots-hyprland.git
-# .config dir
-rsync -av --exclude='hypr' dots-hyprland/.config/ ~/.config
 # Copy the firefox theme to all firefox profiles and chromium for chromium browser
 # Firefox optional theme check out: https://github.com/Godiesc/firefox-gx 
-rsync -av dots-hyprland/chromethemes ~/.config/
-rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mozilla/firefox/*
+rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mercury/*
 # Clean up
 rm -rf dots-hyprland
 
 # Final message
 clear
 echo 'Hyprland novelknock style installed successfully'
-echo 'in case the GTK theme or firefox theme did not apply, use the firefox-gx firefox theme and Sweet-Dark-v40 GTK Theme'
-
-#echo "TODO Manually - Chromium Browser:"
-#echo "For Chromium Browser: Go to chrome:extensions, Click 'Load Unpacked', choose ~/.config/chromethemes/desired-theme"
+echo 'in case the GTK theme or firefox theme did not apply, use the firefox-gx firefox theme'
