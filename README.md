@@ -4,9 +4,9 @@ It streamlines the setup process, saving time and effort for system administrato
 
 ### Installation with CachyOS
 For optimal performance and streamlined setup experience I recommend utilizing the **CachyOS** Calamares installer of Arch Linux (No Desktop). During the package selection process, I opt for essential packages only, including:
-  - **Network**
-  - **Fonts**
-  - **Amd-ucode** (or relevant microcode for your system)
+- **Network**
+- **Fonts**
+- **Amd-ucode** (or relevant microcode for your system)
 
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
 ### Connect to internet
