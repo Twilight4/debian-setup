@@ -106,7 +106,6 @@ essential=(
     wlogout
     eww-wayland
     hblock
-    cyberchef-electron
     nyancat
     ffmpeg4.4
     webcord
@@ -177,6 +176,7 @@ essential=(
 )
 
 non-essential(
+    cyberchef-electron
     papirus-icon-theme
     fortune-mod
     lolcat
