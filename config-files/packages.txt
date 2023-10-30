@@ -228,7 +228,7 @@ gnome=(
 )
 
 hyprland(
-    xorg-xwayland
+    fuzzel
 
     # AUR Packages
     hyprland-git
