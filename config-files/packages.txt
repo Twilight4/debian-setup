@@ -32,7 +32,6 @@ essential=(
     grim
     slurp
     profile-sync-daemon
-    sweet-folders-icons-git
     zsh
     zsh-completions
     lsd
@@ -54,7 +53,6 @@ essential=(
     pavucontrol
     mpd
     mpc
-    papirus-icon-theme
     imagemagick
     cowsay
     swaybg
@@ -179,6 +177,7 @@ essential=(
 )
 
 non-essential(
+    papirus-icon-theme
     fortune-mod
     lolcat
     figlet
