@@ -139,7 +139,6 @@ essential=(
     btop-git
     rofi-lbonn-wayland-git
     lswt
-    swaylock-effects-git
     sway-audio-idle-inhibit-git
     grimblast-git
     wdisplays
@@ -240,4 +239,5 @@ hyprland(
 river(
     river
     waybar
+    swaylock-effects-git
 )
