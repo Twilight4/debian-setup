@@ -94,9 +94,6 @@ if command -v river >/dev/null; then
         Type=Application
         EOF
 
-    # Modify kitty config
-    sed -i 's/background_opacity 0\.80/background_opacity 1/' ~/.config/kitty/kitty.conf
-
     # Modify clipboard.sh script
     sed -i 's/if \[\[ "$XDG_CURRENT_DESKTOP" == "Hyprland" \]\]; then/if \[\[ "$XDG_CURRENT_DESKTOP" == "river" \]\]; then/' ~/.config/rofi/applets/bin/clipboard.sh
 
