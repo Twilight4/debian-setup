@@ -4,7 +4,7 @@ paru -S --needed --noconfirm python-pywal python-desktop-entry-lib python-poetry
 # Base dependencies
 sudo pacman -S --needed --noconfirm bc blueberry bluez boost boost-libs coreutils fish gawk gnome-control-center imagemagick libqalculate light networkmanager network-manager-applet nlohmann-json plasma-browser-integration procps sox starship udev util-linux xorg-xrandr yad
 # AUR Dependencies
-paru -S --needed --noconfirm lexend-fonts-git geticons gojq python-material-color-utilities swww ttf-material-symbols-git xdg-desktop-portal-hyprland-git wlogout
+paru -S --needed --noconfirm lexend-fonts-git geticons gojq python-material-color-utilities swww ttf-material-symbols-git wlogout
 # Keyring
 sudo pacman -S --needed --noconfirm tesseract
 
