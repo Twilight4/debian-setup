@@ -249,4 +249,5 @@ river(
     river
     waybar
     swaylock-effects-git
+    wl-color-picker
 )
