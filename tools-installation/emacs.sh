@@ -26,5 +26,5 @@ cd - && sudo mv ~/downloads/emacs/ /opt
 sudo cp /usr/local/share/applications/* ~/.config/.local/share/applications/
 
 # Correct the line in a file 
-sed -i '0,/^Exec=/s/^Exec=/#Exec=/' ~/.config/.local/share/applications/emacsclient.desktop    # Comment out the line
-sed -i '/^#Exec=/a Exec=\/usr\/local\/bin\/emacsclient -c %F' myfile.desktop                   # Append a line next to the commented out line
+sed -i '0,/^Exec=/s/^Exec=/#Exec=/' ~/.config/.local/share/applications/emacsclient.desktop          # Comment out the line
+sed -i '/^#Exec=/a Exec=\/usr\/local\/bin\/emacsclient -nw %F' ~/.config/.local/share/applications/emacsclient.desktop     # Append a line next to the commented out line
