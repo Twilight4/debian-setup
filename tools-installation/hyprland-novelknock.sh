@@ -9,7 +9,7 @@ paru -S --needed --noconfirm lexend-fonts-git geticons gojq python-material-colo
 sudo pacman -S --needed --noconfirm tesseract
 
 # Clone repo
-git clone --branch --single-branch --depth 1 novelknock https://github.com/end-4/dots-hyprland.git
+git clone --branch novelknock --single-branch --depth 1  https://github.com/end-4/dots-hyprland.git
 # Copy the firefox theme to all firefox profiles
 # Firefox optional theme check out: https://github.com/Godiesc/firefox-gx 
 rsync -av dots-hyprland/Import\ Manually/firefox/GNOME_red/* ~/.mercury/*
