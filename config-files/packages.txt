@@ -124,6 +124,7 @@ essential=(
     xdg-user-dirs-gtk
     blanket
     nsxiv
+    texlive-bin
     tldr
     dbus-broker
     appmenu-gtk-module
