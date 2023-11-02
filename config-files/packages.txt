@@ -35,6 +35,9 @@ essential=(
     profile-sync-daemon
     zsh
     zsh-completions
+    zsh-autosuggestions
+    zsh-history-substring-search
+    zsh-syntax-highlighting
     lsd
     fzf
     ripgrep
