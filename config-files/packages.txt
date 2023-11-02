@@ -104,6 +104,7 @@ essential=(
     inetutils
     xh
     python-pyopenssl
+    tgpt-bin
     python-pycryptodomex
     graphviz
     wlogout
