@@ -65,6 +65,7 @@ done
 # Create necessary directories
 directories=(
     ~/{documents,downloads,desktop,videos,music,pictures}
+	~/videos/elfeed-youtube
     ~/desktop/{workspace,projects}
     ~/desktop/projects/company-name/{EPT,IPT}
     ~/.config/.local/share/gnupg
