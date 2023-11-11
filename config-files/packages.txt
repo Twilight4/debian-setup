@@ -116,6 +116,7 @@ essential=(
     ffmpeg4.4
     webcord
     superproductivity-bin
+	zotero-bin
     gnome-maps
     gnome-weather
     android-tools
