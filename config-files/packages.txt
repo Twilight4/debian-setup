@@ -201,6 +201,7 @@ non-essential(
 
 	# Bluetooth
     bluez
+	bluez-tools
 	bluez-utils
     blueberry
 
