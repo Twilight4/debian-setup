@@ -41,6 +41,7 @@ essential=(
     lsd
     fzf
     ripgrep
+	sd
     bat
     playerctl
     net-tools
