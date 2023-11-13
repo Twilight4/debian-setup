@@ -189,11 +189,6 @@ non-essential(
     fortune-mod
     lolcat
     figlet
-    bluez
-    bluez-utils
-    bluez-libs
-    bluez-hid2hci
-    blueman
     qemu
     virt-manager
     virt-viewer
@@ -203,7 +198,10 @@ non-essential(
     openbsd-netcat
     libguestfs
     libvirt
-    cachyos-gaming-meta
+
+	# Bluetooth
+    bluez
+    blueberry
 
     # AUR Packages
     musikcube-bin
