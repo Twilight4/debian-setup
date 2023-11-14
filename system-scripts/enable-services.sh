@@ -20,14 +20,14 @@ function enable_service {
 # Enable psd service as user if service exists and is not enabled
 function enable_psd_service {
     if systemctl list-unit-files --user --type=service | grep -q "^psd.service"; then
-	if ! systemctl --user is-enabled --quiet psd.service; then
+		if ! systemctl --user is-enabled --quiet psd.service; then
             echo "Enabling service: psd.service..."
             systemctl --user enable psd.service
-	else
+		else
             echo "Service already enabled: psd.service."
-	fi
+		fi
     else
-	echo "Service does not exist: psd.service."
+		echo "Service does not exist: psd.service."
     fi
 }
 
