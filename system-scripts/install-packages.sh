@@ -48,41 +48,6 @@ for choice in "${selected_categories[@]}"; do
 
     echo "Installation of packages for $choice has finished successfully."
 }
-
-# Check if nnn is installed
-if command -v nnn >/dev/null; then
-    # Installing plugins for nnn file manager if not installed
-    echo "Installing plugins for nnn file manager..."
-    plugins_dir="$HOME/.config/nnn/plugins"
-
-    if [ -z "$(ls -A "$plugins_dir")" ]; then
-        echo "Fetching nnn plugins..."
-
-        sh -c "$(curl -Ls https://raw.githubusercontent.com/jarun/nnn/master/plugins/getplugs)"
-
-        echo "Plugins for nnn file manager installed successfully."
-    else
-        echo "nnn plugins directory is not empty."
-    fi
-else
-    echo "nnn is not installed."
-fi
-
-# Install auto-cpufreq if not installed
-if ! command -v auto-cpufreq >/dev/null; then
-    echo "Installing auto-cpufreq..."
-
-    git clone https://github.com/AdnanHodzic/auto-cpufreq.git
-    cd auto-cpufreq && sudo ./auto-cpufreq-installer
-    sudo auto-cpufreq --install
-    cd -
-    sudo rm -rf ./auto-cpufreq
-
-    echo "auto-cpufreq installed."
-else
-    echo "Installation of auto-cpufreq failed."
-fi
-
 # Print failed packages
 if [ "${#failed_packages[@]}" -gt 0 ]; then
     echo "The following packages failed to install:"
