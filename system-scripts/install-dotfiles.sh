@@ -4,8 +4,8 @@ DOTFILES="/tmp/dotfiles"
 if [ ! -d "$DOTFILES" ]
 then
     echo "Cloning dotfiles repository..."
-    git clone --recurse-submodules "https://github.com/Twilight4/dotfiles" "$DOTFILES" >/dev/null
-    echo "dotfiles repository cloned."
+    git clone --depth 1 "https://github.com/Twilight4/dotfiles" "$DOTFILES"
+    echo "Dotfiles repository cloned."
 fi
 
 # Remove auto-generated bloat
@@ -15,13 +15,13 @@ rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,pulse,paru,user-dirs.dirs,user-dir
 rm -rf .config/.gsd-keyboard.settings-ported
 
 # Prompt user for choice
-read -p "Do you want to install dotfiles for River or Hyperland? (river/hyprland): " CHOICE
+read -p "Do you want to install dotfiles for River or Hyprland? (r/h): " CHOICE
 
 # Function to copy dotfiles for river
 copy_dotfiles_river() {
     # Copy dotfiles using rsync
     echo "Copying .config dir from dotfiles repository..."
-    rsync --exclude='alacritty/' --exclude='eww/' --exclude='foot/' --exclude='mako/' --exclude='ncmpcpp/' --exclude='newsboat/' --exclude='nvim/' --exclude='qutebrowser/' --exclude='tmux/' --exclude='tmuxp/' --exclude='wlogout/' -av "$DOTFILES/.config" ~/.config
+    rsync --exclude='alacritty' --exclude='eww' --exclude='foot' --exclude='mako' --exclude='ncmpcpp' --exclude='newsboat' --exclude='nvim' --exclude='qutebrowser' --exclude='tmux' --exclude='tmuxp' --exclude='wlogout' -av "$DOTFILES/.config" ~/.config
 
     # Use the same nvim config for sudo nvim
     #sudo cp -r ~/.config/nvim /root/.config/
@@ -33,7 +33,7 @@ copy_dotfiles_river() {
 copy_dotfiles_hyprland() {
     # Copy dotfiles using rsync
     echo "Copying .config dir from dotfiles repository..."
-    rsync --exclude='alacritty/' --exclude='dunst/' --exclude='river/' --exclude='nvim/' --exclude='ncmpcpp/' --exclude='qutebrowser/' --exclude='tmux/' --exclude='tmuxp/' -av "$DOTFILES/.config" ~/.config
+    rsync --exclude='alacritty' --exclude='dunst' --exclude='river' --exclude='nvim' --exclude='ncmpcpp' --exclude='qutebrowser' --exclude='tmux' --exclude='tmuxp' -av "$DOTFILES/.config" ~/.config
 
     # Use the same nvim config for sudo nvim
     #sudo cp -r ~/.config/nvim /root/.config/
@@ -44,20 +44,20 @@ copy_dotfiles_hyprland() {
 # Loop to prompt user until a valid choice is provided
 while true; do
     # Prompt user for choice
-    read -p "Do you want to install dotfiles for River or Hyperland? (river/hyprland): " CHOICE
+    read -p "Do you want to install dotfiles for River or Hyprland? (r/h): " CHOICE
 
     # Check user's choice and proceed accordingly
     case "$CHOICE" in
-        river)
+        r)
             copy_dotfiles_river
             break  # Exit the loop if a valid choice is made
             ;;
-        hyprland)
+        h)
             copy_dotfiles_hyprland
             break  # Exit the loop if a valid choice is made
             ;;
         *)
-            echo "Invalid choice. Please choose 'river' or 'hyprland'."
+            echo "Invalid choice. Please choose 'r' or 'h'."
             ;;
     esac
 done
@@ -123,7 +123,7 @@ seclists_dir="$payloads_dir/SecLists"
 if [ ! -d "$payloads_dir" ] || [ ! -d "$seclists_dir" ]; then
     echo "Creating directories and cloning SecLists repository..."
 
-    sudo mkdir -p "$payloads_dir"
+    sudo mkdir -p "$payloads_dir"/SecLists
     sudo git clone https://github.com/danielmiessler/SecLists.git "$seclists_dir"
 
     echo "SecLists repository cloned to $seclists_dir."
@@ -147,8 +147,8 @@ line_to_append='export ZDOTDIR="$HOME"/.config/zsh'
 
 if [ ! -f "$zshenv_file" ]; then
     echo "Creating $zshenv_file..."
-    echo "$line_to_append" | sudo tee "$zshenv_file" >/dev/null
-    echo "$zshenv_file created."
+	sudo echo "$line_to_append" | sudo tee -a "$zshenv_file"
+	echo "$zshenv_file created."
 else
     echo "$zshenv_file already exists."
 fi
