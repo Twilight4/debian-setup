@@ -32,7 +32,7 @@ add_user_to_group() {
     local group="$1"
     local username="$2"
 
-    if id "$username" | grep -q "\<$group\>"; then
+    if getent group "$group" | cut -d: -f4 | grep -q "\<$username\>"; then
         echo "User '$username' is already a member of group '$group'."
     else
         echo "Adding user '$username' to group '$group'..."
