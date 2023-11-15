@@ -28,4 +28,7 @@ echo "Install more packages:"
 echo 'sudo npm install git-file-downloader cli-fireplace git-stats'
 echo "Check if profile sync daemon is running:"
 echo 'psd p'
+echo "for eww-wayland package before installing make sure to fetch the signing keys from GitHub and import them before building:"
+echo 'curl -sS https://github.com/elkowar.gpg | gpg --import -i -'
+echo 'curl -sS https://github.com/web-flow.gpg | gpg --import -i -'
 echo "Uncomment last 2 lines in kitty.conf"
