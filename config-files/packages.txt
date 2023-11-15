@@ -218,6 +218,7 @@ non-essential(
     ookla-speedtest-bin
     nitch-git
     caffeine-ng
+    nvchad-git
     polychromatic-git
     asciiquarium-transparent-git
     universal-android-debloater
