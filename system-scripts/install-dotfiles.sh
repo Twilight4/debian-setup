@@ -14,6 +14,10 @@ sudo fc-cache -fv
 rm -rf .config/{fish,gtk-3.0,ibus,kitty,micro,pulse,paru,user-dirs.dirs,user-dirs.locate,dconf}
 rm -rf .config/.gsd-keyboard.settings-ported
 
+# Setting mime type for org mode (org mode is not recognised as it's own mime type by default)
+update-mime-database ~/.config/.local/share/mime
+xdg-mime default emacs.desktop text/org
+
 # Prompt user for choice
 read -p "Do you want to install dotfiles for River or Hyprland? (r/h): " CHOICE
 
@@ -62,7 +66,7 @@ done
 # Create necessary directories
 directories=(
     ~/{documents,downloads,desktop,videos,music,pictures}
-	~/videos/elfeed-youtube
+	  ~/videos/elfeed-youtube
     ~/desktop/{workspace,projects}
     ~/desktop/projects/company-name/{EPT,IPT}
     ~/.config/.local/share/gnupg
@@ -109,10 +113,6 @@ rm -r ~/cachyos-repo
 rm ~/.zsh*
 rm ~/.zcompdummp*
 
-# Setting mime type for org mode (org mode is not recognised as it's own mime type by default)
-update-mime-database ~/.config/.local/share/mime
-xdg-mime default emacs.desktop text/org
-
 payloads_dir="/usr/share/payloads"
 seclists_dir="$payloads_dir/SecLists"
 
@@ -136,7 +136,7 @@ fi
 # Zsh as default shell
 default_shell=$(getent passwd "$(whoami)" | cut -d: -f7)
 if [ "$default_shell" != "$(which zsh)" ]; then
-    echo "Zsh is not the default shell. Changing shell..."
+    echo "Changing shell to Zsh..."
     sudo chsh -s "$(which zsh)" "$(whoami)"
     echo "Shell changed to Zsh."
 else
@@ -149,8 +149,8 @@ line_to_append='export ZDOTDIR="$HOME"/.config/zsh'
 
 if [ ! -f "$zshenv_file" ]; then
     echo "Creating $zshenv_file..."
-	sudo echo "$line_to_append" | sudo tee -a "$zshenv_file"
-	echo "$zshenv_file created."
+	  sudo echo "$line_to_append" | sudo tee -a "$zshenv_file"
+	  echo "$zshenv_file created."
 else
     echo "$zshenv_file already exists."
 fi
