@@ -7,6 +7,7 @@ For optimal performance and streamlined setup experience I recommend utilizing t
 - **Base Devel**:
   - **Network**
   - **Fonts**
+  - **Paru** (optional)
 - **Amd-ucode** (or relevant microcode for your system)
 
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
