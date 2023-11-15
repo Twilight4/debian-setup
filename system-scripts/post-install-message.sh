@@ -12,7 +12,7 @@ echo 'sudo auto-cpufreq --force=reset'
 echo "Setting to "reset" will go back to normal mode."
 echo "----------------- AFTER REBOOT -----------------"
 echo "Check if AMD P-State Preferred Core Handling is enabled with following command"
-echo 'cat /sys/devices/system/cpu/amd-pstate/prefcore_state'
+echo 'cat /sys/devices/system/cpu/amd_pstate/prefcore'
 echo "Start Default Network for virt-manager:"
 echo 'sudo virsh net-start default'
 echo 'sudo virsh net-autostart default'
