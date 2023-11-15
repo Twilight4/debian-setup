@@ -1,10 +1,15 @@
 # Installing dependencies
+
+# For eww-wayland package before installing make sure to fetch the signing keys from GitHub and import them before building
+echo 'curl -sS https://github.com/elkowar.gpg | gpg --import -i -'
+echo 'curl -sS https://github.com/web-flow.gpg | gpg --import -i -'
+
 # Python dependencies
 paru -S --needed --noconfirm python-pywal python-desktop-entry-lib python-poetry python-build python-pillow
 # Base dependencies
 sudo pacman -S --needed --noconfirm bc blueberry bluez boost boost-libs coreutils fish gawk gnome-control-center imagemagick libqalculate light networkmanager network-manager-applet nlohmann-json plasma-browser-integration procps sox starship udev util-linux xorg-xrandr yad
 # AUR Dependencies
-paru -S --needed --noconfirm lexend-fonts-git geticons gojq python-material-color-utilities swww ttf-material-symbols-git wlogout
+paru -S --needed --noconfirm eww-wayland lexend-fonts-git geticons gojq python-material-color-utilities swww ttf-material-symbols-git wlogout
 # Keyring
 sudo pacman -S --needed --noconfirm tesseract
 
