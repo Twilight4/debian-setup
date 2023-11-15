@@ -81,8 +81,7 @@ if command -v supergfxd >/dev/null; then
     echo "Creating supergfxd configuration..."
 
     # Create supergfxd.conf
-    sudo bash -c 'cat > /etc/supergfxd.conf' <<-'EOF'
-    {
+    echo "{
       "mode": "Hybrid",
       "vfio_enable": true,
       "vfio_save": false,
@@ -90,26 +89,22 @@ if command -v supergfxd >/dev/null; then
       "no_logind": false,
       "logout_timeout_s": 180,
       "hotplug_type": "Asus"
-    }
-    EOF
+    }" | sudo tee /etc/supergfxd.conf > /dev/null
 
     echo "supergfxd.conf created."
 else
     echo "Supergfxd is not installed."
 fi
 
-
 # Create Hyprland desktop entry if Hyprland is installed
 if command -v hyprland >/dev/null; then
     echo "Creating Hyprland desktop entry..."
 
-    sudo bash -c 'cat > /usr/share/wayland-sessions/hyprland.desktop' <<-'EOF'
-        [Desktop Entry]
-        Name=Hyprland
-        Comment=hyprland
-        Exec="$HOME/.config/hypr/scripts/starth"   # IF CRASHES TRY: bash -c "$HOME/.config/hypr/scripts/starth"
-        Type=Application
-        EOF
+      echo "[Desktop Entry]
+      Name=Hyprland
+      Comment=hyprland
+      Exec=\"$hypr_script\"   # IF CRASHES TRY: bash -c \"$hypr_script\"
+      Type=Application" | sudo tee /usr/share/wayland-sessions/hyprland.desktop > /dev/null
 
     echo "Hyprland desktop entry created."
 else
@@ -120,13 +115,11 @@ fi
 if command -v river >/dev/null; then
     echo "Creating river desktop entry..."
 
-    sudo bash -c 'cat > /usr/share/wayland-sessions/river.desktop' <<-'EOF'
-        [Desktop Entry]
+        echo "[Desktop Entry]
         Name=River
         Comment=A dynamic tiling Wayland compositor
         Exec="$HOME/.config/river/scripts/startr"
-        Type=Application
-        EOF
+        Type=Application" | sudo tee /usr/share/wayland-sessions/river.desktop > /dev/null
 
     # Modify clipboard.sh script
     sed -i 's/if \[\[ "$XDG_CURRENT_DESKTOP" == "Hyprland" \]\]; then/if \[\[ "$XDG_CURRENT_DESKTOP" == "river" \]\]; then/' ~/.config/rofi/applets/bin/clipboard.sh
@@ -136,12 +129,11 @@ else
     echo "River is not installed."
 fi
 
-# Configure login manager if installed
-# if command sddm exists then:
+# Configure login manager if sddm is installed
+if command -v sddm >/dev/null; then
     echo "Creating /etc/sddm.conf file..."
 
-    sudo bash -c 'cat > /etc/sddm.conf' <<-'EOF'
-    # Use autologin if have problems with sddm
+    echo "# Use autologin if have problems with sddm
     #[Autologin]
     #Session=hyprland
     #User=twilight
@@ -149,10 +141,9 @@ fi
     [Theme]
     Current=astronaut
     CursorSize=24
-    CursorTheme=Numix-Cursor-Light
-    Font=JetBrains Mono
-    ThemeDir=/usr/share/sddm/themes
-    EOF
+    CursorTheme=Bibata-Modern-Classic
+    Font=JetBrainsMonoNerdFont
+    ThemeDir=/usr/share/sddm/themes" | sudo tee /etc/sddm.conf > /dev/null
 
     echo "/etc/sddm.conf file created."
 else
