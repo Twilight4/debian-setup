@@ -136,13 +136,8 @@ else
     echo "River is not installed."
 fi
 
-# Prompt user for login manager installation
-read -p "Do you want to install SDDM login manager? [Y/n]: " install_login_manager
-
-if [[ $install_login_manager =~ ^[Yy]$ ]] || [[ -z $install_login_manager ]]; then
-    # Install SDDM
-    sudo paru -S --noconfirm sddm-git sddm-theme-astronaut
-
+# Configure login manager if installed
+# if command sddm exists then:
     echo "Creating /etc/sddm.conf file..."
 
     sudo bash -c 'cat > /etc/sddm.conf' <<-'EOF'
@@ -161,7 +156,7 @@ if [[ $install_login_manager =~ ^[Yy]$ ]] || [[ -z $install_login_manager ]]; th
 
     echo "/etc/sddm.conf file created."
 else
-    echo "Login manager installation skipped."
+    echo "Login manager configured."
 fi
 
 # Define the desired button layout value (remove buttons - none)
