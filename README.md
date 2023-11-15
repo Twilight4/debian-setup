@@ -17,7 +17,7 @@ This preliminary step ensures the successful application of necessary system twe
 enhancing system security and the overall performance and stability.
 
 ```bash
-git clone https://github.com/Twilight4/arch-setup.git
+git clone --depth 1 https://github.com/Twilight4/arch-setup.git
 su
 bash arch-setup/system-scripts/install-tweaks.sh
 exit
@@ -32,7 +32,7 @@ exit
 6. `install-dotfiles.sh`
 7. `set-leftovers.sh`
 
-### After reboot connect to internet
+### Connect to internet upon reboot
 ```bash
 nmcli dev wifi
 nmcli dev wifi connect "wifi_ssid" password "wifi_password"
