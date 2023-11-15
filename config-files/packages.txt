@@ -14,6 +14,7 @@ essential=(
     rsync
     apparmor
     irqbalance
+    pkgfile
     firewalld
     chrony
     dkms
@@ -41,7 +42,7 @@ essential=(
     lsd
     fzf
     ripgrep
-	sd
+  	sd
     bat
     playerctl
     net-tools
@@ -117,7 +118,7 @@ essential=(
     ffmpeg4.4
     webcord
     superproductivity-bin
-	zotero-bin
+	  zotero-bin
     gnome-maps
     gnome-weather
     android-tools
@@ -198,13 +199,11 @@ non-essential(
     openbsd-netcat
     libguestfs
     libvirt
-    # CachyOS has minq-ananicy already built in so don't install cuz it will break
-    #minq-ananicy-git
 
-	# Bluetooth
+  	# Bluetooth
     bluez
-	bluez-tools
-	bluez-utils
+	  bluez-tools
+	  bluez-utils
     blueberry
 
     # AUR Packages
@@ -222,6 +221,9 @@ non-essential(
     polychromatic-git
     asciiquarium-transparent-git
     universal-android-debloater
+
+    # CachyOS has minq-ananicy already built in so don't install cuz it will break
+    #minq-ananicy-git
 )
 
 gnome=(
