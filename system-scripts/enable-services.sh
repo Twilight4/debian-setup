@@ -52,7 +52,7 @@ services=(
     irqbalance
     chronyd
     systemd-oomd
-    systemd-resolve
+    systemd-resolved
     paccache.timer      # enable weekly pkg cache cleaning
     fstrim.timer
     #ananicy             # enable ananicy daemon (CachyOS has it built in)
