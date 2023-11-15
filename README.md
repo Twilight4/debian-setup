@@ -25,7 +25,7 @@ exit
 
 #### Recommended sequence of running the scripts
 1. `remove-bloat.sh`
-2. `install-paru.sh`
+2. `install-paru.sh` (skip if installed paru in CachyOS installer)
 3. `install-packages.sh`
 4. `set-user-groups.sh`
 5. `enable-services.sh`
