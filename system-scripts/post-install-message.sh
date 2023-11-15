@@ -4,6 +4,7 @@
 echo "Post-Installation:"
 echo "Check auto-cpufreq stats:"
 echo 'auto-cpufreq --stats'
+echo 'Set cpupower to performance: sudo cpupower frequency-set -g performance'
 echo "To force and override auto-cpufreq governor use of either "powersave" or "performance" governor:"
 echo 'sudo auto-cpufreq --force=performance'
 echo 'sudo auto-cpufreq --force=powersave'
