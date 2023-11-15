@@ -160,7 +160,6 @@ essential=(
     xdg-ninja-git
     yt-dlp
     checkupdates-with-aur
-    minq-ananicy-git
     nohang-git
     cliphist
     numix-cursor-theme
@@ -199,6 +198,8 @@ non-essential(
     openbsd-netcat
     libguestfs
     libvirt
+    # CachyOS has minq-ananicy already built in so don't install cuz it will break
+    #minq-ananicy-git
 
 	# Bluetooth
     bluez
