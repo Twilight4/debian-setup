@@ -43,9 +43,6 @@ copy_dotfiles_hyprland() {
 
 # Loop to prompt user until a valid choice is provided
 while true; do
-    # Prompt user for choice
-    read -p "Do you want to install dotfiles for River or Hyprland? (r/h): " CHOICE
-
     # Check user's choice and proceed accordingly
     case "$CHOICE" in
         r)
@@ -116,7 +113,7 @@ rm ~/.zcompdummp*
 update-mime-database ~/.config/.local/share/mime
 xdg-mime default emacs.desktop text/org
 
-# Clone SecLists repo if does not exist
+# Prompt user to clone SecLists repo cuz it's over 1gb
 payloads_dir="/usr/share/payloads"
 seclists_dir="$payloads_dir/SecLists"
 
@@ -124,7 +121,7 @@ if [ ! -d "$payloads_dir" ] || [ ! -d "$seclists_dir" ]; then
     echo "Creating directories and cloning SecLists repository..."
 
     sudo mkdir -p "$payloads_dir"/SecLists
-    sudo git clone https://github.com/danielmiessler/SecLists.git "$seclists_dir"
+    sudo git clone --depth 1 https://github.com/danielmiessler/SecLists.git "$seclists_dir"
 
     echo "SecLists repository cloned to $seclists_dir."
 else
