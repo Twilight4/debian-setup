@@ -4,40 +4,42 @@
 # Pacman Configuration
 #####################################################################
 
-# Warning: This script is supposed to be run on top of fresh arch linux installation as ROOT (post installation with arch-chroot). The sequence order is substantial.
-pacman-key --init
-pacman-key --populate
-pacman -Syy
+# Warning: This script is supposed to be run on top of fresh arch linux installation upon reboot as ROOT. The sequence order is substantial.
+#pacman-key --init
+#pacman-key --populate
+#pacman -Syy
 
-# Import pacman config
-mv /etc/pacman.conf /etc/pacman.conf.bak
-curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/pacman.conf > /etc/pacman.conf
-pacman -Syy
+# Import pacman config (commented out bcs CachyOS repos are already added upon CachyOS installation)
+#mv /etc/pacman.conf /etc/pacman.conf.bak
+#curl https://raw.githubusercontent.com/Twilight4/arch-install/main/config-files/pacman.conf > /etc/pacman.conf
+#pacman -Syy
+
 # Enabling CachyOS Repositories for Enhanced Arch Linux Performance
-pacman -S --noconfirm --needed wget
-wget https://mirror.cachyos.org/cachyos-repo.tar.xz
-tar xvf cachyos-repo.tar.xz && cd cachyos-repo
-./cachyos-repo.sh && cd -
+#pacman -S --noconfirm --needed wget
+#wget https://mirror.cachyos.org/cachyos-repo.tar.xz
+#tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+#./cachyos-repo.sh && cd -
+
 # Enabling Black Arch repo
 curl -O https://blackarch.org/strap.sh
 echo 5ea40d49ecd14c2e024deecf90605426db97ea0c strap.sh | sha1sum -c
 chmod +x strap.sh
 ./strap.sh
 rm strap.sh
-# Update changes
-pacman -Syy
+
 # Enabling Athena repo
 echo '
 [athena-repository]
 SigLevel = Optional TrustedOnly
 Server = https://athena-os.github.io/$repo/$arch' | tee --append /etc/pacman.conf
+
 # Get the mirrorlist file
 curl https://raw.githubusercontent.com/Athena-OS/package-source/main/packages/athena-mirrorlist/athena-mirrorlist -o /etc/pacman.d/athena-mirrorlist
 pacman-key --recv-keys A3F78B994C2171D5 --keyserver keys.openpgp.org   # Import a key
 pacman-key --lsign A3F78B994C2171D5                                    # Trust the imported key
 pacman -Syy
 
-# Enabling Chaotic-AUR repo - CachyOS repos are certainly sufficient
+# Enabling Chaotic-AUR repo (CachyOS repos are certainly sufficient)
 #pacman-key --recv-key 3056513887B78AEB --keyserver keyserver.ubuntu.com
 #pacman-key --lsign-key 3056513887B78AEB
 #pacman -U 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-keyring.pkg.tar.zst' 'https://cdn-mirror.chaotic.cx/chaotic-aur/chaotic-mirrorlist.pkg.tar.zst'
@@ -183,4 +185,4 @@ echo "blacklist pcspkr" > /etc/modprobe.d/nobeep.conf
 echo "log_group = audit" >> /etc/audit/auditd.conf
 
 # Finishing up
-echo "Done, you may now reboot and afterward curl and run user install.sh script and reboot again."
+echo "Done, you may now run system-setup/ scripts in correct order - check README."
