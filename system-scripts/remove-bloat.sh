@@ -43,6 +43,8 @@ cachyos_bloat=(
     xdg-desktop-portal-gnome
     xdg-desktop-portal-gtk
     xdg-desktop-portal-wlr
+    lib32-opencl-clover-mesa
+    lib32-opencl-rusticl-mesa
 )
 
 for package in "${cachyos_bloat[@]}"; do
