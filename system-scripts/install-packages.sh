@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# If first time building rust packages this needs to be set
+rustup default stable
+
 sudo curl -LO https://raw.githubusercontent.com/Twilight4/arch-setup/main/packages.txt /tmp/packages.txt
 source /tmp/packages.txt
 
