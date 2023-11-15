@@ -159,7 +159,7 @@ essential=(
     dragon-drop
     xdg-ninja-git
     yt-dlp
-    perl-checkupdates-aur
+    checkupdates-with-aur
     minq-ananicy-git
     nohang-git
     cliphist
@@ -238,13 +238,14 @@ gnome=(
 
 hyprland(
     fuzzel
-    eww-wayland
     gtklock 
     gtklock-playerctl-module 
     gtklock-powerbar-module 
     gtklock-userinfo-module
     gnome-keyring
     polkit-gnome
+    sddm-git
+    sddm-theme-astronaut
 
     # AUR Packages
     hyprland-git
