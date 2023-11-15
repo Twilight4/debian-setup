@@ -153,7 +153,6 @@ sh -c 'echo 10 > /sys/module/zswap/parameters/max_pool_percent'
 sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off/' /etc/sdboot-manage.conf
 # AMD P-State EPP Driver
 echo active | tee /sys/devices/system/cpu/amd_pstate/status
-cpupower frequency-set -g performance
 # AMD P-State Preferred Core Handling
 sed -i 's/\(LINUX_OPTIONS="zswap.enabled=0 nowatchdog\)/\1 mitigations=off amd_prefcore=enable/' /etc/sdboot-manage.conf
 #cat /sys/devices/system/cpu/amd_pstate/prefcore        # You can check if it is enabled with following command
