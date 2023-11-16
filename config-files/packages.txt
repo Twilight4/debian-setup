@@ -250,6 +250,7 @@ hyprland(
     polkit-gnome
     sddm-git
     sddm-theme-astronaut
+	swww-git
 
     # AUR Packages
     hyprland-git
