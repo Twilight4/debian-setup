@@ -40,10 +40,10 @@ nmcli dev status
 ```
 
 ### Option 1 - Installing Hyprland Dotfiles
-If a user choosed Hyprland Installation, users can check out my [Hyprland dotfiles](https://github.com/Twilight4/dotfiles/) repository.
+If a user choosed Hyprland Installation, users can check out my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
 
 ### Option 2 - Installing River Dotfiles
-If a user choosed River Installation, users can check out my [River dotfiles](https://github.com/Twilight4/river-settings/) repository.
+If a user choosed River Installation, users can check out my [river-settings](https://github.com/Twilight4/river-settings/) repository.
 
 ### Option 3 - Installing GNOME Customization Settings
 If a user choosed GNOME Installation, users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository.
