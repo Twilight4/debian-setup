@@ -39,7 +39,13 @@ nmcli dev wifi connect "wifi_ssid" password "wifi_password"
 nmcli dev status
 ```
 
-### Optional - GNOME Customization
+### Option 1 - Installing Hyprland Dotfiles
+If a user choosed Hyprland Installation, users can check out my [Hyprland dotfiles](https://github.com/Twilight4/dotfiles/) repository.
+
+### Option 2 - Installing River Dotfiles
+If a user choosed River Installation, users can check out my [River dotfiles](https://github.com/Twilight4/river-settings/) repository.
+
+### Option 3 - Installing GNOME Customization Settings
 If a user choosed GNOME Installation, users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository.
 
 ### Optional - Installing tools
