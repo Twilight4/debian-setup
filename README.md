@@ -32,7 +32,7 @@ exit
 6. `install-dotfiles.sh`
 7. `set-leftovers.sh`
 
-### Connect to internet upon reboot
+## Connect to internet upon reboot
 ```bash
 nmcli dev wifi
 nmcli dev wifi connect "wifi_ssid" password "wifi_password"
