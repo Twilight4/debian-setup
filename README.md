@@ -31,8 +31,9 @@ exit
 5. `enable-services.sh`
 6. `install-dotfiles.sh`
 7. `set-leftovers.sh`
+8. `reboot`
 
-## Connect to internet upon reboot
+## Connect to internet and choose dotfiles installation
 ```bash
 nmcli dev wifi
 nmcli dev wifi connect "wifi_ssid" password "wifi_password"
@@ -40,7 +41,7 @@ nmcli dev status
 ```
 
 ### Option 1 - Installing Hyprland dotfiles
-If a user choosed Hyprland Installation, users can then run my `install.sh` script for m [dotfiles](https://github.com/Twilight4/dotfiles/) installation.
+If a user choosed Hyprland Installation, users can then run my `install.sh` script for my [dotfiles](https://github.com/Twilight4/dotfiles/) installation.
 
 ### Option 2 - Installing River dotfiles
 If a user choosed River Installation, users can check out my [river-settings](https://github.com/Twilight4/river-settings/) repository.
