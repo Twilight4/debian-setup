@@ -23,7 +23,7 @@ bash arch-setup/system-scripts/install-tweaks.sh
 exit
 ```
 
-#### Recommended sequence of running the scripts
+### Recommended sequence of running the scripts
 1. `remove-bloat.sh`
 2. `install-paru.sh` (skip if installed paru in CachyOS installer)
 3. `install-packages.sh`
