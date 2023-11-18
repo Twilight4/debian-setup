@@ -24,14 +24,10 @@ exit
 ```
 
 ### Recommended sequence of running the scripts
-1. `remove-bloat.sh`
-2. `install-paru.sh` (skip if installed paru in CachyOS installer)
-3. `install-packages.sh`
-4. `set-user-groups.sh`
-5. `enable-services.sh`
-6. `install-dotfiles.sh`
-7. `set-leftovers.sh`
-8. `reboot`
+1. `install-tweaks.sh`
+2. `set-user-groups.sh`
+3. `enable-services.sh`
+4. `reboot`
 
 ## Connect to internet and choose dotfiles installation
 ```bash
