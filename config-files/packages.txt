@@ -251,6 +251,7 @@ hyprland(
     sddm-git
     sddm-theme-astronaut
 	swww-git
+	python-pywal
 
     # AUR Packages
     hyprland-git
