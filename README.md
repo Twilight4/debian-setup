@@ -10,7 +10,8 @@ For optimal performance and streamlined setup experience I recommend utilizing t
   - **Paru** (optional)
 - **Amd-ucode** (or relevant microcode for your system)
 
-## Post-Installation### Upon rebooting, connect to internet and choose dotfiles installation
+## Post-Installation
+### Upon rebooting, connect to internet and choose dotfiles installation
 ```bash
 nmcli dev wifi
 nmcli dev wifi connect "wifi_ssid" password "wifi_password"
