@@ -2,7 +2,7 @@
 The provided configuration files automate the installation of system-wide configuration settings and services which are used by `install.sh` script in my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
-### Installation with CachyOS
+## Installation with CachyOS
 For optimal performance and streamlined setup experience I recommend utilizing the **CachyOS** Calamares installer of Arch Linux (No Desktop). During the package selection process, I opt for essential packages only, including:
 - **Base Devel**:
   - **Network**
