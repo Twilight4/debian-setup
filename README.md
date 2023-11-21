@@ -1,5 +1,5 @@
-## System Configuration scripts
-The provided scripts automate the installation of user packages and configuration of system settings and services.
+## Arch Linux Configuration Setup
+The provided configuration files automate the installation of system-wide configuration settings and services, are used by [install-tweaks.sh script](https://github.com/Twilight4/dotfiles/.config/.install/install-tweaks.sh) in my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
 ### Installation with CachyOS
@@ -11,19 +11,6 @@ For optimal performance and streamlined setup experience I recommend utilizing t
 - **Amd-ucode** (or relevant microcode for your system)
 
 ## Post-Installation for Bare Arch Linux Install (No Desktop)
-### Run `install-tweaks.sh` script as root
-Prior to executing custom scripts, it is imperative that users have previously run the `install-tweaks.sh` script as **root**.
-This preliminary step ensures the successful application of necessary system tweaks and optimizations, adding additional pacman repositories and 
-enhancing system security and the overall performance and stability.
-
-```bash
-git clone --depth 1 https://github.com/Twilight4/arch-setup.git
-su
-bash arch-setup/system-scripts/install-tweaks.sh
-exit
-reboot
-```
-
 ## Connect to internet and choose dotfiles installation
 ```bash
 nmcli dev wifi
