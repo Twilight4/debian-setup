@@ -21,13 +21,8 @@ git clone --depth 1 https://github.com/Twilight4/arch-setup.git
 su
 bash arch-setup/system-scripts/install-tweaks.sh
 exit
+reboot
 ```
-
-### Recommended sequence of running the scripts
-1. `install-tweaks.sh`
-2. `set-user-groups.sh`
-3. `enable-services.sh`
-4. `reboot`
 
 ## Connect to internet and choose dotfiles installation
 ```bash
