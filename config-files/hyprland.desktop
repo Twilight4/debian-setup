@@ -1,0 +1,4 @@
+Name=Hyprland
+Comment=Highly customizable dynamic tiling Wayland compositor that doesn't sacrifice on its looks. 
+Exec=Hyprland
+Type=Application
