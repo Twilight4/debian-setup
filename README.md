@@ -3,7 +3,7 @@ The provided configuration files automate the installation of system-wide config
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
 ## Installation of Arch Linux with CachyOS (No Desktop)
-For optimal performance and streamlined setup experience I recommend utilizing the **Garuda Linux** Calamares installer of Arch Linux (No Desktop). During the package selection process, I opt for essential packages only, including:
+For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux][https://garudalinux.org/]** Calamares installer of Arch Linux (No Desktop). During the package selection process, I opt for essential packages only, including:
 - **Base Devel**:
   - **Network**
   - **Fonts**
