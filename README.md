@@ -3,7 +3,7 @@ The provided configuration files automate the installation of system-wide config
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
 ## Installation of Arch Linux with CachyOS (No Desktop)
-For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** calamares installer of Arch Linux (No Desktop). Users can use my [garuda-bloat.sh](https://github.com/Twilight4/arch-setup/tree/main/tools-installation/garuda-bloat.sh) script after the installation to get rid of the bloat that comes with the distribution.
+For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** calamares installer of Arch Linux (No Desktop). Upon installation users can utilize my [garuda-bloat.sh](https://github.com/Twilight4/arch-setup/tree/main/tools-installation/garuda-bloat.sh) script to get rid of the bloat that comes with distribution.
 ## Post-Installation
 ### Upon rebooting, connect to internet and choose dotfiles installation
 ```bash
