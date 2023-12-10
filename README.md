@@ -7,7 +7,7 @@ For optimal performance and streamlined setup experience I recommend utilizing t
 
 ### Upon Reboot - Garuda Welcome
 From this app I only install improved kernel:
-  - Linux AMD Zen3
+- - Linux AMD Zen3
 
 ## Post-Installation
 ### Option 1 - Installing Hyprland and dotfiles
