@@ -2,16 +2,10 @@
 The provided configuration files automate the installation of system-wide configuration settings and services which are used by `install.sh` script in my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
-## Installation of Arch Linux with CachyOS (No Desktop)
-For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** calamares installer of Arch Linux (No Desktop). Upon installation users can utilize my [garuda-bloat.sh](https://github.com/Twilight4/arch-setup/tree/main/tools-installation/garuda-bloat.sh) script to get rid of the bloat that comes with distribution.
-## Post-Installation
-### Upon rebooting, connect to internet and choose dotfiles installation
-```bash
-nmcli dev wifi
-nmcli dev wifi connect "wifi_ssid" password "wifi_password"
-nmcli dev status
-```
+## Garuda Installation
+For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** calamares installer of Arch Linux. Upon installation users can utilize my [garuda-bloat.sh](https://github.com/Twilight4/arch-setup/tree/main/tools-installation/garuda-bloat.sh) script to get rid of the bloat that comes with distribution.
 
+## Post-Installation
 ### Option 1 - Installing Hyprland and dotfiles
 If a user choosed Hyprland Installation, users can then run my `install.sh` script for my [dotfiles](https://github.com/Twilight4/dotfiles/) installation.
 
