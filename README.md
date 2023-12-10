@@ -3,11 +3,15 @@ The provided configuration files automate the installation of system-wide config
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
 ## Garuda Installation
-For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** calamares installer of Arch Linux. Upon installation users can utilize my [garuda-bloat.sh](https://github.com/Twilight4/arch-setup/tree/main/tools-installation/garuda-bloat.sh) script to get rid of the bloat that comes with distribution.
+For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** calamares installer of Arch Linux.
+
+### Upon Reboot - Garuda Welcome
+From this app I only install improved kernel:
+ - Linux AMD Zen3
 
 ## Post-Installation
 ### Option 1 - Installing Hyprland and dotfiles
-If a user choosed Hyprland Installation, users can then run my `install.sh` script for my [dotfiles](https://github.com/Twilight4/dotfiles/) installation.
+If a user choosed Hyprland Installation, users can check out my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
 
 ### Option 2 - Installing River and dotfiles
 If a user choosed River Installation, users can check out my [river-settings](https://github.com/Twilight4/river-settings/) repository.
