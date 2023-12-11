@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Building Emacs 30 pgtk for Wayland with native compilation on Arch Linux 
+# Building Emacs 30 pgtk for Wayland with native compilation on Arch Linux
 
 # Install necessary dependencies
 sudo pacman -S --needed libgccjit git gtk3 xorg-xwayland libxpm libjpeg-turbo libpng libtiff giflib librsvg gnutls autoconf libmpc texinfo ncurses libxml2 harfbuzz jansson libfm-gtk3 imagemagick tree-sitter
@@ -25,6 +25,13 @@ cd - && sudo mv ~/downloads/emacs/ /opt
 # Copy desktop files
 sudo cp /usr/local/share/applications/* ~/.config/.local/share/applications/
 
-# Correct the line in a file 
-sed -i '0,/^Exec=/s/^Exec=/#Exec=/' ~/.config/.local/share/applications/emacsclient.desktop          # Comment out the line
-sed -i '/^#Exec=/a Exec=\/usr\/local\/bin\/emacsclient -nw %F' ~/.config/.local/share/applications/emacsclient.desktop     # Append a line next to the commented out line
+# Correct the line in a file
+sed -i '0,/^Exec=/s/^Exec=/#Exec=/' ~/.config/.local/share/applications/emacsclient.desktop                            # Comment out the line
+sed -i '/^#Exec=/a Exec=\/usr\/local\/bin\/emacsclient -nw %F' ~/.config/.local/share/applications/emacsclient.desktop # Append a line next to the commented out line
+
+# Informational message
+echo 'If emacs refuses to load config files, try:'
+echo '  - copying configs to ~/.emacd.d'
+echo '  - M-x load-file ~/.config/emacs/init.el'
+echo '  - org-babel-tangle'
+echo '  - org-babel-load-file'
