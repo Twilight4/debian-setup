@@ -5,10 +5,6 @@ It streamlines the setup process, saving time and effort for system administrato
 ## Garuda Installation
 For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** calamares installer of Arch Linux.
 
-### Upon Reboot - Garuda Welcome
-From this app I only install improved kernel:
-  - Linux AMD Zen3
-
 ## Post-Installation
 ### Option 1 - Installing Hyprland and dotfiles
 If a user choosed Hyprland Installation, users can check out my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
