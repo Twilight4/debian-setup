@@ -2,19 +2,11 @@
 
 # Remove garuda bloat if garuda linux was installed on the system
 bloat=(
-garuda-bash-config
 garuda-dracut-support
 garuda-hotfixes
 garuda-libs
-garuda-starship-prompt
-garuda-video-linux-config
-#grub-garuda
 garuda-hooks
 garuda-migrations
-garuda-zsh-config
-garuda-fish-config
-#garuda-update
-#mhwd-db-garuda
 #garuda-browser-settings
 #garuda-setup-assistant
 #garuda-common-settings
