@@ -3,15 +3,15 @@
 # Install havoc
 paru -S havoc-c2-git
 
-# change own for the directory
+# Change own for the directory
 chown -R twilight:twilight /opt/Havoc
 
-# change the host ip address in havoc profile
+# Change the host ip address in havoc profile
 cp-wlan.sh
 nvim /opt/Havoc/profiles/havoc.yaotl
 
-# run the havoc teamserver
+# Run the havoc teamserver
 havoc server --profile profiles/havoc.yaotl
 
-# connect using havoc client
+# Connect using havoc client
 havoc client
