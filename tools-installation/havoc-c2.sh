@@ -12,3 +12,6 @@ nvim /opt/Havoc/profiles/havoc.yaotl
 
 # run the havoc teamserver
 havoc server --profile profiles/havoc.yaotl
+
+# connect using havoc client
+havoc client
