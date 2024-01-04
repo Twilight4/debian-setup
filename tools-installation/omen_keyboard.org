@@ -1,4 +1,3 @@
-#!/bin/bash
 
 # Install the kernel module using DKMS
 git clone -b rebase-6.2 https://github.com/ranisalt/hp-omen-linux-module
