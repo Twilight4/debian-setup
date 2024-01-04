@@ -1,8 +1,10 @@
 
-# Install the kernel module using DKMS
+* Install the kernel module using DKMS
+#+begin_src shell
 git clone -b rebase-6.2 https://github.com/ranisalt/hp-omen-linux-module
 #sudo dkms install --force hp-omen-linux-module
 #reboot
+#+end_src
 
 # Run my omen-keyboard script as root to set a color value to RGB zones
 #su
