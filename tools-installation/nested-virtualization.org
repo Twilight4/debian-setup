@@ -1,0 +1,13 @@
+* Enable nested virtualization
+#+begin_src shell
+sudo modprobe -r kvm_intel
+sudo modprobe kvm_intel nested=1
+echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
+#+end_src
+
+* Verify nested virtualization
+#+begin_src shell
+echo "Verifying nested virtualization:"
+systool -m kvm_intel -v | grep nested
+cat /sys/module/kvm_intel/parameters/nested
+#+end_src
