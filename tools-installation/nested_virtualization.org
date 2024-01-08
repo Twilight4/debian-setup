@@ -29,6 +29,7 @@ reboot
 #+end_src
 
 * Isolate GPU
+
 #+begin_src shell
 sudo touch /etc/modprobe.d/vfio.conf
 sudo nvim /etc/modprobe.d/vfio.conf
@@ -37,22 +38,30 @@ options vfio-pci ids=<GPU>:<AUDIO>
 #+end_src
 
 * Update initramfs
+
 #+begin_src shell
 sudo mkinitcpio -p linux
+
+reboot
 #+end_src
 
-* Enable nested virtualization
+* Verify isolation of GPU
 
 #+begin_src shell
-sudo modprobe -r kvm_intel
-sudo modprobe kvm_intel nested=1
-echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
+lspci -k | grep -E "vfio-pci|AMD"
 #+end_src
 
-* Verify nested virtualization
+* Passthrough
+In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
 
-#+begin_src shell
-echo "Verifying nested virtualization:"
-systool -m kvm_intel -v | grep nested
-cat /sys/module/kvm_intel/parameters/nested
-#+end_src
+** Download Stable VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]]
+In VM settings:
+- =SATA CDROM= > =Browse= > Import VFIO drivers
+- =Add Hardware= > =PCI Host Device= > Select AMD GPU and AMD Audio
+  + check the numbers from the output of =lspci -k | grep -E "vfio-pci|AMD"= command
+
+** Start VM
+- =My Computer= > =Mounted ISO= > =virtio-win-guest-tools=
+- Reboot and install compatible AMD drivers on windows
+- If everything done correctly, the AMD GPU should be displayed within the task manager
+- If your mouse cursor stops working, go to Mounted ISO and run =virtio-win-gt-x64=
