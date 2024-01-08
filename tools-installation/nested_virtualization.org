@@ -1,3 +1,14 @@
+* Check support for passthrough
+#+begin_src shell
+lscpu | grep 'Virtualization'
+#+end_src
+
+* Identify PCI IDs
+#+begin_src shell
+# copy the Display Controller - Radeon RX GPU and Audio Device IDs
+lspci -nn | grep -E "AMD"
+#+end_src
+
 * Enable nested virtualization
 #+begin_src shell
 sudo modprobe -r kvm_intel
