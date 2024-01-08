@@ -1,15 +1,48 @@
 * Check support for passthrough
+
 #+begin_src shell
 lscpu | grep 'Virtualization'
 #+end_src
 
 * Identify PCI IDs
+Copy the Display Controller - Radeon RX GPU and Audio Device IDs
+
 #+begin_src shell
-# copy the Display Controller - Radeon RX GPU and Audio Device IDs
 lspci -nn | grep -E "AMD"
 #+end_src
 
+* Edit grub config
+
+#+begin_src shell
+sudo nvim /etc/default/grub
+
+# Edit the line and remove any existing values
+GRUB_CMDLINE_LINUX_DEFAULT="and_iommu iommu=pt vfio-pci.ids=<GPU>:<AUDIO>"
+#+end_src
+
+* Update grub
+
+#+begin_src shell
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+reboot
+#+end_src
+
+* Isolate GPU
+#+begin_src shell
+sudo touch /etc/modprobe.d/vfio.conf
+sudo nvim /etc/modprobe.d/vfio.conf
+
+options vfio-pci ids=<GPU>:<AUDIO>
+#+end_src
+
+* Update initramfs
+#+begin_src shell
+sudo mkinitcpio -p linux
+#+end_src
+
 * Enable nested virtualization
+
 #+begin_src shell
 sudo modprobe -r kvm_intel
 sudo modprobe kvm_intel nested=1
@@ -17,6 +50,7 @@ echo "options kvm-intel nested=1" | sudo tee /etc/modprobe.d/kvm-intel.conf
 #+end_src
 
 * Verify nested virtualization
+
 #+begin_src shell
 echo "Verifying nested virtualization:"
 systool -m kvm_intel -v | grep nested
