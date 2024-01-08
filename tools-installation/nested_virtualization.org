@@ -1,17 +1,19 @@
-* Check support for passthrough
+* Requirements
+** Check support for passthrough
 
 #+begin_src shell
 lscpu | grep 'Virtualization'
 #+end_src
 
-* Identify PCI IDs
+** Identify PCI IDs
 Copy the Display Controller - Radeon RX GPU and Audio Device IDs
 
 #+begin_src shell
 lspci -nn | grep -E "AMD"
 #+end_src
 
-* Edit grub config
+* Grub config
+** Edit grub config
 
 #+begin_src shell
 sudo nvim /etc/default/grub
@@ -20,7 +22,7 @@ sudo nvim /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="and_iommu iommu=pt vfio-pci.ids=<GPU>:<AUDIO>"
 #+end_src
 
-* Update grub
+** Update grub
 
 #+begin_src shell
 sudo grub-mkconfig -o /boot/grub/grub.cfg
@@ -29,7 +31,7 @@ reboot
 #+end_src
 
 * Isolate GPU
-
+** Config files
 #+begin_src shell
 sudo touch /etc/modprobe.d/vfio.conf
 sudo nvim /etc/modprobe.d/vfio.conf
@@ -37,7 +39,7 @@ sudo nvim /etc/modprobe.d/vfio.conf
 options vfio-pci ids=<GPU>:<AUDIO>
 #+end_src
 
-* Update initramfs
+** Update initramfs
 
 #+begin_src shell
 sudo mkinitcpio -p linux
@@ -45,7 +47,7 @@ sudo mkinitcpio -p linux
 reboot
 #+end_src
 
-* Verify isolation of GPU
+** Verify isolation of GPU
 
 #+begin_src shell
 lspci -k | grep -E "vfio-pci|AMD"
