@@ -54,10 +54,20 @@ lspci -k | grep -E "vfio-pci|AMD"
 #+end_src
 
 * Passthrough
-In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
+** Installation
+- Stable VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]]
+- Windows 10 ISO
 
-** Download Stable VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]]
-In VM settings:
+** Create a VM
+- 8GB of memory
+- 12 CPUs
+- 80GB of disk
+- [X] Customize configuration before installation
+
+** VM Configuration
+In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
+- =Boot Options= > =Enable boot menu= > =SATA CDROM= > move =up arrow=
+- =SATA Disk= > Disk bus: =VirtIO=
 - =SATA CDROM= > =Browse= > Import VFIO drivers
 - =Add Hardware= > =PCI Host Device= > Select AMD GPU and AMD Audio
   + check the numbers from the output of =lspci -k | grep -E "vfio-pci|AMD"= command
