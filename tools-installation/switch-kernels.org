@@ -1,0 +1,39 @@
+* Switch linux kernel to linux-amd-znver3
+#+begin_src shell
+# Update system
+sudo pacman -Syu
+
+# Make sure the packages are installed
+sudo pacman -Q linux-amd-znver3 linux-amd-znver3-headers
+
+# Edit grub config (or pull my config - check install-tweaks.sh)
+sudo nvim /etc/default/grub
+#GRUB_DISABLE_SUBMENU=y
+#GRUB_SAVEDEFAULT=true
+#GRUB_DEFAULT=saved
+#GRUB_DISABLE_RECOVERY=true
+
+# Update grub
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+
+# After reboot remove the old kernel
+#reboot
+sudo pacman -Rns linux-zen linux-zen-headers
+#+end_src
+
+** Optional - install wifi driver
+#+begin_src shell
+# My network device interface dissapears after linux update (adapter chipset Realtek 8852AE)
+# Check instructions here: https://github.com/lwfinger/rtw89
+
+# Troubleshooting
+sudo systemctl enable systemd-resolved
+sudo systemctl enable systemd-networkd
+pacman -Qs rtw89-dkms-git
+pacman -Qi rtw89-dkms-git
+
+# Update and restart
+paru -Syu
+reboot
+ip l
+#+end_src
