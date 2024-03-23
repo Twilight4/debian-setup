@@ -3,7 +3,7 @@ The provided configuration files automate the installation of system-wide config
 It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
 
 ## Distribution Installation
-For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** (Arch) or **[Kali Linux](https://www.kali.org/)** (Debian) for pentesting workflow.
+For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** based on Arch or **[Kali Linux](https://www.kali.org/)** - Debian distribution for Penetration Testing.
 
 ## Post-Installation
 ### Option 1 - Installing Hyprland and dotfiles on Arch
