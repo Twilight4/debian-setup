@@ -19,4 +19,4 @@ If a user choosed River on Arch-based distro, users can check out my [river-sett
 If a user choosed GNOME (any distro), users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository.
 
 ### Appendix - Installing tools
-Additional tools can be installed using scripts in the [tools-installation](https://github.com/Twilight4/arch-setup/tree/main/tools-installation) directory.
+Additional tools can be installed using scripts/cheatsheets in the [tools-installation](https://github.com/Twilight4/arch-setup/tree/main/tools-installation) directory.
