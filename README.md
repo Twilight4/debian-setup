@@ -7,10 +7,10 @@ For optimal performance and streamlined setup experience I recommend utilizing t
 
 ## Post-Installation
 ### Option 1 - Installing Hyprland and dotfiles on Arch
-If a user choosed Hyprland Installation, users can check out my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
+If a user choosed installing Arch-based distro, users can check out my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
 
 ### Option 2 - Installing Hyprland and dotfiles on Debian
-If a user choosed installing Kali Linux, users can check out my [installation guide](https://github.com/Twilight4/arch-setup/blob/main/tools-installation/kali-hyprland.md).
+If a user choosed installing Debian-based distro, users can check out my [installation guide](https://github.com/Twilight4/arch-setup/blob/main/tools-installation/kali-hyprland.md).
 
 ### Option 3 - Installing River and dotfiles on Arch
 If a user choosed River Installation, users can check out my [river-settings](https://github.com/Twilight4/river-settings/) repository.
