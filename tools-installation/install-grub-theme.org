@@ -1,0 +1,10 @@
+** Install CyberEXS grub theme 
+#+begin_src shell
+cd downloads
+git clone --depth 1 https://github.com/arch-setup.git
+sudo cp -r arch-setup/config-files/CyberEXS /boot/grub/themes
+
+# sudo nvim /etc/default/grub - add:
+GRUB_THEME=/boot/grub/themes/CyberEXS/theme.txt
+sudo update-grub
+#+end_src
