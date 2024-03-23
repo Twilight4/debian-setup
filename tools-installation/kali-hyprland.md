@@ -195,11 +195,11 @@ cd downloads
 sudo dpkg -i bat*_amd64.deb
 rm bat*_amd64.deb
 
-# Install wire-desktop .deb package for Linux from https://github.com/wireapp/wire-desktop/releases
+# Install wire-desktop AppImage package for Linux from https://github.com/wireapp/wire-desktop/releases
 cd downloads
-sudo dpkg -i Wire*.deb
-rm Wire*.deb
-sudo ln -sf /opt/Wire/wire-desktop /bin/wire-desktop
+sudo chmod +x Wire*.AppImage
+mv Wire*.AppImage wire-desktop
+mv wire-desktop /bin/
 ```
 
 ### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
