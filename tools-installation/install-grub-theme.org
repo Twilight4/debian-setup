@@ -1,4 +1,11 @@
-** Install CyberEXS grub theme 
+** Install CyberEXS grub theme using automated script
+#+begin_src shell
+curl -LO https://raw.githubusercontent.com/Twilight4/dotfiles/main/.config/.install/install-grub-theme.sh
+chmod +x install-grub-theme.sh
+./install-grub-theme.sh
+#+end_src
+
+** Install CyberEXS grub theme manually
 #+begin_src shell
 # Get the theme
 cd downloads
