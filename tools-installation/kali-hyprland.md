@@ -81,10 +81,14 @@ sudo usermod -aG sudo "$(whoami)"
 ```bash
 git clone --depth 1 https://github.com/Twilight4/dotfiles ~/
 cp -r ~/dotfiles/.config ~/
-git clone --depth 1 https://github.com/Twilight4/kali-dotfiles ~/
-cp -r ~/kali-dotfiles/.config ~/
 rm -rf dotfiles
-rm -rf kali-dotfiles
+
+# Download zsh config
+curl -LO https://raw.githubusercontent.com/Twilight4/arch-setup/main/config-files/kali-zsh/.zshrc
+curl -LO https://raw.githubusercontent.com/Twilight4/arch-setup/main/config-files/kali-zsh/aliases.zsh
+
+mv .zshrc ~/.config/zsh/.zshrc
+mv aliases.zsh ~/.config/zsh/aliases.zsh
 ```
 
 ### My Setup
