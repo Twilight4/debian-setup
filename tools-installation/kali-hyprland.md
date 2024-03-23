@@ -138,7 +138,7 @@ source ~/.config/zsh/.zshrc
 ### Install tools
 ```bash
 # Install base packages
-sudo apt install lsd fzf wdisplays ripgrep irqbalance acpi emacs profile-sync-daemon sddm dunst translate-shell
+sudo apt install lsd fzf wdisplays ripgrep irqbalance acpi emacs profile-sync-daemon sddm dunst translate-shell duf
 sudo apt remove python3-mako sway-notification-center
 
 # Enable SDDM
