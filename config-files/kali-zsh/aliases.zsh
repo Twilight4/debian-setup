@@ -254,6 +254,9 @@ alias pacsyu="sudo apt-get update && sudo apt-get upgrade"  # Update system
 alias pacs="sudo apt install"                   # Install package faster
 alias pacr="sudo apt remove"                    # Remove package faster
 alias pacf="sudo apt-cache search"              # Search for a package
+alias rip="sudo apt list --installed"           # List installed packages
+alias rip-snap="snap list"                      # List snap packages
+alias apt-history='grep " install " /var/log/apt/history.log'   # History of installed packages
 
 # Colorize grep output
 alias grep='ugrep --color=auto'
