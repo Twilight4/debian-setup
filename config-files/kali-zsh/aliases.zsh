@@ -92,6 +92,7 @@ alias ginxi="garuda-inxi"
 #alias gup="garuda-update"
 alias lsall="lspci"
 alias record-mic="pw-record ~/recording.mp3"
+alias gparted="xhost +SI:localuser:root && gparted"
 
 # Rust utilities
 alias http='xh'                # Curl replacement
