@@ -224,7 +224,8 @@ precmd() {
     fi
 }
 
-# enable color support of ls, less and man, and also add handy aliases
+# Enable color support of ls, less and man, and also add handy aliases
+# Don't touch, must be everything in one if statement
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
@@ -234,14 +235,14 @@ if [ -x /usr/bin/dircolors ]; then
     zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
 fi
 
-# enable auto-suggestions based on the history
+# Enable auto-suggestions based on the history
 if [ -f /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
     \. /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
     # change suggestion color
     ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#999'
 fi
 
-# enable command-not-found if installed
+# Enable command-not-found if installed
 if [ -f /etc/zsh_command_not_found ]; then
     \. /etc/zsh_command_not_found
 fi
