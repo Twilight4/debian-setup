@@ -195,6 +195,12 @@ cd downloads
 sudo dpkg -i bat*_amd64.deb
 rm bat*_amd64.deb
 
+# Download exa - Download exa-linux-x86_64-v0.10.1.zip from https://github.com/ogham/exa/releases
+cd downloads
+unzip exa-linux-*.zip
+sudo cp bin/exa /bin/
+rm -rf man completions bin
+
 # Install wire-desktop AppImage package for Linux from https://github.com/wireapp/wire-desktop/releases
 cd downloads
 sudo chmod +x Wire*.AppImage
