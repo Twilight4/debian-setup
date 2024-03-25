@@ -172,11 +172,15 @@ sudo ln -sf /opt/nnn /bin/nnn
 # or
 sudo cp /opt/nnn/nnn /bin
 
-# Insatll diff-so-fancy
+# Install diff-so-fancy
 git clone https://github.com/so-fancy/diff-so-fancy diffsofancy
 chmod +x diffsofancy/diff-so-fancy
 sudo mv diffsofancy /opt
 sudo ln -s ~/opt/diffsofancy/diff-so-fancy /usr/local/bin/diff-so-fancy
+
+# Install delta - Download git-delta_0.17.0_amd64.deb from https://github.com/dandavison/delta/releases
+sudo dpkg -i git-delta*.deb
+rm git-delta*.deb
 
 # Install newsboat
 sudo apt update
