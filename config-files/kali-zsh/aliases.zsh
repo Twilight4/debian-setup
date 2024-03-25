@@ -263,6 +263,7 @@ alias apt-history='grep " install " /var/log/apt/history.log'   # History of ins
 alias grep='ugrep --color=auto'
 alias fgrep='ugrep -F --color=auto'
 alias egrep='ugrep -E --color=auto'
+#alias ip='ip --color=auto'   # Already set somewhere
 
 # Systemd
 alias sdlistall="sudo systemctl list-unit-files --type=service"

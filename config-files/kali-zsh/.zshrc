@@ -71,19 +71,6 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
 
-# History configurations
-HISTFILE=~/.zsh_history
-HISTSIZE=1000
-SAVEHIST=2000
-setopt hist_expire_dups_first # delete duplicates first when HISTFILE size exceeds HISTSIZE
-setopt hist_ignore_dups       # ignore duplicated commands history list
-setopt hist_ignore_space      # ignore commands that start with space
-setopt hist_verify            # show command with history expansion to user before running it
-#setopt share_history         # share command history data
-
-# force zsh to show the complete history
-alias history="history 0"
-
 # configure `time` format
 TIMEFMT=$'\nreal\t%E\nuser\t%U\nsys\t%S\ncpu\t%P'
 
@@ -241,14 +228,6 @@ precmd() {
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     export LS_COLORS="$LS_COLORS:ow=30;44:" # fix ls color for folders with 777 permissions
-
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-    alias ip='ip --color=auto'
 
     export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
     export LESS_TERMCAP_md=$'\E[1;36m'     # begin bold
