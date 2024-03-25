@@ -71,20 +71,6 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
 
-# configure key keybindings
-bindkey -e                                        # emacs key bindings
-bindkey ' ' magic-space                           # do history expansion on space
-bindkey '^U' backward-kill-line                   # ctrl + U
-bindkey '^[[3;5~' kill-word                       # ctrl + Supr
-bindkey '^[[3~' delete-char                       # delete
-bindkey '^[[1;5C' forward-word                    # ctrl + ->
-bindkey '^[[1;5D' backward-word                   # ctrl + <-
-bindkey '^[[5~' beginning-of-buffer-or-history    # page up
-bindkey '^[[6~' end-of-buffer-or-history          # page down
-bindkey '^[[H' beginning-of-line                  # home
-bindkey '^[[F' end-of-line                        # end
-bindkey '^[[Z' undo                               # shift + tab undo last action
-
 # enable completion features
 autoload -Uz compinit
 compinit -d ~/.cache/zcompdump
@@ -279,7 +265,6 @@ if [ -x /usr/bin/dircolors ]; then
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
-    alias diff='diff --color=auto'
     alias ip='ip --color=auto'
 
     export LESS_TERMCAP_mb=$'\E[1;31m'     # begin blink
