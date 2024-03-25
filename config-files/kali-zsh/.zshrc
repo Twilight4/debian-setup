@@ -71,13 +71,6 @@ WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 # hide EOL sign ('%')
 PROMPT_EOL_MARK=""
 
-# enable completion features
-#autoload -Uz compinit
-#compinit -d ~/.cache/zcompdump
-zstyle ':completion:*' use-compctl false
-zstyle ':completion:*' verbose true
-zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
-
 # History configurations
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
