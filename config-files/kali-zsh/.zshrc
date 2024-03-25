@@ -39,6 +39,7 @@ zmodload zsh/zprof
 # Source plugin manager
 source "$ZDOTDIR/functions.zsh"
 
+# Source files from main directory
 zsh_add_file "aliases.zsh"
 zsh_add_file "scripts.zsh"
 zsh_add_file "scripts-pentest.zsh"
@@ -46,13 +47,17 @@ zsh_add_file "fzf-scripts.zsh"
 zsh_add_file "completion.zsh"
 zsh_add_file "bindings.zsh"
 # Source additional files from plugins directory
-#zsh_add_file "vim-mode"
-#zsh_add_file "cursor-mode"
 zsh_add_file "emacs-mode"
 zsh_add_file "bd.zsh"
 
+# Install plugins
+zsh_add_plugin "b4b4r07/enhancd"
 
-
+# Keybindings - check functions.zsh and emacs-mode for more
+source "$ZDOTDIR/plugins/fg-bg.sh"
+source "$ZDOTDIR/plugins/enhancd/init.sh"
+zle -N fg-bg
+bindkey '^Z' fg-bg
 
 
 
