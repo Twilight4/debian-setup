@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 # History
-setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt SHARE_HISTORY             # Share history between all sessions.
+setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format
+setopt SHARE_HISTORY             # Share history between all sessions
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
 setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
 setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
@@ -17,7 +17,7 @@ setopt nocaseglob                # Case insensitive globbing
 setopt rcexpandparam             # Array expension with parameters
 setopt nocheckjobs               # Don't warn about running processes when exiting
 setopt numericglobsort           # Sort filenames numerically when it makes sense
-setopt autocd                    # if only directory path is entered, cd there.
+setopt autocd                    # If only directory path is entered, cd there.
 setopt pushdminus
 setopt AUTO_PUSHD                # Push the current directory visited on to the stack
 setopt PUSHD_IGNORE_DUPS         # Do not store duplicate directories in the stack
