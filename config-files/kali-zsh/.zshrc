@@ -13,23 +13,23 @@ setopt appendhistory             # Immediately append history instead of overwri
 setopt histignorealldups         # If a new command is a duplicate, remove the older one
 
 # Navigation
-setopt nocaseglob           # Case insensitive globbing
-setopt rcexpandparam        # Array expension with parameters
-setopt nocheckjobs          # Don't warn about running processes when exiting
-setopt numericglobsort      # Sort filenames numerically when it makes sense
-setopt autocd               # if only directory path is entered, cd there.
+setopt nocaseglob                # Case insensitive globbing
+setopt rcexpandparam             # Array expension with parameters
+setopt nocheckjobs               # Don't warn about running processes when exiting
+setopt numericglobsort           # Sort filenames numerically when it makes sense
+setopt autocd                    # if only directory path is entered, cd there.
 setopt pushdminus
-setopt AUTO_PUSHD           # Push the current directory visited on to the stack
-setopt PUSHD_IGNORE_DUPS    # Do not store duplicate directories in the stack
-setopt PUSHD_SILENT         # Do not print the directory stack after using pushd or popd
-setopt extendedglob         # Extended globbing. Allows using regular expressions with *
-setopt INTERACTIVE_COMMENTS # Enable comments when running an interactive session
-setopt CORRECT              # Spelling correction
-setopt nobeep               # No beep
-setopt magicequalsubst      # Enable filename expansion for arguments of the form ‘anything=expression’
-setopt nonomatch            # Hide error message if there is no match for the pattern
-setopt notify               # Report the status of background jobs immediately
-setopt promptsubst          # Enable command substitution in prompt
+setopt AUTO_PUSHD                # Push the current directory visited on to the stack
+setopt PUSHD_IGNORE_DUPS         # Do not store duplicate directories in the stack
+setopt PUSHD_SILENT              # Do not print the directory stack after using pushd or popd
+setopt extendedglob              # Extended globbing. Allows using regular expressions with *
+setopt INTERACTIVE_COMMENTS      # Enable comments when running an interactive session
+setopt CORRECT                   # Spelling correction
+setopt nobeep                    # No beep
+setopt magicequalsubst           # Enable filename expansion for arguments of the form ‘anything=expression’
+setopt nonomatch                 # Hide error message if there is no match for the pattern
+setopt notify                    # Report the status of background jobs immediately
+setopt promptsubst               # Enable command substitution in prompt
 
 # Uncomment the following line if pasting URLs and other text is messed up
 DISABLE_MAGIC_FUNCTIONS="true"
