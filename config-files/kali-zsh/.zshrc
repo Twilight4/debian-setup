@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# See /usr/share/doc/zsh/examples/zshrc for examples
+
 # History
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format
 setopt SHARE_HISTORY             # Share history between all sessions
@@ -74,11 +76,6 @@ bindkey '^Z' fg-bg
 #source $XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-
-
-# ~/.zshrc file for zsh interactive shells.
-# see /usr/share/doc/zsh/examples/zshrc for examples
 
 WORDCHARS=${WORDCHARS//\/} # Don't consider certain characters part of the word
 
