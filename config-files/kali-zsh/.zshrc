@@ -60,6 +60,8 @@ zsh_add_plugin "zsh-users/zsh-autosuggestions"
 zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 zsh_add_plugin "mrjohannchang/zsh-interactive-cd"
+zsh_add_plugin "unixorn/prettyping"
+zsh_add_completion "zsh-users/zsh-completions"
 
 # Keybindings - check functions.zsh and emacs-mode for more
 source "$ZDOTDIR/plugins/fg-bg.sh"
