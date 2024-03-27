@@ -8,7 +8,7 @@ setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded
 setopt HIST_FIND_NO_DUPS         # Do not display a previously found event
 setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file
-setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
+setopt HIST_VERIFY               # Do not execute immediately upon history expansion
 setopt appendhistory             # Immediately append history instead of overwriting
 setopt histignorealldups         # If a new command is a duplicate, remove the older one
 
@@ -56,6 +56,7 @@ zsh_add_file "bd.zsh"
 
 # Install plugins
 zsh_add_plugin "b4b4r07/enhancd"
+zsh_add_plugin "zsh-users/zsh-autosuggestions"
 
 # Keybindings - check functions.zsh and emacs-mode for more
 source "$ZDOTDIR/plugins/fg-bg.sh"
@@ -63,6 +64,12 @@ source "$ZDOTDIR/plugins/enhancd/init.sh"
 zle -N fg-bg
 bindkey '^Z' fg-bg
 
+## Plugins section: Enable fish style features
+#source $XDG_CONFIG_HOME/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+#source $XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 
 
