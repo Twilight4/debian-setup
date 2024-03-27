@@ -57,6 +57,7 @@ zsh_add_file "bd.zsh"
 # Install plugins
 zsh_add_plugin "b4b4r07/enhancd"
 zsh_add_plugin "zsh-users/zsh-autosuggestions"
+zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 
 # Keybindings - check functions.zsh and emacs-mode for more
 source "$ZDOTDIR/plugins/fg-bg.sh"
@@ -69,7 +70,6 @@ bindkey '^Z' fg-bg
 #source $XDG_CONFIG_HOME/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source /usr/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 
 
