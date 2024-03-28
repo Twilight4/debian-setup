@@ -138,7 +138,7 @@ source ~/.config/zsh/.zshrc
 ### Install tools
 ```bash
 # Install base packages
-sudo apt install lsd fzf wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon sddm dunst translate-shell duf speedtest-cli
+sudo apt install lsd fzf wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon sddm dunst translate-shell duf speedtest-cli gnome-weather cpufetch
 sudo apt remove python3-mako sway-notification-center
 
 # Enable SDDM
