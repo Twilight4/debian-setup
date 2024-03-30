@@ -153,6 +153,13 @@ sudo ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
 # Install NVChad
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
+# Install cheat - check for newest version: https://github.com/cheat/cheat/blob/master/INSTALLING.md
+cd /tmp \
+  && wget https://github.com/cheat/cheat/releases/download/4.4.2/cheat-linux-amd64.gz \
+  && gunzip cheat-linux-amd64.gz \
+  && chmod +x cheat-linux-amd64 \
+  && sudo mv cheat-linux-amd64 /bin/cheat
+
 # Install Floorp Browser
 curl -fsSL https://ppa.ablaze.one/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/Floorp.gpg
 sudo curl -sS --compressed -o /etc/apt/sources.list.d/Floorp.list 'https://ppa.ablaze.one/Floorp.list'
