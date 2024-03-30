@@ -262,9 +262,9 @@ alias rip-snap="snap list"                      # List snap packages
 alias apt-history='grep " install " /var/log/apt/history.log'   # History of installed packages
 
 # Colorize grep output
-alias grep='ugrep --color=auto'
-alias fgrep='ugrep -F --color=auto'
-alias egrep='ugrep -E --color=auto'
+#alias grep='ugrep --color=auto'
+#alias fgrep='ugrep -F --color=auto'
+#alias egrep='ugrep -E --color=auto'
 #alias ip='ip --color=auto'   # Already set somewhere
 
 # Systemd
