@@ -236,7 +236,7 @@ mv wire-desktop /bin/
 
 ## Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
 ```bash
-pip install shell-gpt
+pip install shell-gpt youtube-transcript-api
 ```
 
 ### Install Ollama
