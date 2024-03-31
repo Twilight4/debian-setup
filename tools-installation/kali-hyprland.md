@@ -234,12 +234,12 @@ mv Wire*.AppImage wire-desktop
 mv wire-desktop /bin/
 ```
 
-### Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
+## Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
 ```bash
 pip install shell-gpt
 ```
 
-#### Install Ollama
+### Install Ollama
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 
