@@ -185,6 +185,9 @@ chmod +x diffsofancy/diff-so-fancy
 sudo mv diffsofancy /opt
 sudo ln -s ~/opt/diffsofancy/diff-so-fancy /usr/local/bin/diff-so-fancy
 
+# Install shell_gpt
+pip install shell-gpt
+
 # Install delta - Download git-delta_0.17.0_amd64.deb from https://github.com/dandavison/delta/releases
 sudo dpkg -i git-delta*.deb
 rm git-delta*.deb
