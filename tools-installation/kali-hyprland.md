@@ -91,7 +91,7 @@ mv .zshrc ~/.config/zsh/.zshrc
 mv aliases.zsh ~/.config/zsh/aliases.zsh
 ```
 
-### My Setup
+## My Setup
 ```bash
 # Enable necessary services
 ./.config/.install/enable-services.sh
