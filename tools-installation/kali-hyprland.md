@@ -283,3 +283,8 @@ Now we need to change few settings in `~/.config/shell_gpt/.sgptrc`:
   - `USE_LITELLM` is set to `true`. 
 
 That's it, now you can use ShellGPT with Ollama backend.
+
+### ShellGPT Roles
+Create roles (prompts) for ShellGPT in `json` format, and put in `~/.config/shell_gpt/roles/`
+Example roles can be found in [here](https://github.com/danielmiessler/fabric/tree/main/patterns).
+Check sgpt --help to see how to use roles.
