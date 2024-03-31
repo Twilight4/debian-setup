@@ -52,9 +52,14 @@ alias m='service postgresql start ; msfdb init ; msfconsole'
 alias ce='cheat --edit'
 #alias ai='tgpt'
 alias watch-lt='watch lsd --tree --hyperlink=auto'
-#alias cptocht='find ~/documents/org/roam/ -type f -name "*.org" -exec rsync -av {} ~/.config/cheat/org \;'
-alias cptocht='\fdfind . $HOME/documents/org/roam/ -t f -e org | xargs -I{} rsync -av {} ~/.config/cheat/org/'
 alias fd='fdfind'
+
+# Updates
+#alias cptocht='find ~/documents/org/roam/ -type f -name "*.org" -exec rsync -av {} ~/.config/cheat/org \;'
+alias cptocht='rm ~/.config/cheat/org/org.org && \fdfind . $HOME/documents/org/roam/ -t f -e org | xargs -I{} rsync -av {} ~/.config/cheat/org/'
+alias gu='git add . && git commit -m "update" && git push'
+alias guorg='cd ~/documents/org/ && git add . && git commit -m "update" && git push'
+alias gucht='rm -rf --noconfirm ~/.config/cheat/org/* && touch ~/.config/cheat/org/org.org && cd ~/.config/cheat/ && git add . && git commit -m "update" && git push'
 
 # Aliases to modified commands
 alias mkdir="mkdir -p"
@@ -246,7 +251,6 @@ alias glog='git log --graph --abbrev-commit --oneline --decorate'
 alias gj="git-jump"                      # Open in vim quickfix list files of interest (git diff, merged...)
 #alias gc="git clone --depth 1"     # have 'gcl' function
 alias gci="cloneit"
-alias gu='git add . && git commit -m "update" && git push'
 alias rmgitcache="rm -r ~/.cache/git"
 alias gcm="git checkout master"
 alias gcs="git checkout stable"
