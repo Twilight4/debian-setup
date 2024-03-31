@@ -58,8 +58,8 @@ alias fd='fdfind'
 #alias cptocht='find ~/documents/org/roam/ -type f -name "*.org" -exec rsync -av {} ~/.config/cheat/org \;'
 alias cptocht='rm ~/.config/cheat/org/org.org && \fdfind . $HOME/documents/org/roam/ -t f -e org | xargs -I{} rsync -av {} ~/.config/cheat/org/'
 alias gu='git add . && git commit -m "update" && git push'
-alias guorg='cd ~/documents/org/ && git add . && git commit -m "update" && git push'
-alias gucht='rm -rf --noconfirm ~/.config/cheat/org/* && touch ~/.config/cheat/org/org.org && cd ~/.config/cheat/ && git add . && git commit -m "update" && git push'
+alias guorg='cd ~/documents/org/ && git add . && git commit -m "update" && git push && \cd -'
+alias gucht='\rm -rfv ~/.config/cheat/org/* && touch ~/.config/cheat/org/org.org && echo && cd ~/.config/cheat/ && echo && git add . && git commit -m "update" && git push && \cd -'
 
 # Aliases to modified commands
 alias mkdir="mkdir -p"
