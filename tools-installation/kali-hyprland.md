@@ -270,7 +270,7 @@ To communicate with local LLM backends, ShellGPT utilizes LiteLLM. To install it
 pip install shell-gpt[litellm]
 ```
 
-Check if Ollama backend is running and accessible:
+Check if Ollama backend is running and accessible (you can skip this step if you're getting an 400 error):
 ```bash
 sgpt --model ollama/mistral:7b-instruct  "Who are you?"
 # -> I'm ShellGPT, your OS and shell assistant...
