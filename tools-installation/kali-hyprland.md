@@ -219,24 +219,49 @@ mv Wire*.AppImage wire-desktop
 mv wire-desktop /bin/
 ```
 
-### Install shell_gpt
+### Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
 ```bash
 pip install shell-gpt
 ```
+
 #### Install Ollama
 ```bash
 curl -fsSL https://ollama.com/install.sh | sh
 
 # Read the options
 ollama --help
-
-# Optional: install ollama LLM models
-#ollama run llama2
-# OR
-#ollama run dolphin-mixtral
 ```
-### shell_gpt configuration
+Optional: install ollama LLM models
+```bash
+ollama run llama2
+# OR
+ollama run dolphin-mixtral
+```
 
+### ShellGPT setup
+Install LLM model recommended for ShellGPT
+```bash
+ollama pull mistral:7b-instruct
+```
+Once the model is installed, start the API server
+```bash
+ollama serve
+```
+
+### ShellGPT configuration
+Now when we have Ollama backend running we need to configure ShellGPT to use it. 
+To communicate with local LLM backends, ShellGPT utilizes LiteLLM. To install it run:
+```bash
+pip install shell-gpt[litellm]
+
+# Check if Ollama backend is running and accessible:
+sgpt --model ollama/mistral:7b-instruct  "Who are you?"
+# -> I'm ShellGPT, your OS and shell assistant...
+
+# If you are running ShellGPT for the first time, you will be prompted for OpenAI API key. Provide any random string to skip this step (do not just press enter with empty input). If you got an error you can ask ShellGPT [[https://github.com/TheR1D/shell_gpt/discussions][community]] for help.
+
+# Now we need to change few settings in ~/.config/shell_gpt/.sgptrc. Open the file in your editor and change DEFAULT_MODEL to ollama/mistral:7b-instruct. Also make sure that OPENAI_USE_FUNCTIONS is set to false and USE_LITELLM is set to true. That's it, now you can use ShellGPT with Ollama backend.
+```
 
 ### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
 ```bash
