@@ -253,15 +253,16 @@ Now when we have Ollama backend running we need to configure ShellGPT to use it.
 To communicate with local LLM backends, ShellGPT utilizes LiteLLM. To install it run:
 ```bash
 pip install shell-gpt[litellm]
+```
 
-# Check if Ollama backend is running and accessible:
+Check if Ollama backend is running and accessible:
+```bash
 sgpt --model ollama/mistral:7b-instruct  "Who are you?"
 # -> I'm ShellGPT, your OS and shell assistant...
-
-# If you are running ShellGPT for the first time, you will be prompted for OpenAI API key. Provide any random string to skip this step (do not just press enter with empty input). If you got an error you can ask ShellGPT [[https://github.com/TheR1D/shell_gpt/discussions][community]] for help.
-
-# Now we need to change few settings in ~/.config/shell_gpt/.sgptrc. Open the file in your editor and change DEFAULT_MODEL to ollama/mistral:7b-instruct. Also make sure that OPENAI_USE_FUNCTIONS is set to false and USE_LITELLM is set to true. That's it, now you can use ShellGPT with Ollama backend.
 ```
+If you are running ShellGPT for the first time, you will be prompted for OpenAI API key. Provide any random string to skip this step (do not just press enter with empty input). If you got an error you can ask ShellGPT [[https://github.com/TheR1D/shell_gpt/discussions][community]] for help.
+
+Now we need to change few settings in ~/.config/shell_gpt/.sgptrc. Open the file in your editor and change DEFAULT_MODEL to ollama/mistral:7b-instruct. Also make sure that OPENAI_USE_FUNCTIONS is set to false and USE_LITELLM is set to true. That's it, now you can use ShellGPT with Ollama backend.
 
 ### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
 ```bash
