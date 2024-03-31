@@ -150,7 +150,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout ""
 ### Remove Firefox window Title bar
 Right click on toolbar and click on `Customize Toolbar...` and in the bottom left uncheck `Title Bar`.
 
-### Install tools
+## Install tools
 ```bash
 # Install base packages
 sudo apt install lsd fzf wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon sddm dunst translate-shell duf speedtest-cli gnome-weather cpufetch fd-find
