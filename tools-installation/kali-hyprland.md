@@ -185,9 +185,6 @@ chmod +x diffsofancy/diff-so-fancy
 sudo mv diffsofancy /opt
 sudo ln -s ~/opt/diffsofancy/diff-so-fancy /usr/local/bin/diff-so-fancy
 
-# Install shell_gpt
-pip install shell-gpt
-
 # Install delta - Download git-delta_0.17.0_amd64.deb from https://github.com/dandavison/delta/releases
 sudo dpkg -i git-delta*.deb
 rm git-delta*.deb
@@ -221,6 +218,25 @@ sudo chmod +x Wire*.AppImage
 mv Wire*.AppImage wire-desktop
 mv wire-desktop /bin/
 ```
+
+### Install shell_gpt
+```bash
+pip install shell-gpt
+```
+#### Install Ollama
+```bash
+curl -fsSL https://ollama.com/install.sh | sh
+
+# Read the options
+ollama --help
+
+# Optional: install ollama LLM models
+#ollama run llama2
+# OR
+#ollama run dolphin-mixtral
+```
+### shell_gpt configuration
+
 
 ### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
 ```bash
