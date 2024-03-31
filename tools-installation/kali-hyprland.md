@@ -135,6 +135,21 @@ zsh
 source ~/.config/zsh/.zshrc
 ```
 
+### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
+```bash
+unzip ~/downloads/meslo
+cp ~/downloads/meslo /usr/share/fonts/meslo
+fc-cache -fv
+```
+
+### Remove GTK window buttons 
+```bash
+gsettings set org.gnome.desktop.wm.preferences button-layout ""
+```
+
+### Remove Firefox window Title bar
+Right click on toolbar and click on `Customize Toolbar...` and in the bottom left uncheck `Title Bar`.
+
 ### Install tools
 ```bash
 # Install base packages
@@ -266,19 +281,5 @@ Now we need to change few settings in `~/.config/shell_gpt/.sgptrc`:
   - change `DEFAULT_MODE` to `ollama/mistral:7b-instruct`
   - `OPENAI_USE_FUNCTIONS` is set to `false`
   - `USE_LITELLM` is set to `true`. 
+
 That's it, now you can use ShellGPT with Ollama backend.
-
-### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
-```bash
-unzip ~/downloads/meslo
-cp ~/downloads/meslo /usr/share/fonts/meslo
-fc-cache -fv
-```
-
-### Remove GTK window buttons 
-```bash
-gsettings set org.gnome.desktop.wm.preferences button-layout ""
-```
-
-### Remove Firefox window Title bar
-Right click on toolbar and click on `Customize Toolbar...` and in the bottom left uncheck `Title Bar`.
