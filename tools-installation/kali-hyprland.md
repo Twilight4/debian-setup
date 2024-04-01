@@ -104,8 +104,8 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 ```
 
 ### Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
-zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active
-grubup
+`zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active`
+then `grubup`
 
 ### Use aliases
 - `sudo auto-cpufreq --force=performance`
