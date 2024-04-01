@@ -20,7 +20,7 @@ alias vd='cd "$HOME/videos" ; clear ; lsd -l --hyperlink=auto'
 alias dc='cd "$HOME/documents" ; clear ; lsd -l --hyperlink=auto'
 alias org='cd "$HOME/documents/org/roam" ; clear ; lsd -l --hyperlink=auto'
 alias sv='cd "$HOME/desktop/server" ; clear ; lsd -l --hyperlink=auto'
-alias sc='cd "$HOME/pictures/screenshots" ; clear ; fimg'
+alias scr='cd "$HOME/pictures/screenshots" ; clear ; fimg'
 
 # Work dirs
 alias pj='cd "$HOME/desktop/projects" ; clear'
@@ -53,13 +53,21 @@ alias ce='cheat --edit'
 #alias ai='tgpt'
 alias watch-lt='watch lsd --tree --hyperlink=auto'
 alias fd='fdfind'
+alias pt='youtube_transcript_api'
+
+# ShellGPT - check sgpt-roles cheat note
+alias ss='sgpt --shell'
+alias sc='sgpt --code'
+alias write_essay="sgpt --role write_essay"
+alias extract_wisdom="sgpt --role extract_wisdom"
+alias extract_book_recommendations="sgpt --role extract_book_recommendations"
+alias extract_poc="sgpt --role extract_poc"
+alias label_and_rate="sgpt --role label_and_rate"
 
 # Updates
-#alias cptocht='find ~/documents/org/roam/ -type f -name "*.org" -exec rsync -av {} ~/.config/cheat/org \;'
-alias cptocht='rm ~/.config/cheat/org/org.org && \fdfind . $HOME/documents/org/roam/ -t f -e org | xargs -I{} rsync -av {} ~/.config/cheat/org/'
 alias gu='git add . && git commit -m "update" && git push'
-alias guorg='cd ~/documents/org/ && git add . && git commit -m "update" && git push && \cd -'
-alias gucht='\rm -rfv ~/.config/cheat/org/* && touch ~/.config/cheat/org/org.org && echo && cd ~/.config/cheat/ && echo && git add . && git commit -m "update" && git push && \cd -'
+alias guorg='\cd ~/documents/org/ && git add . && git commit -m "update" && git push && \cd -'
+alias gucht='\cd ~/.config/cheat/ && git add . && git commit -m "update" && git push && \cd -'
 
 # Aliases to modified commands
 alias mkdir="mkdir -p"
