@@ -91,7 +91,36 @@ mv .zshrc ~/.config/zsh/.zshrc
 mv aliases.zsh ~/.config/zsh/aliases.zsh
 ```
 
-## My Setup
+## Performance tweaks
+```bash
+echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
+echo "vm.swappiness=20" | sudo tee -a /etc/sysctl.conf
+echo "vm.dirty_background_ratio=15" | sudo tee -a /etc/sysctl.conf
+echo "vm.dirty_ratio=40" | sudo tee -a /etc/sysctl.conf
+echo "vm.oom_dump_tasks=0" | sudo tee -a /etc/sysctl.conf
+echo "vm.oom_kill_allocating_task=1" | sudo tee -a /etc/sysctl.conf
+echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
+echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
+```
+
+Add this to `/etc/default/grub` in `GRUB_CMDLINE_LINUX_DEFAULT`
+   - zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active
+   - grubup
+
+use aliases:
+   - `sudo auto-cpufreq --force=performance`
+   - `sudo cpupower frequency-set -g performance`
+     + if doesn't work: `echo power | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/performance`
+   - `fans`
+   - `fan-boost-on`
+   - `cat /sys/devices/system/cpu/amd_pstate/status - must be active`
+
+make sure split lock is disabled:
+```bash
+sudo sysctl kernel.split_lock_mitigate=0
+```
+
+## My setup
 ```bash
 # Enable necessary services
 ./.config/.install/enable-services.sh
