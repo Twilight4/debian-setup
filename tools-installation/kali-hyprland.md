@@ -103,22 +103,17 @@ echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
 echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 ```
 
-Add this to `/etc/default/grub` in `GRUB_CMDLINE_LINUX_DEFAULT`
-   - zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active
-   - grubup
+### Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
+     - `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active`
+     - `grubup`
 
-use aliases:
-   - `sudo auto-cpufreq --force=performance`
-   - `sudo cpupower frequency-set -g performance`
+### Use aliases
+  - `sudo auto-cpufreq --force=performance`
+  - `sudo cpupower frequency-set -g performance`
      + if doesn't work: `echo power | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/performance`
    - `fans`
    - `fan-boost-on`
    - `cat /sys/devices/system/cpu/amd_pstate/status - must be active`
-
-make sure split lock is disabled:
-```bash
-sudo sysctl kernel.split_lock_mitigate=0
-```
 
 ## My setup
 ```bash
