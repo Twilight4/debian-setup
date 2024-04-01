@@ -110,8 +110,8 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 - `sudo auto-cpufreq --force=performance`
 - `sudo cpupower frequency-set -g performance`
   + if doesn't work: `echo power | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/performance`
-- `fans`
-- `fan-boost-on`
+- `watch fans`
+- `fan-boost-on` (as root)
 - `cat /sys/devices/system/cpu/amd_pstate/status - must be active`
 
 ## My setup
