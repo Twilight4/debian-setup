@@ -64,4 +64,7 @@ if $install_qemu; then
 		echo "User added to kvm and libvirt groups"
 	fi
 
+  # Post-install message
+  echo "DONE, Check default network for virt-manager status:"
+  echo "    sudo virsh net-list --all"
 fi
