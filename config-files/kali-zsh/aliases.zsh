@@ -60,6 +60,7 @@ alias write_essay="sgpt --role write_essay"
 alias extract_wisdom="sgpt --role extract_wisdom"
 alias extract_book_recommendations="sgpt --role extract_book_recommendations"
 alias extract_poc="sgpt --role extract_poc"
+alias extract_vid="sgpt --role extract_videoid"
 alias label_and_rate="sgpt --role label_and_rate"
 
 # Updates
@@ -133,7 +134,7 @@ alias rgs='rg -i --sort'   # Possible sort values: path/modified/accessed/create
 
 # Find - fd
 alias fdf='fd --ignore-case --hidden --type f'
-#alias fdd="fd --ignore-case --hidden --type d"
+alias fdd="fd --ignore-case --hidden --type d"
 alias fdex="fd --ignore-case --hidden --exclude"
 alias fdl="fd --ignore-case --hidden --list-details"
 alias fds='fd --ignore-case --hidden --type f --size'
@@ -160,8 +161,8 @@ alias microcode='grep . /sys/devices/system/cpu/vulnerabilities/*'
 
 # Using AMD P-State EPP scheduler
 alias pstate='cat /sys/devices/system/cpu/amd_pstate/status'   # Check if the p-state driver is active
-alias powersave='sudo auto-cpufreq --force=powersave && sudo cpupower frequency-set -g powersave'
-alias performance='sudo auto-cpufreq --force=performance && sudo cpupower frequency-set -g performance'
+alias powersave='sudo auto-cpufreq --force=powersave && sudo cpupower --cpu all frequency-set -g powersave'
+alias performance='sudo auto-cpufreq --force=performance && sudo cpupower --cpu all frequency-set -g performance'
 alias cpu-reset='sudo auto-cpufreq --force=reset'
 # Omen laptop settings
 #alias omen-fix='~/.config/.local/bin/omen-fix-startup'    # RUN AS ROOT/systemd service
@@ -203,14 +204,16 @@ alias net-routes="netstat -r --numeric-hosts"
 alias net-ss="sudo ss -plaunt4"
 alias net-lsof="sudo lsof -P -i -n "
 alias net-pubip="curl -s \"https://icanhazip.com\" "
-alias net-pvpn-update="sudo pip install protonvpn-cli --upgrade"
-alias net-pvpn-status="sudo protonvpn status"
-alias net-pvpn-connect-tcp="sudo protonvpn c -f"
-alias net-pvpn-connect-udp="sudo protonvpn c -f -p udp"
-alias net-disconnect="sudo protonvpn disconnect"
 alias net-adapter="inxi -Na"
 alias net-lspci="lspci -nn | grep -i net"
 alias net-ps="lsof -i -n | awk '/ESTABLISHED/ {print \$1}' | sort -u"
+
+# Proton vpn
+alias net-pvpn-update="sudo pip install protonvpn-cli --upgrade"
+alias net-pvpn-connect-tcp="sudo protonvpn c -f"
+alias net-pvpn-connect-udp="sudo protonvpn c -f -p udp"
+alias net-pvpn-status="sudo protonvpn status"
+alias net-disconnect="sudo protonvpn disconnect"
 
 # Udiskie-umount
 alias ubackup='udiskie-umount $MEDIA/BACKUP'
