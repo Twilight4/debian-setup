@@ -255,6 +255,11 @@ cd downloads
 sudo chmod +x Wire*.AppImage
 mv Wire*.AppImage wire-desktop
 mv wire-desktop /bin/
+
+# Install webcord_amd64.deb package from https://github.com/SpacingBat3/WebCord/releases
+cd downloads
+sudo dpkg -i webcord*.deb
+rm webcord*.deb
 ```
 
 ## Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
