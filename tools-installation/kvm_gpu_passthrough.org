@@ -9,7 +9,8 @@ lscpu | grep 'Virtualization'
 Copy the Display Controller - Radeon RX GPU and Audio Device IDs
 
 #+begin_src shell
-lspci -nn | grep -E "AMD"
+lspci -nn | rg 'RX 6600'
+lspci -nn | rg 'Audio device' | rg 'AMD'
 #+end_src
 
 * Grub config
@@ -25,8 +26,9 @@ GRUB_CMDLINE_LINUX_DEFAULT="and_iommu iommu=pt vfio-pci.ids=<GPU>:<AUDIO>"
 ** Update grub
 
 #+begin_src shell
-sudo grub-mkconfig -o /boot/grub/grub.cfg
+sudo grub-mkconfig -o /boot/grub/grub.cfg     # or grubup
 
+# Reebot yout computer
 reboot
 #+end_src
 
