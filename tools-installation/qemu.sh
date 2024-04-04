@@ -17,7 +17,13 @@ echo '5. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (
 
 #### DEBIAN SETUP ####
 # Apt-get package manager
-#sudo apt install swtpm virt-manager qemu-guest-agent
+#sudo apt install swtpm qemu-kvm virt-manager bridge-utils qemu-guest-agent
+#sudo useradd -g $USER libvirt
+#sudo useradd -g $USER libvirt-kvm
+
+# Enable libvirtd service
+#sudo systemctl status libvirtd
+#sudo systemctl enable --now libvirtd
 
 # Start and autostart network bridge
 #sudo virsh net-start default
