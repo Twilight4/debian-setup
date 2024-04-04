@@ -10,7 +10,7 @@ EOF
 
 # Prerequisites/resources
 echo '1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI'
-echo '2. Setup QEMU KVM GUP Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw'
+echo '2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw'
 echo '3. Install Windows English International from https://www.microsoft.com/software-download/windows11'
 echo '4. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md'
 echo '5. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
@@ -20,8 +20,10 @@ echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (
 #### DEBIAN SETUP ####
 # Apt-get package manager
 #sudo apt install qemu-kvm virt-manager bridge-utils qemu-guest-agent swtpm
-#sudo useradd -g $USER libvirt
-#sudo useradd -g $USER libvirt-kvm
+#groups
+#sudo usermod -aG libvirt $USER
+#sudo usermod -aG libvirt-qemu $USER
+#sudo usermod -aG kvm $USER
 
 # Enable libvirtd service
 #sudo systemctl status libvirtd
@@ -30,16 +32,14 @@ echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (
 # Start and autostart network bridge
 #sudo virsh net-start default
 #sudo virsh net-autostart default
+#sudo virsh net-list --all
 
+# The qemu guest agent problem
 #systemctl start qemu-guest-agent
 #systemctl enable qemu-guest-agent
 
 # Test the communication from the KVM Host:
 #virsh qemu-agent-command <guest-name> '{"execute":"guest-info"}'
-
-# Post-install message
-#echo "DONE, Check default network for virt-manager status:"
-#echo "    sudo virsh net-list --all"
 
 
 
