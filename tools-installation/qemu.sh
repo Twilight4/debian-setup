@@ -26,9 +26,13 @@ echo '5. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (
 #systemctl start qemu-guest-agent
 #systemctl enable qemu-guest-agent
 
+# Test the communication from the KVM Host:
+#virsh qemu-agent-command <guest-name> '{"execute":"guest-info"}'
+
 # Post-install message
 #echo "DONE, Check default network for virt-manager status:"
 #echo "    sudo virsh net-list --all"
+
 
 
 
