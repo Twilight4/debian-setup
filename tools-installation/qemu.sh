@@ -10,11 +10,12 @@ EOF
 
 # Prerequisites/resources
 echo '1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI'
-echo '1. Install Windows English International from https://www.microsoft.com/software-download/windows11'
-echo '2. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md'
-echo '3. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
-echo '4. Before windows installation choose as language: English (World)'
-echo '5. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)'
+echo '2. Setup QEMU KVM GUP Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw'
+echo '3. Install Windows English International from https://www.microsoft.com/software-download/windows11'
+echo '4. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md'
+echo '5. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
+echo '6. Before windows installation choose as language: English (World)'
+echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)'
 
 #### DEBIAN SETUP ####
 # Apt-get package manager
