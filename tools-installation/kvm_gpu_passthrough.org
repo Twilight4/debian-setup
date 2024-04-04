@@ -10,7 +10,7 @@ Copy the Display Controller - Radeon RX GPU and Audio Device IDs
 
 #+begin_src shell
 lspci -nn | rg 'RX 6600'
-lspci -nn | rg 'Audio device' | rg 'AMD'
+lspci -nn | rg 'Audio device|AMD/ATI'
 #+end_src
 
 * Grub config
@@ -19,14 +19,18 @@ lspci -nn | rg 'Audio device' | rg 'AMD'
 #+begin_src shell
 sudo nvim /etc/default/grub
 
-# Edit the line and remove any existing values
+# Edit the line and remove any existing values (like quiet splash)
 GRUB_CMDLINE_LINUX_DEFAULT="and_iommu iommu=pt vfio-pci.ids=<GPU>:<AUDIO>"
 #+end_src
 
 ** update grub
 
 #+begin_src shell
-sudo grub-mkconfig -o /boot/grub/grub.cfg     # or grubup
+# For Debian
+sudo update-grub
+
+# For Arch
+sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 # Reebot yout computer
 reboot
