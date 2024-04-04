@@ -18,6 +18,7 @@ echo '4. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio
 echo '5. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
 echo '6. Before windows installation choose as language: English (World)'
 echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)'
+echo '8. Windows optimization: https://www.youtube.com/watch?v=XQAIYCT4f8Q'
 
 #### DEBIAN SETUP ####
 # Apt-get package manager

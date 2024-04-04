@@ -38,7 +38,7 @@ reboot
 sudo touch /etc/modprobe.d/vfio.conf
 sudo nvim /etc/modprobe.d/vfio.conf
 
-options vfio-pci ids=<GPU>:<AUDIO>
+options vfio-pci ids=<GPU>,<AUDIO>
 #+end_src
 
 ** Update initramfs
