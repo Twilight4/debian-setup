@@ -13,6 +13,7 @@ echo '1. Install Windows English International from https://www.microsoft.com/so
 echo '2. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md'
 echo '3. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
 echo '4. Before windows installation choose as language: English (World)'
+echo '5. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8'
 
 # Function to prompt user with yes/no question
 prompt_yes_no() {
