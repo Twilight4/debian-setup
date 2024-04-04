@@ -15,6 +15,24 @@ echo '3. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
 echo '4. Before windows installation choose as language: English (World)'
 echo '5. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)'
 
+#### DEBIAN SETUP ####
+# Apt-get package manager
+#sudo apt install swtpm virt-manager qemu-guest-agent
+
+# Start and autostart network bridge
+#sudo virsh net-start default
+#sudo virsh net-autostart default
+
+#systemctl start qemu-guest-agent
+#systemctl enable qemu-guest-agent
+
+# Post-install message
+#echo "DONE, Check default network for virt-manager status:"
+#echo "    sudo virsh net-list --all"
+
+
+
+##### ARCH SETUP #####
 # Function to prompt user with yes/no question
 prompt_yes_no() {
 	read -p "$1 (y/n): " yn
@@ -33,9 +51,6 @@ install_qemu=false
 if prompt_yes_no "Do you want to install QEMU and related packages?"; then
 	# Install all necessary packages
 	sudo pacman -S --needed virt-manager virt-viewer qemu-base edk2-ovmf dnsmasq vde2 ebtables bridge-utils openbsd-netcat libguestfs libvirt
-
-  # Apt-get package manager
-  #sudo apt install swtpm virt-manager
 
 	install_qemu=true
 fi
