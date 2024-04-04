@@ -8,9 +8,10 @@ cat <<"EOF"
     |_|                     
 EOF
 
-# Prerequisutes
+# Prerequisites
 echo '1. Install Windows English International from https://www.microsoft.com/software-download/windows11'
 echo '2. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md'
+echo '3. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
 
 # Function to prompt user with yes/no question
 prompt_yes_no() {
@@ -32,7 +33,7 @@ if prompt_yes_no "Do you want to install QEMU and related packages?"; then
 	sudo pacman -S --needed virt-manager virt-viewer qemu-base edk2-ovmf dnsmasq vde2 ebtables bridge-utils openbsd-netcat libguestfs libvirt
 
   # Apt-get package manager
-  #sudo apt install swtpm
+  #sudo apt install swtpm virt-manager
 
 	install_qemu=true
 fi
