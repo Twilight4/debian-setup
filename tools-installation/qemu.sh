@@ -19,7 +19,7 @@ echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (
 
 #### DEBIAN SETUP ####
 # Apt-get package manager
-#sudo apt install qemu-kvm virt-manager bridge-utils qemu-guest-agent swtpm
+#sudo apt install qemu-kvm virt-manager bridge-utils swtpm
 #groups
 #sudo usermod -aG libvirt $USER
 #sudo usermod -aG libvirt-qemu $USER
@@ -33,13 +33,6 @@ echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (
 #sudo virsh net-start default
 #sudo virsh net-autostart default
 #sudo virsh net-list --all
-
-# The qemu guest agent problem
-#systemctl start qemu-guest-agent
-#systemctl enable qemu-guest-agent
-
-# Test the communication from the KVM Host:
-#virsh qemu-agent-command <guest-name> '{"execute":"guest-info"}'
 
 
 
