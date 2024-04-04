@@ -9,6 +9,7 @@ cat <<"EOF"
 EOF
 
 # Prerequisites/resources
+echo 'WARNING: Watch the QEMU KVM GPU Passthrough tutorial as well cuz the first one doesnt show everything like to make clipboard work'
 echo '1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI'
 echo '2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw'
 echo '3. Install Windows English International from https://www.microsoft.com/software-download/windows11'
@@ -19,7 +20,7 @@ echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (
 
 #### DEBIAN SETUP ####
 # Apt-get package manager
-#sudo apt install qemu-kvm virt-manager bridge-utils swtpm
+#sudo apt install qemu-kvm virt-manager bridge-utils swtpm spice-vdagent
 #groups
 #sudo usermod -aG libvirt $USER
 #sudo usermod -aG libvirt-qemu $USER
