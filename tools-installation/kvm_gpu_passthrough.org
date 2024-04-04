@@ -82,6 +82,7 @@ In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
 - =SATA CDROM= > =Browse= > Import VFIO drivers
 - =Add Hardware= > =PCI Host Device= > Select AMD GPU and AMD Audio
   + check the numbers from the output of =lspci -k | rg "vfio-pci|AMD"= command
+- =Boot Options= > =Disable boot menu= - to not boot back into the installation media
 
 ** Start VM
 - =My Computer= > =Mounted ISO= > =virtio-win-guest-tools=
