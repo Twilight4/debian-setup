@@ -2,7 +2,7 @@
 ** Check support for passthrough
 
 #+begin_src shell
-lscpu | grep 'Virtualization'
+lscpu | rg 'Virtualization'
 #+end_src
 
 ** Identify PCI IDs
@@ -23,7 +23,7 @@ sudo nvim /etc/default/grub
 GRUB_CMDLINE_LINUX_DEFAULT="and_iommu iommu=pt vfio-pci.ids=<GPU>:<AUDIO>"
 #+end_src
 
-** Update grub
+** update grub
 
 #+begin_src shell
 sudo grub-mkconfig -o /boot/grub/grub.cfg     # or grubup
@@ -44,15 +44,20 @@ options vfio-pci ids=<GPU>:<AUDIO>
 ** Update initramfs
 
 #+begin_src shell
+# On Debian
+sudo update-initramfs -c -k $(uname -r)
+
+# On Arch
 sudo mkinitcpio -p linux
 
+# Reboot to apply changes
 reboot
 #+end_src
 
 ** Verify isolation of GPU
 
 #+begin_src shell
-lspci -k | grep -E "vfio-pci|AMD"
+lspci -k | rg "vfio-pci|AMD"
 #+end_src
 
 * Passthrough
@@ -72,7 +77,7 @@ In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
 - =SATA Disk= > Disk bus: =VirtIO=
 - =SATA CDROM= > =Browse= > Import VFIO drivers
 - =Add Hardware= > =PCI Host Device= > Select AMD GPU and AMD Audio
-  + check the numbers from the output of =lspci -k | grep -E "vfio-pci|AMD"= command
+  + check the numbers from the output of =lspci -k | rg "vfio-pci|AMD"= command
 
 ** Start VM
 - =My Computer= > =Mounted ISO= > =virtio-win-guest-tools=
