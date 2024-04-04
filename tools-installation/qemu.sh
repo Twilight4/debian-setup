@@ -13,6 +13,7 @@ echo 'WARNING: Watch the QEMU KVM GPU Passthrough tutorial as well cuz the first
 echo '1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI'
 echo '2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw'
 echo '  - Check the kvm_gpu_passthrough.org'
+echo '  - AT THIS MOMENT DO NOT TRY THIS CUZ IT BROKE MY SYSTEM'
 echo '3. Install Windows English International from https://www.microsoft.com/software-download/windows11'
 echo '4. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md'
 echo '5. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
