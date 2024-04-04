@@ -8,7 +8,8 @@ cat <<"EOF"
     |_|                     
 EOF
 
-# Prerequisites
+# Prerequisites/resources
+echo '1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI'
 echo '1. Install Windows English International from https://www.microsoft.com/software-download/windows11'
 echo '2. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md'
 echo '3. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko'
