@@ -176,7 +176,7 @@ Right click on toolbar and click on `Customize Toolbar...` and in the bottom lef
 ## Install tools
 ```bash
 # Install base packages
-sudo apt install lsd fzf wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon sddm dunst translate-shell duf speedtest-cli gnome-weather cpufetch fd-find trash-cli linux-cpupower
+sudo apt install lsd wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon sddm dunst translate-shell duf speedtest-cli gnome-weather cpufetch fd-find trash-cli linux-cpupower
 sudo apt remove python3-mako sway-notification-center fdclone
 
 # Enable SDDM
@@ -190,6 +190,10 @@ sudo ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
 
 # Install NVChad
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
+
+# Install fzf
+git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+~/.fzf/install
 
 # Install cheat - check for newest version: https://github.com/cheat/cheat/blob/master/INSTALLING.md
 cd /tmp \
