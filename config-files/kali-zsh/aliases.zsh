@@ -54,6 +54,8 @@ alias pt='youtube_transcript_api'
 # ShellGPT - check sgpt-roles cheat note
 alias ss='sgpt --shell'
 alias sc='sgpt --code'
+alias ssr='sgpt --shell --repl temp --no-cache'
+alias scr='sgpt --code --repl temp --no-cache'
 alias write_essay="sgpt --role write_essay"
 alias extract_wisdom="sgpt --role extract_wisdom"
 alias extract_book_recommendations="sgpt --role extract_book_recommendations"
@@ -109,6 +111,7 @@ alias ginxi="garuda-inxi"
 alias lsall="lspci"
 alias record-mic="pw-record ~/recording.mp3"
 alias gparted="xhost +SI:localuser:root && gparted"    # Optionally try running ocmmand: "xhost +localhost" and then "sudo gparted"
+alias nmap="grc nmap"
 
 # Rust utilities
 alias http='xh'                # Curl replacement
