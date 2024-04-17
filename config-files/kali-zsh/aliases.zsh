@@ -61,6 +61,7 @@ alias extract_wisdom="sgpt --role extract_wisdom"
 alias extract_book_recommendations="sgpt --role extract_book_recommendations"
 alias extract_poc="sgpt --role extract_poc"
 alias extract_vid="sgpt --role extract_videoid"
+alias explain_code="sgpt --role explain_code"
 alias label_and_rate="sgpt --role label_and_rate"
 
 # Updates
