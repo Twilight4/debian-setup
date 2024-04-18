@@ -1,0 +1,20 @@
+
+* Installation steps
+1. Update system
+#+begin_src shell
+sudo apt update
+sudo apt full-upgrade
+sudo reboot
+#+end_src
+
+2. Reboot
+#+begin_src shell
+reboot
+#+end_src
+
+3. After the system has booted, insert the Wi-Fi adapter into a USB slot.
+
+4. Download, install and load the correct driver with a command:
+#+begin_src shell
+sh -c 'wget linux.brostrend.com/install -O /tmp/install && sh /tmp/install'
+#+end_src
