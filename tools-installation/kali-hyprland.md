@@ -191,6 +191,13 @@ sudo ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
 # Install NVChad
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
+# Install Fluxion
+git clone git@github.com:FluxionNetwork/fluxion.git
+cd fluxion
+xhost +SI:localuser:root
+xhost +SI:localuser:twilight
+sudo ./fluxion.sh
+
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
