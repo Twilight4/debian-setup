@@ -193,10 +193,9 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 # Install Fluxion
 git clone git@github.com:FluxionNetwork/fluxion.git
-cd fluxion
-xhost +SI:localuser:root
-xhost +SI:localuser:twilight
-sudo ./fluxion.sh
+sudo mv fluxion /opt/
+sudo ln -sf /opt/fluxion/fluxion.sh /bin/fluxion
+#xhost +SI:localuser:root           # 'fluxion' aliased to 'xhost +SI:localuser:root && sudo fluxion'
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
