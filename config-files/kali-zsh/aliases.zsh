@@ -112,6 +112,7 @@ alias ginxi="garuda-inxi"
 alias lsall="lspci"
 alias record-mic="pw-record ~/recording.mp3"
 alias gparted="xhost +SI:localuser:root && gparted"    # Optionally try running ocmmand: "xhost +localhost" and then "sudo gparted"
+alias fluxion='xhost +SI:localuser:root && sudo fluxion'
 alias nmap="grc nmap"
 
 # Rust utilities
