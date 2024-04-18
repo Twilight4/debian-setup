@@ -19,6 +19,7 @@ sh -c 'wget linux.brostrend.com/install -O /tmp/install && sh /tmp/install'
 #+end_src
 
 ** Building from source
+Steps: https://forums.kali.org/showthread.php?44810-Realtek-RTL8812BU-Driver-for-Kali-Linux
 #+begin_src shell
 sudo apt update
 sudo apt install bc -y
