@@ -1,5 +1,7 @@
 
 * Installation steps
+Docs: https://linux.brostrend.com/
+
 ** Update system and reboot
 #+begin_src bash
 # On Debian
