@@ -2,6 +2,7 @@
 * Installation steps
 ** Update system and reboot
 #+begin_src bash
+# On Debian
 sudo apt update
 sudo apt full-upgrade
 sudo reboot
