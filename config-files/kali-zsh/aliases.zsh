@@ -46,7 +46,6 @@ alias w3='ngrok http 4444'
 alias s="kitty +kitten ssh"
 alias m='service postgresql start ; msfdb init ; msfconsole'
 alias ce='cheat --edit'
-#alias ai='tgpt'
 alias watch-lt='watch lsd --tree --hyperlink=auto'
 alias fd='fdfind'
 alias pt='youtube_transcript_api'
@@ -57,6 +56,7 @@ alias guorg='\cd ~/documents/org/ && git add . && git commit -m "update" && git 
 alias gucht='\cd ~/.config/cheat/ && git add . && git commit -m "update" && git push && \cd -'
 
 # Aliases to modified commands
+alias duf="duf --hide special -hide-mp /run/user/1000/psd/twilight-firefox-nlmda6r7.default,/run/user/1000/psd/twilight-firefox-pjxpviu5.default-esr"
 alias mkdir="mkdir -p"
 alias ping="prettyping -c 3"
 #alias pg='prettyping -c 3 8.8.8.8'
