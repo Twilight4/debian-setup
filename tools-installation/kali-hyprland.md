@@ -277,57 +277,41 @@ sudo dpkg -i webcord*.deb
 rm webcord*.deb
 ```
 
-## Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
+### Install Ollama, ShellGPT and setup (not necessary)
 ```bash
+# Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
 pip install shell-gpt youtube-transcript-api
-```
 
-### Install Ollama
-```bash
+# Install ollama
 curl -fsSL https://ollama.com/install.sh | sh
 
 # Read the options
 ollama --help
-```
-Optional: install ollama LLM models
-```bash
-ollama run llama2
-# OR
+
+# Optional: install ollama LLM models
 ollama run dolphin-mixtral
-```
 
-### ShellGPT setup
-Install LLM model recommended for ShellGPT
-```bash
+# Install LLM model recommended for ShellGPT
 ollama pull mistral:7b-instruct
-```
-Once the model is installed, start the API server
-```bash
-ollama serve
-```
 
-### ShellGPT configuration
+# Once the model is installed, start the API server
+ollama serve
+
+# ShellGPT configuration
 Now when we have Ollama backend running we need to configure ShellGPT to use it. 
 To communicate with local LLM backends, ShellGPT utilizes LiteLLM. To install it run:
-```bash
 pip install shell-gpt[litellm]
-```
 
-Check if Ollama backend is running and accessible (you can skip this step if you're getting an 400 error):
-```bash
+# Check if Ollama backend is running and accessible (you can skip this step if you're getting an 400 error):
 sgpt --model ollama/mistral:7b-instruct  "Who are you?"
 # -> I'm ShellGPT, your OS and shell assistant...
-```
-If you are running ShellGPT for the first time, you will be prompted for OpenAI API key. Provide any random string to skip this step (do not just press enter with empty input). If you got an error you can ask ShellGPT [community](https://github.com/TheR1D/shell_gpt/discussions) for help.
 
-Now we need to change few settings in `~/.config/shell_gpt/.sgptrc`:
+# If you are running ShellGPT for the first time, you will be prompted for OpenAI API key. Provide any random string to skip this step (do not just press enter with empty input). If you got an error you can ask ShellGPT [community](https://github.com/TheR1D/shell_gpt/discussions) for help.
+
+# Now we need to change few settings in `~/.config/shell_gpt/.sgptrc`:
   - change `DEFAULT_MODE` to `ollama/mistral:7b-instruct`
   - `OPENAI_USE_FUNCTIONS` is set to `false`
   - `USE_LITELLM` is set to `true`. 
 
-That's it, now you can use ShellGPT with Ollama backend.
-
-### ShellGPT Roles
-Create roles (prompts) for ShellGPT in `json` format, and put in `~/.config/shell_gpt/roles/`.
-Example roles can be found in [here](https://github.com/danielmiessler/fabric/tree/main/patterns).
-Check `sgpt --help` to see how to use roles.
+# That's it, now you can use ShellGPT with Ollama backend.
+```
