@@ -306,12 +306,14 @@ pip install shell-gpt[litellm]
 sgpt --model ollama/mistral:7b-instruct  "Who are you?"
 # -> I'm ShellGPT, your OS and shell assistant...
 
-# If you are running ShellGPT for the first time, you will be prompted for OpenAI API key. Provide any random string to skip this step (do not just press enter with empty input). If you got an error you can ask ShellGPT [community](https://github.com/TheR1D/shell_gpt/discussions) for help.
+# If you are running ShellGPT for the first time, you will be prompted for OpenAI API key. 
+# Provide any random string to skip this step (do not just press enter with empty input). 
+# If you got an error you can ask ShellGPT [community](https://github.com/TheR1D/shell_gpt/discussions) for help.
 
 # Now we need to change few settings in `~/.config/shell_gpt/.sgptrc`:
-  - change `DEFAULT_MODE` to `ollama/mistral:7b-instruct`
-  - `OPENAI_USE_FUNCTIONS` is set to `false`
-  - `USE_LITELLM` is set to `true`. 
+  #- change `DEFAULT_MODE` to `ollama/mistral:7b-instruct`
+  #- `OPENAI_USE_FUNCTIONS` is set to `false`
+  #- `USE_LITELLM` is set to `true`. 
 
 # That's it, now you can use ShellGPT with Ollama backend.
 ```
