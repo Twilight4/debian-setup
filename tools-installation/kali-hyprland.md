@@ -298,8 +298,8 @@ ollama pull mistral:7b-instruct
 ollama serve
 
 # ShellGPT configuration
-Now when we have Ollama backend running we need to configure ShellGPT to use it. 
-To communicate with local LLM backends, ShellGPT utilizes LiteLLM. To install it run:
+# Now when we have Ollama backend running we need to configure ShellGPT to use it. 
+# To communicate with local LLM backends, ShellGPT utilizes LiteLLM. To install it run:
 pip install shell-gpt[litellm]
 
 # Check if Ollama backend is running and accessible (you can skip this step if you're getting an 400 error):
