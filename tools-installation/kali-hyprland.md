@@ -277,7 +277,7 @@ sudo dpkg -i webcord*.deb
 rm webcord*.deb
 ```
 
-### Install Ollama, ShellGPT and setup (not necessary)
+### Install Ollama, ShellGPT and setup (I replaced it with gptel in emacs)
 ```bash
 # Install [ShellGPT](https://github.com/TheR1D/shell_gpt/)
 pip install shell-gpt youtube-transcript-api
