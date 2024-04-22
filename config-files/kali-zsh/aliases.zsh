@@ -120,7 +120,7 @@ alias rgf='rg -l -i'
 alias rgo='rg -i -l | xargs $EDITOR'
 alias rga='rg --hidden -i'
 alias rgo='rg -o -i'
-alias rgc='rg -c -i'
+alias rgc='rg -c -i'       # count line containing specific string
 alias rgs='rg -i --sort'   # Possible sort values: path/modified/accessed/created
 
 # Find - fd
