@@ -176,7 +176,7 @@ Right click on toolbar and click on `Customize Toolbar...` and in the bottom lef
 ## Install tools
 ```bash
 # Install base packages
-sudo apt install lsd wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder
+sudo apt install lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder
 sudo apt remove python3-mako sway-notification-center fdclone
 
 # Configure SDDM if you wanna use it
