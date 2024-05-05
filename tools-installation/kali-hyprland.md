@@ -192,6 +192,12 @@ sudo ln -s /opt/nvim-linux64/bin/nvim /usr/local/bin/nvim
 # Install NVChad
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
+# Install pipmykali
+sudo git clone https://github.com/Dewalt-arch/pimpmykali.git /opt/pipmykali
+cd /opt/pimpmykali
+sudo ./pipmykali.sh
+#Choose option: 0, =, @
+
 # Install Fluxion
 git clone git@github.com:FluxionNetwork/fluxion.git
 sudo mv fluxion /opt/
