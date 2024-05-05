@@ -246,6 +246,6 @@ if [ -f /etc/zsh_command_not_found ]; then
 fi
 
 # Load nobility variables quietly
-if [ -f "$HOME/.config/zsh/plugins/nobility" ]; then
-    nb-vars-load >/dev/null
+if [ -d ~/.config/zsh/plugins/nobility ]; then
+    nb-vars-load &>/dev/null
 fi
