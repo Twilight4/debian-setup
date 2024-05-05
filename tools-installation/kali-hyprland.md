@@ -198,12 +198,6 @@ cd /opt/pimpmykali
 sudo ./pipmykali.sh
 #Choose option: 0, =, @
 
-# Install Fluxion
-git clone git@github.com:FluxionNetwork/fluxion.git
-sudo mv fluxion /opt/
-sudo ln -sf /opt/fluxion/fluxion.sh /bin/fluxion
-#xhost +SI:localuser:root           # 'fluxion' aliased to 'xhost +SI:localuser:root && sudo fluxion'
-
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
@@ -239,11 +233,6 @@ git clone https://github.com/so-fancy/diff-so-fancy diffsofancy
 chmod +x diffsofancy/diff-so-fancy
 sudo mv diffsofancy /opt
 sudo ln -s ~/opt/diffsofancy/diff-so-fancy /usr/local/bin/diff-so-fancy
-
-# Install RustScan: https://github.com/RustScan/RustScan/releases/download/1.8.0/rustscan_1.8.0_amd64.deb
-cd downloads
-sudo dpkg -i rustscan*.deb
-rm rustscan*.deb
 
 # Install delta - Download git-delta_0.17.0_amd64.deb from https://github.com/dandavison/delta/releases
 sudo dpkg -i git-delta*.deb
