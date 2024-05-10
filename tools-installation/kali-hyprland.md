@@ -198,6 +198,15 @@ cd /opt/pimpmykali
 sudo ./pipmykali.sh
 #Choose option: 0, =, @
 
+# Install ledger (there's also emacs package)
+sudo apt-get install build-essential cmake autopoint texinfo python3-dev \
+     zlib1g-dev libbz2-dev libgmp3-dev gettext libmpfr-dev \
+     libboost-date-time-dev libboost-filesystem-dev \
+     libboost-graph-dev libboost-iostreams-dev \
+     libboost-python-dev libboost-regex-dev libboost-test-dev
+git clone git@github.com:ledger/ledger.git
+cd ledger && ./acprep update
+
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
