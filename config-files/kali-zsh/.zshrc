@@ -213,6 +213,9 @@ unset color_prompt force_color_prompt
 #zle -N toggle_oneline_prompt
 #bindkey ^P toggle_oneline_prompt
 
+# thefuck alias
+eval $(thefuck --alias)
+
 # If this is an xterm set the title to user@host:dir
 case "$TERM" in
 xterm*|rxvt*|Eterm|aterm|kterm|gnome*|alacritty)
