@@ -198,6 +198,15 @@ cd /opt/pimpmykali
 sudo ./pipmykali.sh
 #Choose option: 0, =, @
 
+# Install dog
+curl -LO dog-v0.1.0-x86_64-unknown-linux-gnu.zip
+extract dog-v0.1.0-x86_64-unknown-linux-gnu.zip
+sudo cp dog-v0.1.0-x86_64-unknown-linux-gnu/bin/dog /bin
+rm -rf dog-v0.1.0-x86_64-unknown-linux-gnu dog-v0.1.0-x86_64-unknown-linux-gnu.zip 
+# Fix a problem: error while loading shared libraries: libssl.so.1.1: cannot open shared object file: No such file or directory
+wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
+sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
+
 # Install ledger (there's also emacs package)
 sudo apt-get install build-essential cmake autopoint texinfo python3-dev \
      zlib1g-dev libbz2-dev libgmp3-dev gettext libmpfr-dev \
