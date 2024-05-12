@@ -219,6 +219,7 @@ cd ledger && ./acprep update
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
+# Use ~/.fzf/uninstall script to remove/reinstall fzf.
 
 # Install cheat - check for newest version: https://github.com/cheat/cheat/blob/master/INSTALLING.md
 cd /tmp \
