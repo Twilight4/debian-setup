@@ -47,16 +47,25 @@ EOF
 createdb msfdb
 echo "[*] PostgreSQL setup completed."
 
-# Initialize the database
-msfdb init --connection-string=postgresql://postgres@localhost:5432/postgres
+# Initialize the database from shell:
+sudo msfdb init
+
+# Recheck the status of the database
+sudo msfdb status
+
+# Connect to the Initiated Database
+sudo msfdb run
+
+# Other ways:
+#msfdb init --connection-string=postgresql://postgres@localhost:5432/postgres
 # OR
-msfdb init --connection-string=postgresql://twilight@localhost:5432/msfdb
+#msfdb init --connection-string=postgresql://twilight@localhost:5432/msfdb
 
 # Run db_status to verify that database connection is properly established:
 # msf6 > db_status
 # [*] postgresql connected to msf
 
 # Connect to database from metasploit
-msf6 > db_connect postgres@localhost:5432/postgres
+#msf6 > db_connect postgres@localhost:5432/postgres
 # OR
-msf6 > db_connect twilight@localhost:5432/msfdb
+#msf6 > db_connect twilight@localhost:5432/msfdb
