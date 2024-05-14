@@ -238,7 +238,7 @@ alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' 
 # Git
 alias gconfig="git config --list"
 alias gd='git diff'
-alias dif="git diff --no-index"          # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
+alias gdif="git diff --no-index"          # Diff two files even if not in git repo! Can add -w (don't diff whitespaces)
 alias gshow='git show'   # gshow <commit_id> - show diff from commit
 alias gdiff="git difftool --no-symlinks --dir-diff"
 alias gs='git status'
