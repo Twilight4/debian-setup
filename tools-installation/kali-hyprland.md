@@ -226,7 +226,9 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 #sudo dpkg -i ./protonvpn-stable-release_1.0.3-3_all.deb && sudo apt update
 #sudo apt install proton-vpn-gnome-desktop
 
-# Install pvpn beta linux app
+# Install pvpn beta linux app - https://protonvpn.com/support/official-linux-vpn-debian/
+# can't log in issue - https://www.reddit.com/r/ProtonVPN/comments/wogofb/cant_log_into_proton_vpn_linux_app_any_more/
+# first try just rebooting, if doens't help - uninstall strongswan and related packages and reboot
 wget https://repo.protonvpn.com/debian/dists/unstable/main/binary-all/protonvpn-beta-release_1.0.3-3_all.deb
 sudo dpkg -i ./protonvpn-beta-release_1.0.3-3_all.deb && sudo apt update
 sudo apt install proton-vpn-gnome-desktop
