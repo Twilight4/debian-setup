@@ -221,9 +221,14 @@ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install
 # Use ~/.fzf/uninstall script to remove/reinstall fzf.
 
-# Install pvpn v4 - https://protonvpn.com/support/official-linux-vpn-debian/
-wget https://repo2.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3-3_all.deb
-sudo dpkg -i ./protonvpn-stable-release_1.0.3-3_all.deb && sudo apt update
+# Install pvpn stable version - https://protonvpn.com/support/official-linux-vpn-debian/
+#wget https://repo2.protonvpn.com/debian/dists/stable/main/binary-all/protonvpn-stable-release_1.0.3-3_all.deb
+#sudo dpkg -i ./protonvpn-stable-release_1.0.3-3_all.deb && sudo apt update
+#sudo apt install proton-vpn-gnome-desktop
+
+# Install pvpn beta linux app
+wget https://repo.protonvpn.com/debian/dists/unstable/main/binary-all/protonvpn-beta-release_1.0.3-3_all.deb
+sudo dpkg -i ./protonvpn-beta-release_1.0.3-3_all.deb && sudo apt update
 sudo apt install proton-vpn-gnome-desktop
 
 # Install cheat - check for newest version: https://github.com/cheat/cheat/blob/master/INSTALLING.md
