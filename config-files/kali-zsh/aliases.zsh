@@ -200,8 +200,7 @@ alias net-adapter="inxi -Na"
 alias net-lspci="lspci -nn | grep -i net"
 alias net-ps="lsof -i -n | awk '/ESTABLISHED/ {print \$1}' | sort -u"
 
-# Proton vpn
-alias net-pvpn-update="sudo pip install protonvpn-cli --upgrade"
+# Proton vpn (v4 version doens't support cli)
 alias net-pvpn-connect-tcp="sudo protonvpn c -f"
 alias net-pvpn-connect-udp="sudo protonvpn c -f -p udp"
 alias net-pvpn-status="sudo protonvpn status"
