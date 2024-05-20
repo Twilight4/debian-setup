@@ -207,6 +207,9 @@ rm -rf dog-v0.1.0-x86_64-unknown-linux-gnu dog-v0.1.0-x86_64-unknown-linux-gnu.z
 wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 
+# Install xcp
+cargo install xcp
+
 # Install ledger (there's also emacs package)
 sudo apt-get install build-essential cmake autopoint texinfo python3-dev \
      zlib1g-dev libbz2-dev libgmp3-dev gettext libmpfr-dev \
