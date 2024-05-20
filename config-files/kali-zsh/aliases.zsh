@@ -109,8 +109,7 @@ alias http='xh'                # Curl replacement
 #alias bat='bat --color=always --paging=never --theme OneHalfDark'
 alias bat='bat --style header --style snip --style changes --style header'
 alias catl='bat --color=always --paging=never -l log'
-alias dig='dog'
-alias digs='dig +short'        # Uses dog alias first if installed
+alias digs='dig +short'
 alias du='dust'
 alias ncdu="ncdu --color dark"
 
@@ -260,13 +259,17 @@ alias gb='git branch'
 alias gco='git checkout'
 
 # Apt-get
-alias pacsyu="sudo apt-get update && sudo apt-get upgrade"  # Update system
-alias pacs="sudo apt install"                   # Install package faster
-alias pacr="sudo apt remove"                    # Remove package faster
-alias pacf="sudo apt-cache search"              # Search for a package
-alias rip="sudo apt list --installed"           # List installed packages
-alias rip-snap="snap list"                      # List snap packages
-alias apt-history='grep " install " /var/log/apt/history.log'   # History of installed packages
+alias pacsyu="sudo apt-get update && sudo apt-get upgrade"
+alias pacs="sudo apt update && sudo apt install"
+#alias pacr="sudo apt remove"
+alias pacr="sudo apt update && sudo apt purge"          # Remove with its configuration files
+alias cleanup="sudo apt update && sudo apt autoremove"
+alias apt-cache="sudo du -sh /var/cache/apt/archives"
+alias apt-cache-clean="sudo apt clean"
+alias pacf="sudo apt-cache search"
+alias rip="sudo apt list --installed"
+alias rip-snap="snap list"
+alias apt-history='grep " install " /var/log/apt/history.log'
 
 # Colorize grep output
 #alias grep='ugrep --color=auto'
