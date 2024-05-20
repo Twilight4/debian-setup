@@ -3,16 +3,16 @@
 # See /usr/share/doc/zsh/examples/zshrc for examples
 
 # History
+setopt APPEND_HISTORY            # Append to history instead of overwriting it
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format
 setopt SHARE_HISTORY             # Share history between all sessions
 setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history
+setopt HIST_IGNORE_ALL_DUPS      # Do not record an event that was just recorded again
 setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again
 setopt HIST_FIND_NO_DUPS         # Do not display a previously found event
 setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion
-setopt appendhistory             # Immediately append history instead of overwriting
-setopt histignorealldups         # If a new command is a duplicate, remove the older one
 
 # Navigation
 setopt nocaseglob                # Case insensitive globbing
@@ -64,7 +64,7 @@ zsh_add_plugin "zsh-users/zsh-syntax-highlighting"
 zsh_add_plugin "hlissner/zsh-autopair"
 #zsh_add_plugin "mrjohannchang/zsh-interactive-cd"
 zsh_add_plugin "unixorn/prettyping"
-zsh_add_completion "zsh-users/zsh-completions"
+#zsh_add_completion "zsh-users/zsh-completions"           # Had to disable these cuz they broke enhancd
 
 # Keybindings - check functions.zsh and emacs-mode for more
 source "$ZDOTDIR/plugins/fg-bg.sh"
@@ -224,6 +224,8 @@ xterm*|rxvt*|Eterm|aterm|kterm|gnome*|alacritty)
 *)
     ;;
 esac
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # Enable color support of ls, less and man, and also add handy aliases
 # Don't touch, must be everything in one if statement
