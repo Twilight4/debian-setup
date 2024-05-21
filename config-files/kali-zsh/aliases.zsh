@@ -29,9 +29,9 @@ alias ws='cd "$HOME/desktop/workspace" ; clear'
 alias meth='emacsclient -nw "$HOME/documents/org/roam/red-team/methodology.org"'
 
 # Enhancd: cd <dir>, cd, cd -, ..
-alias ..="cd .."
-alias ...='cd ../..'
-alias ....='cd ../../..'
+#alias ..="cd .."
+#alias ...='cd ../..'
+#alias ....='cd ../../..'
 
 # Alias for copying the current working directory to clipboard
 alias ccp='print -n "${PWD:a}" | wl-copy || return 1; echo ${(%):-"%B${PWD:a}%b copied to clipboard."}'
@@ -44,11 +44,10 @@ alias rm='rm -v'
 #alias w2='cd "$HOME/desktop/server" ; echo "$(hip) in $PWD" ; sudo python3 -m http.server 8000'
 #alias w3='ngrok http 4444'
 alias s="kitty +kitten ssh"
-alias m='service postgresql start ; msfdb init ; msfconsole'
+#alias m='service postgresql start ; msfdb init ; msfconsole'
 alias ce='cheat --edit'
 alias watch-lt='watch lsd --tree --hyperlink=auto'
 alias fd='fdfind'
-alias pt='youtube_transcript_api'
 
 # Updates
 alias gu='git add . && git commit -m "update" && git push'
@@ -106,8 +105,7 @@ alias nmap="grc nmap"
 # Rust utilities
 alias http='xh'                # Curl replacement
 #alias httpd='http --download'  # Uses xh alias first if installed
-#alias bat='bat --color=always --paging=never --theme OneHalfDark'
-alias bat='bat --style header --style snip --style changes --style header'
+alias bat='bat --color=always --style header,grid,changes'
 alias catl='bat --color=always --paging=never -l log'
 alias digs='dig +short'
 alias du='dust'
@@ -299,7 +297,3 @@ alias psmem10="ps auxf | sort -nr -k 4 | head -10"
 alias pscpu="ps auxf | sort -nr -k 3"
 alias topcpu="/bin/ps -eo pcpu,pid,user,args | sort -k 1 -r | head -10"
 alias psn="ss -tp | grep -v Recv-Q | sed -e 's/.*users:((\"//' -e 's/\".*$//' | sort | uniq"
-
-# Zsh Directory Stack
-alias d='dirs -v'
-for index ({1..9}) alias "$index"="cd +${index}"; unset index
