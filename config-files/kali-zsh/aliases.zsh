@@ -1,6 +1,9 @@
 #!/usr/bin/env zsh
 
-# ls to lsd
+################################################################################################
+# CORE FILE MANAGEMENT UTILS                                                                   #
+################################################################################################
+# ls
 alias l='lsd --hyperlink=auto'
 alias ls='lsd -l --hyperlink=auto'
 alias la='lsd -lA --hyperlink=auto'
@@ -10,9 +13,85 @@ alias lk='lsd -lSrh --hyperlink=auto'                # Sort by size
 alias lc='lsd -ltrh --hyperlink=auto'                # Sort by date
 #alias lf='lsd -l --hyperlink=auto| grep -v '^d''     # Files only
 #alias ld='lsd -l --hyperlink=auto| grep '^d''        # Directories only
-alias l.='lsd -A $* | grep "^\."'                    # List hidden files
+alias l.='lsd -A $* | rg "^\."'                    # List hidden files
+alias watch-lt='watch lsd --tree --hyperlink=auto'
 
+# Count all files recursively in the current folder
+alias cf="bash -c \"for t in files links directories; do echo \\\$(find . -  type \\\${t:0:1} | wc -l) \\\$t; done 2> /dev/null\""
+
+# ls with ignore
+alias li='lsd --hyperlink=auto --ignore-glob'
+alias lsi='lsd -l --hyperlink=auto --ignore-glob'
+alias lai='lsd -lA --hyperlink=auto --ignore-glob'
+alias lti='lsd --tree --hyperlink=auto --ignore-glob'
+
+# mkdir
+alias mkdir="mkdir -p"
+
+# cp
+alias cp='xcp'
+#alias cpi='xcp'
+
+# rm
+alias rm='rm -v'
+#alias rmi='rm -v'
+
+# mv
+alias mv='mv -v'
+#alias mvi='mv -v'
+
+# cat
+alias bat='bat --color=always --style header,grid,changes'
+alias catl='bat --color=always --paging=never -l log'
+alias icat='kitty +kitten icat'
+alias cats='highlight -O ansi --force'
+
+# curl
+alias http='xh'                # Curl replacement
+#alias httpd='http --download'  # Uses xh alias first if installed
+alias wget='wget -c --hsts-file="$XDG_DATA_HOME/wget-hsts"'
+
+# tail
+alias tailf="tail -f"
+
+# dig
+alias digs='dig +short'
+
+# disk usage
+alias du='dust'
+alias ncdu="ncdu --color dark"
+alias duf="duf --hide special -hide-mp /run/user/1000/psd/twilight-firefox-nlmda6r7.default,/run/user/1000/psd/twilight-firefox-pjxpviu5.default-esr"
+alias biggest="du -h --max-depth=1 | sort -h"
+
+# grep
+alias rg='rg -i'
+alias rgv='rg -v -i'
+alias rgf='rg -l -i'
+alias rgo='rg -i -l | xargs $EDITOR'
+alias rga='rg --hidden -i'
+alias rgo='rg -o -i'
+alias rgc='rg -c -i'       # count line containing specific string
+alias rgs='rg -i --sort'   # Possible sort values: path/modified/accessed/created
+
+# Find
+alias fd='fdfind'
+alias fdf='fd --ignore-case --hidden --type f'
+alias fdd="fd --ignore-case --hidden --type d"
+alias fdex="fd --ignore-case --hidden --exclude"
+alias fdl="fd --ignore-case --hidden --list-details"
+alias fds='fd --ignore-case --hidden --type f --size'
+alias fde='fd --ignore-case --hidden --type f --extension'
+alias fdr='fd --ignore-case --hidden --type f --exec rg -l'
+alias fdc='fd --ignore-case --hidden --type f --exec bat --color=always {}'
+alias fdb="fd --ignore-case --hidden --type f --size +100M --exec lsd -l --hyperlink=auto {} ; ."
+alias fdsh="fd . -e py -e sh ~/desktop/workspace/dotfiles/.config/.install/ | xargs wc -l"
+
+
+################################################################################################
+# CHANGING DIRECTORY                                                                           #
+################################################################################################
 # HOME dirs
+alias r='cd $HOME ; clear'
 alias dw='cd "$HOME/downloads" ; clear ; lsd -l --hyperlink=auto'
 alias dt='cd "$HOME/desktop" ; clear ; lsd -l --hyperlink=auto'
 alias pc='cd "$HOME/pictures" ; clear ; lsd -l --hyperlink=auto'
@@ -21,7 +100,6 @@ alias dc='cd "$HOME/documents" ; clear ; lsd -l --hyperlink=auto'
 alias org='cd "$HOME/documents/org/roam" ; clear ; lsd -l --hyperlink=auto'
 alias sv='cd "$HOME/desktop/server" ; clear ; lsd -l --hyperlink=auto'
 alias scr='cd "$HOME/pictures/screenshots" ; clear ; fimg'
-
 # Work dirs
 alias pj='cd "$HOME/desktop/projects" ; clear'
 alias lpj='lsd --tree --hyperlink=auto ~/desktop/projects'
@@ -36,27 +114,12 @@ alias meth='emacsclient -nw "$HOME/documents/org/roam/red-team/methodology.org"'
 # Alias for copying the current working directory to clipboard
 alias ccp='print -n "${PWD:a}" | wl-copy || return 1; echo ${(%):-"%B${PWD:a}%b copied to clipboard."}'
 
-# Common usage
-alias r='cd $HOME ; clear'
-alias mv='mv -v'
-alias rm='rm -v'
-#alias w='cd "$HOME/desktop/server" ; echo "$(hip) in $PWD" ; sudo python3 -m http.server 80'
-#alias w2='cd "$HOME/desktop/server" ; echo "$(hip) in $PWD" ; sudo python3 -m http.server 8000'
-#alias w3='ngrok http 4444'
+
+##############################################################################################################
+# Aliases to modified commands                                                                               #
+##############################################################################################################
 alias s="kitty +kitten ssh"
-#alias m='service postgresql start ; msfdb init ; msfconsole'
 alias ce='cheat --edit'
-alias watch-lt='watch lsd --tree --hyperlink=auto'
-alias fd='fdfind'
-
-# Updates
-alias gu='git add . && git commit -m "update" && git push'
-alias guorg='\cd ~/documents/org/ && git add . && git commit -m "update" && git push && \cd -'
-alias gucht='\cd ~/.config/cheat/ && git add . && git commit -m "update" && git push && \cd -'
-
-# Aliases to modified commands
-alias duf="duf --hide special -hide-mp /run/user/1000/psd/twilight-firefox-nlmda6r7.default,/run/user/1000/psd/twilight-firefox-pjxpviu5.default-esr"
-alias mkdir="mkdir -p"
 alias ping="prettyping -c 3"
 #alias pg='prettyping -c 3 8.8.8.8'
 #alias less="less -R"   # have function as 'less'
@@ -72,10 +135,7 @@ alias asciiquarium="asciiquarium --transparent"
 alias h2t="html2text -style pretty"
 alias x2h="xsltproc -o result.html"
 alias e="emacsclient -nw"
-alias empire="sudo powershell-empire client"
-alias sliver-server="sudo systemctl start sliver"
 #alias docker="sudo docker"
-alias biggest="du -h --max-depth=1 | sort -h"
 alias norg="gron --ungron"
 alias ungron="gron --ungron"
 alias open='xdg-open'
@@ -86,12 +146,7 @@ alias jctl="journalctl -p 3 -xb"
 alias jctle="journalctl --user -xeu"    # show error messages, specify a unit
 alias notif="cat /tmp/notify.log"
 alias sip='sort -n -u -t . -k 1,1 -k 2,2 -k 3,3 -k 4,4'
-alias wget='wget -c --hsts-file="$XDG_DATA_HOME/wget-hsts"'
-alias cats='highlight -O ansi --force'
 alias okitty='kitty -o allow_remote_control=yes --single-instance --listen-on unix:@mykitty'
-alias icat='kitty +kitten icat'
-#alias news="newsboat"
-alias tailf="tail -f"
 alias truncate="truncate -s 0"
 alias grubup="sudo update-grub"
 alias ginxi="garuda-inxi"
@@ -101,37 +156,13 @@ alias record-mic="pw-record ~/recording.mp3"
 alias gparted="xhost +SI:localuser:root && gparted"    # Optionally try running ocmmand: "xhost +localhost" and then "sudo gparted"
 alias fluxion='xhost +SI:localuser:root && sudo fluxion'
 alias nmap="grc nmap"
+alias empire="sudo powershell-empire client"
+alias sliver-server="sudo systemctl start sliver"
 
-# Rust utilities
-alias http='xh'                # Curl replacement
-#alias httpd='http --download'  # Uses xh alias first if installed
-alias bat='bat --color=always --style header,grid,changes'
-alias catl='bat --color=always --paging=never -l log'
-alias digs='dig +short'
-alias du='dust'
-alias ncdu="ncdu --color dark"
-
-# Ripgrep
-alias rg='rg -i'
-alias rgv='rg -v -i'
-alias rgf='rg -l -i'
-alias rgo='rg -i -l | xargs $EDITOR'
-alias rga='rg --hidden -i'
-alias rgo='rg -o -i'
-alias rgc='rg -c -i'       # count line containing specific string
-alias rgs='rg -i --sort'   # Possible sort values: path/modified/accessed/created
-
-# Find - fd
-alias fdf='fd --ignore-case --hidden --type f'
-alias fdd="fd --ignore-case --hidden --type d"
-alias fdex="fd --ignore-case --hidden --exclude"
-alias fdl="fd --ignore-case --hidden --list-details"
-alias fds='fd --ignore-case --hidden --type f --size'
-alias fde='fd --ignore-case --hidden --type f --extension'
-alias fdr='fd --ignore-case --hidden --type f --exec rg -l'
-alias fdc='fd --ignore-case --hidden --type f --exec bat --color=always {}'
-alias fdb="fd --ignore-case --hidden --type f --size +100M --exec lsd -l --hyperlink=auto {} ; ."
-alias fdsh="fd . -e py -e sh ~/desktop/workspace/dotfiles/.config/.install/ | xargs wc -l"
+# Updates
+alias gu='git add . && git commit -m "update" && git push'
+alias guorg='\cd ~/documents/org/ && git add . && git commit -m "update" && git push && \cd -'
+alias gucht='\cd ~/.config/cheat/ && git add . && git commit -m "update" && git push && \cd -'
 
 # Mpv
 alias mpk='mpv --no-input-builtin-bindings --profile=sw-fast --vo=kitty'
@@ -185,7 +216,10 @@ alias fs-mounted=""
 alias free="free -m"
 alias mem-free="free -th"
 
-# Network
+
+#################################################################################################
+# Networking                                                                                    #
+#################################################################################################
 alias net-watch="sudo watch -n 0.3 'netstat -pantlu4 | grep \"ESTABLISHED\|LISTEN\"' "
 alias net-open4="sudo netstat -pantlu4"
 alias net-open6="sudo netstat -pantlu6"
@@ -196,19 +230,20 @@ alias net-pubip="curl -s \"https://icanhazip.com\" "
 alias net-adapter="inxi -Na"
 alias net-lspci="lspci -nn | grep -i net"
 alias net-ps="lsof -i -n | awk '/ESTABLISHED/ {print \$1}' | sort -u"
+#alias w='cd "$HOME/desktop/server" ; echo "$(hip) in $PWD" ; sudo python3 -m http.server 80'
+#alias w2='cd "$HOME/desktop/server" ; echo "$(hip) in $PWD" ; sudo python3 -m http.server 8000'
+#alias w3='ngrok http 4444'
+#alias m='service postgresql start ; msfdb init ; msfconsole'
 
 # Proton vpn (v4 version doens't support cli)
-alias net-pvpn-connect-tcp="sudo protonvpn c -f"
-alias net-pvpn-connect-udp="sudo protonvpn c -f -p udp"
-alias net-pvpn-status="sudo protonvpn status"
-alias net-disconnect="sudo protonvpn disconnect"
+#alias net-pvpn-connect-tcp="sudo protonvpn c -f"
+#alias net-pvpn-connect-udp="sudo protonvpn c -f -p udp"
+#alias net-pvpn-status="sudo protonvpn status"
+#alias net-disconnect="sudo protonvpn disconnect"
 
 # Udiskie-umount
 alias ubackup='udiskie-umount $MEDIA/BACKUP'
 alias umedia='udiskie-umount $MEDIA/*'
-
-# Count all files recursively in the current folder
-alias cf="bash -c \"for t in files links directories; do echo \\\$(find . -  type \\\${t:0:1} | wc -l) \\\$t; done 2> /dev/null\""
 
 # Show current network connections to the server
 alias nethog='sudo nethogs'
@@ -287,7 +322,7 @@ alias sden="sudo systemctl enable --now"
 alias sdds="sudo systemctl disable"
 
 # Amass config alias
-alias amassc='amass enum -config ~/.config/amass/config.ini -d $1'
+#alias amassc='amass enum -config ~/.config/amass/config.ini -d $1'
 
 # Search running processes
 alias psa="ps auxf"
