@@ -198,6 +198,9 @@ cd /opt/pimpmykali
 sudo ./pipmykali.sh
 #Choose option: 0, =, @
 
+# Install xh
+curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh
+
 # Install dog
 curl -LO dog-v0.1.0-x86_64-unknown-linux-gnu.zip
 extract dog-v0.1.0-x86_64-unknown-linux-gnu.zip
