@@ -248,11 +248,12 @@ cd /tmp \
   && chmod +x cheat-linux-amd64 \
   && sudo mv cheat-linux-amd64 /bin/cheat
 
-# Install Floorp Browser
-curl -fsSL https://ppa.ablaze.one/KEY.gpg | sudo gpg --dearmor -o /usr/share/keyrings/Floorp.gpg
-sudo curl -sS --compressed -o /etc/apt/sources.list.d/Floorp.list 'https://ppa.ablaze.one/Floorp.list'
+# Install Brave Browser
+sudo apt install curl
+sudo curl -fsSLo /usr/share/keyrings/brave-browser-archive-keyring.gpg https://brave-browser-apt-release.s3.brave.com/brave-browser-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/brave-browser-archive-keyring.gpg] https://brave-browser-apt-release.s3.brave.com/ stable main"|sudo tee /etc/apt/sources.list.d/brave-browser-release.list
 sudo apt update
-sudo apt install floorp
+sudo apt install brave-browser
 
 # Install nnn
 sudo apt install libreadline-dev
