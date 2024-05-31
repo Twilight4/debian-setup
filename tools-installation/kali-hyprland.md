@@ -177,7 +177,7 @@ Right click on toolbar and click on `Customize Toolbar...` and in the bottom lef
 ```bash
 # Uninstall all the xfce gui bloat
 apt list *xfce* --installed
-sudo apt purge xfce4 lightdm
+sudo apt purge xfce4 lightdm lightdm-gtk-greeter
 
 # Install base packages
 sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder thefuck libsecret-tools chafa
