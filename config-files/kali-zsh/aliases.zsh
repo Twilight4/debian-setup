@@ -8,7 +8,7 @@ alias l='lsd --hyperlink=auto'
 alias ls='lsd -l --hyperlink=auto'
 alias la='lsd -lA --hyperlink=auto'
 alias lta='lsd --tree --hyperlink=auto'
-alias lt2='lsd --tree --depth 2 --hyperlink=auto'
+alias lt='lsd --tree --depth 2 --hyperlink=auto'
 alias lt3='lsd --tree --depth 3 --hyperlink=auto'
 alias lx='lsd -lXh --hyperlink=auto'                 # Sort by extension
 alias lk='lsd -lSrh --hyperlink=auto'                # Sort by size
