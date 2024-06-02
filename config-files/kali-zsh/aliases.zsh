@@ -308,6 +308,7 @@ alias nmap="grc nmap"
 alias empire="sudo powershell-empire client"
 alias sliver-server="sudo systemctl start sliver"
 alias start-neo4j-db='sudo neo4j console'
+alias hashid='hashid -m'
 #alias amassc='amass enum -config ~/.config/amass/config.ini -d $1'
 
 # Mpv
