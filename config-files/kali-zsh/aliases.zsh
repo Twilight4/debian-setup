@@ -137,7 +137,8 @@ alias ccp='print -n "${PWD:a}" | wl-copy || return 1; echo ${(%):-"%B${PWD:a}%b 
 ##############################################################################################################
 # Apt-get
 alias pacsyu="sudo apt-get update && sudo apt-get upgrade"
-alias pac-upgrade="sudo apt update && sudo apt full-upgrade -y"    # Upgrade to the latest kali version
+alias kali-version="grep VERSION /etc/os-release"                  # check system version
+alias kali-upgrade="sudo apt update && sudo apt full-upgrade -y"    # Upgrade to the latest kali version
 alias pacs="sudo apt update && sudo apt install"
 alias pacr="sudo apt update && sudo apt purge"          # Remove with its configuration files
 alias cleanup="sudo apt update && sudo apt autoremove"
