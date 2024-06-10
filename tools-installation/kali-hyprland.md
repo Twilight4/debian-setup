@@ -180,7 +180,7 @@ apt list *xfce* --installed
 sudo apt purge xfce4 lightdm lightdm-gtk-greeter
 
 # Install base packages
-sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder thefuck libsecret-tools chafa
+sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather gnome-keyring cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder thefuck libsecret-tools chafa
 sudo apt remove python3-mako sway-notification-center fdclone
 
 # Configure SDDM if you wanna use it
@@ -262,6 +262,11 @@ sudo apt install brave-browser
 wget https://github.com/FreeTubeApp/FreeTube/releases/download/v0.20.0-beta/freetube_0.20.0_amd64.deb
 sudo dpkg -i sudo dpkg -i freetube_0.20.0_amd64.deb
 rm freetube_0.20.0_amd64.deb
+
+# Install GNOME authenticator from [Flathub](https://flathub.org/apps/com.belmoussaoui.Authenticator)
+sudo apt install flatpak
+flatpak install flathub com.belmoussaoui.Authenticator
+flatpak run com.belmoussaoui.Authenticator
 
 # Install nnn
 sudo apt install libreadline-dev
