@@ -263,7 +263,7 @@ wget https://github.com/FreeTubeApp/FreeTube/releases/download/v0.20.0-beta/free
 sudo dpkg -i sudo dpkg -i freetube_0.20.0_amd64.deb
 rm freetube_0.20.0_amd64.deb
 
-# Install GNOME authenticator from [Flathub](https://flathub.org/apps/com.belmoussaoui.Authenticator)
+# Install GNOME authenticator from Flathub - https://flathub.org/apps/com.belmoussaoui.Authenticator
 sudo apt install flatpak
 flatpak install flathub com.belmoussaoui.Authenticator
 flatpak run com.belmoussaoui.Authenticator
