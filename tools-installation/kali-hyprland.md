@@ -271,6 +271,10 @@ flatpak run com.belmoussaoui.Authenticator
 # Install sliver's pre-compiled versions of the server and client - https://github.com/BishopFox/sliver/releases/tag/v1.5.42
 wget -q https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-server_linux
 chmod +x ./sliver-server_linux
+sudo mv sliver-server_linux /bin/sliver-server
+wget -q https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-client_linux
+chmod +x ./sliver-client_linux
+sudo mv sliver-client_linux /bin/sliver-client
 
 # Install nnn
 sudo apt install libreadline-dev
