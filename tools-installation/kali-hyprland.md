@@ -268,6 +268,10 @@ sudo apt install flatpak
 flatpak install flathub com.belmoussaoui.Authenticator
 flatpak run com.belmoussaoui.Authenticator
 
+# Install sliver's pre-compiled versions of the server and client - https://github.com/BishopFox/sliver/releases/tag/v1.5.42
+wget -q https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-server_linux
+chmod +x ./sliver-server_linux
+
 # Install nnn
 sudo apt install libreadline-dev
 git clone --depth 1 https://github.com/jarun/nnn.git
