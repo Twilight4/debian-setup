@@ -122,7 +122,9 @@ sudo usermod -aG sudo "$(whoami)"
 ### Installing dotfiles
 ```bash
 git clone --depth 1 https://github.com/Twilight4/dotfiles ~/
-cp -r ~/dotfiles/.config ~/
+cd dotfiles
+./install.sh
+#cp -r ~/dotfiles/.config ~/
 rm -rf dotfiles
 
 # Download zsh config
@@ -275,8 +277,8 @@ rm freetube_0.20.0_amd64.deb
 
 # Install GNOME authenticator from Flathub - https://flathub.org/apps/com.belmoussaoui.Authenticator
 sudo apt install flatpak
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 flatpak install flathub com.belmoussaoui.Authenticator
-flatpak run com.belmoussaoui.Authenticator
 
 # Install sliver's pre-compiled versions of the server and client - https://github.com/BishopFox/sliver/releases/tag/v1.5.42
 wget -q https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-server_linux
