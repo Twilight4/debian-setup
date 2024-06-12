@@ -342,7 +342,7 @@ alias cpu-reset='sudo auto-cpufreq --force=reset'
 #alias omen-fix='~/.config/.local/bin/omen-fix-startup'    # RUN AS ROOT/systemd service
 alias omen-status='sudo systemctl status omen-performance-fix.service'
 alias cpu-temp='sensors zenpower-pci-00c3'     # Check CPU thermals
-alias fans='sensors hp-isa-0000'              # Check Cooling fan speed
+alias watch-fans='watch sensors hp-isa-0000'              # Check Cooling fan speed
 #other scripts - run as root: fan-boost-on fan-boost-off omen-keyboard
 
 # Hblock (stop tracking with hblock) - use unhblock to stop using hblock
