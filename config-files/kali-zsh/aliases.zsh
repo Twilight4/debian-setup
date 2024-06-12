@@ -125,10 +125,9 @@ alias physical='emacsclient -nw "$HOME/documents/org/roam/red-team/physical.org"
 alias wir='emacsclient -nw "$HOME/documents/org/roam/red-team/wir.org"'
 
 # Enhancd: cd <dir>, cd, cd -, ..
-#alias ..="cd .."
-#alias ...='cd ../..'
-#alias ....='cd ../../..'
-alias j="z"      # zoxide
+alias ..="cd .."
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Alias for copying the current working directory to clipboard
 alias ccp='print -n "${PWD:a}" | wl-copy || return 1; echo ${(%):-"%B${PWD:a}%b copied to clipboard."}'
