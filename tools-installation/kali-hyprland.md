@@ -134,28 +134,15 @@ mv .zshrc ~/.config/zsh/.zshrc
 mv aliases.zsh ~/.config/zsh/aliases.zsh
 ```
 
-## Performance tweaks
+### Configure Zsh
 ```bash
-echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
-echo "vm.swappiness=20" | sudo tee -a /etc/sysctl.conf
-echo "vm.dirty_background_ratio=15" | sudo tee -a /etc/sysctl.conf
-echo "vm.dirty_ratio=40" | sudo tee -a /etc/sysctl.conf
-echo "vm.oom_dump_tasks=0" | sudo tee -a /etc/sysctl.conf
-echo "vm.oom_kill_allocating_task=1" | sudo tee -a /etc/sysctl.conf
-echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
-echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
+# Install zsh
+sudo vim /etc/zsh/zshenv
+#export ZDOTDIR="$HOME/.config/zsh"
+chsh -s $(which zsh) $(whoami)
+zsh
+source ~/.config/zsh/.zshrc
 ```
-
-### Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
-- `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active` then `sudo update-grub`
-
-### Use aliases
-- `sudo auto-cpufreq --force=performance`
-- `sudo cpupower frequency-set -g performance`
-  + if doesn't work: `echo power | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/performance`
-- `watch fans`
-- `fan-boost-on` (as root)
-- `cat /sys/devices/system/cpu/amd_pstate/status - must be active`
 
 ## My setup
 ```bash
@@ -189,16 +176,6 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 
 # Reminder
 ./.config/.install/final-message.sh
-```
-
-### Configure Zsh
-```bash
-# Install zsh
-sudo vim /etc/zsh/zshenv
-#export ZDOTDIR="$HOME/.config/zsh"
-chsh -s $(which zsh) $(whoami)
-zsh
-source ~/.config/zsh/.zshrc
 ```
 
 ### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
@@ -248,10 +225,12 @@ rm -rf dog-v0.1.0-x86_64-unknown-linux-gnu dog-v0.1.0-x86_64-unknown-linux-gnu.z
 wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 
-# Reinstall rust to get the newest version and install xcp
-sudo apt remove rustc
-curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+# Install xcp
 cargo install xcp
+# If xcp installation fails - Reinstall rust to get the newest version and install xcp
+#sudo apt remove rustc
+#curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+#cargo install xcp
 
 # Install ledger (there's also emacs package)
 sudo apt-get install build-essential cmake autopoint texinfo python3-dev \
@@ -355,27 +334,28 @@ cd downloads
 sudo chmod +x Wire*.AppImage
 mv Wire*.AppImage wire-desktop
 mv wire-desktop /bin/
-
-# Install webcord_amd64.deb package from https://github.com/SpacingBat3/WebCord/releases
-cd downloads
-sudo dpkg -i webcord*.deb
-rm webcord*.deb
 ```
 
-### Optional - Install Ollama
+## Performance tweaks
 ```bash
-# Install ollama
-curl -fsSL https://ollama.com/install.sh | sh
-
-# Read the options
-ollama --help
-
-# Optional: install ollama LLM models
-ollama run dolphin-mixtral
-
-# Install LLM model recommended model
-ollama pull mistral:7b-instruct
-
-# Once the model is installed, start the API server
-ollama serve
+echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
+echo "vm.swappiness=20" | sudo tee -a /etc/sysctl.conf
+echo "vm.dirty_background_ratio=15" | sudo tee -a /etc/sysctl.conf
+echo "vm.dirty_ratio=40" | sudo tee -a /etc/sysctl.conf
+echo "vm.oom_dump_tasks=0" | sudo tee -a /etc/sysctl.conf
+echo "vm.oom_kill_allocating_task=1" | sudo tee -a /etc/sysctl.conf
+echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
+echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 ```
+
+### Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
+- `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active` then `sudo update-grub`
+
+### Use aliases
+- `sudo auto-cpufreq --force=performance`
+- `sudo cpupower frequency-set -g performance`
+  + if doesn't work: `echo power | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/performance`
+- `watch fans`
+- `fan-boost-on` (as root)
+- `cat /sys/devices/system/cpu/amd_pstate/status - must be active`
+
