@@ -48,10 +48,10 @@ kali-tools-windows-resources
 3. Install kali linux
     - Graphical install
     - Domain section empty
-    - Guided - Use the largest continous free space
+    - Guided - use entire disk
     - All files in one partition
     - Continue
-    - Keep default software selection
+    - Uncheck installing DE
 4. While restarting PC, eject the pendrive and boot into kali
 
 ### Installing Hyprland
@@ -105,7 +105,6 @@ chmod +x install.sh
     - asus ROG - n 
     - Hyprland dotfiles? - n 
     - reboot - y
-10. Press `ctrl+alt+f2`, log in and launch `Hyprland`
 
 ### Add myself to sudoers file
 ```bash
@@ -114,7 +113,7 @@ sudo vim /etc/sudoers
 %sudo   ALL=(ALL:ALL) NOPASSWD: ALL
 
 # Make sure I'm in sudoers group
-cat /etc/group | rg sudo
+cat /etc/group | grep sudo
 
 # If I'm not, execute this command
 sudo usermod -aG sudo "$(whoami)"
@@ -190,13 +189,11 @@ fc-cache -fv
 gsettings set org.gnome.desktop.wm.preferences button-layout ""
 ```
 
-### Remove Firefox window Title bar
-Right click on toolbar and click on `Customize Toolbar...` and in the bottom left uncheck `Title Bar`.
-
 ## Install tools
 ```bash
 # Install base packages
 sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather gnome-keyring cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder thefuck libsecret-tools chafa
+sudo pip3 install pywal
 
 # Install neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
