@@ -135,6 +135,9 @@ unzip ~/downloads/Meslo.zip -d Meslo
 sudo cp -r ~/downloads/Meslo /usr/share/fonts/meslo
 fc-cache -fv
 
+# Install zoxide
+curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+
 # Install neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
 sudo rm -rf /opt/nvim
