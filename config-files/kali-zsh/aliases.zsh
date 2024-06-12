@@ -36,6 +36,7 @@ alias cpi='xcp --exclude'
 # rm
 alias rm='rm -v'
 #rmi is in scripts.zsh
+alias trash='trash -rfv'
 
 # mv
 alias mv='mv -v'
