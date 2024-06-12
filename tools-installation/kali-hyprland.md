@@ -287,11 +287,3 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 
 ### Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
 - `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active` then `sudo update-grub`
-
-### Use aliases
-- `sudo auto-cpufreq --force=performance`
-- `sudo cpupower frequency-set -g performance`
-  + if doesn't work: `echo power | sudo tee /sys/devices/system/cpu/cpu*/cpufreq/performance`
-- `watch fans`
-- `fan-boost-on` (as root)
-- `cat /sys/devices/system/cpu/amd_pstate/status - must be active`
