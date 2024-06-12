@@ -72,25 +72,18 @@ sudo vim /etc/apt/sources.list
 ```bash
 sudo apt update
 ```
-5. Install timeshift
-```bash
-sudo apt install `timeshift`
-```
-6. Create system snapshot using `timeshift`
-    - Choose which disk partition with kali installed on it to backup
-    - User Home Directories: `Include All Files`
-7. Install dependencies
+5. Install dependencies
 ```bash
 sudo apt install libdrm-dev python3-pip
 ```
-8. Install JaKooLit's dotfiles script
+6. Install JaKooLit's dotfiles script
 ```bash
 git clone --depth=1 https://github.com/JaKooLit/Debian-Hyprland.git
 cd Debian-Hyprland
 chmod +x install.sh
 ./install.sh
 ```
-9. Script installation (personal preference)
+7. Script installation
     - proceed - y
     - edited sources.list - y
     - have any nvidia gpu - n
@@ -119,7 +112,7 @@ cat /etc/group | grep sudo
 sudo usermod -aG sudo "$(whoami)"
 ```
 
-### Installing dotfiles
+### Core system configuration & dotfiles
 ```bash
 git clone --depth 1 https://github.com/Twilight4/dotfiles ~/
 cd dotfiles
@@ -135,67 +128,12 @@ mv .zshrc ~/.config/zsh/.zshrc
 mv aliases.zsh ~/.config/zsh/aliases.zsh
 ```
 
-### Configure Zsh
+## Installing more tools
 ```bash
-# Install zsh
-sudo vim /etc/zsh/zshenv
-#export ZDOTDIR="$HOME/.config/zsh"
-chsh -s $(which zsh) $(whoami)
-zsh
-source ~/.config/zsh/.zshrc
-```
-
-## My setup
-```bash
-# Enable necessary services
-./.config/.install/enable-services.sh
-
-# Set necessary user groups
-./.config/.install/set-user-groups.sh
-
-# Install virtualization software
-./.config/.install/qemu.sh
-
-# Install wallpapers
-./.config/.install/wallpaper.sh
-
-# Clean up home dir
-./.config/.install/cleanup-homedir.sh
-
-# Other Services
-./.config/.install/auto-cpufreq.sh
-./.config/.install/supergfxd.conf
-
-# Wordlists
-./.config/.install/seclists.sh
-
-# Adjustments
-./.config/.install/button-layout.sh
-
-# Locales
-./.config/.install/locales.sh
-
-# Reminder
-./.config/.install/final-message.sh
-```
-
-### Install [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
-```bash
+# Installing [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
 unzip ~/downloads/meslo
 cp ~/downloads/meslo /usr/share/fonts/meslo
 fc-cache -fv
-```
-
-### Remove GTK window buttons 
-```bash
-gsettings set org.gnome.desktop.wm.preferences button-layout ""
-```
-
-## Install tools
-```bash
-# Install base packages
-sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather gnome-keyring cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder thefuck libsecret-tools chafa
-sudo pip3 install pywal
 
 # Install neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
@@ -357,4 +295,3 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 - `watch fans`
 - `fan-boost-on` (as root)
 - `cat /sys/devices/system/cpu/amd_pstate/status - must be active`
-
