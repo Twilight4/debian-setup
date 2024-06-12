@@ -264,6 +264,7 @@ wget https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-musl_0.24.0_am
 \cd downloads
 sudo dpkg -i bat*_amd64.deb
 rm bat*_amd64.deb
+bat cache --build    # load the theme that is located in ~/.config/bat/themes/
 
 # Download exa - Download exa-linux-x86_64-v0.10.1.zip from https://github.com/ogham/exa/releases
 wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip -O ~/downloads/exa-linux-x86_64-v0.10.1.zip 
