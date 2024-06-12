@@ -1,3 +1,45 @@
+## Building custom Kali ISO
+### Clone Repo
+```bash
+# Install packages
+sudo apt update
+sudo apt install -y git live-build simple-cdd cdebootstrap curl
+git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
+```
+### Customize packages
+Edit packages for defualt installer: `nvim live-build-config/kali-config/installer-default`.
+Build an Updated Installer Image: `./build.sh --verbose --installer`
+```bash
+# Metapackages
+# You can customize the set of Kali metapackages (groups of tools) available
+# in the installer ISO.
+# For the complete list see: https://tools.kali.org/kali-metapackages
+
+# System Core Packages
+kali-linux-firmware
+kali-linux-core
+#kali-linux-default
+kali-linux-headless
+kali-system-cli
+kali-system-core
+
+# Tools
+kali-tools-exploitation
+kali-tools-information-gathering
+kali-tools-passwords
+kali-tools-post-exploitation
+kali-tools-respond
+kali-tools-top10
+kali-tools-windows-resources
+#kali-tools-bluetooth
+#kali-tools-802-11
+#kali-tools-rfid
+#kali-tools-sdr
+#kali-tools-sniffing-spoofing
+#kali-tools-social-engineering
+#kali-tools-wireless
+```
+
 ## Installing Hyprland and dotfiles on Kali Linux
 ### Preparation
 1. Install default latest [kali linux](https://www.kali.org/get-kali/#kali-installer-images) iso image
@@ -178,6 +220,9 @@ Right click on toolbar and click on `Customize Toolbar...` and in the bottom lef
 # Uninstall all the xfce gui bloat
 apt list *xfce* --installed
 sudo apt purge xfce4 lightdm lightdm-gtk-greeter
+
+# Uninstall other kali defaults bloat (optional)
+#sudo apt purge firefox-esr firefox kali-defaults-desktop kali-themes ophcrack ophcrack-cli sqlitebrowser tmux
 
 # Install base packages
 sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather gnome-keyring cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder thefuck libsecret-tools chafa
