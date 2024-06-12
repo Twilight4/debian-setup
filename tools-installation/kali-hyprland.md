@@ -84,16 +84,15 @@ chmod +x install.sh
 ./install.sh
 ```
 7. Script installation
-    - proceed - y
     - edited sources.list - y
     - have any nvidia gpu - n
     - GTK Themes - n
-    - configure bluetooth - y
+    - configure bluetooth - n
     - thunar file manager - y
     - configure SDDM - n
     - XDG_DESKTOP_PORTAL - y
     - zsh & oh-my-zsh - n
-    - swaylock-effects - y
+    - swaylock-effects - n
     - nwg-look - n
     - asus ROG - n 
     - Hyprland dotfiles? - n 
