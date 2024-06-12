@@ -67,7 +67,7 @@ sudo reboot now
 ```bash
 sudo vim /etc/apt/sources.list
 ```
-- delete the `#` on the lines with `deb-src`
+- uncomment the second line with deb-src
 4. Update source list
 ```bash
 sudo apt update
@@ -218,20 +218,8 @@ Right click on toolbar and click on `Customize Toolbar...` and in the bottom lef
 
 ## Install tools
 ```bash
-# Uninstall all the xfce gui bloat
-apt list *xfce* --installed
-sudo apt purge xfce4 lightdm lightdm-gtk-greeter
-
-# Uninstall other kali defaults bloat (optional)
-#sudo apt purge firefox-esr firefox kali-defaults-desktop kali-themes ophcrack ophcrack-cli sqlitebrowser tmux
-
 # Install base packages
 sudo apt install libayatana-appindicator3-1 gir1.2-ayatanaappindicator3-0.1 lsd swaybg wdisplays ripgrep silversearcher-ag irqbalance acpi emacs profile-sync-daemon dunst translate-shell duf speedtest-cli gnome-weather gnome-keyring cpufetch fd-find trash-cli linux-cpupower mingw-w64 zathura grc poppler-utils gnome-maps wf-recorder thefuck libsecret-tools chafa
-sudo apt remove python3-mako sway-notification-center fdclone
-
-# Configure SDDM if you wanna use it
-#sudo apt install sddm
-#sudo systemctl enable sddm
 
 # Install neovim
 curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
