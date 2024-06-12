@@ -79,7 +79,7 @@ sudo apt install libdrm-dev python3-pip
 6. Install JaKooLit's dotfiles script
 ```bash
 git clone --depth=1 https://github.com/JaKooLit/Debian-Hyprland.git
-cd Debian-Hyprland
+\cd Debian-Hyprland
 chmod +x install.sh
 ./install.sh
 ```
@@ -115,7 +115,7 @@ sudo usermod -aG sudo "$(whoami)"
 ### Core system configuration & dotfiles
 ```bash
 git clone --depth 1 https://github.com/Twilight4/dotfiles ~/
-cd dotfiles
+\cd dotfiles
 ./install.sh
 #cp -r ~/dotfiles/.config ~/
 rm -rf dotfiles
@@ -146,7 +146,7 @@ git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
 # Install pipmykali
 sudo git clone https://github.com/Dewalt-arch/pimpmykali.git /opt/pipmykali
-cd /opt/pimpmykali
+\cd /opt/pimpmykali
 sudo ./pipmykali.sh
 #Choose option: 0, =, @
 
@@ -176,7 +176,7 @@ sudo apt-get install build-essential cmake autopoint texinfo python3-dev \
      libboost-graph-dev libboost-iostreams-dev \
      libboost-python-dev libboost-regex-dev libboost-test-dev
 git clone git@github.com:ledger/ledger.git
-cd ledger && ./acprep update
+\cd ledger && ./acprep update
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
@@ -196,7 +196,7 @@ sudo dpkg -i ./protonvpn-beta-release_1.0.3-3_all.deb && sudo apt update
 sudo apt install proton-vpn-gnome-desktop
 
 # Install cheat - check for newest version: https://github.com/cheat/cheat/blob/master/INSTALLING.md
-cd /tmp \
+\cd /tmp \
   && wget https://github.com/cheat/cheat/releases/download/4.4.2/cheat-linux-amd64.gz \
   && gunzip cheat-linux-amd64.gz \
   && chmod +x cheat-linux-amd64 \
@@ -229,11 +229,11 @@ sudo mv sliver-client_linux /bin/sliver-client
 # Install nnn
 sudo apt install libreadline-dev
 git clone --depth 1 https://github.com/jarun/nnn.git
-cd nnn
+\cd nnn
 sudo make O_NERD=1
 # or
 sudo make CFLAGS+=-march=native O_NORL=1 O_NOMOUSE=1 O_NOBATCH=1 O_NOSSN=1 O_NOFIFO=1 O_QSORT=1 O_NOUG=1 O_NERD=1
-cd ../
+\cd ../
 sudo mv nnn /opt
 sudo ln -sf /opt/nnn /bin/nnn
 # or
@@ -248,26 +248,28 @@ sudo apt update
 # Install dependencies from https://github.com/newsboat/newsboat
 sudo apt install libncursesw5-dev ncurses-term debhelper libxml2-dev libstfl-dev libsqlite3-dev perl pkg-config libcurl4-gnutls-dev librtmp-dev libjson-c-dev asciidoc libxml2-utils xsltproc docbook-xml docbook-xsl bc asciidoctor cargo
 git clone --depth 1 https://github.com/newsboat/newsboat.git
-cd newsboat  
+\cd newsboat  
 make
 sudo make install
-cd ..
+\cd ..
 sudo mv newsboat /opt/
 sudo ln -sf /opt/newsboat/newsboat /bin/newsboat
 
 # Install bat - Download bat-musl_0.24.0_amd64.deb from https://github.com/sharkdp/bat/releases
-cd downloads
+wget https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-musl_0.24.0_amd64.deb -O ~/downloads/bat-musl_0.24.0_amd64.deb
+\cd downloads
 sudo dpkg -i bat*_amd64.deb
 rm bat*_amd64.deb
 
 # Download exa - Download exa-linux-x86_64-v0.10.1.zip from https://github.com/ogham/exa/releases
-cd downloads
+wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip -O ~/downloads/exa-linux-x86_64-v0.10.1.zip 
+\cd downloads
 unzip exa-linux-*.zip
 sudo cp bin/exa /bin/
-rm -rf man completions bin
+rm -rf man completions bin exa-linux*
 
 # Install wire-desktop AppImage package for Linux from https://github.com/wireapp/wire-desktop/releases
-cd downloads
+\cd downloads
 sudo chmod +x Wire*.AppImage
 mv Wire*.AppImage wire-desktop
 mv wire-desktop /bin/
