@@ -254,3 +254,6 @@ fi
 if [ -d ~/.config/zsh/plugins/nobility ]; then
     nb-vars-load &>/dev/null
 fi
+
+# Zoxide
+eval "$(zoxide init zsh)"
