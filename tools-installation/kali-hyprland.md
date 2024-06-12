@@ -130,9 +130,9 @@ mv aliases.zsh ~/.config/zsh/aliases.zsh
 
 ## Installing more tools
 ```bash
-# Installing [Meslo Fonts](https://www.nerdfonts.com/font-downloads)
-unzip ~/downloads/meslo
-cp ~/downloads/meslo /usr/share/fonts/meslo
+# Download MesloLG Nerd Font - https://www.nerdfonts.com/font-downloads
+unzip ~/downloads/Meslo.zip -d Meslo
+sudo cp -r ~/downloads/Meslo /usr/share/fonts/meslo
 fc-cache -fv
 
 # Install neovim
