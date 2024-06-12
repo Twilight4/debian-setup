@@ -292,5 +292,6 @@ echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
 echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 ```
 
-### Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub`:
-- `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active` then `sudo update-grub`
+### Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub` and then `sudo update-grub`:
+- `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active`
+- `GRUB_TIMEOUT=0        # disables grub menu`
