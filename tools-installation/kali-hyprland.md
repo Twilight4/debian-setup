@@ -9,7 +9,7 @@ git clone https://gitlab.com/kalilinux/build-scripts/live-build-config.git
 ### Customize packages
 Edit packages for defualt installer: `nvim live-build-config/kali-config/installer-default`.
 
-Build an Updated Installer Image: `./build.sh --verbose --installer`
+Build an updated installer image: `./build.sh --verbose --installer`
 ```bash
 # Metapackages
 # You can customize the set of Kali metapackages (groups of tools) available
