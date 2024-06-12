@@ -240,7 +240,8 @@ sudo ln -sf /opt/nnn /bin/nnn
 sudo cp /opt/nnn/nnn /bin
 
 # Install delta - Download git-delta_0.17.0_amd64.deb from https://github.com/dandavison/delta/releases
-sudo dpkg -i git-delta*.deb
+wget https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb -O ~/downloads/git-delta_0.17.0_amd64.deb
+sudo dpkg -i ~/downloads/git-delta*.deb
 rm git-delta*.deb
 
 # Install newsboat
@@ -272,7 +273,7 @@ rm -rf man completions bin exa-linux*
 \cd downloads
 sudo chmod +x Wire*.AppImage
 mv Wire*.AppImage wire-desktop
-mv wire-desktop /bin/
+sudo mv wire-desktop /bin/
 ```
 
 ## Performance tweaks
