@@ -112,10 +112,8 @@ alias dc='cd "$HOME/documents" ; clear ; lsd -l --hyperlink=auto'
 alias org='cd "$HOME/documents/org/roam" ; clear ; lsd -l --hyperlink=auto'
 alias sv='cd "$HOME/desktop/server" ; clear ; lsd -l --hyperlink=auto'
 alias scr='cd "$HOME/pictures/screenshots" ; clear ; fimg'
-# Work dirs
-alias pj='cd "$HOME/desktop/projects" ; clear'
-alias lpj='lsd --tree --hyperlink=auto ~/desktop/projects'
-alias ws='cd "$HOME/desktop/workspace" ; clear'
+alias pj='cd "$HOME/desktop/projects" ; clear ; lsd -l --hyperlink=auto'
+alias ws='cd "$HOME/desktop/workspace" ; clear ; lsd -l --hyperlink=auto'
 # Note files
 alias general='emacsclient -nw "$HOME/documents/org/roam/red-team/general.org"'
 alias ipt='emacsclient -nw "$HOME/documents/org/roam/red-team/ipt.org"'
@@ -314,7 +312,6 @@ alias gparted="xhost +SI:localuser:root && gparted"    # Optionally try running 
 alias fluxion='xhost +SI:localuser:root && sudo fluxion'
 alias nmap="grc nmap"
 alias empire="sudo powershell-empire client"
-alias sliver-server="sudo systemctl start sliver"
 alias start-neo4j-db='sudo neo4j console'
 alias hashid='hashid -m'
 #alias amassc='amass enum -config ~/.config/amass/config.ini -d $1'
