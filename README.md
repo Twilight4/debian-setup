@@ -71,7 +71,7 @@ sudo update-grub
 ```
 
 ### Enable kali repositories
-Add kali repo to `/etc/apt/sources.list` (needed for `install-pen-pkgs.sh`)
+Edit apt repositories: `sudo vim /etc/apt/sources.list` (needed for `install-pen-pkgs.sh`)
 ```bash
 # See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/
 deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
