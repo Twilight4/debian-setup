@@ -1,22 +1,65 @@
-## My Linux Configuration Setup
-The provided configuration files automate the installation of system-wide configuration settings and services which are used by `install.sh` script in my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
-It streamlines the setup process, saving time and effort for system administrators and power users and ensuring a consistent and efficient setup experience across multiple systems.
+## Installing Hyprland and dotfiles on [Debian Trixie](https://www.debian.org/devel/debian-installer/)
+### Installing Hyprland
+1. Update system
+```bash
+sudo apt update && sudo apt -y full-upgrade -y
+```
+2. Reboot
+```bash
+sudo reboot now
+```
+3. Modify apt sources list
+```bash
+sudo vim /etc/apt/sources.list
+```
+- uncomment the second line with deb-src
+4. Update source list
+```bash
+sudo apt update
+```
+5. Install dependencies
+```bash
+sudo apt install libdrm-dev python3-pip
+```
+6. Execute the `install.sh` script
+```bash
+git clone --depth=1 https://github.com/Twilight4/debian-setup.git
+cd debian-setup
+chmod +x install.sh
+./install.sh
+```
 
-## Distribution Installation
-For optimal performance and streamlined setup experience I recommend utilizing the **[Garuda Linux](https://garudalinux.org/)** based on Arch or **[Kali Linux](https://www.kali.org/)** distribution for Penetration Testing based on Debian.
+# Post-Install
+### Add myself to sudoers file
+```bash
+sudo vim /etc/sudoers
+# Allow members of group sudo to execute any command
+%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
 
-## Post-Installation
-### Option 1 - Installing Hyprland and dotfiles on Arch
-If a user choosed Hyprland on Arch-based distro, users can check out my [dotfiles](https://github.com/Twilight4/dotfiles/) repository.
+# Make sure I'm in sudoers group
+cat /etc/group | grep sudo
 
-### Option 2 - Installing Hyprland and dotfiles on Debian
-If a user choosed Hyprland on Debian-based distro, users can check out my [installation guide](https://github.com/Twilight4/arch-setup/blob/main/tools-installation/kali-hyprland.md).
+# If I'm not, execute this command
+sudo usermod -aG sudo "$(whoami)"
+```
 
-### Option 3 - Installing River and dotfiles on Arch
-If a user choosed River on Arch-based distro, users can check out my [river-settings](https://github.com/Twilight4/river-settings/) repository.
+### Performance tweaks
+```bash
+echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
+echo "vm.swappiness=20" | sudo tee -a /etc/sysctl.conf
+echo "vm.dirty_background_ratio=15" | sudo tee -a /etc/sysctl.conf
+echo "vm.dirty_ratio=40" | sudo tee -a /etc/sysctl.conf
+echo "vm.oom_dump_tasks=0" | sudo tee -a /etc/sysctl.conf
+echo "vm.oom_kill_allocating_task=1" | sudo tee -a /etc/sysctl.conf
+echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
+echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
+```
 
-### Option 4 - Installing GNOME and its customization settings
-If a user choosed GNOME (any distro), users can check out my [gnome-settings](https://github.com/Twilight4/gnome-settings/) repository.
+### Disable GRUB menu
+Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub` and then `sudo update-grub`:
+- `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active`
+- `GRUB_TIMEOUT=0        # disables grub menu`
 
-### Appendix - Installing tools
-Additional tools can be installed using scripts/cheatsheets in the [tools-installation](https://github.com/Twilight4/arch-setup/tree/main/tools-installation) directory.
+### Install [Twilight4/dotfiles](https://github.com/Twilight4/dotfiles)
+> [!NOTE]
+> Additional tools can be installed using scripts in the [tools-installation](https://github.com/Twilight4/debian-setup/tree/main/tools-installation) directory.
