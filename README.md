@@ -23,7 +23,6 @@ sudo apt update
 ```bash
 git clone --depth=1 https://github.com/Twilight4/debian-setup.git
 cd debian-setup
-chmod +x install.sh
 ./install.sh
 ```
 
