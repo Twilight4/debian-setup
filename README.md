@@ -33,9 +33,11 @@ chmod +x install.sh
 ```bash
 sudo vim /etc/sudoers
 # Allow members of group sudo to execute any command
-%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
+#%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
+```
 
-# Make sure I'm in sudoers group
+Make sure I'm in sudoers group
+```bash
 cat /etc/group | grep sudo
 
 # If I'm not, execute this command
@@ -56,8 +58,10 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 
 ### Disable GRUB menu
 Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub` and then `sudo update-grub`:
-- `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active`
-- `GRUB_TIMEOUT=0`
+```bash
+zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active
+GRUB_TIMEOUT=0
+```
 
 ### Enable kali repositories
 Add this to `/etc/apt/sources.list` - needed for `install-pen-pkgs.sh`:
