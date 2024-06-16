@@ -60,6 +60,17 @@ Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub` and then `sudo u
 - `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active`
 - `GRUB_TIMEOUT=0`
 
+### Enable kali repositories
+Add this to `/etc/apt/sources.list` - needed for `install-pen-pkgs.sh`:
+```bash
+# See https://www.kali.org/docs/general-use/kali-linux-sources-list-repositories/
+deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmware
+```
+Add Kali GPG Key:
+```bash
+wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add -
+```
+
 ### Install [Twilight4/dotfiles](https://github.com/Twilight4/dotfiles)
 ```bash
 git clone --depth 1 https://github.com/Twilight4/dotfiles.git
