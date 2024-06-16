@@ -1,6 +1,6 @@
 #!/bin/bash
-# 💫 https://github.com/JaKooLit 💫 #
-# hyprlang - hyprland and xdg-desktop-portal- dependencies #
+
+# hyprlang - hyprland and xdg-desktop-portal- dependencies
 
 #specific branch or release
 lang_tag="v0.5.1"

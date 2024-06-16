@@ -83,29 +83,22 @@ sudo apt update
 # Install hyprland packages
 execute_script "00-dependencies.sh"
 execute_script "00-hypr-pkgs.sh"
-execute_script "fonts.sh"
+#execute_script "fonts.sh"       # TODO
 execute_script "imagemagick.sh"
 execute_script "swappy.sh"
-execute_script "swww.sh"
 execute_script "rofi-wayland.sh"
-execute_script "wallust.sh"
-execute_script "ags.sh"
 execute_script "hyprlang.sh"
 execute_script "hyprlock.sh"
 execute_script "hyprcursor.sh"
 execute_script "hypridle.sh"
 execute_script "hyprwayland-scanner.sh"
 execute_script "hyprland.sh"
-execute_script "hypr-eco.sh"
-# execute_script "waybar-git.sh" only if waybar on repo is old
-
-
-execute_script "gtk_themes.sh"
 execute_script "bluetooth.sh"
 execute_script "thunar.sh"
 execute_script "xdph.sh"
 execute_script "zsh.sh"
-execute_script "InputGroup.sh"
+# TODO
+#execute_script "enable-services.sh"
 
 clear
 
