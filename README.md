@@ -35,9 +35,13 @@ Add myself to sudoers file: `sudo vim /etc/sudoers`
 %sudo   ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 
-Make sure I'm in sudoers group. If I'm not, execute `sudo usermod -aG sudo "$(whoami)"`
+Make sure I'm in sudoers group
 ```bash
 cat /etc/group | grep sudo
+```
+Add myself to sudoers group if I'm not already
+```bash
+sudo usermod -aG sudo "$(whoami)"
 ```
 
 ### Performance tweaks
@@ -53,7 +57,7 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 ```
 
 ### GRUB menu tweaks
-Edit `/etc/default/grub`
+Edit GRUB config: `sudo vim /etc/default/grub`
 ```bash
 # Add the following to the line, don't remove existing values
 GRUB_CMDLINE_LINUX_DEFAULT="zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active"
