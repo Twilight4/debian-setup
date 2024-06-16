@@ -27,6 +27,7 @@ hypr_package=(
   duf
   speedtest-cli
   gnome-weather
+  gnome-maps
   gnome-keyring
   cpufetch
   fd-find
@@ -36,13 +37,14 @@ hypr_package=(
   zathura
   zathura-pdf-poppler
   grc
+  udiskie
   poppler-utils
-  gnome-maps
   wf-recorder
   thefuck
   libsecret-tools
   chafa
   alsa-utils
+  yt-dlp
   pipewire
   pipewire-alsa
   pipewire-audio
@@ -59,8 +61,14 @@ hypr_package=(
   rsync
   git
   cliphist
+  cmatrix
+  tty-clock
+  ffmpeg
   grim
   gvfs
+  figlet
+  lolcat
+  neofetch
   gvfs-backends
   inxi
   kitty
@@ -103,9 +111,9 @@ hypr_package_2=(
 
 # List of packages to uninstall
 uninstall=(
-  sway-notification-center
-  fdclone
-  chromium
+  #sway-notification-center
+  #fdclone
+  #chromium
 )
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
