@@ -35,12 +35,9 @@ Add myself to sudoers file: `sudo vim /etc/sudoers`
 %sudo   ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 
-Make sure I'm in sudoers group
+Make sure I'm in sudoers group. If I'm not, execute `sudo usermod -aG sudo "$(whoami)"`
 ```bash
 cat /etc/group | grep sudo
-
-# If I'm not, execute this command
-sudo usermod -aG sudo "$(whoami)"
 ```
 
 ### Performance tweaks
@@ -60,6 +57,7 @@ Edit `/etc/default/grub`
 ```bash
 # Add the following to the line, don't remove existing values
 GRUB_CMDLINE_LINUX_DEFAULT="zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active"
+
 # Disable GRUB menu
 GRUB_TIMEOUT=0
 ```
