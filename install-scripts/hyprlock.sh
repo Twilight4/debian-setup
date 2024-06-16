@@ -1,6 +1,4 @@
 #!/bin/bash
-# 💫 https://github.com/JaKooLit 💫 #
-# hyprlock #
 
 lock=(
 libmagic-dev
@@ -59,4 +57,3 @@ else
 fi
 
 clear
-
