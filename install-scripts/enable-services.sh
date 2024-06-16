@@ -26,20 +26,6 @@ function enable_service {
 	fi
 }
 
-# Enable psd service as user if service exists and is not enabled
-function enable_psd_service {
-	if systemctl list-unit-files --user --type=service | grep -q "^psd.service"; then
-		if ! systemctl --user is-enabled --quiet psd.service; then
-			echo "Enabling service: psd.service..."
-			systemctl --user enable psd.service
-		else
-			echo "Service already enabled: psd.service."
-		fi
-	else
-		echo "Service does not exist: psd.service."
-	fi
-}
-
 # Check what services are not enabled
 function check_service_status {
 	services=("$@")
@@ -55,7 +41,6 @@ function check_service_status {
 
 # Define services
 services=(
-	"sddm"
 	"apparmor"
 	"firewalld"
 	"irqbalance"
@@ -65,9 +50,8 @@ services=(
 	"ananicy-cpp"
 	"NetworkManager"
 	"nohang"
+  "acpid"
 	"preload"
-	"tor"
-	"supergfxd" # needed in order to use VFIO - https://wiki.archlinux.org/title/Supergfxctl
 	"vnstat"    # network traffic monitor
 	#docker
 )
@@ -77,31 +61,13 @@ for service in "${services[@]}"; do
 	enable_service "$service"
 
 	# Must be set seperately to work
-	sudo systemctl enable paccache.timer
 	sudo systemctl enable fstrim.timer
 done
 
 # Other services
-enable_psd_service # Enable psd service
-hblock             # block ads and malware domains
-playerctld daemon  # if it doesn't work try installing volumectl
+playerctld daemon
 
 # Check service status
 check_service_status "${services[@]}"
 echo "Check status of services:"
-echo "    paccache.timer"
 echo "    fstrim.timer"
-
-# Commented out cuz playerctl does the job instead, not need the mpd service
-# Enable mpd service as user if service exists
-#if ! systemctl list-unit-files --user --type=service | grep -q "^mpd.service"; then
-#    echo "Service does not exist: mpd.service. Adding and enabling..."
-#    systemctl --user enable mpd.service
-#else
-#    if ! systemctl --user is-enabled --quiet mpd.service; then
-#        echo "Enabling service: mpd.service..."
-#        systemctl --user enable mpd.service                  # mpd daemon
-#    else
-#        echo "Service already enabled: mpd.service."
-#    fi
-#fi

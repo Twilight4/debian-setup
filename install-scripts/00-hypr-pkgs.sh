@@ -13,6 +13,7 @@ Extra=(
 # packages neeeded
 hypr_package=( 
   libayatana-appindicator3-1
+  mtools
   gir1.2-ayatanaappindicator3-0.1
   lsd
   swaybg
@@ -69,6 +70,8 @@ hypr_package=(
   python3-requests
   python3-pip
   qt5ct
+  qt5-style-kvantum
+  qt5-style-kvantum-themes
   qt6ct
   slurp
   waybar
@@ -84,16 +87,14 @@ hypr_package=(
 
 # the following packages can be deleted. however, dotfiles may not work properly
 hypr_package_2=(
-  qt5-style-kvantum
-  qt5-style-kvantum-themes
   brightnessctl
   btop
   cava
   eog
-  gnome-system-monitor
-  mousepad
   mpv
   mpv-mpris
+  acpi
+  acpid
   nvtop
   pamixer
   qalculate-gtk
