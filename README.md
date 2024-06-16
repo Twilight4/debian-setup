@@ -29,11 +29,12 @@ chmod +x install.sh
 ```
 
 ## Post-Install
-### Add myself to sudoers file
+### Sudoers file
+Add myself to sudoers file
 `sudo vim /etc/sudoers`
 ```bash
 # Allow members of group sudo to execute any command
-#%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
+%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 
 Make sure I'm in sudoers group
