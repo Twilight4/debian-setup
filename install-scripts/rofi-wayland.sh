@@ -81,4 +81,3 @@ mv "$MLOG" ../Install-Logs/ || true
 cd .. || exit 1
 
 clear
-

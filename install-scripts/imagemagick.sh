@@ -1,7 +1,6 @@
 #!/bin/bash
-# 💫 https://github.com/JaKooLit 💫 #
-# imagemagick from source #
 
+# imagemagick from source
 depend=(
 build-essential
 )
