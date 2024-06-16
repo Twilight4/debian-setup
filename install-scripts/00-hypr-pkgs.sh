@@ -25,6 +25,7 @@ hypr_package=(
   emacs
   translate-shell
   duf
+  ncdu
   speedtest-cli
   gnome-weather
   gnome-maps
@@ -38,8 +39,12 @@ hypr_package=(
   zathura-pdf-poppler
   grc
   udiskie
+  usbutils
   poppler-utils
   wf-recorder
+  net-tools
+  upower
+  apparmor
   thefuck
   libsecret-tools
   chafa
@@ -47,14 +52,13 @@ hypr_package=(
   yt-dlp
   pipewire
   pipewire-alsa
-  pipewire-audio
-  pipewire-jack
-  pipewire-pulse
   wireplumber
   gtk2-engines-murrine
   freerdp2-wayland
   proxychains
   dunst
+  libnotify-bin
+  libnotify4
   zsh
   zsh-autosuggestions
   zsh-syntax-highlighting
@@ -62,7 +66,10 @@ hypr_package=(
   git
   cliphist
   cmatrix
+  fortune-mod
   tty-clock
+  wlr-randr
+  cowsay
   ffmpeg
   grim
   gvfs
@@ -71,6 +78,7 @@ hypr_package=(
   neofetch
   gvfs-backends
   inxi
+  findutils
   kitty
   pavucontrol
   playerctl
