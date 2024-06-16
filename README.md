@@ -9,8 +9,10 @@ sudo apt update && sudo apt -y full-upgrade -y
 sudo reboot now
 ```
 3. Edit `sources.list` and make sure you're on debian trixie:
-- `cat /etc/apt/sources.list` 
-- `lsb_release -a`
+```bash
+cat /etc/apt/sources.list`
+lsb_release -a
+```
 ```bash
 sudo vim /etc/apt/sources.list
 ```
