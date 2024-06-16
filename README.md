@@ -8,9 +8,8 @@ sudo apt update && sudo apt -y full-upgrade -y
 ```bash
 sudo reboot now
 ```
-3. Edit `sources.list` and make sure you're on debian trixie:
+3. Make sure you're on debian trixie and edit `sources.list`
 ```bash
-cat /etc/apt/sources.list`
 lsb_release -a
 ```
 ```bash
