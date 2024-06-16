@@ -274,6 +274,7 @@ pen_package_information_gathering=(
   dnsenum
   dnsmap
   dnsrecon
+  gitleaks
   dnstracer
   dnswalk
   enum4linux
