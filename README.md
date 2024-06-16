@@ -20,11 +20,7 @@ sudo vim /etc/apt/sources.list
 ```bash
 sudo apt update
 ```
-5. Install dependencies
-```bash
-sudo apt install libdrm-dev python3-pip
-```
-6. Execute the `install.sh` script
+5. Execute the `install.sh` script
 ```bash
 git clone --depth=1 https://github.com/Twilight4/debian-setup.git
 cd debian-setup
