@@ -21,7 +21,7 @@ fi
 
 
 # These packages depend on all the packages that are installed by default on any Linux system
-# NOTE: this is for system and linux core
+# NOTE: this is for: system-core, linux-core, system-cli
 pen_package_core=( 
   ftp
   kali-defaults
@@ -37,6 +37,8 @@ pen_package_core=(
   zsh-syntax-highlighting
   netcat-traditional
   tcpdump
+  curl
+  wget
 )
 
 # These packages depend on all the applications that are included in Linux images and that don’t require X11/GUI
@@ -46,7 +48,7 @@ pen_package_headless=(
   amass
   apache2
   arp-scan
-  arping | iputils-arping
+  arping
   atftpd
   axel
   bind9-dnsutils
@@ -250,39 +252,193 @@ pen_package_firmware=(
   firmware-zd1211
 )
 
-# These packages depends on the system packages that should be installed on most Linux systems, as this doesn’t require X11/GUI.
-pen_package_cli=( 
-)
-
-
-
-
-
 pen_package_exploitation=(
+  armitage
+  beef-xss
+  exploitdb
+  metasploit-framework
+  msfpc
+  set
+  shellnoob
+  sqlmap
+  termineter
 )
 
 pen_package_information_gathering=(
+  0trace
+  arping
+  braa
+  dmitry
+  dnsenum
+  dnsmap
+  dnsrecon
+  dnstracer
+  dnswalk
+  enum4linux
+  fierce
+  firewalk
+  fping
+  fragrouter
+  ftester
+  hping3
+  ike-scan
+  intrace
+  irpas
+  lbd
+  legion
+  maltego
+  masscan
+  metagoofil
+  nbtscan
+  ncat
+  netdiscover
+  netmask
+  nmap
+  onesixtyone
+  p0f
+  qsslcaudit
+  recon-ng
+  smbmap
+  smtp-user-enum
+  snmpcheck
+  ssldump
+  sslh
+  sslscan
+  sslyze
+  swaks
+  thc-ipv6
+  theharvester
+  tlssled
+  twofi
+  unicornscan
+  urlcrazy
+  wafw00f
 )
 
 pen_package_passwords=(
+  cewl
+  chntpw
+  cisco-auditing-tool
+  cmospwd
+  crackle
+  creddump7
+  crunch
+  fcrackzip
+  freerdp2-x11
+  gpp-decrypt
+  hash-identifier
+  hashcat
+  hashcat-utils
+  hashid
+  hydra
+  hydra-gtk
+  john
+  johnny
+  kali-tools-gpu
+  maskprocessor
+  medusa
+  mimikatz
+  ncrack
+  onesixtyone
+  ophcrack
+  ophcrack-cli
+  pack
+  pack2
+  passing-the-hash
+  patator
+  pdfcrack
+  pipal
+  polenum
+  rainbowcrack
+  rarcrack
+  rcracki-mt
+  rsmangler
+  samdump2
+  seclists
+  sipcrack
+  sipvicious
+  smbmap
+  sqldict
+  statsprocessor
+  sucrack
+  thc-pptp-bruter
+  truecrack
+  twofi
+  wordlists
 )
 
 pen_package_post_exploitation=(
+  backdoor-factory
+  cymothoa
+  dbd
+  dns2tcp
+  exe2hexbat
+  iodine
+  laudanum
+  mimikatz
+  miredo
+  nishang
+  powersploit
+  proxychains4
+  proxytunnel
+  ptunnel
+  pwnat
+  sbd
+  shellter
+  sslh
+  stunnel4
+  udptunnel
+  veil
+  webacoo
+  weevely
 )
 
 pen_package_respond=(
+  ewf-tools
+  ghidra
+  guymager
+  hashrat
+  impacket-scripts
+  kali-tools-forensics
+  netsniff-ng
 )
 
 pen_package_top10=(
+  aircrack-ng
+  burpsuite
+  crackmapexec
+  hydra
+  john
+  metasploit-framework
+  nmap
+  responder
+  sqlmap
+  wireshark
 )
 
 pen_package_windows_resources=(
+  dbd
+  dnschef
+  heartleech
+  hyperion
+  mimikatz
+  ncat-w32
+  ollydbg
+  powercat
+  regripper
+  sbd
+  secure-socket-funneling-windows-binaries
+  shellter
+  tftpd32
+  wce
+  windows-binaries
+  windows-privesc-check
 )
 
 # Installation of main components
 printf "\n%s - Installing pentesting packages.... \n"
 
-for PKG1 in "${pen_package_core[@]}" "${pen_package_passwords[@]}" "${pen_package_post_exploitation[@]}" "${pen_package_respond[@]}" "${pen_package_top10[@]}" "${pen_package_windows_resources[@]}" "${pen_package_exploitation[@]}" "${pen_package_information_gathering[@]}"; do
+for PKG1 in "${pen_package_core[@]}" "${pen_package_headless[@]}" "${pen_package_firmware[@]}" "${pen_package_passwords[@]}" "${pen_package_post_exploitation[@]}" "${pen_package_respond[@]}" "${pen_package_top10[@]}" "${pen_package_windows_resources[@]}" "${pen_package_exploitation[@]}" "${pen_package_information_gathering[@]}"; do
   sudo apt install "$PKG1"
   if [ $? -ne 0 ]; then
     echo -e "\e[1A\e[K${ERROR} - $PKG1 Package installation failed, Please check the installation logs"
