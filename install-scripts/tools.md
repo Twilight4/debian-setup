@@ -1,11 +1,6 @@
 
 ## Installing more tools
 ```bash
-# Download MesloLG Nerd Font - https://www.nerdfonts.com/font-downloads
-unzip ~/downloads/Meslo.zip -d Meslo
-sudo cp -r ~/downloads/Meslo /usr/share/fonts/meslo
-fc-cache -fv
-
 # Install zoxide
 curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
 
