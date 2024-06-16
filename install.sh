@@ -59,34 +59,6 @@ export PKG_CONFIG_PATH=/usr/lib/x86_64-linux-gnu/pkgconfig
 # Define the directory where your scripts are located
 script_directory=install-scripts
 
-# Function to ask a yes/no question and set the response in a variable
-ask_yes_no() {
-    while true; do
-        read -p "$(colorize_prompt "$CAT"  "$1 (y/n): ")" choice
-        case "$choice" in
-            [Yy]* ) eval "$2='Y'"; return 0;;
-            [Nn]* ) eval "$2='N'"; return 1;;
-            * ) echo "Please answer with y or n.";;
-        esac
-    done
-}
-
-# Function to ask a custom question with specific options and set the response in a variable
-ask_custom_option() {
-    local prompt="$1"
-    local valid_options="$2"
-    local response_var="$3"
-
-    while true; do
-        read -p "$(colorize_prompt "$CAT"  "$prompt ($valid_options): ")" choice
-        if [[ " $valid_options " == *" $choice "* ]]; then
-            eval "$response_var='$choice'"
-            return 0
-        else
-            echo "Please choose one of the provided options: $valid_options"
-        fi
-    done
-}
 # Function to execute a script if it exists and make it executable
 execute_script() {
     local script="$1"
@@ -128,72 +100,24 @@ execute_script "hypr-eco.sh"
 # execute_script "waybar-git.sh" only if waybar on repo is old
 
 
-if [ "$nvidia" == "Y" ]; then
-    execute_script "nvidia.sh"
-fi
-
-if [ "$gtk_themes" == "Y" ]; then
-    execute_script "gtk_themes.sh"
-fi
-
-if [ "$bluetooth" == "Y" ]; then
-    execute_script "bluetooth.sh"
-fi
-
-if [ "$thunar" == "Y" ]; then
-    execute_script "thunar.sh"
-fi
-
-if [ "$sddm" == "Y" ]; then
-    execute_script "sddm.sh"
-fi
-
-if [ "$xdph" == "Y" ]; then
-    execute_script "xdph.sh"
-fi
-
-if [ "$zsh" == "Y" ]; then
-    execute_script "zsh.sh"
-fi
-
-if [ "$nwg" == "Y" ]; then
-    execute_script "nwg-look.sh"
-fi
-
-if [ "$rog" == "Y" ]; then
-    execute_script "rog.sh"
-fi
-
+execute_script "gtk_themes.sh"
+execute_script "bluetooth.sh"
+execute_script "thunar.sh"
+execute_script "xdph.sh"
+execute_script "zsh.sh"
 execute_script "InputGroup.sh"
-
-if [ "$dots" == "Y" ]; then
-    execute_script "dotfiles.sh"
-fi
-
-# Clean up
-printf "\n${OK} performing some clean up.\n"
-if [ -e "JetBrainsMono.tar.xz" ]; then
-    echo "JetBrainsMono.tar.xz found. Deleting..."
-    rm JetBrainsMono.tar.xz
-    echo "JetBrainsMono.tar.xz deleted successfully."
-fi
 
 clear
 
-printf "\n${OK} Yey! Installation Completed.\n"
+printf "\n${OK} Installation Completed Successfully.\n"
 printf "\n"
 sleep 2
-printf "\n${NOTE} You can start Hyprland by typing Hyprland (IF SDDM is not installed) (note the capital H!).\n"
+printf "\n${NOTE} You can start Hyprland by typing Hyprland.\n"
 printf "\n"
 printf "\n${NOTE} It is highly recommended to reboot your system.\n\n"
 
 read -rp "${CAT} Would you like to reboot now? (y/n): " HYP
 
 if [[ "$HYP" =~ ^[Yy]$ ]]; then
-    if [[ "$nvidia" == "Y" ]]; then
-        echo "${NOTE} NVIDIA GPU detected. Rebooting the system..."
-        systemctl reboot
-    else
-        systemctl reboot
-    fi    
+    systemctl reboot
 fi
