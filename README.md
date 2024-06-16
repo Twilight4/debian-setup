@@ -12,7 +12,7 @@ sudo reboot now
 ```bash
 sudo vim /etc/apt/sources.list
 ```
-- uncomment the second line with deb-src
+- uncomment the second line with `deb-src`
 4. Update source list
 ```bash
 sudo apt update
@@ -29,7 +29,7 @@ chmod +x install.sh
 ./install.sh
 ```
 
-# Post-Install
+## Post-Install
 ### Add myself to sudoers file
 ```bash
 sudo vim /etc/sudoers
@@ -58,8 +58,14 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 ### Disable GRUB menu
 Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub` and then `sudo update-grub`:
 - `zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active`
-- `GRUB_TIMEOUT=0        # disables grub menu`
+- `GRUB_TIMEOUT=0`
 
 ### Install [Twilight4/dotfiles](https://github.com/Twilight4/dotfiles)
+```bash
+git clone --depth 1 https://github.com/Twilight4/dotfiles.git /tmp/dotfiles
+cd /tmp/dotfiles
+./install.sh
+```
+
 > [!NOTE]
 > Additional tools can be installed using scripts in the [tools-installation](https://github.com/Twilight4/debian-setup/tree/main/tools-installation) directory.
