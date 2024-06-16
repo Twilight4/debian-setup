@@ -66,6 +66,3 @@ git clone --depth 1 https://github.com/Twilight4/dotfiles.git /tmp/dotfiles
 cd /tmp/dotfiles
 ./install.sh
 ```
-
-> [!NOTE]
-> Additional tools can be installed using scripts in the [tools-installation](https://github.com/Twilight4/debian-setup/tree/main/tools-installation) directory.
