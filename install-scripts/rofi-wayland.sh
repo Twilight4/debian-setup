@@ -1,6 +1,4 @@
 #!/bin/bash
-# 💫 https://github.com/JaKooLit 💫 #
-# Rofi-Wayland) #
 
 rofi=(
   bison
@@ -12,7 +10,6 @@ rofi=(
   libnl-3-dev
   libasound2-dev
 )
-
 
 ## WARNING: DO NOT EDIT BEYOND THIS LINE IF YOU DON'T KNOW WHAT YOU ARE DOING! ##
 # Determine the directory where the script is located
