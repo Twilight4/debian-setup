@@ -3,7 +3,7 @@
 # Welcome message
 echo "$(tput setaf 6)This scripts is going to install a list of defined pentesting tools.$(tput sgr0)"
 echo
-echo "$(tput setaf 166)ATTENTION: It is highly recommended to edit this script to install only defined set of tools.$(tput sgr0)"
+echo "$(tput setaf 166)ATTENTION: It is highly recommended to edit this script to install only defined group of tools.$(tput sgr0)"
 echo
 read -p "$(tput setaf 6)Would you like to proceed? (y/n): $(tput sgr0)" proceed
 
@@ -337,7 +337,8 @@ pen_package_passwords=(
   hydra-gtk
   john
   johnny
-  kali-tools-gpu
+  oclgausscrack
+  truecrack
   maskprocessor
   medusa
   mimikatz
@@ -395,18 +396,6 @@ pen_package_post_exploitation=(
   veil
   webacoo
   weevely
-)
-
-# These packages depend on all the response tools
-# This covers NIST CSF domain RESPOND
-pen_package_respond=(
-  ewf-tools
-  ghidra
-  guymager
-  hashrat
-  impacket-scripts
-  kali-tools-forensics
-  netsniff-ng
 )
 
 # These packages depend on the 10 most important applications
