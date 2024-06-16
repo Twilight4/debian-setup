@@ -82,7 +82,7 @@ sudo apt update
 
 # Install hyprland packages
 execute_script "00-dependencies.sh"
-execute_script "00-hypr-pkgs.sh"
+execute_script "00-hypr-pkgs.sh" # TODO - del hyprland-packages.sh from .install
 #execute_script "fonts.sh"       # TODO
 execute_script "imagemagick.sh"
 execute_script "swappy.sh"
@@ -96,9 +96,11 @@ execute_script "hyprland.sh"
 execute_script "bluetooth.sh"
 execute_script "thunar.sh"
 execute_script "xdph.sh"
-execute_script "zsh.sh"
 # TODO
+#execute_script "zsh.sh"
 #execute_script "enable-services.sh"
+#execute_script "locales.sh"
+#execute_script "auto-cpufreq.sh"
 
 clear
 
