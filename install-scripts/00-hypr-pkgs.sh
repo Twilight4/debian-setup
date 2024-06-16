@@ -55,6 +55,8 @@ hypr_package=(
   zsh
   zsh-autosuggestions
   zsh-syntax-highlighting
+  rsync
+  git
   cliphist
   grim
   gvfs
