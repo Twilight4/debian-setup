@@ -1,7 +1,23 @@
 #!/bin/bash
 
-# Pentesting Packages
-# Edit your packages desired here. 
+# Welcome message
+echo "$(tput setaf 6)This scripts is going to install a list of defined pentesting tools.$(tput sgr0)"
+echo
+echo "$(tput setaf 166)ATTENTION: It is highly recommended to edit this script to install only defined set of tools.$(tput sgr0)"
+echo
+read -p "$(tput setaf 6)Would you like to proceed? (y/n): $(tput sgr0)" proceed
+
+if [ "$proceed" != "y" ]; then
+    echo "Installation aborted."
+    exit 1
+fi
+
+read -p "$(tput setaf 6)Did you add kali repos to your /etc/apt/sources.list? [Very Important] (y/n): $(tput sgr0)" proceed2
+
+if [ "$proceed2" != "y" ]; then
+    echo "Installation aborted. Edit your sources.list first."
+    exit 1
+fi
 
 # add packages wanted here
 Extra=(

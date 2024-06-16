@@ -1,4 +1,4 @@
-## Installing Hyprland and dotfiles on [Debian Trixie](https://www.debian.org/devel/debian-installer/)
+## Installing Hyprland and dotfiles on [Debian 13 Trixie](https://www.debian.org/devel/debian-installer/) (Testing)
 ### Installing Hyprland
 1. Update system
 ```bash
@@ -8,11 +8,11 @@ sudo apt update && sudo apt -y full-upgrade -y
 ```bash
 sudo reboot now
 ```
-3. Modify apt sources list
+3. Edit `sources.list`
 ```bash
 sudo vim /etc/apt/sources.list
 ```
-- uncomment the second line with `deb-src`
+- uncomment the lines with `deb-src`
 4. Update source list
 ```bash
 sudo apt update
@@ -62,7 +62,7 @@ Add this to `GRUB_CMDLINE_LINUX_DEFAULT` in `/etc/default/grub` and then `sudo u
 
 ### Install [Twilight4/dotfiles](https://github.com/Twilight4/dotfiles)
 ```bash
-git clone --depth 1 https://github.com/Twilight4/dotfiles.git /tmp/dotfiles
-cd /tmp/dotfiles
+git clone --depth 1 https://github.com/Twilight4/dotfiles.git
+cd dotfiles
 ./install.sh
 ```
