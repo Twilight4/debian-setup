@@ -252,6 +252,7 @@ pen_package_firmware=(
   firmware-zd1211
 )
 
+# These packages depend on all the exploitation tools
 pen_package_exploitation=(
   armitage
   beef-xss
@@ -264,6 +265,7 @@ pen_package_exploitation=(
   termineter
 )
 
+# These packages depend on all the information gathering tools for Open-Source Intelligence
 pen_package_information_gathering=(
   0trace
   arping
@@ -315,6 +317,7 @@ pen_package_information_gathering=(
   wafw00f
 )
 
+# These packages depend on all the password cracking tools
 pen_package_passwords=(
   cewl
   chntpw
@@ -367,6 +370,7 @@ pen_package_passwords=(
   wordlists
 )
 
+# These packages depend on all the post exploitation tools
 pen_package_post_exploitation=(
   backdoor-factory
   cymothoa
@@ -393,6 +397,8 @@ pen_package_post_exploitation=(
   weevely
 )
 
+# These packages depend on all the response tools
+# This covers NIST CSF domain RESPOND
 pen_package_respond=(
   ewf-tools
   ghidra
@@ -403,6 +409,7 @@ pen_package_respond=(
   netsniff-ng
 )
 
+# These packages depend on the 10 most important applications
 pen_package_top10=(
   aircrack-ng
   burpsuite
@@ -416,6 +423,7 @@ pen_package_top10=(
   wireshark
 )
 
+# These packages depend on all the Windows resources
 pen_package_windows_resources=(
   dbd
   dnschef
@@ -434,6 +442,15 @@ pen_package_windows_resources=(
   windows-binaries
   windows-privesc-check
 )
+
+# Other potential packages for installation
+#pen_package_bluetooth
+#pen_package_802-11
+#pen_package_rfid
+#pen_package_sdr
+#pen_package_sniffing-spoofing
+#pen_package_social-engineering
+#pen_package_wireless
 
 # Installation of main components
 printf "\n%s - Installing pentesting packages.... \n"
