@@ -14,6 +14,7 @@ curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh
 
 # Install xcp
 cargo install xcp
+cp ~/.config/.local/share/cargo/bin/xcp /bin/
 # If xcp installation fails - Reinstall rust to get the newest version and install xcp
 #sudo apt remove rustc
 #curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
