@@ -1,3 +1,35 @@
+#+TITLE: QEMU Installation
+#+AUTHOR: Twilight4
+#+DESCRIPTION: QEMU Installation Guide
+#+STARTUP: show3levels
+#+OPTIONS: TOC:4
+
+* Table of Contents :toc:
+- [[#resources][Resources]]
+- [[#installing-qemu-on-debian][Installing QEMU on Debian]]
+  - [[#check-support-for-passthrough][Check support for passthrough]]
+  - [[#check-number-of-cpu-cores][Check number of cpu cores]]
+  - [[#install-packages-and-reboot][Install packages and reboot]]
+  - [[#check-status-of-libvirtd-service][Check status of libvirtd service]]
+  - [[#enable-and-start-libvirtd-service-if-its-not-running][Enable and start libvirtd service (if it's not running)]]
+  - [[#add-user-to-necessary-groups][Add user to necessary groups]]
+  - [[#check-compability][Check compability]]
+  - [[#enable-the-tuned-service][Enable the tuned service]]
+  - [[#start-and-autostart-network-bridge][Start and autostart network bridge]]
+- [[#enable-kvm-gpu-passthrough][Enable KVM GPU passthrough]]
+  - [[#identify-pci-ids][Identify PCI IDs]]
+  - [[#edit-grub-config][Edit grub config]]
+  - [[#update-grub-and-reboot][Update grub and reboot]]
+- [[#isolate-gpu][Isolate GPU]]
+  - [[#config-files][Config files]]
+  - [[#update-initramfs][Update initramfs]]
+  - [[#verify-isolation-of-gpu][Verify isolation of GPU]]
+- [[#vm-configuration][VM Configuration]]
+  - [[#installation][Installation]]
+  - [[#create-a-vm][Create a VM]]
+  - [[#vm-configuration-1][VM Configuration]]
+  - [[#start-vm][Start VM]]
+
 * Resources
 1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI
 2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw
@@ -9,6 +41,7 @@
 6. Before windows installation choose as language: English (World)
 7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)
 8. Windows optimization: https://www.youtube.com/watch?v=XQAIYCT4f8Q
+
 
 * Installing QEMU on Debian
 ** Check support for passthrough
