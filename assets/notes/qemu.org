@@ -1,0 +1,41 @@
+* Steps
+WARNING: Watch the QEMU KVM GPU Passthrough tutorial as well cuz the first one doesnt show everything like to make clipboard work
+1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI
+2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw
+  - Check the kvm_gpu_passthrough.org
+  - AT THIS MOMENT DO NOT TRY THIS CUZ IT BROKE MY SYSTEM
+  - CREATE A SNAPSHOT OF THE BARE INSTALLED WINDOWS VM MACHINE
+3. Install Windows English International from https://www.microsoft.com/software-download/windows11
+4. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md
+5. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko
+6. Before windows installation choose as language: English (World)
+7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)
+8. Windows optimization: https://www.youtube.com/watch?v=XQAIYCT4f8Q
+
+* Setup
+** install packages
+#+begin_src shell
+sudo apt update
+sudo apt install -y qemu-kvm virt-manager bridge-utils swtpm spice-vdagent
+#+end_src
+
+** add user to necessary groups
+#+begin_src shell
+sudo usermod -aG libvirt $USER
+sudo usermod -aG libvirt-qemu $USER
+sudo usermod -aG kvm $USER
+newgrp libvirt       # Refresh group membership in the current shell session
+#+end_src
+
+** enable and start libvirtd service
+#+begin_src shell
+sudo systemctl enable --now libvirtd
+sudo systemctl status libvirtd --no-pager    # Show status without paging
+#+end_src
+
+** start and autostart network bridge
+#+begin_src shell
+sudo virsh net-start default
+sudo virsh net-autostart default
+sudo virsh net-list --all
+#+end_src
