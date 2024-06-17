@@ -1,8 +1,6 @@
-* Steps
-WARNING: Watch the QEMU KVM GPU Passthrough tutorial as well cuz the first one doesnt show everything like to make clipboard work
+* Resources
 1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI
 2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw
-  - Check the kvm_gpu_passthrough.org
   - AT THIS MOMENT DO NOT TRY THIS CUZ IT BROKE MY SYSTEM
   - CREATE A SNAPSHOT OF THE BARE INSTALLED WINDOWS VM MACHINE
 3. Install Windows English International from https://www.microsoft.com/software-download/windows11
@@ -12,14 +10,37 @@ WARNING: Watch the QEMU KVM GPU Passthrough tutorial as well cuz the first one d
 7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)
 8. Windows optimization: https://www.youtube.com/watch?v=XQAIYCT4f8Q
 
-* Setup
-** install packages
+* Installing QEMU on Debian
+** Check support for passthrough
 #+begin_src shell
-sudo apt update
-sudo apt install -y qemu-kvm virt-manager bridge-utils swtpm spice-vdagent
+lscpu | grep 'Virtualization'
 #+end_src
 
-** add user to necessary groups
+** Check number of cpu cores
+If the value is =0=, you need to enter the UEFI and enable virtualization.
+#+begin_src shell
+egrep -c '(vmx|svm)' /proc/cpuinfo
+#+end_src
+
+** Install packages and reboot
+#+begin_src shell
+sudo apt update
+sudo apt install -y qemu-system-x86 libvirt-daemon-system virtinst virt-manager virt-viewer ovmf swtpm qemu-utils guestfs-tools libosinfo-bin tuned
+sudo reboot
+#+end_src
+
+** Check status of libvirtd service
+#+begin_src shell
+sudo systemctl status libvirtd
+#+end_src
+
+** Enable and start libvirtd service (if it's not running)
+#+begin_src shell
+sudo systemctl enable --now libvirtd
+sudo systemctl status libvirtd
+#+end_src
+
+** Add user to necessary groups
 #+begin_src shell
 sudo usermod -aG libvirt $USER
 sudo usermod -aG libvirt-qemu $USER
@@ -27,15 +48,119 @@ sudo usermod -aG kvm $USER
 newgrp libvirt       # Refresh group membership in the current shell session
 #+end_src
 
-** enable and start libvirtd service
+** Check compability
+Everything should pass.
 #+begin_src shell
-sudo systemctl enable --now libvirtd
-sudo systemctl status libvirtd --no-pager    # Show status without paging
+sudo virt-host-validate qemu
 #+end_src
 
-** start and autostart network bridge
+** Enable the tuned service
+#+begin_src shell
+sudo systemctl enable --now tuned
+#+end_src
+
+Check current profile:
+#+begin_src shell
+tuned-adm active
+#+end_src
+
+List profiles:
+#+begin_src shell
+tuned-adm list
+#+end_src
+
+Change the profile to optimize for running KVM machines
+#+begin_src shell
+sudo tuned-adm profile virtual-host
+#+end_src
+
+Make sure there are no errors:
+#+begin_src shell
+sudo tuned-adm verify
+#+end_src
+
+** Start and autostart network bridge
 #+begin_src shell
 sudo virsh net-start default
 sudo virsh net-autostart default
 sudo virsh net-list --all
 #+end_src
+
+
+* Enable KVM GPU passthrough
+** Identify PCI IDs
+Copy the Display Controller - Radeon RX GPU and Audio Device IDs
+
+#+begin_src shell
+lspci -nn | rg 'RX 6600'
+lspci -nn | rg 'Audio device|AMD/ATI'
+#+end_src
+
+** Edit grub config
+#+begin_src shell
+sudo nvim /etc/default/grub
+
+# Edit the line and remove any existing values (like quiet splash)
+GRUB_CMDLINE_LINUX_DEFAULT="and_iommu iommu=pt vfio-pci.ids=<GPU>:<AUDIO>"
+#+end_src
+
+** Update grub and reboot
+#+begin_src shell
+# For Debian
+sudo update-grub
+sudo reboot
+#+end_src
+
+
+* Isolate GPU
+** Config files
+#+begin_src shell
+sudo touch /etc/modprobe.d/vfio.conf
+sudo nvim /etc/modprobe.d/vfio.conf
+
+options vfio-pci ids=<GPU>,<AUDIO>
+#+end_src
+
+** Update initramfs
+#+begin_src shell
+# On Debian
+sudo update-initramfs -c -k $(uname -r)
+
+# On Arch
+sudo mkinitcpio -p linux
+
+# Reboot to apply changes
+reboot
+#+end_src
+
+** Verify isolation of GPU
+#+begin_src shell
+lspci -k | rg "vfio-pci|AMD"
+#+end_src
+
+
+* VM Configuration
+** Installation
+- Stable VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]] (for windows)
+- Windows 10 ISO
+
+** Create a VM
+- 8GB of memory
+- 12 CPUs
+- 80GB of disk
+- [X] Customize configuration before installation
+
+** VM Configuration
+In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
+- =Boot Options= > =Enable boot menu= > =SATA CDROM= > move =up arrow=
+- =SATA Disk= > Disk bus: =VirtIO=
+- =SATA CDROM= > =Browse= > Import VFIO drivers
+- =Add Hardware= > =PCI Host Device= > Select AMD GPU and AMD Audio
+  + check the numbers from the output of =lspci -k | rg "vfio-pci|AMD"= command
+- =Boot Options= > =SATA CDROM_<NUM>= > move =up arrow= - to not boot back into the installation media
+
+** Start VM
+- =My Computer= > =Mounted ISO= > =virtio-win-guest-tools=
+- Reboot and install compatible AMD drivers on windows
+- If everything done correctly, the AMD GPU should be displayed within the task manager
+- If your mouse cursor stops working, go to Mounted ISO and run =virtio-win-gt-x64=
