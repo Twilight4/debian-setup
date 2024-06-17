@@ -1,5 +1,10 @@
 #!/bin/bash
 
+# Color codes
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+NC='\033[0m' # No Color
+
 cat <<"EOF"
   __ _  ___ _ __ ___  _   _ 
  / _` |/ _ \ '_ ` _ \| | | |
@@ -8,7 +13,7 @@ cat <<"EOF"
     |_|                     
 EOF
 
-# Prerequisites/resources
+# Steps
 echo 'WARNING: Watch the QEMU KVM GPU Passthrough tutorial as well cuz the first one doesnt show everything like to make clipboard work'
 echo '1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI'
 echo '2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw'
@@ -22,19 +27,42 @@ echo '6. Before windows installation choose as language: English (World)'
 echo '7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)'
 echo '8. Windows optimization: https://www.youtube.com/watch?v=XQAIYCT4f8Q'
 
-#### DEBIAN SETUP ####
-# Apt-get package manager
-sudo apt install qemu-kvm virt-manager bridge-utils swtpm spice-vdagent
-groups
-sudo usermod -aG libvirt $USER
-sudo usermod -aG libvirt-qemu $USER
-sudo usermod -aG kvm $USER
+# Function to check and install packages
+install_packages() {
+    echo -e "${BLUE}Installing required packages...${NC}"
+    sudo apt update
+    sudo apt install -y qemu-kvm virt-manager bridge-utils swtpm spice-vdagent
+}
 
-# Enable libvirtd service
-sudo systemctl status libvirtd
-sudo systemctl enable --now libvirtd
+# Function to add user to necessary groups
+add_user_to_groups() {
+    echo -e "${BLUE}Adding current user to necessary groups...${NC}"
+    sudo usermod -aG libvirt $USER
+    sudo usermod -aG libvirt-qemu $USER
+    sudo usermod -aG kvm $USER
+    newgrp libvirt       # Refresh group membership in the current shell session
+}
 
-# Start and autostart network bridge
-sudo virsh net-start default
-sudo virsh net-autostart default
-sudo virsh net-list --all
+# Function to enable and start libvirtd service
+enable_libvirtd() {
+    echo -e "${BLUE}Enabling and starting libvirtd service...${NC}"
+    sudo systemctl enable --now libvirtd
+    sudo systemctl status libvirtd --no-pager    # Show status without paging
+}
+
+# Function to start and autostart network bridge
+configure_network_bridge() {
+    echo -e "${BLUE}Configuring network bridge...${NC}"
+    sudo virsh net-start default
+    sudo virsh net-autostart default
+    sudo virsh net-list --all
+}
+
+# Main script flow
+echo -e "${GREEN}Starting setup script...${NC}"
+install_packages
+add_user_to_groups
+enable_libvirtd
+configure_network_bridge
+
+echo -e "${GREEN}Setup completed successfully.${NC}"
