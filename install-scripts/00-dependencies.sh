@@ -89,7 +89,6 @@ dependencies=(
     scdoc
     seatd
     spirv-tools
-    vulkan-validationlayers
     vulkan-utility-libraries-dev
     wayland-protocols
     xdg-desktop-portal

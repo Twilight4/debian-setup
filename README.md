@@ -1,4 +1,26 @@
-## Installing Hyprland and dotfiles on [Debian 13 Trixie](https://www.debian.org/devel/debian-installer/) (Testing)
+## Installing [Debian 13 Trixie](https://www.debian.org/devel/debian-installer/) (Testing)
+### Sudoers permissions
+Login as root and install sudo:
+```bash
+su -
+# Skip the qemu-guest-agent if you're on bare metal
+apt install sudo vim git zram-tools qemu-guest-agent
+/usr/sbin/usermod -aG sudo twilight
+```
+Add myself to sudoers file: `vim /etc/sudoers`
+```bash
+# Allow members of group sudo to execute any command
+%sudo      ALL=(ALL:ALL) NOPASSWD: ALL
+twilight   ALL=(ALL:ALL) NOPASSWD: ALL
+```
+### Zram swap
+Edit zramswap file: `vim /etc/default/zramswap`
+```bash
+ALGO=lz4
+PERCENT=25
+```
+
+## Installing Hyprland and dotfiles on Debian 13 Trixie (Testing)
 1. Update system
 ```bash
 sudo apt update && sudo apt -y full-upgrade -y
@@ -10,11 +32,12 @@ sudo reboot now
 3. Make sure you're on debian trixie and edit `sources.list`
 ```bash
 lsb_release -a
+cat /etc/os-release
 ```
 ```bash
 sudo vim /etc/apt/sources.list
 ```
-- uncomment the lines with `deb-src`
+- uncomment the lines with `deb-src` if they're commented out
 4. Update source list
 ```bash
 sudo apt update
@@ -27,22 +50,6 @@ cd debian-setup
 ```
 
 ## Post-Install
-### Sudoers file
-Add myself to sudoers file: `sudo vim /etc/sudoers`
-```bash
-# Allow members of group sudo to execute any command
-%sudo   ALL=(ALL:ALL) NOPASSWD: ALL
-```
-
-Make sure I'm in sudoers group
-```bash
-cat /etc/group | grep sudo
-```
-Add myself to sudoers group if I'm not already
-```bash
-sudo usermod -aG sudo "$(whoami)"
-```
-
 ### Performance tweaks
 ```bash
 echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
