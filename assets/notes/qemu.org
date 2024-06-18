@@ -24,9 +24,14 @@
   - [[#config-files][Config files]]
   - [[#update-initramfs][Update initramfs]]
   - [[#verify-isolation-of-gpu][Verify isolation of GPU]]
-- [[#vm-configuration][VM Configuration]]
+- [[#debian-13-testing-vm-configuration][Debian 13 Testing VM Configuration]]
   - [[#installation][Installation]]
   - [[#create-a-vm][Create a VM]]
+  - [[#vm-configuration][VM Configuration]]
+  - [[#if-you-installed-debian-bookworm-update-to-debian-trixie][If you installed debian bookworm, update to debian trixie]]
+- [[#windows-vm-configuration][Windows VM Configuration]]
+  - [[#installation-1][Installation]]
+  - [[#create-a-vm-1][Create a VM]]
   - [[#vm-configuration-1][VM Configuration]]
   - [[#start-vm][Start VM]]
 
@@ -172,7 +177,37 @@ lspci -k | rg "vfio-pci|AMD"
 #+end_src
 
 
-* VM Configuration
+* Debian 13 Testing VM Configuration
+** Installation
+- Download netinst CD image for [[https://www.debian.org/devel/debian-installer/][Debian 13 Trixie]]
+- If the daily build image fails to install, resort to the [[https://www.debian.org/releases/bookworm/debian-installer/][Debian Bookworm]] netinst CD image
+
+** Create a VM
+- 8GB of memory
+- 12 CPUs
+- 80GB of disk
+- [X] Customize configuration before installation
+
+** VM Configuration
+In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
+To enable 3d acceleration you have to change the following settings:
+- =Tablet= > =Remove=
+- =Display Spice= > =[X] OpenGL=
+- =Display Spice= > Listen type: =None=
+- =Video Virtio= > Model: =Virtio=
+- =Video Virtio= > =[X] 3D acceleraiton=
+- If you start the VM and the VM screen crashes, swap the GPU under =[X] OpenGL= the the other one.
+
+** If you installed debian bookworm, update to debian trixie
+Update to debian trixie by updating the =resources.list=:
+- =sudo vim /etc/apt/sources.list=
+- =:%s/bookworm/trixie/g=
+- =sudo apt update=
+- =sudo apt upgrade=
+- =sudo poweroff= and create snapshot of the machine
+
+
+* Windows VM Configuration
 ** Installation
 - Stable VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]] (for windows)
 - Windows 10 ISO
