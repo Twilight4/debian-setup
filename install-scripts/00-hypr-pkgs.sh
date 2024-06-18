@@ -92,6 +92,12 @@ hypr_package=(
   waybar
   wget
   wl-clipboard
+  pkg-config
+  libncursesw6
+  libtinfo6
+  libncurses-dev
+  libnl-cli-3-dev
+  wavemon
   wlogout
   xdg-user-dirs
   xdg-utils
