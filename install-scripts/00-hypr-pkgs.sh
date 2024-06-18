@@ -23,7 +23,6 @@ hypr_package=(
   irqbalance
   acpi
   emacs
-  translate-shell
   duf
   ncdu
   speedtest-cli
