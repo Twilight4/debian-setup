@@ -20,7 +20,6 @@
   - [[#identify-pci-ids][Identify PCI IDs]]
   - [[#edit-grub-config][Edit grub config]]
   - [[#update-grub-and-reboot][Update grub and reboot]]
-- [[#isolate-gpu][Isolate GPU]]
   - [[#config-files][Config files]]
   - [[#update-initramfs][Update initramfs]]
   - [[#verify-isolation-of-gpu][Verify isolation of GPU]]
@@ -127,7 +126,7 @@ sudo virsh net-list --all
 
 * Enable KVM GPU passthrough
 ** Identify PCI IDs
-Copy the Display Controller - Radeon RX GPU and Audio Device IDs
+Copy the Display Controller - Radeon RX GPU and Audio Device IDs.
 
 #+begin_src shell
 lspci -nn | rg 'RX 6600'
@@ -144,14 +143,13 @@ GRUB_CMDLINE_LINUX_DEFAULT="and_iommu iommu=pt vfio-pci.ids=<GPU>:<AUDIO>"
 
 ** Update grub and reboot
 #+begin_src shell
-# For Debian
 sudo update-grub
 sudo reboot
 #+end_src
 
-
-* Isolate GPU
 ** Config files
+Isolate GPU.
+
 #+begin_src shell
 sudo touch /etc/modprobe.d/vfio.conf
 sudo nvim /etc/modprobe.d/vfio.conf
@@ -161,13 +159,7 @@ options vfio-pci ids=<GPU>,<AUDIO>
 
 ** Update initramfs
 #+begin_src shell
-# On Debian
 sudo update-initramfs -c -k $(uname -r)
-
-# On Arch
-sudo mkinitcpio -p linux
-
-# Reboot to apply changes
 reboot
 #+end_src
 
@@ -179,8 +171,8 @@ lspci -k | rg "vfio-pci|AMD"
 
 * Debian 13 Testing VM Configuration
 ** Installation
-- Download netinst CD image for [[https://www.debian.org/devel/debian-installer/][Debian 13 Trixie]]
-- If the daily build image fails to install, resort to the [[https://www.debian.org/releases/bookworm/debian-installer/][Debian Bookworm]] netinst CD image
+- Download netinst CD image for [[https://www.debian.org/devel/debian-installer/][Debian 13 Trixie]].
+- If the daily build image fails to install, resort to the [[https://www.debian.org/releases/bookworm/debian-installer/][Debian Bookworm]] netinst CD image.
 
 ** Create a VM
 - 8GB of memory

@@ -1,5 +1,5 @@
 ## Installing [Debian 13 Trixie](https://www.debian.org/devel/debian-installer/) (Testing)
-For installing on QEMU/KVM check [qemu.org](https://github.com/Twilight4/debian-setup/blob/main/assets/notes/qemu.org)
+For installing on QEMU/KVM check [qemu.org](https://github.com/Twilight4/debian-setup/blob/main/assets/notes/qemu.org).
 
 ### Sudoers permissions
 Login as root and install sudo:
