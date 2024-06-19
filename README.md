@@ -72,6 +72,12 @@ GRUB_CMDLINE_LINUX_DEFAULT="zswap.compressor=zstd zswap.max_pool_percent=10 miti
 
 # Disable GRUB menu
 GRUB_TIMEOUT=0
+
+# Uncomment to disable generation of recovery mode menu entries
+GRUB_DISABLE_RECOVERY="true"
+
+# Uncomment to disable submenus in boot menu
+GRUB_DISABLE_SUBMENU="true"
 ```
 Update GRUB:
 ```bash
