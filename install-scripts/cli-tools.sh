@@ -73,7 +73,7 @@ cd ~/download/cli-tools \
 cd ~/download/cli-tools \
   && wget https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-musl_0.24.0_amd64.deb \
   && sudo dpkg -i bat-musl_0.24.0_amd64.deb \
-  && bat cache --build    # load the theme that is located in ~/.config/bat/themes/
+  && \bat cache --build    # load the theme that is located in ~/.config/bat/themes/
 
 # Install delta: https://github.com/dandavison/delta/releases
 cd ~/download/cli-tools \ 

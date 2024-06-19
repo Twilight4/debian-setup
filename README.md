@@ -1,4 +1,5 @@
 ## Fresh [Debian Trixie](https://www.debian.org/devel/debian-installer/) (Testing) Install
+If the Debian Trixie installation fails, resort to installing [Debian Bookworm](https://www.debian.org/releases/bookworm/debian-installer/) netinst CD image and later update to Debian Trixie.
 ### Sudoers permissions
 Login as root and install `sudo`:
 ```bash
