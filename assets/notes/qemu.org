@@ -15,6 +15,9 @@
   - [[#tuned-service-optional][Tuned service (optional)]]
   - [[#network-bridge][Network bridge]]
   - [[#set-acl-on-the-images-directory-optional][Set ACL on the images directory (optional)]]
+- [[#installing-vms-through-cli][Installing VMs through CLI]]
+  - [[#qemu][QEMU]]
+  - [[#virt-install][Virt-install]]
 - [[#enabling-3d-acceleration-in-virt-manager][Enabling 3D acceleration in Virt-Manager]]
 - [[#enable-kvm-gpu-passthrough][Enable KVM GPU passthrough]]
   - [[#identify-pci-ids][Identify PCI IDs]]
@@ -134,7 +137,37 @@ Review new ACL permissions:
 #+begin_src shell
 sudo getfacl /var/lib/libvirt/images
 #+end_src
-You now have full access to the image directory without root privileges.
+Now you have full access to the image directory without root privileges.
+
+
+* Installing VMs through CLI
+** QEMU
+Create new disk image:
+#+begin_src shell
+qemu-img create -f acow2 image.qcow2 100G
+#+end_src
+
+Boot the iso image on the new disk image:
+#+begin_src shell
+qemu-system-x86_64 -enable-kvm -cdrom downloads/debian-12.5.0-amd64-netinst.iso -boot d -drive file=image.qcow2 -cpu host -smp 8 -vga virtio -display sql,gl=on -m 8192
+#+end_src
+
+Boot existing disk image:
+#+begin_src shell
+qemu-system-x86_64 -enable-kvm -boot c -drive file=image.qcow2 -cpu host -smp 8 -vga virtio -display sql,gl=on -m 8192
+#+end_src
+
+** Virt-install
+You can also create new VM using virt-manager's CLI interface:
+#+begin_src shell
+sudo virt-install --name debian12 --memory memory=8192 --vcpus vcpus=8 --cpu mode=host-passthrough --network network=default --location downloads/debian-12.5.0-amd64-netinst.iso --os-variant debian12 --disk size=40,format=qcow2,cache=none,discard=unmap --channel type=unix,target.type=virtio,target.name=org.qemu.guest_agent.0 -boot uefi
+#+end_src
+
+Connecting to the VM:
+#+begin_src shell
+virt-viewer --connect qemu:///system --wait debian12
+#+end_src
+
 
 * Enabling 3D acceleration in Virt-Manager
 In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
