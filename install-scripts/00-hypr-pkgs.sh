@@ -100,11 +100,13 @@ hypr_package=(
   wavemon
   wlogout
   xdg-user-dirs
+  network-manager
   xdg-utils
   yad
 )
-# Pip packages
-#sudo pip3 install pywal pyftpdlib
+
+# Install pywal
+pip3 install --user pywal --break-system-packages
 
 # the following packages can be deleted. however, dotfiles may not work properly
 hypr_package_2=(
