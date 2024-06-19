@@ -144,7 +144,7 @@ Now you have full access to the image directory without root privileges.
 ** QEMU
 Create new disk image:
 #+begin_src shell
-qemu-img create -f acow2 image.qcow2 100G
+qemu-img create -f qcow2 image.qcow2 100G
 #+end_src
 
 Boot the iso image on the new disk image:
@@ -237,7 +237,7 @@ In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
 - =SATA Disk= > Disk bus: =VirtIO=
 - =SATA CDROM= > =Browse= > Import VFIO drivers
 - =Add Hardware= > =PCI Host Device= > Select AMD GPU and AMD Audio
-  + check the numbers from the output of =lspci -k | rg "vfio-pci|AMD"= command
+  + check the numbers from the output of =lspci -k | rg 'vfio-pci|AMD'= command
 - =Boot Options= > =SATA CDROM_<NUM>= > move =up arrow= - to not boot back into the installation media
 
 ** Start VM
