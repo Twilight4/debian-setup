@@ -171,6 +171,7 @@ virt-viewer --connect qemu:///system --wait debian12
 
 * Enabling 3D acceleration in Virt-Manager
 In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
+
 To enable 3d acceleration you have to change the following settings:
 - =Display Spice= > =[X] OpenGL=
 - =Display Spice= > Listen type: =None=
