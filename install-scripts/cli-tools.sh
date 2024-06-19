@@ -38,7 +38,7 @@ mkdir -p ~/downloads/cli-tools
 # Install neovim: https://github.com/neovim/neovim
 cd ~/downloads/cli-tools \
   && sudo apt install ninja-build gettext cmake unzip curl \
-  && sudo git clone https://github.com/neovim/neovim \
+  && git clone https://github.com/neovim/neovim \
   && cd neovim \
   && git checkout stable \
   && make CMAKE_BUILD_TYPE=RelWithDebInfo \
@@ -59,26 +59,26 @@ cd ~/download/cli-tools \
 # Install wire-desktop AppImage package for Linux: https://github.com/wireapp/wire-desktop/releases
 cd ~/download/cli-tools \
   && wget https://github.com/wireapp/wire-desktop/releases/download/linux%2F3.35.3348/Wire-3.35.3348_x86_64.AppImage \
-  && sudo chmod +x Wire*.AppImage \
-  && mv Wire*.AppImage wire-desktop \
+  && sudo chmod +x Wire-3.35.3348_x86_64.AppImage \
+  && mv Wire-3.35.3348_x86_64.AppImage wire-desktop \
   && sudo mv wire-desktop /bin/
 
 # Download exa: https://github.com/ogham/exa/releases
 cd ~/download/cli-tools \
   && wget https://github.com/ogham/exa/releases/download/v0.10.1/exa-linux-x86_64-v0.10.1.zip \
-  && sudo unzip exa-linux-*.zip \
+  && unzip exa-linux-x86_64-v0.10.1.zip \
   && sudo cp bin/exa /bin/
 
 # Download bat: https://github.com/sharkdp/bat/releases
 cd ~/download/cli-tools \
   && wget https://github.com/sharkdp/bat/releases/download/v0.24.0/bat-musl_0.24.0_amd64.deb \
-  && sudo dpkg -i bat*_amd64.deb \
+  && sudo dpkg -i bat-musl_0.24.0_amd64.deb \
   && bat cache --build    # load the theme that is located in ~/.config/bat/themes/
 
 # Install delta: https://github.com/dandavison/delta/releases
 cd ~/download/cli-tools \ 
   && wget https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb -O ~/downloads/git-delta_0.17.0_amd64.deb \
-  && sudo dpkg -i ~/downloads/git-delta*.deb \
+  && sudo dpkg -i git-delta_0.17.0_amd64.deb \
 
 # Install freetube:  https://github.com/FreeTubeApp/FreeTube/releases
 cd ~/download/cli-tools \
@@ -88,11 +88,11 @@ cd ~/download/cli-tools \
 # Install sliver's pre-compiled versions of the server and client: https://github.com/BishopFox/sliver/releases/tag/v1.5.42
 # Sliver server
 wget https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-server_linux \
-  && chmod +x ./sliver-server_linux \
+  && sudo chmod +x ./sliver-server_linux \
   && sudo mv sliver-server_linux /bin/sliver-server
 # Sliver client
 wget https://github.com/BishopFox/sliver/releases/download/v1.5.42/sliver-client_linux \
-  && chmod +x ./sliver-client_linux \
+  && sudo chmod +x ./sliver-client_linux \
   && sudo mv sliver-client_linux /bin/sliver-client
 
 # Install pvpn beta linux app: https://protonvpn.com/support/official-linux-vpn-debian/
@@ -104,17 +104,6 @@ cd ~/download/cli-tools \
 # can't log in issue - https://www.reddit.com/r/ProtonVPN/comments/wogofb/cant_log_into_proton_vpn_linux_app_any_more/
 # first try just rebooting, if doens't help - uninstall strongswan and related packages and reboot
 
-# Install newsboat: https://github.com/newsboat/newsboat
-cd /opt \
-  && sudo apt update \
-  && sudo apt install libncursesw5-dev ncurses-term debhelper libxml2-dev libstfl-dev libsqlite3-dev perl pkg-config libcurl4-gnutls-dev librtmp-dev libjson-c-dev asciidoc libxml2-utils xsltproc docbook-xml docbook-xsl bc asciidoctor cargo \
-  && git clone --depth 1 https://github.com/newsboat/newsboat.git \
-  && cd newsboat \
-  && make \
-  && sudo make install \
-  && cd .. \
-  && sudo ln -sf /opt/newsboat/newsboat /bin/newsboat
-
 
 ################
 # OTHER TOOOLS #
@@ -123,7 +112,7 @@ cd /opt \
 cd ~/download/cli-tools \
   && curl -LO https://github.com/ogham/dog/releases/download/v0.1.0/dog-v0.1.0-x86_64-unknown-linux-gnu.zip \
   && unzip dog-v0.1.0-x86_64-unknown-linux-gnu.zip \
-  && cp dog-v0.1.0-x86_64-unknown-linux-gnu/bin/dog /bin \
+  && sudo cp dog-v0.1.0-x86_64-unknown-linux-gnu/bin/dog /bin \
 # Fix a problem: error while loading shared libraries: libssl.so.1.1: cannot open shared object file: No such file or directory
 #wget http://nz2.archive.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
 #sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.22_amd64.deb
@@ -136,6 +125,17 @@ cd ~/download/cli-tools \
 #     libboost-python-dev libboost-regex-dev libboost-test-dev
 #git clone git@github.com:ledger/ledger.git
 #cd ledger && ./acprep update
+
+# Install newsboat: https://github.com/newsboat/newsboat
+#cd /opt \
+#  && sudo apt update \
+#  && sudo apt install libncursesw5-dev ncurses-term debhelper libxml2-dev libstfl-dev libsqlite3-dev perl pkg-config libcurl4-gnutls-dev librtmp-dev libjson-c-dev asciidoc libxml2-utils xsltproc docbook-xml docbook-xsl bc asciidoctor cargo \
+#  && git clone --depth 1 https://github.com/newsboat/newsboat.git \
+#  && cd newsboat \
+#  && make \
+#  && sudo make install \
+#  && cd .. \
+#  && sudo ln -sf /opt/newsboat/newsboat /bin/newsboat
 
 # Install pipmykali
 cd ~/downloads/cli-tools \
