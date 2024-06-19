@@ -31,11 +31,11 @@ You also need to uncomment the lines with `deb-src` if they're commented out.
 ```bash
 :%s/bookworm/trixie/g
 ```
-Update changes:
+Update changes and reboot:
 ```bash
 sudo apt update
 sudo apt upgrade
-sudo poweroff
+sudo reboot
 ```
 Execute the `install.sh` script:
 ```bash
