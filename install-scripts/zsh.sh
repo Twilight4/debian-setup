@@ -23,11 +23,11 @@ fi
 zshenv_file="/etc/zsh/zshenv"
 line_to_append='export ZDOTDIR="$HOME"/.config/zsh'
 
-if [ ! -f "$zshenv_file" ]; then
+if [ -f "$zshenv_file" ]; then
 	echo "Creating $zshenv_file..."
 	sudo echo "$line_to_append" | sudo tee -a "$zshenv_file"
-	echo "$zshenv_file created."
+	echo "ZDOTDIR PATH added to zshenv file."
   source ~/.config/zsh/.zshrc
 else
-	echo "$zshenv_file already exists."
+	echo "Error. Something went wrong."
 fi
