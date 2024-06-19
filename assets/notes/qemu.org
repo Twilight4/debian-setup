@@ -5,8 +5,7 @@
 #+OPTIONS: TOC:4
 
 * Table of Contents :toc:
-- [[#resources][Resources]]
-- [[#installing-qemu-on-debian][Installing QEMU on Debian]]
+- [[#qemu-and-virt-manager-installation-on-debian][QEMU and Virt-Manager installation on Debian]]
   - [[#check-support-for-passthrough][Check support for passthrough]]
   - [[#check-number-of-cpu-cores][Check number of cpu cores]]
   - [[#install-packages-and-reboot][Install packages and reboot]]
@@ -16,6 +15,7 @@
   - [[#check-compability][Check compability]]
   - [[#enable-the-tuned-service][Enable the tuned service]]
   - [[#start-and-autostart-network-bridge][Start and autostart network bridge]]
+- [[#enabling-3d-acceleration-in-virt-manager][Enabling 3D acceleration in Virt-Manager]]
 - [[#enable-kvm-gpu-passthrough][Enable KVM GPU passthrough]]
   - [[#identify-pci-ids][Identify PCI IDs]]
   - [[#edit-grub-config][Edit grub config]]
@@ -23,30 +23,12 @@
   - [[#config-files][Config files]]
   - [[#update-initramfs][Update initramfs]]
   - [[#verify-isolation-of-gpu][Verify isolation of GPU]]
-- [[#debian-13-testing-vm-configuration][Debian 13 Testing VM Configuration]]
-  - [[#installation][Installation]]
-  - [[#create-a-vm][Create a VM]]
-  - [[#vm-configuration][VM Configuration]]
 - [[#windows-vm-configuration][Windows VM Configuration]]
-  - [[#installation-1][Installation]]
-  - [[#create-a-vm-1][Create a VM]]
-  - [[#vm-configuration-1][VM Configuration]]
+  - [[#prerequisites][Prerequisites]]
+  - [[#vm-configuration][VM Configuration]]
   - [[#start-vm][Start VM]]
 
-* Resources
-1. Install QEMU on Debian: https://www.youtube.com/watch?v=4m6eHhPypWI
-2. Setup QEMU KVM GPU Passthrough: https://www.youtube.com/watch?v=g--fe8_kEcw
-  - AT THIS MOMENT DO NOT TRY THIS CUZ IT BROKE MY SYSTEM
-  - CREATE A SNAPSHOT OF THE BARE INSTALLED WINDOWS VM MACHINE
-3. Install Windows English International from https://www.microsoft.com/software-download/windows11
-4. Install Latest virtio-win ISO from https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md
-5. Win11 installation guide: https://www.youtube.com/watch?v=WmFpwpW6Xko
-6. Before windows installation choose as language: English (World)
-7. Bypass microsoft account: https://www.youtube.com/watch?v=6RIpzUBOEA8 (dont forget to then enable the network adapter from ncpa.cpl)
-8. Windows optimization: https://www.youtube.com/watch?v=XQAIYCT4f8Q
-
-
-* Installing QEMU on Debian
+* QEMU and Virt-Manager installation on Debian
 ** Check support for passthrough
 #+begin_src shell
 lscpu | grep 'Virtualization'
@@ -123,6 +105,16 @@ sudo virsh net-list --all
 #+end_src
 
 
+* Enabling 3D acceleration in Virt-Manager
+In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
+To enable 3d acceleration you have to change the following settings:
+- =Display Spice= > =[X] OpenGL=
+- =Display Spice= > Listen type: =None=
+- =Video Virtio= > Model: =Virtio=
+- =Video Virtio= > =[X] 3D acceleraiton=
+- If you start the VM and the VM screen crashes, you may need to swap the GPU under =[X] OpenGL= the the other one.
+
+
 * Enable KVM GPU passthrough
 ** Identify PCI IDs
 Copy the Display Controller - Radeon RX GPU and Audio Device IDs.
@@ -168,40 +160,15 @@ lspci -k | rg "vfio-pci|AMD"
 #+end_src
 
 
-* Debian 13 Testing VM Configuration
-** Installation
-- Download netinst CD image for [[https://www.debian.org/devel/debian-installer/][Debian 13 Trixie]].
-- If the daily build image fails to install, resort to the [[https://www.debian.org/releases/bookworm/debian-installer/][Debian Bookworm]] netinst CD image.
-
-** Create a VM
-- 8GB of memory
-- 12 CPUs
-- 80GB of disk
-- [X] Customize configuration before installation
-
-** VM Configuration
-In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
-To enable 3d acceleration you have to change the following settings:
-- =Tablet= > =Remove=
-- =Display Spice= > =[X] OpenGL=
-- =Display Spice= > Listen type: =None=
-- =Video Virtio= > Model: =Virtio=
-- =Video Virtio= > =[X] 3D acceleraiton=
-- If you start the VM and the VM screen crashes, swap the GPU under =[X] OpenGL= the the other one.
-
-
 * Windows VM Configuration
-** Installation
-- Stable VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]] (for windows)
-- Windows 10 ISO
+** Prerequisites
+- Latest virtio-win VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]]
+- [[https://www.microsoft.com/software-download/windows11][Windows international]] ISO
 
-** Create a VM
-- 8GB of memory
-- 12 CPUs
-- 80GB of disk
-- [X] Customize configuration before installation
 
 ** VM Configuration
+Tutorial: https://www.youtube.com/watch?v=WmFpwpW6Xko
+
 In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
 - =Boot Options= > =Enable boot menu= > =SATA CDROM= > move =up arrow=
 - =SATA Disk= > Disk bus: =VirtIO=
@@ -211,7 +178,10 @@ In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
 - =Boot Options= > =SATA CDROM_<NUM>= > move =up arrow= - to not boot back into the installation media
 
 ** Start VM
+- Before windows installation choose as language: *English (World)*
+- If you don't have the "I don't have internet" option in the installer, you need to [[https://www.youtube.com/watch?v=6RIpzUBOEA8][bypass microsoft account]]
 - =My Computer= > =Mounted ISO= > =virtio-win-guest-tools=
 - Reboot and install compatible AMD drivers on windows
 - If everything done correctly, the AMD GPU should be displayed within the task manager
 - If your mouse cursor stops working, go to Mounted ISO and run =virtio-win-gt-x64=
+- For optimizing windows you can utilize [[https://atlasos.net/][AtlasOS]] and [[https://github.com/ChrisTitusTech/winutil][winutil]]

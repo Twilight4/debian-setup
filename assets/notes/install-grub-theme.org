@@ -6,14 +6,14 @@ chmod +x install-grub-theme.sh
 #+end_src
 
 ** Install CyberEXS grub theme manually
-Get the theme
+Get the theme:
 #+begin_src shell
-cd downloads
+cd ~/downloads
 git clone --depth 1 https://github.com/Twilight4/dotfiles.git
 sudo cp -r dotfiles/.config/CyberEXS /boot/grub/themes
 #+end_src
 
-Add the theme to grub config and update grub
+Add the theme to grub config and update grub:
 #+begin_src shell
 sudo nvim /etc/default/grub
 
