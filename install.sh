@@ -98,7 +98,6 @@ execute_script "thunar.sh"
 execute_script "xdph.sh"
 # TODO
 #execute_script "cli-tools.sh"
-#execute_script "zsh.sh"
 #execute_script "enable-services.sh"
 #execute_script "locales.sh"
 #execute_script "auto-cpufreq.sh"
