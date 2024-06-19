@@ -45,6 +45,13 @@ cd debian-setup
 ```
 
 ## Post-Install (Optional)
+### Install [Twilight4/dotfiles](https://github.com/Twilight4/dotfiles)
+```bash
+git clone --depth 1 https://github.com/Twilight4/dotfiles.git
+cd dotfiles
+./install.sh
+```
+
 ### Performance tweaks
 ```bash
 echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
@@ -80,11 +87,4 @@ deb http://http.kali.org/kali kali-rolling main contrib non-free non-free-firmwa
 Add Kali GPG Key:
 ```bash
 wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add -
-```
-
-### Install [Twilight4/dotfiles](https://github.com/Twilight4/dotfiles)
-```bash
-git clone --depth 1 https://github.com/Twilight4/dotfiles.git
-cd dotfiles
-./install.sh
 ```
