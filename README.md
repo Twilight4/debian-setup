@@ -1,31 +1,31 @@
-## Installing [Debian 13 Trixie](https://www.debian.org/devel/debian-installer/) (Testing)
+## Fresh [Debian Trixie](https://www.debian.org/devel/debian-installer/) (Testing) Install
 ### Sudoers permissions
-Login as root and install sudo:
+Login as root and install `sudo`:
 ```bash
 su -
 apt install sudo vim git zram-tools
 /usr/sbin/usermod -aG sudo twilight
 ```
-Add myself to sudoers file: `vim /etc/sudoers`
+Add myself to sudoers file: `vim /etc/sudoers`:
 ```bash
 # Allow members of group sudo to execute any command
 %sudo      ALL=(ALL:ALL) NOPASSWD: ALL
 twilight   ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 ### Zram swap
-Edit zramswap file: `sudo vim /etc/default/zramswap`
+Edit zramswap file: `sudo vim /etc/default/zramswap`:
 ```bash
 ALGO=lz4
 PERCENT=25
 ```
 
-## Installing Hyprland and dotfiles on Debian 13 Trixie (Testing)
-Check if you're on debian trixie
+## Running the installer script
+Check if you're on debian trixie:
 ```bash
 lsb_release -a
 cat /etc/os-release
 ```
-If you're on bookworm, update to debian trixie: `sudo vim /etc/apt/sources.list`
+If you're on bookworm, update to debian trixie: `sudo vim /etc/apt/sources.list`.
 You also need to uncomment the lines with `deb-src` if they're commented out.
 ```bash
 :%s/bookworm/trixie/g
@@ -43,7 +43,7 @@ cd debian-setup
 ./install.sh
 ```
 
-## Post-Install
+## Post-Install (Optional)
 ### Performance tweaks
 ```bash
 echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
@@ -57,7 +57,7 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 ```
 
 ### GRUB menu tweaks
-Edit GRUB config: `sudo vim /etc/default/grub`
+Edit GRUB config: `sudo vim /etc/default/grub`:
 ```bash
 # Add the following to the line, don't remove existing values
 GRUB_CMDLINE_LINUX_DEFAULT="zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active"
