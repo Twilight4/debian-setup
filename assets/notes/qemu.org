@@ -237,8 +237,8 @@ In VM settings, make sure the =Chipset= is =Q35= and =Firmware= is =UEFI=.
 - =SATA Disk= > Disk bus: =VirtIO=
 - =SATA CDROM= > =Browse= > Import VFIO drivers
 - =Add Hardware= > =PCI Host Device= > Select AMD GPU and AMD Audio
-  + check the numbers from the output of =lspci -k | rg 'vfio-pci|AMD'= command
-- =Boot Options= > =SATA CDROM_<NUM>= > move =up arrow= - to not boot back into the installation media
+  + check the numbers from the output of =lspci -k | rg vfio-pci= command
+- =Boot Options= > =SATA CDROM_<NUM>= > move =up arrow= - to avoid booting into the installation media
 
 ** Start VM
 - Before windows installation choose as language: *English (World)*
