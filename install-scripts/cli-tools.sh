@@ -11,7 +11,7 @@ curl -sfL https://raw.githubusercontent.com/ducaale/xh/master/install.sh | sh
 
 # Install xcp
 cargo install xcp
-cp ~/.config/.local/share/cargo/bin/xcp /bin/
+sudo cp ~/.config/.local/share/cargo/bin/xcp /bin/
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf

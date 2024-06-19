@@ -8,12 +8,12 @@
 - [[#qemu-and-virt-manager-installation-on-debian][QEMU and Virt-Manager installation on Debian]]
   - [[#check-support-for-passthrough][Check support for passthrough]]
   - [[#check-number-of-cpu-cores][Check number of cpu cores]]
-  - [[#install-packages-and-reboot][Install packages and reboot]]
+  - [[#install-packages][Install packages]]
   - [[#libvirt-service][Libvirt service]]
   - [[#add-user-to-necessary-groups][Add user to necessary groups]]
   - [[#check-compability][Check compability]]
-  - [[#enable-the-tuned-service][Enable the tuned service]]
-  - [[#start-and-autostart-network-bridge][Start and autostart network bridge]]
+  - [[#tuned-service-optional][Tuned service (optional)]]
+  - [[#network-bridge][Network bridge]]
 - [[#enabling-3d-acceleration-in-virt-manager][Enabling 3D acceleration in Virt-Manager]]
 - [[#enable-kvm-gpu-passthrough][Enable KVM GPU passthrough]]
   - [[#identify-pci-ids][Identify PCI IDs]]
@@ -39,7 +39,7 @@ If the value is =0=, you need to enter the UEFI and enable virtualization.
 egrep -c '(vmx|svm)' /proc/cpuinfo
 #+end_src
 
-** Install packages and reboot
+** Install packages
 #+begin_src shell
 sudo apt update
 sudo apt install -y qemu-system-x86 libvirt-daemon-system virtinst virt-manager virt-viewer ovmf swtpm qemu-utils guestfs-tools libosinfo-bin tuned
@@ -70,12 +70,13 @@ newgrp libvirt       # Refresh group membership in the current shell session
 #+end_src
 
 ** Check compability
-Everything should pass.
+Everything should pass:
 #+begin_src shell
 sudo virt-host-validate qemu
 #+end_src
 
-** Enable the tuned service
+** Tuned service (optional)
+Enable the the service:
 #+begin_src shell
 sudo systemctl enable --now tuned
 #+end_src
@@ -90,7 +91,7 @@ List profiles:
 tuned-adm list
 #+end_src
 
-Change the profile to optimize for running KVM machines
+Change the profile to optimize for running KVM machines:
 #+begin_src shell
 sudo tuned-adm profile virtual-host
 #+end_src
@@ -100,11 +101,16 @@ Make sure there are no errors:
 sudo tuned-adm verify
 #+end_src
 
-** Start and autostart network bridge
+** Network bridge
+Check status of network bridge:
+#+begin_src shell
+sudo virsh net-list --all
+#+end_src
+
+Start and autostart network bridge (if the options are not set):
 #+begin_src shell
 sudo virsh net-start default
 sudo virsh net-autostart default
-sudo virsh net-list --all
 #+end_src
 
 
@@ -165,9 +171,8 @@ lspci -k | rg "vfio-pci|AMD"
 
 * Windows VM Configuration
 ** Prerequisites
-- Latest virtio-win VFIO [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][ISO Drivers]]
+- Latest virtio-win [[https://github.com/virtio-win/virtio-win-pkg-scripts/blob/master/README.md][VFIO Drivers]]
 - [[https://www.microsoft.com/software-download/windows11][Windows international]] ISO
-
 
 ** VM Configuration
 Tutorial: https://www.youtube.com/watch?v=WmFpwpW6Xko
