@@ -9,8 +9,7 @@
   - [[#check-support-for-passthrough][Check support for passthrough]]
   - [[#check-number-of-cpu-cores][Check number of cpu cores]]
   - [[#install-packages-and-reboot][Install packages and reboot]]
-  - [[#check-status-of-libvirtd-service][Check status of libvirtd service]]
-  - [[#enable-and-start-libvirtd-service-if-its-not-running][Enable and start libvirtd service (if it's not running)]]
+  - [[#libvirt-service][Libvirt service]]
   - [[#add-user-to-necessary-groups][Add user to necessary groups]]
   - [[#check-compability][Check compability]]
   - [[#enable-the-tuned-service][Enable the tuned service]]
@@ -44,18 +43,22 @@ egrep -c '(vmx|svm)' /proc/cpuinfo
 #+begin_src shell
 sudo apt update
 sudo apt install -y qemu-system-x86 libvirt-daemon-system virtinst virt-manager virt-viewer ovmf swtpm qemu-utils guestfs-tools libosinfo-bin tuned
+#+end_src
+
+** Libvirt service
+Check status of libvirtd service:
+#+begin_src shell
+sudo systemctl status libvirtd
+#+end_src
+
+Enable and start libvirtd service (if it's not running):
+#+begin_src shell
+sudo systemctl enable libvirtd
+#+end_src
+
+Reboot system:
+#+begin_src shell
 sudo reboot
-#+end_src
-
-** Check status of libvirtd service
-#+begin_src shell
-sudo systemctl status libvirtd
-#+end_src
-
-** Enable and start libvirtd service (if it's not running)
-#+begin_src shell
-sudo systemctl enable --now libvirtd
-sudo systemctl status libvirtd
 #+end_src
 
 ** Add user to necessary groups
