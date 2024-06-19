@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Fonts Required
+# Fonts required
 fonts=(
 fonts-firacode
 fonts-font-awesome
@@ -34,7 +34,7 @@ for PKG1 in "${fonts[@]}"; do
 done
 
 
-# jetbrains nerd font. Necessary for waybar
+# Jetbrains nerd font - necessary for waybar
 printf "\n%s - Downloading and Extracting Jetbrains Mono Nerd Font.... \n" "${NOTE}"
 DOWNLOAD_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/JetBrainsMono.tar.xz"
 # Maximum number of download attempts
@@ -46,17 +46,17 @@ for ((ATTEMPT = 1; ATTEMPT <= MAX_ATTEMPTS; ATTEMPT++)); do
 done
 
 # Check if the JetBrainsMono folder exists and delete it if it does
-if [ -d ~/.local/share/fonts/JetBrainsMonoNerd ]; then
-    rm -rf ~/.local/share/fonts/JetBrainsMonoNerd 2>&1 | tee -a "$LOG"
+if [ -d ~/.config/.local/share/fonts/JetBrainsMonoNerd ]; then
+    rm -rf ~/.config/.local/share/fonts/JetBrainsMono 2>&1 | tee -a "$LOG"
 fi
 
-mkdir -p ~/.local/share/fonts/JetBrainsMonoNerd
+mkdir -p ~/.config/.local/share/fonts/JetBrainsMono
 
 # Extract the new files into the JetBrainsMono folder and log the output
-tar -xJkf JetBrainsMono.tar.xz -C ~/.local/share/fonts/JetBrainsMonoNerd 2>&1 | tee -a "$LOG"
+tar -xJkf JetBrainsMono.tar.xz -C ~/.config/.local/share/fonts/JetBrainsMono 2>&1 | tee -a "$LOG"
 
 
-# meslo nerd font
+# Meslo nerd font
 printf "\n%s - Downloading and Extracting Meslo Nerd Font.... \n" "${NOTE}"
 DOWNLOAD_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.tar.xz"
 # Maximum number of download attempts
@@ -68,14 +68,14 @@ for ((ATTEMPT = 1; ATTEMPT <= MAX_ATTEMPTS; ATTEMPT++)); do
 done
 
 # Check if the Meslo folder exists and delete it if it does
-if [ -d ~/.local/share/fonts/Meslo ]; then
-    rm -rf ~/.local/share/fonts/Meslo 2>&1 | tee -a "$LOG"
+if [ -d ~/.config/.local/share/fonts/Meslo ]; then
+    rm -rf ~/.config/.local/share/fonts/Meslo 2>&1 | tee -a "$LOG"
 fi
 
-mkdir -p ~/.local/share/fonts/Meslo
+mkdir -p ~/.config/.local/share/fonts/Meslo
 
 # Extract the new files into the Meslo folder and log the output
-tar -xJkf Meslo.tar.xz -C ~/.local/share/fonts/Meslo 2>&1 | tee -a "$LOG"
+tar -xJkf Meslo.tar.xz -C ~/.config/.local/share/fonts/Meslo 2>&1 | tee -a "$LOG"
 
 
 # Update font cache and log the output
