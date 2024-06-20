@@ -94,3 +94,8 @@ Add Kali GPG Key:
 ```bash
 wget -q -O - https://archive.kali.org/archive-key.asc | sudo apt-key add -
 ```
+Update changes:
+```bash
+sudo apt update
+sudo apt upgrade
+```
