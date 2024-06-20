@@ -446,11 +446,14 @@ pen_package_windows_resources=(
 printf "\n%s - Installing pentesting packages.... \n"
 
 for PKG1 in "${pen_package_core[@]}" "${pen_package_headless[@]}" "${pen_package_firmware[@]}" "${pen_package_passwords[@]}" "${pen_package_post_exploitation[@]}" "${pen_package_respond[@]}" "${pen_package_top10[@]}" "${pen_package_windows_resources[@]}" "${pen_package_exploitation[@]}" "${pen_package_information_gathering[@]}"; do
-  sudo apt install "$PKG1"
+  sudo apt install -y "$PKG1"
   if [ $? -ne 0 ]; then
     echo -e "\e[1A\e[K${ERROR} - $PKG1 Package installation failed, Please check the installation logs"
     exit 1
   fi
 done
+
+# idk which (meta)package installs these browsers so I uninstall it manually
+sudo apt purge -y chromium chromium-common chromium-sandbox firefox-esr
 
 clear
