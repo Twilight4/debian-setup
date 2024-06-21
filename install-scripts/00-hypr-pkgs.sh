@@ -82,6 +82,7 @@ hypr_package=(
   pavucontrol
   playerctl
   polkit-kde-agent-1
+  python2
   python3-requests
   python3-pip
   qt5ct
