@@ -119,6 +119,7 @@ hypr_package_2=(
   mpv-mpris
   acpi
   acpid
+  timeshift
   nvtop
   pamixer
   qalculate-gtk

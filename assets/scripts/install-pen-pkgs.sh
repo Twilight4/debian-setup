@@ -297,6 +297,7 @@ pen_package_information_gathering=(
   netdiscover
   netmask
   nmap
+  gobuster
   onesixtyone
   p0f
   qsslcaudit
