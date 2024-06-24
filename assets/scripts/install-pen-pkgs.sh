@@ -161,6 +161,8 @@ pen_package_headless=(
   python3-pip
   python3-scapy
   python3-virtualenv
+  python3-ldap
+  python3-pyftpdlib
   qsslcaudit
   radare2
   rake
@@ -280,6 +282,8 @@ pen_package_information_gathering=(
   enum4linux
   fierce
   firewalk
+  bloodhound
+  bloodhound.py
   fping
   fragrouter
   ftester
