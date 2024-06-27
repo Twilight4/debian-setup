@@ -26,7 +26,7 @@ Check if you're on debian trixie:
 lsb_release -a
 cat /etc/os-release
 ```
-If you're on bookworm, update to debian trixie: `sudo vim /etc/apt/sources.list`.
+If you're on bookworm, update to debian trixie.
 You also need to uncomment the lines with `deb-src` if they're commented out.
 ```bash
 sudo sed -i 's/bookworm/trixie/g' /etc/apt/sources.list
