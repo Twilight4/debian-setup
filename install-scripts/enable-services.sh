@@ -51,7 +51,6 @@ services=(
 	"NetworkManager"
 	"nohang"
   "acpid"
-	"preload"
 	"vnstat"    # network traffic monitor
 	#docker
 )

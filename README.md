@@ -29,7 +29,7 @@ cat /etc/os-release
 If you're on bookworm, update to debian trixie: `sudo vim /etc/apt/sources.list`.
 You also need to uncomment the lines with `deb-src` if they're commented out.
 ```bash
-:%s/bookworm/trixie/g
+sudo sed -i 's/bookworm/trixie/g' /etc/apt/sources.list
 ```
 Update changes and reboot:
 ```bash

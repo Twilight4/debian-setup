@@ -103,6 +103,7 @@ pen_package_headless=(
   hotpatch
   hping3
   hydra
+  enum4linux
   i2c-tools
   ifenslave
   ike-scan

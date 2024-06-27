@@ -49,6 +49,12 @@ cd ~/downloads/cli-tools \
 # Install NVChad
 git clone https://github.com/NvChad/starter ~/.config/nvim && nvim
 
+# Install moar: https://github.com/walles/moar/releases/tag/v1.24.3
+cd ~/downloads/cli-tools \
+  && wget https://github.com/walles/moar/releases/download/v1.24.3/moar-v1.24.3-linux-amd64 \
+  && chmod +x moar-v1.24.3-linux-amd64 \
+  && sudo mv moar-v1.24.3-linux-amd64 /bin/moar
+
 # Install cheat: https://github.com/cheat/cheat/blob/master/INSTALLING.md
 cd ~/download/cli-tools \
   && wget https://github.com/cheat/cheat/releases/download/4.4.2/cheat-linux-amd64.gz \
