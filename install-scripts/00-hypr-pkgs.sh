@@ -22,6 +22,7 @@ hypr_package=(
   silversearcher-ag
   irqbalance
   acpi
+  dkms
   emacs
   duf
   ncdu
