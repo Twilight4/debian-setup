@@ -23,18 +23,12 @@ cat zone02
 * Debian
 Install dkms and kernel headers.
 #+begin_src shell
-apt search linux-headers-$(uname -r)
+sudo apt-get install dkms linux-headers-$(uname -r)
 #+end_src
-
-#+begin_src shell
-sudo apt install dkms linux-kernel-headers
-#+end_src
-Reboot now.
 
 Install the kernel module using DKMS.
 #+begin_src shell
 git clone https://github.com/ranisalt/hp-omen-linux-module
 sudo make install
 #+end_src
-
-If there's no =/sys/devices/platform/hp-wmi/rgb_zones=, reboot again.
+Reboot now.
