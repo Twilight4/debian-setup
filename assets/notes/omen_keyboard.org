@@ -36,3 +36,5 @@ Install the kernel module using DKMS.
 git clone https://github.com/ranisalt/hp-omen-linux-module
 sudo make install
 #+end_src
+
+If there's no =/sys/devices/platform/hp-wmi/rgb_zones=, reboot again.
