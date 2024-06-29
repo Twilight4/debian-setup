@@ -68,7 +68,7 @@ echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
 Edit GRUB config: `sudo vim /etc/default/grub`:
 ```bash
 # Add the following to the line, don't remove existing values
-GRUB_CMDLINE_LINUX_DEFAULT="zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd_pstate=active"
+GRUB_CMDLINE_LINUX_DEFAULT="zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd-pstate=active"
 
 # Disable GRUB menu
 GRUB_TIMEOUT=0

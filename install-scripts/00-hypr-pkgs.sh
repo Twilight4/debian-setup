@@ -12,6 +12,11 @@ Extra=(
 
 # packages neeeded
 hypr_package=( 
+  fonts-firacode
+  fonts-font-awesome
+  fonts-noto
+  fonts-noto-cjk
+  fonts-noto-color-emoji
   libayatana-appindicator3-1
   mtools
   gir1.2-ayatanaappindicator3-0.1
