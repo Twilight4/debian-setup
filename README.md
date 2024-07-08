@@ -11,7 +11,6 @@ Add myself to sudoers file: `vim /etc/sudoers`:
 ```bash
 # Allow members of group sudo to execute any command
 %sudo      ALL=(ALL:ALL) NOPASSWD: ALL
-twilight   ALL=(ALL:ALL) NOPASSWD: ALL
 ```
 ### Zram swap
 Edit zramswap file: `sudo vim /etc/default/zramswap`:
