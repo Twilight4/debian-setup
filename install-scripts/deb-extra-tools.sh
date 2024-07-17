@@ -107,13 +107,11 @@ cd ~/download/cli-tools \
   && sudo dpkg -i ./protonvpn-beta-release_1.0.3-3_all.deb \
   && sudo apt update \
   && sudo apt install proton-vpn-gnome-desktop
-# can't log in issue - https://www.reddit.com/r/ProtonVPN/comments/wogofb/cant_log_into_proton_vpn_linux_app_any_more/
-# first try just rebooting, if doens't help - uninstall strongswan and related packages and reboot
 
 
-################
-# OTHER TOOOLS #
-################
+###############
+# OTHER TOOLS #
+###############
 # Install dog: https://github.com/ogham/dog
 cd ~/download/cli-tools \
   && curl -LO https://github.com/ogham/dog/releases/download/v0.1.0/dog-v0.1.0-x86_64-unknown-linux-gnu.zip \
