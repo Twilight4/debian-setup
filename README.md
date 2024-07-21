@@ -44,26 +44,6 @@ cd debian-setup
 ```
 
 ## Post-Install (Optional)
-### GRUB tweaks
-Edit GRUB config: `sudo vim /etc/default/grub`:
-```bash
-# Add the following to the line, don't remove existing values
-GRUB_CMDLINE_LINUX_DEFAULT="zswap.compressor=zstd zswap.max_pool_percent=10 mitigations=off amd-pstate=active"
-
-# Disable GRUB menu
-GRUB_TIMEOUT=0
-
-# Uncomment to disable generation of recovery mode menu entries
-GRUB_DISABLE_RECOVERY="true"
-
-# Uncomment to disable submenus in boot menu
-GRUB_DISABLE_SUBMENU="true"
-```
-Update GRUB:
-```bash
-sudo update-grub
-```
-
 ### Enable kali repositories (needed for `install-pen-pkgs.sh`)
 Edit apt repositories: `sudo vim /etc/apt/sources.list`
 ```bash
