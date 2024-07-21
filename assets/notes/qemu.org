@@ -44,9 +44,17 @@ egrep -c '(vmx|svm)' /proc/cpuinfo
 #+end_src
 
 ** Install packages
+On Debian:
 #+begin_src shell
 sudo apt update
 sudo apt install -y qemu-system-x86 libvirt-daemon-system virtinst virt-manager virt-viewer ovmf swtpm qemu-utils guestfs-tools libosinfo-bin tuned
+#+end_src
+
+On Arch:
+#+begin_src shell
+sudo pacman -S qemu-desktop virt-manager virt-viewer dnsmasq vde2 bridge-utils
+sudo pacman -S ebtables iptables
+sudo pacman -S libguestfs
 #+end_src
 
 ** Libvirt service
@@ -71,6 +79,8 @@ sudo usermod -aG libvirt $USER
 sudo usermod -aG libvirt-qemu $USER
 sudo usermod -aG kvm $USER
 newgrp libvirt       # Refresh group membership in the current shell session
+
+sudo systemctl restart libvirtd
 #+end_src
 
 ** Check compability

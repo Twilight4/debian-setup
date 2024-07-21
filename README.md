@@ -44,26 +44,7 @@ cd debian-setup
 ```
 
 ## Post-Install (Optional)
-### Install [Twilight4/dotfiles](https://github.com/Twilight4/dotfiles)
-```bash
-git clone --depth 1 https://github.com/Twilight4/dotfiles.git
-cd dotfiles
-./install.sh
-```
-
-### Performance tweaks
-```bash
-echo "vm.vfs_cache_pressure=50" | sudo tee -a /etc/sysctl.conf
-echo "vm.swappiness=20" | sudo tee -a /etc/sysctl.conf
-echo "vm.dirty_background_ratio=15" | sudo tee -a /etc/sysctl.conf
-echo "vm.dirty_ratio=40" | sudo tee -a /etc/sysctl.conf
-echo "vm.oom_dump_tasks=0" | sudo tee -a /etc/sysctl.conf
-echo "vm.oom_kill_allocating_task=1" | sudo tee -a /etc/sysctl.conf
-echo "vm.overcommit_memory=1" | sudo tee -a /etc/sysctl.conf
-echo "kernel.split_lock_mitigate=0" | sudo tee /etc/sysctl.d/99-splitlock.conf
-```
-
-### GRUB menu tweaks
+### GRUB tweaks
 Edit GRUB config: `sudo vim /etc/default/grub`:
 ```bash
 # Add the following to the line, don't remove existing values
