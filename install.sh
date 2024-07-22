@@ -96,6 +96,7 @@ execute_script "bluetooth.sh"
 execute_script "thunar.sh"
 execute_script "xdph.sh"
 #execute_script "deb-extra-tools.sh"
+#execute_script "deb-install-pen.sh"
 
 clear
 
